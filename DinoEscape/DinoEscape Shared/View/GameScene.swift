@@ -34,7 +34,7 @@ class GameScene: SKScene {
 extension GameScene {
 
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        //chamar a funcao do controle
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {

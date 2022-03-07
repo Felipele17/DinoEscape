@@ -7,7 +7,7 @@
 
 import Foundation
 import SpriteKit
-
+import GameController
 
 class GameController{
     static var shared: GameController = {
@@ -17,6 +17,7 @@ class GameController{
     
     var gameData: GameData
     var renderer: RenderController
+    let joystickController: JoystickController = JoystickController()
     
     private init(){
         let player = Player(name: "DinoRex",
@@ -49,7 +50,8 @@ class GameController{
     }
     
     func movePlayer(){
-        // adicionar nessa funcao a passagem por parametro da direcao
+        #warning("Adicionar nessa funcao a passagem por parametro da direcao")
         gameData.player?.position.y += 10
     }
 }
+
