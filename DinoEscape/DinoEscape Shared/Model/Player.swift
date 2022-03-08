@@ -21,11 +21,15 @@ class Player: CustomStringConvertible {
     var skin: Skin
     var life: Int
     var points: Int
-    var foodBar: Float
+    var foodBar: CGFloat
     var gameCommand: GameCommand 
     var powerUp: PowerUp?
     
-    init(name: String, color: SKColor, position: CGPoint, size: CGSize, skin: Skin, life: Int = 3, points: Int = 0, foodBar: Float = 100, gameCommand: GameCommand, powerUp: PowerUp = .none ) {
+    //variaveis de velocidade
+    var dinoVy: CGFloat = 0.0
+    var dinoVx: CGFloat = 0.0
+    
+    init(name: String, color: SKColor, position: CGPoint, size: CGSize, skin: Skin, life: Int = 3, points: Int = 0, foodBar: CGFloat = 10.0, gameCommand: GameCommand, powerUp: PowerUp = .none ) {
         self.name = name
         self.color = color
         self.position = position
@@ -37,4 +41,5 @@ class Player: CustomStringConvertible {
         self.gameCommand = gameCommand
         
     }
+
 }

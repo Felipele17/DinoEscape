@@ -59,9 +59,10 @@ class JoystickController{
             let virtualConfiguration = GCVirtualController.Configuration()
             
             // crie um array com os elementos que escolheu nas variáveis globais
-            virtualConfiguration.elements = [GCInputLeftThumbstick, GCInputButtonX]
+            virtualConfiguration.elements = [GCInputLeftThumbstick]
             
             virtualController = GCVirtualController(configuration: virtualConfiguration)
+            
             
             // Connect to the virtual controller if no physical controllers are available.
             if GCController.controllers().isEmpty {

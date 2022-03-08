@@ -11,7 +11,7 @@ import GameController
 
 class GameController{
     static var shared: GameController = {
-       let instance = GameController()
+        let instance = GameController()
         return instance
     }()
     
@@ -33,7 +33,7 @@ class GameController{
     
     func setScene(scene: SKScene){
         renderer.scene = scene
-
+        
     }
     
     func setupScene(){
@@ -41,17 +41,32 @@ class GameController{
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
         renderer.setUpScene()
+        joystickController.delegate = self
+        joystickController.observeForGameControllers()
     }
     
     func update(_ currentTime: TimeInterval){
-        gameData.player?.position.x += 1
+        //gameData.player?.position.x += 1
+        joystickController.update(currentTime)
+        movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
         
         renderer.update(currentTime)
     }
     
-    func movePlayer(){
-        #warning("Adicionar nessa funcao a passagem por parametro da direcao")
-        gameData.player?.position.y += 10
+    func movePlayer(dx: CGFloat, dy: CGFloat){
+#warning("Adicionar nessa funcao a passagem por parametro da direcao")
+        
+        if let player = gameData.player {
+            let mult = player.foodBar
+            let xValue = player.position.x + dx * mult
+            let yValue = player.position.y + dy * mult
+            
+            player.position = CGPoint(x: xValue, y: yValue)
+        }
+        
+        
+        
+        
     }
 }
 

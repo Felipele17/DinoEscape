@@ -6,7 +6,7 @@
 //
 
 import Foundation
-
+import GameController
 
 extension GameController: JoystickDelegate{
     func controllerDidConnect(controller: GCController) {
@@ -29,17 +29,19 @@ extension GameController: JoystickDelegate{
         print("pressed: \(command)")
         switch command {
         case .UP:
-           print("up")
+            gameData.player?.dinoVy = 1
         case .DOWN:
-            print("down")
+            gameData.player?.dinoVy = -1
         case .RIGHT:
-            print("right")
+            gameData.player?.dinoVx = 1
         case .LEFT:
-            print("left")
+            gameData.player?.dinoVx = -1
         case .NONE:
-            print("none")
+            gameData.player?.dinoVy = 0
+            gameData.player?.dinoVx = 0
         case .DEAD:
-            print("dead")
+            gameData.player?.dinoVy = 0
+            gameData.player?.dinoVx = 0
             return
         }
     }
@@ -48,28 +50,32 @@ extension GameController: JoystickDelegate{
         print("Released: \(command)")
         switch command {
         case .UP:
-           print("up")
+            gameData.player?.dinoVy = 0
         case .DOWN:
-            print("down")
+            gameData.player?.dinoVy = 0
         case .RIGHT:
-            print("right")
+            gameData.player?.dinoVx = 0
         case .LEFT:
-            print("left")
+            gameData.player?.dinoVx = 0
         case .NONE:
-            print("none")
+            gameData.player?.dinoVy = 0
+            gameData.player?.dinoVx = 0
         case .DEAD:
-            print("dead")
+            gameData.player?.dinoVy = 0
+            gameData.player?.dinoVx = 0
             return
         }
     }
     
-    func joystickUpdate(_ currentTime: TimeInterval) {
+    #warning("Função que pode ser descartada")
+   func joystickUpdate(_ currentTime: TimeInterval) {
         if let gamePadLeft = joystickController.gamePadLeft {
             if gamePadLeft.xAxis.value != 0 || gamePadLeft.xAxis.value != 0{
                 let dx: CGFloat = CGFloat(gamePadLeft.xAxis.value)
                 let dy: CGFloat = CGFloat(gamePadLeft.yAxis.value)
                 
                //chamar funcao que atualiza o movimento
+                movePlayer(dx: dx, dy: dy)
             }
         }
     }

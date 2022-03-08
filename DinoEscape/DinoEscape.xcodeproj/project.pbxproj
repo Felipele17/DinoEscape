@@ -52,6 +52,8 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
+		B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -378,6 +380,7 @@
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
+				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
@@ -397,6 +400,7 @@
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
+				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
@@ -572,12 +576,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = 9R89XP5A63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -602,12 +607,13 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = 9R89XP5A63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
