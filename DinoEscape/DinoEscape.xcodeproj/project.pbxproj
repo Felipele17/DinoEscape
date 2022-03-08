@@ -28,6 +28,13 @@
 		133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9527D6835D0012CFDD /* PowerUp.swift */; };
 		133F7B9727D683630012CFDD /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9527D6835D0012CFDD /* PowerUp.swift */; };
 		133F7B9827D683630012CFDD /* PowerUp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9527D6835D0012CFDD /* PowerUp.swift */; };
+		133F7B9B27D69E350012CFDD /* JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */; };
+		133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
+		133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */; };
+		133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */; };
+		133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
+		133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
+		133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
@@ -55,6 +62,9 @@
 		133F7B8D27D6824B0012CFDD /* GameCommand.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCommand.swift; sourceTree = "<group>"; };
 		133F7B8F27D682B80012CFDD /* Skin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skin.swift; sourceTree = "<group>"; };
 		133F7B9527D6835D0012CFDD /* PowerUp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerUp.swift; sourceTree = "<group>"; };
+		133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickDelegate.swift; sourceTree = "<group>"; };
+		133F7B9C27D69E970012CFDD /* JoystickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickController.swift; sourceTree = "<group>"; };
+		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -124,8 +134,25 @@
 			children = (
 				133F7B7D27D67E910012CFDD /* GameController.swift */,
 				133F7B7F27D67FA80012CFDD /* RenderController.swift */,
+				133F7B9C27D69E970012CFDD /* JoystickController.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		133F7B9927D69E210012CFDD /* Delegate */ = {
+			isa = PBXGroup;
+			children = (
+				133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */,
+			);
+			path = Delegate;
+			sourceTree = "<group>";
+		};
+		133F7BA327D6A8550012CFDD /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		4AEAEEE027D676AE00BBD809 = {
@@ -142,6 +169,8 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
+				133F7BA327D6A8550012CFDD /* Extensions */,
+				133F7B9927D69E210012CFDD /* Delegate */,
 				133F7B7C27D67E1E0012CFDD /* Controller */,
 				133F7B7B27D67E190012CFDD /* Model */,
 				133F7B7A27D67E110012CFDD /* View */,
@@ -328,10 +357,13 @@
 				133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */,
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
+				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
+				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
+				133F7B9B27D69E350012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
 				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
@@ -345,10 +377,12 @@
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
+				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
+				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
@@ -362,10 +396,12 @@
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
+				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
+				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				4AEAEF1227D676B100BBD809 /* AppDelegate.swift in Sources */,
