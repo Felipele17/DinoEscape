@@ -16,16 +16,13 @@ class JoystickController{
     var gamePadLeft: GCControllerDirectionPad?
     var keyMap: [GCKeyCode : GameCommand] = [:] //mapeia os comandos do jogo
     
-    #if os( iOS )
+#if os( iOS )
     // MARK: Controle virtual para iOS
     private var _virtualController: Any?
     
     @available(iOS 15.0, *)
-    public var virtualController: GCVirtualController? {
-        get { return self._virtualController as? GCVirtualController}
-        set { self._virtualController = newValue}
-    }
-    #endif
+    public var virtualController: AnalogStick?
+#endif
     
     init(){
         //preenchendo o mapa com os comandos do jogo
@@ -56,17 +53,12 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-            let virtualConfiguration = GCVirtualController.Configuration()
-            
-            // crie um array com os elementos que escolheu nas variáveis globais
-            virtualConfiguration.elements = [GCInputLeftThumbstick]
-            
-            virtualController = GCVirtualController(configuration: virtualConfiguration)
-            
+        
             
             // Connect to the virtual controller if no physical controllers are available.
             if GCController.controllers().isEmpty {
-                virtualController?.connect()
+                //virtualController?.connect()
+//                virtualController = AnalogStick(stick: "", outline: "", position: CGPoint(x: 20, y: 20))
             }
         }
 #endif
@@ -87,9 +79,9 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-            if gameController != virtualController?.controller {
-                virtualController?.disconnect()
-            }
+            //if gameController != virtualController?.controller {
+                //virtualController?.disconnect()
+            //}
         }
 #endif
         
@@ -106,7 +98,7 @@ class JoystickController{
 #if os( iOS )
         if #available(iOS 15.0, *) {
             if GCController.controllers().isEmpty {
-                virtualController?.connect()
+//                virtualController = AnalogStick(stick: "", outline: "", position: CGPoint(x: 20, y: 20))
             }
         }
 #endif
@@ -173,4 +165,4 @@ class JoystickController{
         delegate?.joystickUpdate(currentTime)
     }
 }
-    
+

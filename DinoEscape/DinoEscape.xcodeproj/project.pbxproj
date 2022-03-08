@@ -54,6 +54,9 @@
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
+		B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
+		B0BC21ED27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
+		B0BC21EE27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -84,6 +87,7 @@
 		4AEAEF1327D676B100BBD809 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4AEAEF1627D676B100BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DinoEscape_macOS.entitlements; sourceTree = "<group>"; };
+		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +141,7 @@
 				133F7B7D27D67E910012CFDD /* GameController.swift */,
 				133F7B7F27D67FA80012CFDD /* RenderController.swift */,
 				133F7B9C27D69E970012CFDD /* JoystickController.swift */,
+				B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -361,6 +366,7 @@
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
@@ -381,6 +387,7 @@
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
+				B0BC21ED27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
@@ -401,6 +408,7 @@
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
+				B0BC21EE27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,

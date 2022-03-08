@@ -30,6 +30,10 @@ class RenderController {
         node.fillColor = player.color
         node.name = player.name
         scene.addChild(node)
+        
+        let stick = AnalogStick(position: CGPoint(x: scene.size.width/2, y: scene.size.height/2))
+        scene.addChild(stick.createStick(named: "stick"))
+//        scene.addChild((GameController.shared.joystickController.virtualController!.createStick(named: "Sticker")))
         return node
     }
     

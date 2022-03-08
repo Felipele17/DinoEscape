@@ -26,7 +26,7 @@ class GameViewController: UIViewController {
     }
 
     override var shouldAutorotate: Bool {
-        return false
+        return true
     }
 
     override var supportedInterfaceOrientations: UIInterfaceOrientationMask {
