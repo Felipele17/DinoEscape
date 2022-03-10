@@ -38,10 +38,10 @@ extension GameScene {
         //chamar a funcao do controle
         super.touchesBegan(touches, with: event)
         for touch in touches {
-            let location = touch.location(in: analogNode)
+            //let location = touch.location(in: analogNode)
             
         }
-        GameController.shared.joystickController.virtualController.changeState()
+        //GameController.shared.joystickController.virtualController.changeState()
         
     }
     
@@ -49,14 +49,14 @@ extension GameScene {
         super.touchesMoved(touches, with: event)
         for touch in touches {
             let location = touch.location(in: scene!)
-            GameController.shared.joystickController.virtualController.updateVector(for: location)
+            //GameController.shared.joystickController.virtualController.updateVector(for: location)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
         
-        GameController.shared.joystickController.virtualController.resetStick()
+        //GameController.shared.joystickController.virtualController.resetStick()
         
         
     }
