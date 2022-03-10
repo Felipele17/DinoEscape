@@ -8,7 +8,7 @@
 import Foundation
 
 enum Skin: String {
-    ///alterar de acordo com a quantidade de skins e seus respectivos assets 
+    ///alterar de acordo com a quantidade de skins e seus respectivos assets
     case dino1 = "imagem1"
     case dino2 = "imagem2"
     case dino3 = "imagem3"

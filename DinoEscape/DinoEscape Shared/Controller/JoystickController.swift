@@ -16,18 +16,17 @@ class JoystickController{
     var gamePadLeft: GCControllerDirectionPad?
     var keyMap: [GCKeyCode : GameCommand] = [:] //mapeia os comandos do jogo
     
-    #if os( iOS )
+#if os( iOS )
     // MARK: Controle virtual para iOS
     private var _virtualController: Any?
     
     @available(iOS 15.0, *)
-    public var virtualController: GCVirtualController? {
-        get { return self._virtualController as? GCVirtualController}
-        set { self._virtualController = newValue}
-    }
-    #endif
+    public var virtualController: AnalogStick
+#endif
     
     init(){
+        virtualController = AnalogStick(position: CGPoint(x: 100, y: 100))
+        
         //preenchendo o mapa com os comandos do jogo
         
         //opcao com as setinhas
@@ -41,7 +40,6 @@ class JoystickController{
         keyMap[.keyA] = .LEFT
         keyMap[.keyW] = .UP
         keyMap[.keyS] = .DOWN
-        
     }
     
     func observeForGameControllers(){
@@ -56,16 +54,14 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-            let virtualConfiguration = GCVirtualController.Configuration()
             
-            // crie um array com os elementos que escolheu nas variáveis globais
-            virtualConfiguration.elements = [GCInputLeftThumbstick, GCInputButtonX]
-            
-            virtualController = GCVirtualController(configuration: virtualConfiguration)
             
             // Connect to the virtual controller if no physical controllers are available.
+            print(GCController.controllers().isEmpty)
             if GCController.controllers().isEmpty {
-                virtualController?.connect()
+                //TODO:
+                
+                
             }
         }
 #endif
@@ -86,8 +82,8 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-            if gameController != virtualController?.controller {
-                virtualController?.disconnect()
+            if gameController == nil {
+                print("Sem controle")
             }
         }
 #endif
@@ -105,7 +101,7 @@ class JoystickController{
 #if os( iOS )
         if #available(iOS 15.0, *) {
             if GCController.controllers().isEmpty {
-                virtualController?.connect()
+                //TODO: 
             }
         }
 #endif
@@ -172,4 +168,4 @@ class JoystickController{
         delegate?.joystickUpdate(currentTime)
     }
 }
-    
+

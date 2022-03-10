@@ -20,6 +20,8 @@ class RenderController {
         
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
+        drawAnalogic()
+    
     }
     
     // desenhando o personagem na tela
@@ -30,10 +32,17 @@ class RenderController {
         node.fillColor = player.color
         node.name = player.name
         scene.addChild(node)
+    
         return node
     }
     
+    func drawAnalogic() {
+        scene.addChild(GameController.shared.joystickController.virtualController)
+        
+    }
+    
     func update(_ currentTime: TimeInterval) {
+        
         playerNode.position = GameController.shared.gameData.player!.position
     }
 }
