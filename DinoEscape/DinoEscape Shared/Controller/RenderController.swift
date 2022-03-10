@@ -43,7 +43,7 @@ class RenderController {
     
     func drawAnalogic() {
         let control = GameController.shared.joystickController.virtualController.createStick(named: "iOScontroller")
-        scene.addChild(control)
+        scene.addChild(GameController.shared.joystickController.virtualController)
         
     }
     

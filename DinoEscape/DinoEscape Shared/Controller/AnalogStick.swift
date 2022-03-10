@@ -8,14 +8,13 @@
 import Foundation
 import SpriteKit
 
-class AnalogStick {
+class AnalogStick: SKNode {
     
     private let stick: SKShapeNode
     private let outline: SKShapeNode
     private var isUsing: Bool
     private var velocityX: CGFloat
     private var velocityY: CGFloat
-    private var position: CGPoint
     
     init(position: CGPoint = .zero) {
         self.stick = SKShapeNode(circleOfRadius: 30)
@@ -24,11 +23,19 @@ class AnalogStick {
         isUsing = false
         velocityX = 0
         velocityY = 0
+        super.init()
         self.position = position
+        self.isUserInteractionEnabled = true
+        
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     func createStick(named: String) -> SKShapeNode {
         
+        self.addChild(outline)
         stick.name = named
         stick.zPosition = 1
         stick.fillColor = .blue
@@ -39,7 +46,7 @@ class AnalogStick {
         outline.fillColor = .green
         outline.addChild(stick)
        
-        outline.isUserInteractionEnabled = true
+        //outline.isUserInteractionEnabled = true
         
         return outline
     }
@@ -55,7 +62,7 @@ class AnalogStick {
         if isUsing {
             let vector = CGVector(dx: location.x - outline.position.x, dy: location.y - outline.position.y)
             let angle = atan2(vector.dy, vector.dx)
-            let outlineRadius: CGFloat = 128
+            let outlineRadius: CGFloat = 80
             let distanceX: CGFloat = sin(angle - CGFloat.pi/2) * outlineRadius
             let distanceY: CGFloat = cos(angle - CGFloat.pi/2) * outlineRadius
             
@@ -88,5 +95,21 @@ class AnalogStick {
             velocityY = 0
             isUsing = false
         }
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        changeState()
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesMoved(touches, with: event)
+        for touch in touches {
+            let location = touch.location(in: self)
+            updateVector(for: location)
+        }
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        resetStick()
     }
 }
