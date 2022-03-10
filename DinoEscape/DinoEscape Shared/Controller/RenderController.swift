@@ -20,10 +20,8 @@ class RenderController {
         
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
-        
         drawAnalogic()
     
-        //print(GameController.shared.joystickController.virtualController)
     }
     
     // desenhando o personagem na tela
@@ -34,10 +32,7 @@ class RenderController {
         node.fillColor = player.color
         node.name = player.name
         scene.addChild(node)
-        
-        //        let stick = AnalogStick(position: CGPoint(x: scene.size.width/2, y: scene.size.height/2))
-        //        scene.addChild(stick.createStick(named: "stick"))
-        
+    
         return node
     }
     

@@ -40,17 +40,12 @@ class GameController{
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
-        //joystickController.virtualController.setPosition(position: CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/4))
-        //joystickController.virtualController?.createStick(named: "Bom dia")
-        
-        
         renderer.setUpScene()
         joystickController.delegate = self
         joystickController.observeForGameControllers()
     }
     
     func update(_ currentTime: TimeInterval){
-        //gameData.player?.position.x += 1
         joystickController.update(currentTime)
         
         movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)

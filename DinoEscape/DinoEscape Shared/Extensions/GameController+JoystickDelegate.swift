@@ -67,16 +67,12 @@ extension GameController: JoystickDelegate{
         }
     }
     
-#warning("Função que pode ser descartada")
     func joystickUpdate(_ currentTime: TimeInterval) {
         
-        //joystickController.virtualController?.changeState()
         let point = joystickController.virtualController.getVelocity()
         
-        let dx: CGFloat = point.dx ?? 0
-        let dy: CGFloat = point.dy ?? 0
-        
-        //joystickController.virtualController?.updateVector(for: CGPoint(x: dx, y: dy))
+        let dx: CGFloat = point.dx
+        let dy: CGFloat = point.dy
         
         movePlayer(dx: dx, dy: dy)
         
