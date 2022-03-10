@@ -21,8 +21,9 @@ class RenderController {
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
         
-        let control = GameController.shared.joystickController.virtualController
-        var controlA = drawAnalogic(control: control)
+        drawAnalogic()
+    
+        //print(GameController.shared.joystickController.virtualController)
     }
     
     // desenhando o personagem na tela
@@ -34,17 +35,16 @@ class RenderController {
         node.name = player.name
         scene.addChild(node)
         
-//        let stick = AnalogStick(position: CGPoint(x: scene.size.width/2, y: scene.size.height/2))
-//        scene.addChild(stick.createStick(named: "stick"))
+        //        let stick = AnalogStick(position: CGPoint(x: scene.size.width/2, y: scene.size.height/2))
+        //        scene.addChild(stick.createStick(named: "stick"))
         
-        
-                return node
+        return node
     }
     
-    func drawAnalogic(control: AnalogStick) {
-        if let vController = GameController.shared.joystickController.virtualController {
-            scene.addChild((vController.getOutline()))
-        }
+    func drawAnalogic() {
+        let control = GameController.shared.joystickController.virtualController.createStick(named: "iOScontroller")
+        scene.addChild(control)
+        
     }
     
     func update(_ currentTime: TimeInterval) {

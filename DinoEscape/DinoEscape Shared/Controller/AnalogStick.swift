@@ -18,8 +18,8 @@ class AnalogStick {
     private var position: CGPoint
     
     init(position: CGPoint = .zero) {
-        self.stick = SKShapeNode(circleOfRadius: 20)
-        self.outline = SKShapeNode(circleOfRadius: 100)
+        self.stick = SKShapeNode(circleOfRadius: 30)
+        self.outline = SKShapeNode(circleOfRadius: 80)
         self.outline.alpha = 0.5
         isUsing = false
         velocityX = 0
@@ -31,26 +31,23 @@ class AnalogStick {
         
         stick.name = named
         stick.zPosition = 1
-        stick.fillColor = .red
+        stick.fillColor = .blue
         
         outline.name = named
         outline.position = position
         outline.zPosition = 1
-        outline.fillColor = .blue
-    
+        outline.fillColor = .green
         outline.addChild(stick)
+       
+        outline.isUserInteractionEnabled = true
         
-        
-        return outline
-    }
-    
-    func getOutline() -> SKShapeNode {
         return outline
     }
     
     public func changeState() {
         if !isUsing {
             isUsing = true
+            print(isUsing)
         }
     }
     
@@ -76,18 +73,14 @@ class AnalogStick {
         }
     }
     
-    
-    //Pega velocidade do movimento do dino
     public func getVelocity() -> CGVector {
         return CGVector(dx: velocityX, dy: velocityY)
     }
-    
     
     public func getStickPosition() -> CGPoint {
         return stick.position
     }
     
-    // Reseta o sticker na posição zero quando não estiver sendo usado
     public func resetStick() {
         if isUsing {
             stick.position = .zero

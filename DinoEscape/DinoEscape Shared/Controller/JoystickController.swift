@@ -21,10 +21,12 @@ class JoystickController{
     private var _virtualController: Any?
     
     @available(iOS 15.0, *)
-    public var virtualController: AnalogStick?
+    public var virtualController: AnalogStick
 #endif
     
     init(){
+        virtualController = AnalogStick(position: CGPoint(x: 100, y: 100))
+        
         //preenchendo o mapa com os comandos do jogo
         
         //opcao com as setinhas
@@ -38,7 +40,6 @@ class JoystickController{
         keyMap[.keyA] = .LEFT
         keyMap[.keyW] = .UP
         keyMap[.keyS] = .DOWN
-        
     }
     
     func observeForGameControllers(){
@@ -53,12 +54,14 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-        
+            
             
             // Connect to the virtual controller if no physical controllers are available.
             print(GCController.controllers().isEmpty)
             if GCController.controllers().isEmpty {
-                virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
+                //TODO:
+                
+                
             }
         }
 #endif
@@ -98,7 +101,7 @@ class JoystickController{
 #if os( iOS )
         if #available(iOS 15.0, *) {
             if GCController.controllers().isEmpty {
-                virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
+                //TODO: 
             }
         }
 #endif

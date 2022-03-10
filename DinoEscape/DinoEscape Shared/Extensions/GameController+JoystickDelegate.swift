@@ -67,17 +67,20 @@ extension GameController: JoystickDelegate{
         }
     }
     
-    #warning("Função que pode ser descartada")
-   func joystickUpdate(_ currentTime: TimeInterval) {
-        if let gamePadLeft = joystickController.gamePadLeft {
-            if gamePadLeft.xAxis.value != 0 || gamePadLeft.xAxis.value != 0{
-                let dx: CGFloat = CGFloat(gamePadLeft.xAxis.value)
-                let dy: CGFloat = CGFloat(gamePadLeft.yAxis.value)
-                
-               //chamar funcao que atualiza o movimento
-                movePlayer(dx: dx, dy: dy)
-            }
-        }
+#warning("Função que pode ser descartada")
+    func joystickUpdate(_ currentTime: TimeInterval) {
+        
+//        //joystickController.virtualController?.changeState()
+//        let point = joystickController.virtualController?.getVelocity()
+//        
+//        let dx: CGFloat = point?.dx ?? 0
+//        let dy: CGFloat = point?.dy ?? 0
+//        
+//        joystickController.virtualController?.updateVector(for: CGPoint(x: dx, y: dy))
+//        
+//        movePlayer(dx: dx, dy: dy)
+//        
+//        
     }
     
     
