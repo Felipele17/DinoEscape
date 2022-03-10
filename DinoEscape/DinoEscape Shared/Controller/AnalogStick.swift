@@ -26,14 +26,14 @@ class AnalogStick: SKNode {
         super.init()
         self.position = position
         self.isUserInteractionEnabled = true
-        
+        createStick(named: "iOScontroller")
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    func createStick(named: String) -> SKShapeNode {
+    func createStick(named: String) {
         
         self.addChild(outline)
         stick.name = named
@@ -47,8 +47,6 @@ class AnalogStick: SKNode {
         outline.addChild(stick)
        
         //outline.isUserInteractionEnabled = true
-        
-        return outline
     }
     
     public func changeState() {
