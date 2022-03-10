@@ -44,6 +44,10 @@ class AnalogStick {
         return outline
     }
     
+    func getOutline() -> SKShapeNode {
+        return outline
+    }
+    
     public func changeState() {
         if !isUsing {
             isUsing = true

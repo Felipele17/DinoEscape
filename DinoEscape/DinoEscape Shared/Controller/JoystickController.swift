@@ -56,9 +56,9 @@ class JoystickController{
         
             
             // Connect to the virtual controller if no physical controllers are available.
+            print(GCController.controllers().isEmpty)
             if GCController.controllers().isEmpty {
-                //virtualController?.connect()
-//                virtualController = AnalogStick(stick: "", outline: "", position: CGPoint(x: 20, y: 20))
+                virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
             }
         }
 #endif
@@ -79,9 +79,9 @@ class JoystickController{
         
 #if os( iOS )
         if #available(iOS 15.0, *) {
-            //if gameController != virtualController?.controller {
-                //virtualController?.disconnect()
-            //}
+            if gameController == nil {
+                print("Sem controle")
+            }
         }
 #endif
         
@@ -98,7 +98,7 @@ class JoystickController{
 #if os( iOS )
         if #available(iOS 15.0, *) {
             if GCController.controllers().isEmpty {
-//                virtualController = AnalogStick(stick: "", outline: "", position: CGPoint(x: 20, y: 20))
+                virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
             }
         }
 #endif

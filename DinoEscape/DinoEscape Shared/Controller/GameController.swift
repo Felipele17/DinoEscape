@@ -40,6 +40,8 @@ class GameController{
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
+        joystickController.virtualController?.createStick(named: "Bom dia")
+        
         renderer.setUpScene()
         joystickController.delegate = self
         joystickController.observeForGameControllers()
