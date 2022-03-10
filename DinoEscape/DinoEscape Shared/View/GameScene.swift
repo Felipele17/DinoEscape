@@ -24,6 +24,11 @@ class GameScene: SKScene {
         self.setUpScene()
     }
     
+    override func didChangeSize(_ oldSize: CGSize) {
+        super.didChangeSize(oldSize)
+        self.setUpScene()
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
         GameController.shared.update(currentTime)

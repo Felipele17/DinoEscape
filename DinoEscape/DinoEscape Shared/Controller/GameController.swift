@@ -40,6 +40,8 @@ class GameController{
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
+        joystickController.virtualController.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/7)
+        
         renderer.setUpScene()
         joystickController.delegate = self
         joystickController.observeForGameControllers()
@@ -57,8 +59,23 @@ class GameController{
         
         if let player = gameData.player {
             let mult = player.foodBar
-            let xValue = player.position.x + dx * mult
-            let yValue = player.position.y + dy * mult
+            let midWidthPlayer = player.size.width/2
+            let midHeightPlayer = player.size.height/2
+            
+            var xValue = player.position.x + dx * mult
+            if xValue > renderer.scene.size.width - midWidthPlayer{
+                xValue = renderer.scene.size.width - midWidthPlayer
+            } else if xValue < midWidthPlayer{
+                xValue = midWidthPlayer
+            }
+           
+            
+            var yValue = player.position.y + dy * mult
+            if yValue > renderer.scene.size.height - midHeightPlayer{
+                yValue = renderer.scene.size.height - midHeightPlayer
+            } else if yValue < midHeightPlayer{
+                yValue = midHeightPlayer
+            }
             
             player.position = CGPoint(x: xValue, y: yValue)
         }

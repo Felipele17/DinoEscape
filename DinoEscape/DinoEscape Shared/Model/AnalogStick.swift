@@ -33,17 +33,20 @@ class AnalogStick: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func createStick(named: String) {
         
         self.addChild(outline)
         stick.name = named
         stick.zPosition = 1
-        stick.fillColor = .blue
+        stick.fillColor = .darkGray
+        stick.strokeColor = .darkGray
         
         outline.name = named
         outline.position = position
         outline.zPosition = 1
-        outline.fillColor = .green
+        outline.fillColor = .gray
+        outline.strokeColor = .gray
         outline.addChild(stick)
        
         //outline.isUserInteractionEnabled = true

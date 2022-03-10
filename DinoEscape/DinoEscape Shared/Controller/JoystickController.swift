@@ -25,7 +25,7 @@ class JoystickController{
 #endif
     
     init(){
-        virtualController = AnalogStick(position: CGPoint(x: 100, y: 100))
+        virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
         
         //preenchendo o mapa com os comandos do jogo
         

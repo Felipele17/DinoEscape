@@ -126,6 +126,7 @@
 		133F7B7B27D67E190012CFDD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */,
 				133F7B8327D6812E0012CFDD /* GameData.swift */,
 				133F7B8727D681560012CFDD /* Player.swift */,
 				133F7B8D27D6824B0012CFDD /* GameCommand.swift */,
@@ -141,7 +142,6 @@
 				133F7B7D27D67E910012CFDD /* GameController.swift */,
 				133F7B7F27D67FA80012CFDD /* RenderController.swift */,
 				133F7B9C27D69E970012CFDD /* JoystickController.swift */,
-				B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -584,7 +584,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = 9R89XP5A63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -615,7 +615,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = 9R89XP5A63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
