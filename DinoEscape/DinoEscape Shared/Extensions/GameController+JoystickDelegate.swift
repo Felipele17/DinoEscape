@@ -80,5 +80,9 @@ extension GameController: JoystickDelegate{
         
     }
     
+    func selectPlayerState(command:GameCommand){
+        //manda o comando selecionado para o player
+        gameData.player?.gameCommand  = command
+    }
     
 }

@@ -159,10 +159,13 @@ class JoystickController{
     // MARK: Buttons
     func pressButton(_ command: GameCommand){
         delegate?.buttonPressed(command: command)
+        delegate?.selectPlayerState(command: command)
+
     }
     
     func releaseButton(_ command: GameCommand){
         delegate?.buttonReleased(command: command)
+        delegate?.selectPlayerState(command: command)
     }
     
     func update(_ currentTime: TimeInterval) {

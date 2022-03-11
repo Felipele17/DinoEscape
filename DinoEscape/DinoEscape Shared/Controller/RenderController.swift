@@ -42,13 +42,30 @@ class RenderController {
 //        node.fillColor = player.color
 //        node.name = player.name
         
-        let node = SKSpriteNode(imageNamed: "dinoTeste")
+        let node = SKSpriteNode(imageNamed: "dinoRosaRight")
         node.position = player.position
         node.name = player.name
         node.setScale(0.05)
         scene.addChild(node)
     
         return node
+    }
+    
+    func selectDinoCommand(command: GameCommand) -> String {
+        switch command{
+        case .UP:
+            return "dinoRosaCostas"
+        case .NONE:
+            return "dinoRosa"
+        case .RIGHT:
+            return "dinoRosaRight"
+        case .DOWN:
+            return "dinoRosaFrente"
+        case .LEFT:
+            return  "dinoRosaLeft"
+        case .DEAD:
+            return "dinoRosaRight"
+        }
     }
     
     #if os( iOS )
@@ -59,7 +76,11 @@ class RenderController {
     #endif
     
     func update(_ currentTime: TimeInterval) {
-        
         playerNode.position = GameController.shared.gameData.player!.position
+        if let player = GameController.shared.gameData.player {
+            print(selectDinoCommand(command: player.gameCommand))
+            playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
+        }
+       
     }
 }
