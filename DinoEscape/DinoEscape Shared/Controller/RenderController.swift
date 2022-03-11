@@ -27,7 +27,10 @@ class RenderController {
 
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
+        
+        #if os( iOS)
         drawAnalogic()
+        #endif
     
     }
     
@@ -48,10 +51,12 @@ class RenderController {
         return node
     }
     
+    #if os( iOS )
     func drawAnalogic() {
         scene.addChild(GameController.shared.joystickController.virtualController)
         
     }
+    #endif
     
     func update(_ currentTime: TimeInterval) {
         

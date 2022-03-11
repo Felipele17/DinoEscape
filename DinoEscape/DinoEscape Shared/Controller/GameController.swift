@@ -40,7 +40,9 @@ class GameController{
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
+        #if os( iOS )
         joystickController.virtualController.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/7)
+        #endif
         
         renderer.setUpScene()
         joystickController.delegate = self
