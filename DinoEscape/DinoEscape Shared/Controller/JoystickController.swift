@@ -25,7 +25,9 @@ class JoystickController{
 #endif
     
     init(){
-        virtualController = AnalogStick(position: CGPoint(x: 100, y: 100))
+        #if os( iOS )
+            virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
+        #endif
         
         //preenchendo o mapa com os comandos do jogo
         
@@ -157,10 +159,13 @@ class JoystickController{
     // MARK: Buttons
     func pressButton(_ command: GameCommand){
         delegate?.buttonPressed(command: command)
+        delegate?.selectPlayerState(command: command)
+
     }
     
     func releaseButton(_ command: GameCommand){
         delegate?.buttonReleased(command: command)
+        delegate?.selectPlayerState(command: command)
     }
     
     func update(_ currentTime: TimeInterval) {

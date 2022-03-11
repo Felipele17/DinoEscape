@@ -68,16 +68,21 @@ extension GameController: JoystickDelegate{
     }
     
     func joystickUpdate(_ currentTime: TimeInterval) {
-        
+        #if os( iOS )
         let point = joystickController.virtualController.getVelocity()
         
         let dx: CGFloat = point.dx
         let dy: CGFloat = point.dy
         
-        movePlayer(dx: dx, dy: dy)
         
+        movePlayer(dx: dx, dy: dy)
+        #endif
         
     }
     
+    func selectPlayerState(command:GameCommand){
+        //manda o comando selecionado para o player
+        gameData.player?.gameCommand  = command
+    }
     
 }

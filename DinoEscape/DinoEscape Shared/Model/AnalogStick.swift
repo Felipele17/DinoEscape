@@ -15,6 +15,7 @@ class AnalogStick: SKNode {
     private var isUsing: Bool
     private var velocityX: CGFloat
     private var velocityY: CGFloat
+
     
     init(position: CGPoint = .zero) {
         self.stick = SKShapeNode(circleOfRadius: 30)
@@ -33,17 +34,20 @@ class AnalogStick: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
+    
     func createStick(named: String) {
         
         self.addChild(outline)
         stick.name = named
         stick.zPosition = 1
-        stick.fillColor = .blue
+        stick.fillColor = .darkGray
+        stick.strokeColor = .darkGray
         
         outline.name = named
         outline.position = position
         outline.zPosition = 1
-        outline.fillColor = .green
+        outline.fillColor = .gray
+        outline.strokeColor = .gray
         outline.addChild(stick)
        
         //outline.isUserInteractionEnabled = true
@@ -74,6 +78,7 @@ class AnalogStick: SKNode {
             velocityX = (stick.position.x) / 100
             velocityY = (stick.position.y) / 100
             
+            GameController.shared.gameData.player?.gameCommand = changePlayerCommand(vx: velocityX, vy: velocityY)
 //            player.zRotation = angle
         }
     }
@@ -95,6 +100,14 @@ class AnalogStick: SKNode {
         }
     }
     
+    public func changePlayerCommand(vx: CGFloat, vy: CGFloat)  -> GameCommand {
+        if (vx < 0.2) && (vx > -0.2) && vy > 0 { return .UP }
+        if (vx < 0.2) && (vx > -0.2) && vy < 0 { return .DOWN }
+        if  vx <= -0.2 { return .LEFT }
+        if  vx >=  0.2 { return .RIGHT }
+        return .LEFT
+    }
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         changeState()
     }
@@ -104,6 +117,7 @@ class AnalogStick: SKNode {
         for touch in touches {
             let location = touch.location(in: self)
             updateVector(for: location)
+            
         }
     }
     

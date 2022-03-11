@@ -16,4 +16,5 @@ protocol JoystickDelegate: AnyObject{
     func buttonPressed(command: GameCommand)
     func buttonReleased(command: GameCommand)
     func joystickUpdate(_ currentTime: TimeInterval)
+    func selectPlayerState(command:GameCommand)
 }
