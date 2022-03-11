@@ -65,18 +65,18 @@ class GameController{
             let midHeightPlayer = player.size.height/2
             
             var xValue = player.position.x + dx * mult
-            if xValue > renderer.scene.size.width - midWidthPlayer{
-                xValue = renderer.scene.size.width - midWidthPlayer
-            } else if xValue < midWidthPlayer{
-                xValue = midWidthPlayer
+            if xValue > renderer.scene.size.width * 0.93 - midWidthPlayer{
+                xValue = renderer.scene.size.width * 0.93 - midWidthPlayer
+            } else if xValue < renderer.scene.size.width * 0.07 + midWidthPlayer{
+                xValue = renderer.scene.size.width * 0.07 + midWidthPlayer
             }
            
             
             var yValue = player.position.y + dy * mult
-            if yValue > renderer.scene.size.height - midHeightPlayer{
-                yValue = renderer.scene.size.height - midHeightPlayer
-            } else if yValue < midHeightPlayer{
-                yValue = midHeightPlayer
+            if yValue > renderer.scene.size.height * 0.83 - midHeightPlayer{
+                yValue = renderer.scene.size.height * 0.83 - midHeightPlayer
+            } else if yValue < renderer.scene.size.height * 0.13 + midHeightPlayer{
+                yValue = renderer.scene.size.height * 0.13 + midHeightPlayer
             }
             
             player.position = CGPoint(x: xValue, y: yValue)
