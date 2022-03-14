@@ -127,7 +127,7 @@ class AnalogStick: SKNode {
     
     #if os( tvOS )
     
-    convenience init() {
+    convenience override init() {
         self.init()
     }
     
@@ -138,7 +138,7 @@ class AnalogStick: SKNode {
     }
     
     func buttonDidGetFocus() {
-        scene.addChild(GameController.shared.joystickController.virtualController)
+        GameController.renderer.scene.addChild(GameController.shared.joystickController.virtualController)
         print("didGetFocus")
     }
     

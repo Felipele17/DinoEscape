@@ -85,18 +85,4 @@ class RenderController {
        
     }
     
-    #if os( tvOS )
-    // handling the focus changing
-    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        let prevItem = context.previouslyFocusedItem
-        let nextItem = context.nextFocusedItem
-        
-        if let prevButton = prevItem as? AnalogStick {
-            prevButton.buttonDidGetFocus()
-        }
-        if let nextButton = nextItem as? AnalogStick {
-            nextButton.buttonDidGetFocus()
-        }
-    }
-    #endif
 }
