@@ -35,7 +35,7 @@ class GameScene: SKScene {
     }
 }
 
-#if os(iOS) || os(tvOS)
+#if os(tvOS)
 // Touch-based event handling
 extension GameScene {
     
