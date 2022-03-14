@@ -55,6 +55,11 @@
 		B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
+		B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
+		B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
+		B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
+		B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -86,6 +91,11 @@
 		4AEAEF1627D676B100BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = DinoEscape_macOS.entitlements; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
+		B0C948E827DBDBB100B671EA /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		B0C948EA27DBDBD100B671EA /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		B0C948EC27DBDBE800B671EA /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
+		B0C948F627DBEA7D00B671EA /* SKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
+		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +190,9 @@
 				133F7B7B27D67E190012CFDD /* Model */,
 				133F7B7A27D67E110012CFDD /* View */,
 				4AEAEEE927D676B000BBD809 /* Assets.xcassets */,
+				B0EEDD8227DFB1A000372B2F /* FrontModel */,
+				B0C948F527DBEA3000B671EA /* Nodes */,
+				B0C948E727DBDA9600B671EA /* Scenes */,
 			);
 			path = "DinoEscape Shared";
 			sourceTree = "<group>";
@@ -225,6 +238,32 @@
 				4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */,
 			);
 			path = "DinoEscape macOS";
+			sourceTree = "<group>";
+		};
+		B0C948E727DBDA9600B671EA /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				B0C948E827DBDBB100B671EA /* HomeScene.swift */,
+				B0C948EA27DBDBD100B671EA /* SettingsScene.swift */,
+				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		B0C948F527DBEA3000B671EA /* Nodes */ = {
+			isa = PBXGroup;
+			children = (
+				B0C948F627DBEA7D00B671EA /* SKButton.swift */,
+			);
+			path = Nodes;
+			sourceTree = "<group>";
+		};
+		B0EEDD8227DFB1A000372B2F /* FrontModel */ = {
+			isa = PBXGroup;
+			children = (
+				B0EEDD8327DFB1C000372B2F /* ButtonType.swift */,
+			);
+			path = FrontModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,17 +401,22 @@
 				133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */,
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
+				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
+				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
+				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
 				133F7B9B27D69E350012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
 				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
+				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
