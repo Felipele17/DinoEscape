@@ -36,14 +36,19 @@ class HomeScene: SKScene {
 
         
         createButton(name: .play, pos: 0)
-        createButton(name: .play, pos: 1)
-        createButton(name: .play, pos: 2)
+        createButton(name: .settings, pos: 1)
+        createButton(name: .shop, pos: 2)
     }
     
     
     func createButton(name: ButtonType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
+        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        //title.fontName =
+        title.fontSize = 22
+        title.fontColor = .black
+        
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
@@ -51,11 +56,13 @@ class HomeScene: SKScene {
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         button.position = CGPoint(x: button.frame.width * 1.2 + CGFloat(pos) * button.frame.width * 1.2, y: size.height/4.8)
-        
+        title.position = CGPoint(x: button.frame.width * 1.2 + CGFloat(pos) * button.frame.width * 1.2, y: size.height/6.3)
+       
         button.selectedHandler = {
             print(name)
         }
         addChild(button)
+        addChild(title)
     }
     
     
