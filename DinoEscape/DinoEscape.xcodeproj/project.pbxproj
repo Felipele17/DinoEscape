@@ -74,7 +74,7 @@
 		133F7B9C27D69E970012CFDD /* JoystickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickController.swift; sourceTree = "<group>"; };
 		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
-		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEAEEF127D676B000BBD809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEAEEF327D676B000BBD809 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
@@ -174,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */,
+				4AEAEEE927D676B000BBD809 /* Assets.xcassets */,
 				4AEAEEF027D676B000BBD809 /* DinoEscape iOS */,
 				4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */,
 				4AEAEF1027D676B100BBD809 /* DinoEscape macOS */,
@@ -189,7 +190,6 @@
 				133F7B7C27D67E1E0012CFDD /* Controller */,
 				133F7B7B27D67E190012CFDD /* Model */,
 				133F7B7A27D67E110012CFDD /* View */,
-				4AEAEEE927D676B000BBD809 /* Assets.xcassets */,
 				B0EEDD8227DFB1A000372B2F /* FrontModel */,
 				B0C948F527DBEA3000B671EA /* Nodes */,
 				B0C948E727DBDA9600B671EA /* Scenes */,
