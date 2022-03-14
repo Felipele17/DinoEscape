@@ -60,6 +60,7 @@ class GameController{
 #warning("Adicionar nessa funcao a passagem por parametro da direcao")
         
         if let player = gameData.player {
+            // Iguala size do player para size da hitBox
             player.size = CGSize(width: renderer.hitBoxNode.frame.width, height: renderer.hitBoxNode.frame.height)
             let mult = player.foodBar
             let midWidthPlayer = player.size.width/2

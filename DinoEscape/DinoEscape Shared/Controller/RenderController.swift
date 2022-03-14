@@ -25,6 +25,7 @@ class RenderController {
         background.zPosition = -5
         scene.addChild(background)
 
+        // Definicao do tamanho da hitBox
         hitBoxNode = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
         hitBoxNode.lineWidth = 1
         
@@ -57,6 +58,7 @@ class RenderController {
     }
     
     func selectDinoCommand(command: GameCommand) -> String {
+        // Quando o Dino fica na vertical hitbox é dividida por 3
         switch command{
         case .UP:
             hitBoxNode.xScale = 0.3
