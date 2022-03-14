@@ -81,14 +81,14 @@ class RenderController {
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let foodMultiplier: Int = Int(food * 5) - 1
+        let foodMultiplier: Int = Int(food / 2) - 1
         print(foodMultiplier)
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
             } else {
-                foodNodes[i].color = .gray
-                foodNodes[i].colorBlendFactor = 1
+                foodNodes[i].texture = SKTexture(imageNamed: "grayCherry")
+
             }
         }
         
