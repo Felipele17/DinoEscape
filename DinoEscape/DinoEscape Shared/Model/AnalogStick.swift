@@ -124,4 +124,26 @@ class AnalogStick: SKNode {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         resetStick()
     }
+    
+    #if os( tvOS )
+    
+    convenience init() {
+        self.init()
+    }
+    
+    override public var canBecomeFocused: Bool {
+        get {
+            return true
+        }
+    }
+    
+    func buttonDidGetFocus() {
+        scene.addChild(GameController.shared.joystickController.virtualController)
+        print("didGetFocus")
+    }
+    
+    func buttonDidLoseFocus() {
+        print("didLoseFocus")
+    }
+    #endif
 }
