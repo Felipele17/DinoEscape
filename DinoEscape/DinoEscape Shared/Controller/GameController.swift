@@ -60,23 +60,24 @@ class GameController{
 #warning("Adicionar nessa funcao a passagem por parametro da direcao")
         
         if let player = gameData.player {
+            player.size = CGSize(width: renderer.hitBoxNode.frame.width, height: renderer.hitBoxNode.frame.height)
             let mult = player.foodBar
             let midWidthPlayer = player.size.width/2
             let midHeightPlayer = player.size.height/2
             
             var xValue = player.position.x + dx * mult
-            if xValue > renderer.scene.size.width * 0.93 - midWidthPlayer{
-                xValue = renderer.scene.size.width * 0.93 - midWidthPlayer
-            } else if xValue < renderer.scene.size.width * 0.07 + midWidthPlayer{
-                xValue = renderer.scene.size.width * 0.07 + midWidthPlayer
+            if xValue > renderer.scene.size.width * 0.94 - midWidthPlayer{
+                xValue = renderer.scene.size.width * 0.94 - midWidthPlayer
+            } else if xValue < renderer.scene.size.width * 0.06 + midWidthPlayer{
+                xValue = renderer.scene.size.width * 0.06 + midWidthPlayer
             }
            
             
             var yValue = player.position.y + dy * mult
-            if yValue > renderer.scene.size.height * 0.83 - midHeightPlayer{
-                yValue = renderer.scene.size.height * 0.83 - midHeightPlayer
-            } else if yValue < renderer.scene.size.height * 0.13 + midHeightPlayer{
-                yValue = renderer.scene.size.height * 0.13 + midHeightPlayer
+            if yValue > renderer.scene.size.height * 0.84 - midHeightPlayer{
+                yValue = renderer.scene.size.height * 0.84 - midHeightPlayer
+            } else if yValue < renderer.scene.size.height * 0.125 + midHeightPlayer{
+                yValue = renderer.scene.size.height * 0.125 + midHeightPlayer
             }
             
             player.position = CGPoint(x: xValue, y: yValue)

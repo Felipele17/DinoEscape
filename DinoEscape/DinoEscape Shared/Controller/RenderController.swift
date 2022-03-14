@@ -13,6 +13,7 @@ class RenderController {
     var scene: SKScene = SKScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
     var background: SKSpriteNode = SKSpriteNode(imageNamed: "coverTeste")
+    var hitBoxNode: SKShapeNode = SKShapeNode()
     
     func setUpScene(){
         //adicionar e remover itens na tela
@@ -24,10 +25,12 @@ class RenderController {
         background.zPosition = -5
         scene.addChild(background)
 
-        let sqquare = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.87, height: scene.size.height * 0.72))
-
+        hitBoxNode = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
+        hitBoxNode.lineWidth = 1
+        
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
+        playerNode.addChild(hitBoxNode)
         
         #if os( iOS)
         drawAnalogic()
@@ -43,43 +46,34 @@ class RenderController {
 //        node.fillColor = player.color
 //        node.name = player.name
         
-        let node = SKSpriteNode(imageNamed: "dinoRosaRight")
+        let node = SKSpriteNode(imageNamed: "rexRight")
         node.position = player.position
         node.name = player.name
-        //playerNode.size = CGSize(width: scene.size.width*0.05, height: scene.size.height*0.05)
-        node.setScale(scene.size.height*0.00005)
+        node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
+        
         scene.addChild(node)
     
         return node
-    }
-    
-    func redraw(player: Player, texture: String) -> SKSpriteNode {
-        
-        let node = SKSpriteNode(imageNamed: texture)
-        node.position = player.position
-        node.name = player.name
-        node.setScale(scene.size.height*0.00005)
-        scene.addChild(node)
-        playerNode.removeFromParent()
-        return node
-        
     }
     
     func selectDinoCommand(command: GameCommand) -> String {
-        let height = scene.size.height
         switch command{
         case .UP:
-            return "dinoRosaCostas"
+            hitBoxNode.xScale = 0.3
+            return "rexUp"
         case .NONE:
-            return "dinoRosa"
+            return "rexUp"
         case .RIGHT:
-            return "dinoRosaRight"
+            hitBoxNode.xScale = 1
+            return "rexRight"
         case .DOWN:
-            return "dinoRosaFrente"
+            hitBoxNode.xScale = 0.3
+            return "rexDown"
         case .LEFT:
-            return  "dinoRosaLeft"
+            hitBoxNode.xScale = 1
+            return  "rexLeft"
         case .DEAD:
-            return "dinoRosaRight"
+            return "rexRight"
         }
     }
     
@@ -94,8 +88,8 @@ class RenderController {
         playerNode.position = GameController.shared.gameData.player!.position
         if let player = GameController.shared.gameData.player {
             print(selectDinoCommand(command: player.gameCommand))
-            playerNode = redraw(player: player, texture: selectDinoCommand(command: player.gameCommand))
-            
+            playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
+
         }
        
     }
