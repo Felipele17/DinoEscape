@@ -14,6 +14,10 @@ class RenderController {
     var playerNode: SKSpriteNode = SKSpriteNode()
     var background: SKSpriteNode = SKSpriteNode(imageNamed: "coverTeste")
     var hitBoxNode: SKShapeNode = SKShapeNode()
+    var pointsLabel: SKLabelNode = SKLabelNode(text: "0")
+    var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
+    var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
+    var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
     
     func setUpScene(){
         //adicionar e remover itens na tela
@@ -24,6 +28,25 @@ class RenderController {
         background.size = scene.frame.size
         background.zPosition = -5
         scene.addChild(background)
+        
+        //SKLabel
+        pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
+        scene.addChild(pointsLabel)
+        
+        //coracao
+        heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.97)
+        heartImage.setScale(0.5)
+        scene.addChild(heartImage)
+        
+        //lifeslabel
+        lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
+        scene.addChild(lifesLabel)
+        
+        // foodBar
+        for i in foodNodes {
+            scene.addChild(i)
+        }
+        drawFoodBar(food: 0.8, foodNodes: foodNodes)
 
         // Definicao do tamanho da hitBox
         hitBoxNode = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
@@ -55,6 +78,28 @@ class RenderController {
         scene.addChild(node)
     
         return node
+    }
+    
+    func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
+        let foodMultiplier: Int = Int(food * 5)
+        for i in 0..<5 {
+            if i <= foodMultiplier {
+                foodNodes[i].texture = SKTexture(imageNamed: "cherry")
+            } else {
+                foodNodes[i].color = .gray
+                foodNodes[i].colorBlendFactor = 1
+            }
+        }
+        
+        for i in 0..<foodNodes.count {
+            
+            foodNodes[i].setScale(0.35)
+            if i == 0 {
+                foodNodes[i].position = CGPoint(x: scene.size.width/2 * 0.665, y: pointsLabel.position.y*0.97)
+            } else {
+                foodNodes[i].position = CGPoint(x: foodNodes[0].position.x * (1 + CGFloat(i)/4), y: foodNodes[0].position.y)
+            }
+        }
     }
     
     func selectDinoCommand(command: GameCommand) -> String {
@@ -91,8 +136,12 @@ class RenderController {
         if let player = GameController.shared.gameData.player {
             print(selectDinoCommand(command: player.gameCommand))
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
-
+            pointsLabel.text = "\(player.points)"
+            lifesLabel.text = "\(player.life)"
+            drawFoodBar(food: player.foodBar, foodNodes: foodNodes)
         }
+        
+        
        
     }
 }

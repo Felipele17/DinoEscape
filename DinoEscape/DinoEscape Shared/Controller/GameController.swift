@@ -82,6 +82,8 @@ class GameController{
             }
             
             player.position = CGPoint(x: xValue, y: yValue)
+            player.points = Int(player.position.x)
+            player.foodBar = 0.5
         }
         
         
