@@ -8,7 +8,7 @@
 import Foundation
 
 enum ButtonType: String {
-    case play = "play"
-    case settings = "settings"
-    case shop = "shop"
+    case play = "Play"
+    case settings = "Settings"
+    case shop = "Shop"
 }
