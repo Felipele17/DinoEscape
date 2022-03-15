@@ -75,6 +75,7 @@
 		B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
+		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -119,6 +120,7 @@
 		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
+		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -280,8 +282,9 @@
 			isa = PBXGroup;
 			children = (
 				B0C948E827DBDBB100B671EA /* HomeScene.swift */,
-				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
 				B0C948EA27DBDBD100B671EA /* SettingsScene.swift */,
+				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
+				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -465,6 +468,7 @@
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
 				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
 				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
+				EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
