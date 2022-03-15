@@ -42,19 +42,23 @@ class RenderController {
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
         scene.addChild(lifesLabel)
         
-        // foodBar
-        for i in foodNodes {
-            scene.addChild(i)
-        }
-        drawFoodBar(food: 0.8, foodNodes: foodNodes)
-
-        // Definicao do tamanho da hitBox
-        hitBoxNode = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
-        hitBoxNode.lineWidth = 1
         
+        // foodBar
+        for i in foodNodes { scene.addChild(i) }
+        drawFoodBar(food: 0.8, foodNodes: foodNodes)
+        
+        // hitbox
+        hitBoxNode = drawHitBox()
+        
+        //player
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
         playerNode.addChild(hitBoxNode)
+        
+        let box = SKShapeNode(rect: CGRect(x: 100, y: 100, width: 30, height: 30))
+        box.physicsBody = SKPhysicsBody(rectangleOf: box.frame.size)
+        box.physicsBody?.isDynamic = false
+        scene.addChild(box)
         
         #if os( iOS)
         drawAnalogic()
@@ -64,12 +68,7 @@ class RenderController {
     
     // desenhando o personagem na tela
     @discardableResult
-    func draw(player: Player) -> SKSpriteNode{
-//        let node = SKShapeNode(circleOfRadius: player.size.width)
-//        node.position = player.position
-//        node.fillColor = player.color
-//        node.name = player.name
-        
+    func draw(player: Player) -> SKSpriteNode {
         let node = SKSpriteNode(imageNamed: "rexRight")
         node.position = player.position
         node.name = player.name
@@ -80,9 +79,19 @@ class RenderController {
         return node
     }
     
+    func drawHitBox() -> SKShapeNode {
+        // Definicao do tamanho da hitBox
+        let hitZone = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
+        hitZone.lineWidth = 1
+        hitZone.physicsBody = SKPhysicsBody(rectangleOf: hitZone.frame.size)
+        hitZone.physicsBody?.isDynamic = false
+        hitZone.physicsBody?.contactTestBitMask = hitZone.physicsBody?.contactTestBitMask ?? 0
+        hitZone.name = "dinossauro"
+        return hitZone
+    }
+    
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
         let foodMultiplier: Int = Int(food / 2) - 1
-        print(foodMultiplier)
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
@@ -135,7 +144,7 @@ class RenderController {
     func update(_ currentTime: TimeInterval) {
         playerNode.position = GameController.shared.gameData.player!.position
         if let player = GameController.shared.gameData.player {
-            print(selectDinoCommand(command: player.gameCommand))
+            //print(selectDinoCommand(command: player.gameCommand))
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
             pointsLabel.text = "\(player.points)"
             lifesLabel.text = "\(player.life)"

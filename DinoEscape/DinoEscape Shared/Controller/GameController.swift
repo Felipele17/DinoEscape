@@ -56,8 +56,8 @@ class GameController{
         renderer.update(currentTime)
     }
     
+    //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
-#warning("Adicionar nessa funcao a passagem por parametro da direcao")
         
         if let player = gameData.player {
             // Iguala size do player para size da hitBox
@@ -85,10 +85,6 @@ class GameController{
             player.points = Int(player.position.x)
             player.foodBar = 6
         }
-        
-        
-        
-        
     }
 }
 

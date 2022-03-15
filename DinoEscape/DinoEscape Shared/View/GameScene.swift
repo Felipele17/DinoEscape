@@ -14,6 +14,7 @@ class GameScene: SKScene {
         let scene = GameScene()
         scene.scaleMode = .resizeFill
         GameController.shared.setScene(scene: scene)
+        
         return scene
     }
     
@@ -21,6 +22,10 @@ class GameScene: SKScene {
         GameController.shared.setupScene()
     }
     override func didMove(to view: SKView) {
+        //fisica da cena
+        physicsBody = SKPhysicsBody(edgeLoopFrom: frame)
+        physicsWorld.contactDelegate = self
+        //setando a cena
         self.setUpScene()
     }
     
