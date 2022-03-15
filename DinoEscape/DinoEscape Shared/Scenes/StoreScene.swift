@@ -25,7 +25,9 @@ class StoreScene: SKScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        //backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        
+        backgroundColor = SKColor(red: 25/255, green: 31/255, blue: 198/255, alpha: 1)
         
         removeAllChildren()
         removeAllActions()
@@ -41,6 +43,10 @@ class StoreScene: SKScene {
         createDino(name: .t_rex, posX: 1, posY: 1)
         createDino(name: .t_rex, posX: 2, posY: 1)
         
+        
+        createShopButtons(name: .buy, pos: 0)
+        createShopButtons(name: .buy, pos: 1)
+        
         let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
         
         dinoChoosed.position = CGPoint(x: size.width/2, y: size.height/3)
@@ -54,19 +60,43 @@ class StoreScene: SKScene {
         
     }
     
-    
-    func createSegButton(name: SegmentageType, pos: Int) {
+    func createShopButtons(name: BuyButtonType, pos: Int ) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3
         let h = w * texture.size().height / texture.size().width
         
+        let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        
+        buyButton.position = CGPoint(
+            x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+            y: size.height / 6 )
+        
+        
+        
+        buyButton.selectedHandler = {
+            print(name)
+            
+        }
+        
+        addChild(buyButton)
+        
+    }
+    
+    
+    func createSegButton(name: SegmentageType, pos: Int) {
+        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+        texture.filteringMode = .nearest
+        
+        let w: CGFloat = size.width / 3.5
+        let h = w * texture.size().height / texture.size().width
+        
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 1.2 + CGFloat(pos) * segmentage.frame.width * 1.3,
+            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.1,
             y: size.height / 1.2 )
         
         
@@ -85,14 +115,14 @@ class StoreScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3.8
+        let w: CGFloat = size.width / 5
         let h = w * texture.size().height / texture.size().width
         
         let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         
         dinoButton.position = CGPoint(
-            x: dinoButton.frame.width / 1.2 + CGFloat(posX) * dinoButton.frame.width * 1.1,
+            x: dinoButton.frame.width / 0.7 + CGFloat(posX) * dinoButton.frame.width * 1.1,
             y: size.height / 1.8 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
         
         
