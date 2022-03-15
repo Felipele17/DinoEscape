@@ -8,9 +8,25 @@
 import Foundation
 import SpriteKit
 
+class MyScene: SKScene, SKPhysicsContactDelegate{
+    // MARK: Colisão
+    func colisionBetween(dino: SKNode, object: SKNode){
+        
+    }
+    
+    func didBegin(_ contact: SKPhysicsContact) {
+        print("oiii")
+        guard let nodeA = contact.bodyA.node else {return}
+        guard let nodeB = contact.bodyB.node else {return}
+        
+        print(nodeA)
+        print(nodeB)
+    }
+}
+
 class RenderController {
     
-    var scene: SKScene = SKScene()
+    var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
     var background: SKSpriteNode = SKSpriteNode(imageNamed: "coverTeste")
     var hitBoxNode: SKShapeNode = SKShapeNode()
@@ -20,6 +36,8 @@ class RenderController {
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
     
     func setUpScene(){
+       
+        
         //adicionar e remover itens na tela
         scene.removeAllChildren()
         scene.removeAllActions()
@@ -49,20 +67,32 @@ class RenderController {
         
         // hitbox
         hitBoxNode = drawHitBox()
+       
+
         
         //player
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
-        playerNode.addChild(hitBoxNode)
+        playerNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 200))
+        playerNode.physicsBody?.isDynamic = true
+        playerNode.physicsBody?.affectedByGravity = false
+        playerNode.physicsBody!.contactTestBitMask = playerNode.physicsBody!.collisionBitMask
         
-        let box = SKShapeNode(rect: CGRect(x: 100, y: 100, width: 30, height: 30))
-        box.physicsBody = SKPhysicsBody(rectangleOf: box.frame.size)
-        box.physicsBody?.isDynamic = false
+        let box = SKSpriteNode(imageNamed: "cherry")
+        box.position = CGPoint(x: 200, y: 200)
         scene.addChild(box)
+        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 100))
+        box.name = "box"
+        box.physicsBody?.isDynamic = false
+        box.physicsBody?.affectedByGravity = true
+    
+
+
         
         #if os( iOS)
         drawAnalogic()
         #endif
+
     
     }
     
@@ -73,7 +103,6 @@ class RenderController {
         node.position = player.position
         node.name = player.name
         node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
-        
         scene.addChild(node)
     
         return node
@@ -83,9 +112,6 @@ class RenderController {
         // Definicao do tamanho da hitBox
         let hitZone = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
         hitZone.lineWidth = 1
-        hitZone.physicsBody = SKPhysicsBody(rectangleOf: hitZone.frame.size)
-        hitZone.physicsBody?.isDynamic = false
-        hitZone.physicsBody?.contactTestBitMask = hitZone.physicsBody?.contactTestBitMask ?? 0
         hitZone.name = "dinossauro"
         return hitZone
     }

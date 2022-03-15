@@ -31,11 +31,11 @@ class GameController{
         renderer = RenderController()
     }
     
-    func setScene(scene: SKScene){
+    func setScene(scene: MyScene){
         renderer.scene = scene
         
     }
-    
+
     func setupScene(){
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
@@ -45,8 +45,16 @@ class GameController{
         #endif
         
         renderer.setUpScene()
+        
+        //controle da cena 
         joystickController.delegate = self
         joystickController.observeForGameControllers()
+        
+        //fisica da cena
+        renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
+        renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self as? SKPhysicsContactDelegate
+        
+
     }
     
     func update(_ currentTime: TimeInterval){
