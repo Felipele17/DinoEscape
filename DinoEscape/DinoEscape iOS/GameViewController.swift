@@ -16,8 +16,9 @@ class GameViewController: UIViewController {
         
         //let scene = GameScene.newGameScene()
         //let scene = HomeScene.newGameScene()
-        let scene = StoreScene.newGameScene()
-        
+        //let scene = StoreScene.newGameScene()
+        let scene = SettingsScene.newGameScene()
+
         
         // Present the scene
         let skView = self.view as! SKView
