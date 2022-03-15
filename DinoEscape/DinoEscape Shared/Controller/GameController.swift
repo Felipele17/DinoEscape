@@ -37,6 +37,8 @@ class GameController{
     }
 
     func setupScene(){
+        
+        //player
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
         
@@ -46,13 +48,13 @@ class GameController{
         
         renderer.setUpScene()
         
-        //controle da cena 
+        //controle da cena
         joystickController.delegate = self
         joystickController.observeForGameControllers()
         
         //fisica da cena
         renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
-        renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self as? SKPhysicsContactDelegate
+        renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
         
 
     }
@@ -68,8 +70,9 @@ class GameController{
     func movePlayer(dx: CGFloat, dy: CGFloat){
         
         if let player = gameData.player {
+            
             // Iguala size do player para size da hitBox
-            player.size = CGSize(width: renderer.hitBoxNode.frame.width, height: renderer.hitBoxNode.frame.height)
+            player.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.035)
             let mult = player.foodBar
             let midWidthPlayer = player.size.width/2
             let midHeightPlayer = player.size.height/2

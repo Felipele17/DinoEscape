@@ -16,6 +16,9 @@
 		132E23F127E106B9006CDEAB /* GameScene+SKPhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F027E106B9006CDEAB /* GameScene+SKPhysicsBody.swift */; };
 		132E23F227E106B9006CDEAB /* GameScene+SKPhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F027E106B9006CDEAB /* GameScene+SKPhysicsBody.swift */; };
 		132E23F327E106B9006CDEAB /* GameScene+SKPhysicsBody.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F027E106B9006CDEAB /* GameScene+SKPhysicsBody.swift */; };
+		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
+		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
+		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		133F7B7E27D67E910012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
 		133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7F27D67FA80012CFDD /* RenderController.swift */; };
 		133F7B8127D681090012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
@@ -81,6 +84,7 @@
 		132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aldrich-Regular.ttf"; path = "Aldrich/Aldrich-Regular.ttf"; sourceTree = SOURCE_ROOT; };
 		132E23E827E0FEE9006CDEAB /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Aldrich/OFL.txt; sourceTree = SOURCE_ROOT; };
 		132E23F027E106B9006CDEAB /* GameScene+SKPhysicsBody.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+SKPhysicsBody.swift"; sourceTree = "<group>"; };
+		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		133F7B8327D6812E0012CFDD /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -172,6 +176,7 @@
 				133F7B8D27D6824B0012CFDD /* GameCommand.swift */,
 				133F7B8F27D682B80012CFDD /* Skin.swift */,
 				133F7B9527D6835D0012CFDD /* PowerUp.swift */,
+				132E23F427E130E2006CDEAB /* Items.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -449,6 +454,7 @@
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
@@ -483,6 +489,7 @@
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				132E23F227E106B9006CDEAB /* GameScene+SKPhysicsBody.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
+				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
@@ -506,6 +513,7 @@
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				132E23F327E106B9006CDEAB /* GameScene+SKPhysicsBody.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
+				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,

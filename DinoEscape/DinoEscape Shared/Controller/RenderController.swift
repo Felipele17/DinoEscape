@@ -65,18 +65,11 @@ class RenderController {
         for i in foodNodes { scene.addChild(i) }
         drawFoodBar(food: 0.8, foodNodes: foodNodes)
         
-        // hitbox
-        hitBoxNode = drawHitBox()
-       
-
         
         //player
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
-        playerNode.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 200))
-        playerNode.physicsBody?.isDynamic = true
-        playerNode.physicsBody?.affectedByGravity = false
-        playerNode.physicsBody!.contactTestBitMask = playerNode.physicsBody!.collisionBitMask
+        
         
         let box = SKSpriteNode(imageNamed: "cherry")
         box.position = CGPoint(x: 200, y: 200)
@@ -84,7 +77,6 @@ class RenderController {
         box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 100))
         box.name = "box"
         box.physicsBody?.isDynamic = false
-        box.physicsBody?.affectedByGravity = true
     
 
 
@@ -96,24 +88,24 @@ class RenderController {
     
     }
     
-    // desenhando o personagem na tela
+    // MARK: Desenho dos nós na tela
+    
     @discardableResult
     func draw(player: Player) -> SKSpriteNode {
         let node = SKSpriteNode(imageNamed: "rexRight")
         node.position = player.position
         node.name = player.name
         node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
+        node.name = "dinossauro"
+        node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: node.size.width * 0.3, height: player.size.height * 0.3))
+        node.physicsBody?.isDynamic = true
+        node.physicsBody?.allowsRotation = false
+        node.physicsBody?.affectedByGravity = false
+        node.physicsBody?.contactTestBitMask = node.physicsBody!.collisionBitMask
+        
         scene.addChild(node)
     
         return node
-    }
-    
-    func drawHitBox() -> SKShapeNode {
-        // Definicao do tamanho da hitBox
-        let hitZone = SKShapeNode(rectOf: CGSize(width: scene.size.height*0.05, height: scene.size.height*0.035))
-        hitZone.lineWidth = 1
-        hitZone.name = "dinossauro"
-        return hitZone
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
@@ -138,40 +130,77 @@ class RenderController {
         }
     }
     
+    
+    func createGoodItems(){
+        
+        let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
+        let direction = directions[Int.random(in: 0..<directions.count)]
+        let item = Items(image: "cherry", vy: 0, vx: 0, direction: direction)
+        item.node.name = "good"
+        
+        var xInitial: CGFloat = 0
+        var yInitial: CGFloat = 0
+        switch direction {
+        case .UP:
+            xInitial = CGFloat.random(in: scene.size.width * 0.06...scene.size.width * 0.94)
+            yInitial = scene.size.height*1.1
+        case .DOWN:
+            xInitial = 0
+        case .NONE:
+            xInitial = 0
+
+        case .RIGHT:
+            xInitial = 0
+
+        case .LEFT:
+            xInitial = 0
+
+        case .DEAD:
+            xInitial = 0
+
+        }
+        //if x = Int.random(in: <#T##Range<Int>#>)
+        //if y = Int.random(in: <#T##ClosedRange<Int>#>)
+    }
+    
+    func createBadItems(){
+    }
+    
+    // MARK: Desenho do dinossauro
     func selectDinoCommand(command: GameCommand) -> String {
         // Quando o Dino fica na vertical hitbox é dividida por 3
         switch command{
         case .UP:
-            hitBoxNode.xScale = 0.3
             return "rexUp"
         case .NONE:
             return "rexUp"
         case .RIGHT:
-            hitBoxNode.xScale = 1
             return "rexRight"
         case .DOWN:
-            hitBoxNode.xScale = 0.3
             return "rexDown"
         case .LEFT:
-            hitBoxNode.xScale = 1
             return  "rexLeft"
         case .DEAD:
             return "rexRight"
         }
     }
     
+    // MARK: Desenho do controle
     #if os( iOS )
     func drawAnalogic() {
         scene.addChild(GameController.shared.joystickController.virtualController)
         
     }
     #endif
+
     
+    // MARK: Update
     func update(_ currentTime: TimeInterval) {
         playerNode.position = GameController.shared.gameData.player!.position
         if let player = GameController.shared.gameData.player {
             //print(selectDinoCommand(command: player.gameCommand))
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
+            print("position",playerNode.position)
             pointsLabel.text = "\(player.points)"
             lifesLabel.text = "\(player.life)"
             drawFoodBar(food: player.foodBar, foodNodes: foodNodes)

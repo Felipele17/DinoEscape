@@ -23,10 +23,6 @@ class GameScene: MyScene {
         GameController.shared.setupScene()
     }
     override func didMove(to view: SKView) {
-        //fisica da cena
-        GameController.shared.renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
-        GameController.shared.renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self as? SKPhysicsContactDelegate 
-        
         //setando a cena
         self.setUpScene()
     }
