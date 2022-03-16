@@ -55,7 +55,7 @@ class GameController{
         //fisica da cena
         renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
         renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
-        
+        recursiveActionItems()
 
     }
     
@@ -93,9 +93,83 @@ class GameController{
             }
             
             player.position = CGPoint(x: xValue, y: yValue)
-            player.points = Int(player.position.x)
-            player.foodBar = 6
         }
+    }
+    
+    // MARK: Itens na tela
+    func createGoodItems(){
+        
+        let badOrGood = Int.random(in: 0...1)
+        let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
+        let goodImages: [String] = ["cherry", "banana", "apple"]
+        let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple", "meteoro1"]
+        let direction = directions[Int.random(in: 0..<directions.count)]
+        let item = Items(image: "", vy: 0, vx: 0, direction: direction)
+        
+        
+        var xInitial: CGFloat = 0
+        var yInitial: CGFloat = 0
+        
+        if badOrGood == 1 {
+            item.node.texture = SKTexture(imageNamed: goodImages[Int.random(in: 0..<goodImages.count)])
+            item.node.name = "good"
+        } else {
+            item.node.texture = SKTexture(imageNamed: badImages[Int.random(in: 0..<badImages.count)])
+            item.node.name = "bad"
+        }
+        
+        
+        switch direction {
+        case .UP:
+            xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
+            yInitial = renderer.scene.size.height*1.1
+            
+            item.vy = -5
+          
+        case .DOWN:
+            xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
+            yInitial = renderer.scene.size.height * -0.1
+            
+            item.vy = 5
+        case .NONE:
+            xInitial = 0
+
+        case .RIGHT:
+            xInitial = renderer.scene.size.width * 1.1
+            yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
+            
+            item.vx = -5
+
+        case .LEFT:
+            xInitial = renderer.scene.size.width * -0.1
+            yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
+            
+            item.vx = 5
+
+        case .DEAD:
+            xInitial = 0
+
+        }
+        
+        item.node.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
+        item.node.position = CGPoint(x: xInitial, y: yInitial)
+        
+        renderer.drawItem(item: item)
+        
+    }
+    
+    func recursiveActionItems(){
+        let recursive = SKAction.sequence([
+            SKAction.run(createGoodItems),
+            SKAction.wait(forDuration: 1),
+            SKAction.run({[unowned self] in self.recursiveActionItems()})
+        ])
+        
+        renderer.scene.run(recursive, withKey: "aKey")
+    }
+    
+    func cancelActionItems() {
+        renderer.scene.removeAction(forKey: "aKey")
     }
 }
 

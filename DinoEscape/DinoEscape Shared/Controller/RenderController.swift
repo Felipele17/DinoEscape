@@ -8,26 +8,11 @@
 import Foundation
 import SpriteKit
 
-class MyScene: SKScene, SKPhysicsContactDelegate{
-    // MARK: Colisão
-    func colisionBetween(dino: SKNode, object: SKNode){
-        
-    }
-    
-    func didBegin(_ contact: SKPhysicsContact) {
-        print("oiii")
-        guard let nodeA = contact.bodyA.node else {return}
-        guard let nodeB = contact.bodyB.node else {return}
-        
-        print(nodeA)
-        print(nodeB)
-    }
-}
-
 class RenderController {
     
     // MARK: Array de itens
     var items: [Items] = []
+    var item: Items?
     
     var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
@@ -73,15 +58,6 @@ class RenderController {
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
         
-        
-        let box = SKSpriteNode(imageNamed: "cherry")
-        box.position = CGPoint(x: 200, y: 200)
-        scene.addChild(box)
-        box.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 100, height: 100))
-        box.name = "box"
-        box.physicsBody?.isDynamic = false
-    
-        createGoodItems()
 
         
         #if os( iOS)
@@ -98,9 +74,9 @@ class RenderController {
         let node = SKSpriteNode(imageNamed: "rexRight")
         node.position = player.position
         node.name = player.name
-        node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
+        node.size = CGSize(width: scene.size.height*0.1, height: scene.size.height*0.1)
         node.name = "dinossauro"
-        node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: node.size.width * 0.3, height: player.size.height * 0.3))
+        node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: node.size.width * 0.5, height: node.size.height * 0.5))
         node.physicsBody?.isDynamic = true
         node.physicsBody?.allowsRotation = false
         node.physicsBody?.affectedByGravity = false
@@ -133,50 +109,13 @@ class RenderController {
         }
     }
     
-    
-    func createGoodItems(){
+    func drawItem(item: Items){
+        //item.node.name = "good"
+        item.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.node.size.height*0.5, height: item.node.size.height*0.5))
+        item.node.physicsBody?.isDynamic = false
         
-        let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
-        //let direction = directions[Int.random(in: 0..<directions.count)]
-        let direction: GameCommand = .UP
-        let item = Items(image: "cherry", vy: 0, vx: 0, direction: direction)
-        item.node.name = "good"
-        
-        var xInitial: CGFloat = 0
-        var yInitial: CGFloat = 0
-        switch direction {
-        case .UP:
-            xInitial = CGFloat.random(in: scene.size.width * 0.06...scene.size.width * 0.94)
-            yInitial = scene.size.height*1.1
-            
-            item.vy = -5
-            
-            
-          
-        case .DOWN:
-            xInitial = 0
-        case .NONE:
-            xInitial = 0
-
-        case .RIGHT:
-            xInitial = 0
-
-        case .LEFT:
-            xInitial = 0
-
-        case .DEAD:
-            xInitial = 0
-
-        }
-        
-        item.node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
-        item.node.position = CGPoint(x: xInitial, y: yInitial)
         scene.addChild(item.node)
         items.append(item)
-        
-    }
-    
-    func createBadItems(){
     }
     
     // MARK: Desenho do dinossauro
@@ -218,7 +157,6 @@ class RenderController {
         }
         
         for item in items {
-            print(item)
             item.node.position.x += CGFloat(item.vx)
             item.node.position.y += CGFloat(item.vy)
             
