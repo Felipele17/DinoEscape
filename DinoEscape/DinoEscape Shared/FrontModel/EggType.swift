@@ -7,8 +7,9 @@
 
 import Foundation
 enum EggType: String {
-    case reward = "buttonBlue"
-    case chance = "buttonOrange"
-    
-
+    case daily = "Daily Reward"
+    case purchased = "Purchased"
 }
+
+
+

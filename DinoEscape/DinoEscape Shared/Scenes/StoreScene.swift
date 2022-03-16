@@ -46,7 +46,7 @@ class StoreScene: MyScene {
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4

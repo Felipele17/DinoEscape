@@ -28,8 +28,8 @@ class EggScene: SKScene {
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0)
-        createSegButton(name: .dinos ,pos: 1)
+        createSegButton(name: .eggs, button: .lightegg ,pos: 0)
+        createSegButton(name: .dinos , button: .darkegg ,pos: 1)
         
         createShopButtons(name: .buy, pos: 0)
         createShopButtons(name: .buy, pos: 1)
@@ -43,7 +43,7 @@ class EggScene: SKScene {
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -91,7 +91,7 @@ class EggScene: SKScene {
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int) {
+    func createSegButton(name: SegmentageType, button: ButtonCollors, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
