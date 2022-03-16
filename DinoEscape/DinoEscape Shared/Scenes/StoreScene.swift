@@ -11,6 +11,7 @@ import SpriteKit
 class StoreScene: MyScene {
     
     var coins: Int = 1000
+    var dinoChoosed: String = "T-Rex"
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
@@ -22,7 +23,8 @@ class StoreScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        //backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 35/255, green: 21/255, blue: 198/255, alpha: 1)
         
         removeAllChildren()
         removeAllActions()
@@ -37,11 +39,11 @@ class StoreScene: MyScene {
         createShopButtons(name: .buy, pos: 0)
         createShopButtons(name: .buy, pos: 1)
         
-        let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
+        let dinoImage: SKSpriteNode = SKSpriteNode(imageNamed: dinoChoosed)
         
-        dinoChoosed.position = CGPoint(x: size.width/2, y: size.height/2.6)
-        dinoChoosed.size = CGSize(width: size.width/1.5, height: size.height/3)
-        addChild(dinoChoosed)
+        dinoImage.position = CGPoint(x: size.width/2, y: size.height/2.8)
+        dinoImage.size = CGSize(width: size.width/1.35, height: size.height/3)
+        addChild(dinoImage)
         
     }
     
@@ -56,7 +58,7 @@ class StoreScene: MyScene {
         
         adsButton.position = CGPoint(
             x: adsButton.frame.width / 1.1 + CGFloat(pos) * adsButton.frame.width * 1.2,
-            y: size.height / 1.1 )
+            y: size.height / 1.15 )
         
         
         
@@ -80,7 +82,7 @@ class StoreScene: MyScene {
         
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6 )
+            y: size.height / 6.5 )
         
         
         
@@ -105,9 +107,8 @@ class StoreScene: MyScene {
         
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.1,
-            y: size.height / 1.2 )
-        
+            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.05,
+            y: size.height / 1.26 )
         
         
         segmentage.selectedHandler = {
@@ -137,7 +138,7 @@ class StoreScene: MyScene {
         
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
-            y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
+            y: size.height / 1.68 + CGFloat(posY) * dinoButton.frame.height * 1.1 )
         
         
         
@@ -174,7 +175,7 @@ class StoreScene: MyScene {
         total.fontSize = 30
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-        total.position = CGPoint(x: size.width/1.25, y: size.height/1.115)
+        total.position = CGPoint(x: size.width/1.25, y: size.height/1.15)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
