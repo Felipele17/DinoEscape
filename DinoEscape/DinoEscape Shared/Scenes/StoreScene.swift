@@ -8,16 +8,13 @@
 import Foundation
 import SpriteKit
 
-class StoreScene: SKScene {
+class StoreScene: MyScene {
     
     var coins: Int = 1000
-    
-    
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
         scene.scaleMode = .resizeFill
-        //GameController.shared.setScene(scene: scene)
         return scene
     }
     
@@ -27,17 +24,15 @@ class StoreScene: SKScene {
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
-        
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .dinos,pos: 0, scene: EggScene.newGameScene())
-        createSegButton(name: .eggs ,pos: 1, scene: StoreScene.newGameScene())
+        createSegButton(name: .eggs ,pos: 0)
+        createSegButton(name: .dinos ,pos: 1)
    
         addChild(createGallery())
-        
         
         createShopButtons(name: .buy, pos: 0)
         createShopButtons(name: .buy, pos: 1)
@@ -51,7 +46,7 @@ class StoreScene: SKScene {
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
+        let texture: SKTexture = SKTexture(imageNamed: "Buy")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -74,7 +69,7 @@ class StoreScene: SKScene {
         
     }
     
-    func createShopButtons(name: BuyButtonType, pos: Int ) {
+    func createShopButtons(name: BuyButtonType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -99,7 +94,7 @@ class StoreScene: SKScene {
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int, scene: SKScene) {
+    func createSegButton(name: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -116,10 +111,13 @@ class StoreScene: SKScene {
         
         
         segmentage.selectedHandler = {
-            let scene = scene
-            self.view?.presentScene(scene)
-            print(name)
-            
+            if name == .eggs {
+                self.view?.presentScene(EggScene.newGameScene())
+            } else if name == .dinos {
+                self.view?.presentScene(StoreScene.newGameScene())
+            } else {
+                print("out of the range")
+            }
         }
         
         addChild(segmentage)
@@ -168,7 +166,7 @@ class StoreScene: SKScene {
         let h = w * coinTotal.size.height / coinTotal.size.width
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: size.width/0.5, y: size.height/1.1)
+        coin.position = CGPoint(x: size.width/1.5, y: size.height/1.1)
         coin.size = CGSize(width: w, height: h)
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
