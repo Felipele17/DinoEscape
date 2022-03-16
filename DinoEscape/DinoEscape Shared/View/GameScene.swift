@@ -7,13 +7,15 @@
 
 import SpriteKit
 
-class GameScene: SKScene {
+class GameScene: MyScene {
     
     
     class func newGameScene() -> GameScene {
         let scene = GameScene()
         scene.scaleMode = .resizeFill
         GameController.shared.setScene(scene: scene)
+        
+        
         return scene
     }
     
@@ -21,6 +23,7 @@ class GameScene: SKScene {
         GameController.shared.setupScene()
     }
     override func didMove(to view: SKView) {
+        //setando a cena
         self.setUpScene()
     }
     
@@ -40,13 +43,7 @@ class GameScene: SKScene {
 extension GameScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        //chamar a funcao do controle
         super.touchesBegan(touches, with: event)
-        for touch in touches {
-            //let location = touch.location(in: analogNode)
-            
-        }
-        //GameController.shared.joystickController.virtualController.changeState()
         
     }
     
@@ -54,15 +51,11 @@ extension GameScene {
         super.touchesMoved(touches, with: event)
         for touch in touches {
             let location = touch.location(in: scene!)
-            //GameController.shared.joystickController.virtualController.updateVector(for: location)
         }
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        
-        //GameController.shared.joystickController.virtualController.resetStick()
-        
         
     }
     
