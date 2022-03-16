@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class StoreScene: SKScene {
+class StoreScene: MyScene {
     
     var coins: Int = 1000
     

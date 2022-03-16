@@ -7,12 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		132E23E927E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
-		132E23EA27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
-		132E23EB27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
-		132E23EC27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
-		132E23ED27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
-		132E23EE27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
+		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
+		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
+		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		133F7B7E27D67E910012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
 		133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7F27D67FA80012CFDD /* RenderController.swift */; };
 		133F7B8127D681090012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
@@ -41,6 +38,12 @@
 		133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
 		133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
 		133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
+		13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
+		13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
+		13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
+		13842CEC27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
+		13842CED27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
+		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
@@ -85,12 +88,14 @@
 		B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
+		DF03BE4227E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
+		DF03BE4327E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
+		DF03BE4427E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aldrich-Regular.ttf"; path = "Aldrich/Aldrich-Regular.ttf"; sourceTree = SOURCE_ROOT; };
-		132E23E827E0FEE9006CDEAB /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Aldrich/OFL.txt; sourceTree = SOURCE_ROOT; };
+		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		133F7B8327D6812E0012CFDD /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -101,6 +106,8 @@
 		133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickDelegate.swift; sourceTree = "<group>"; };
 		133F7B9C27D69E970012CFDD /* JoystickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickController.swift; sourceTree = "<group>"; };
 		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
+		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
+		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -130,6 +137,7 @@
 		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
+		DF03BE4127E25D770005E872 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,15 +166,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		132E23E227E0FEB6006CDEAB /* Aldrich */ = {
-			isa = PBXGroup;
-			children = (
-				132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */,
-				132E23E827E0FEE9006CDEAB /* OFL.txt */,
-			);
-			path = Aldrich;
-			sourceTree = "<group>";
-		};
 		133F7B7A27D67E110012CFDD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -184,6 +183,8 @@
 				133F7B8D27D6824B0012CFDD /* GameCommand.swift */,
 				133F7B8F27D682B80012CFDD /* Skin.swift */,
 				133F7B9527D6835D0012CFDD /* PowerUp.swift */,
+				132E23F427E130E2006CDEAB /* Items.swift */,
+				DF03BE4127E25D770005E872 /* MyScene.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -214,6 +215,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		13842CE627E2561800E1F88E /* Aldrich */ = {
+			isa = PBXGroup;
+			children = (
+				13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */,
+				13842CE827E2561800E1F88E /* OFL.txt */,
+			);
+			name = Aldrich;
+			path = "DinoEscape Shared/Aldrich";
+			sourceTree = SOURCE_ROOT;
+		};
 		4AEAEEE027D676AE00BBD809 = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +240,7 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
-				132E23E227E0FEB6006CDEAB /* Aldrich */,
+				13842CE627E2561800E1F88E /* Aldrich */,
 				133F7BA327D6A8550012CFDD /* Extensions */,
 				133F7B9927D69E210012CFDD /* Delegate */,
 				133F7B7C27D67E1E0012CFDD /* Controller */,
@@ -418,9 +429,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132E23EC27E0FEE9006CDEAB /* OFL.txt in Resources */,
+				13842CEC27E2561800E1F88E /* OFL.txt in Resources */,
+				13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
-				132E23E927E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
@@ -430,9 +441,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				132E23ED27E0FEE9006CDEAB /* OFL.txt in Resources */,
+				13842CED27E2561800E1F88E /* OFL.txt in Resources */,
+				13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
-				132E23EA27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
@@ -442,9 +453,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
-				132E23EB27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
-				132E23EE27E0FEE9006CDEAB /* OFL.txt in Resources */,
+				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -462,6 +473,7 @@
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
@@ -475,6 +487,7 @@
 				133F7B9B27D69E350012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */,
 				B0EEDD8627DFD16F00372B2F /* DinoType.swift in Sources */,
+				DF03BE4227E25D770005E872 /* MyScene.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
 				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
 				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
@@ -489,6 +502,7 @@
 				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
+				DF03BE4327E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
@@ -498,6 +512,7 @@
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
+				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
@@ -517,6 +532,7 @@
 				B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
+				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
@@ -526,6 +542,7 @@
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
+				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,

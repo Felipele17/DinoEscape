@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class HomeScene: SKScene {
+class HomeScene: MyScene {
     
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
