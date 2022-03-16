@@ -27,21 +27,21 @@ class EggScene: SKScene {
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
-        backgroundColor = SKColor(red: 25/255, green: 31/255, blue: 198/255, alpha: 1)
+//        backgroundColor = SKColor(red: 25/255, green: 31/255, blue: 198/255, alpha: 1)
         
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0, scene: EggScene.newGameScene())
-        createSegButton(name: .dinos ,pos: 1, scene: StoreScene.newGameScene())
+//        createSegButton(name: .dinos,pos: 0, scene: EggScene.newGameScene())
+//        createSegButton(name: .eggs,pos: 1, scene: StoreScene.newGameScene())
    
 //        addChild(createGallery())
         
         
-        createShopButtons(name: .buy, pos: 0)
-        createShopButtons(name: .buy, pos: 1)
+        createShopButtons(name: .reward, pos: 0)
+        createShopButtons(name: .chance, pos: 1)
         
         let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
         
@@ -52,7 +52,7 @@ class EggScene: SKScene {
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -75,7 +75,7 @@ class EggScene: SKScene {
         
     }
     
-    func createShopButtons(name: BuyButtonType, pos: Int ) {
+    func createShopButtons(name: EggType, pos: Int ) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -183,25 +183,6 @@ class EggScene: SKScene {
         
         return coinTotal
     }
-    
-//    func createGallery() -> SKSpriteNode {
-//        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-//        //let button = createDino(name: .t_rex, posX: 0, posY: 0)
-//        for i in 0..<3{
-//            for j in 0..<2{
-//                if i == 2 && j == 0 {
-//                    print("")
-//                }
-//                else{
-//                    let button = createDino(name: .t_rex, posX: i, posY: j)
-//                    gallery.addChild(button)
-//                }
-//            }
-//        }
-//
-//
-//        return gallery
-//    }
     
     
     override func didChangeSize(_ oldSize: CGSize) {

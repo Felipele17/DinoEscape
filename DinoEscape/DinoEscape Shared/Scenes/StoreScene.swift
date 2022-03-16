@@ -27,15 +27,14 @@ class StoreScene: SKScene {
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
-        backgroundColor = SKColor(red: 25/255, green: 31/255, blue: 198/255, alpha: 1)
         
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0, scene: EggScene.newGameScene())
-        createSegButton(name: .dinos ,pos: 1, scene: StoreScene.newGameScene())
+        createSegButton(name: .dinos,pos: 0, scene: EggScene.newGameScene())
+        createSegButton(name: .eggs ,pos: 1, scene: StoreScene.newGameScene())
    
         addChild(createGallery())
         
@@ -52,7 +51,7 @@ class StoreScene: SKScene {
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -169,7 +168,7 @@ class StoreScene: SKScene {
         let h = w * coinTotal.size.height / coinTotal.size.width
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: size.width/1.5, y: size.height/1.1)
+        coin.position = CGPoint(x: size.width/0.5, y: size.height/1.1)
         coin.size = CGSize(width: w, height: h)
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))

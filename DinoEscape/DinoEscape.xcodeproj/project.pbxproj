@@ -86,6 +86,9 @@
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
+		EE0D3C5527E2785B0097EE48 /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D3C5427E2785B0097EE48 /* EggType.swift */; };
+		EE0D3C5627E2785B0097EE48 /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D3C5427E2785B0097EE48 /* EggType.swift */; };
+		EE0D3C5727E2785B0097EE48 /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE0D3C5427E2785B0097EE48 /* EggType.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -131,6 +134,7 @@
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
+		EE0D3C5427E2785B0097EE48 /* EggType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -314,6 +318,7 @@
 				B0EEDD8527DFD16F00372B2F /* DinoType.swift */,
 				B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */,
 				B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */,
+				EE0D3C5427E2785B0097EE48 /* EggType.swift */,
 			);
 			path = FrontModel;
 			sourceTree = "<group>";
@@ -477,6 +482,7 @@
 				B0EEDD8627DFD16F00372B2F /* DinoType.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
 				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
+				EE0D3C5527E2785B0097EE48 /* EggType.swift in Sources */,
 				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
 				EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */,
 			);
@@ -489,6 +495,7 @@
 				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
+				EE0D3C5627E2785B0097EE48 /* EggType.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
@@ -517,6 +524,7 @@
 				B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
+				EE0D3C5727E2785B0097EE48 /* EggType.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
@@ -703,7 +711,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -736,7 +743,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -770,7 +776,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -798,9 +803,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-
-DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = 9R89XP5A63;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -831,9 +834,7 @@ DEVELOPMENT_TEAM = 9R89XP5A63;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
- 
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
