@@ -12,12 +12,9 @@ class StoreScene: SKScene {
     
     var coins: Int = 1000
     
-    
-    
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
         scene.scaleMode = .resizeFill
-        //GameController.shared.setScene(scene: scene)
         return scene
     }
     
@@ -27,18 +24,15 @@ class StoreScene: SKScene {
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
-        backgroundColor = SKColor(red: 25/255, green: 31/255, blue: 198/255, alpha: 1)
-        
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0, scene: EggScene.newGameScene())
-        createSegButton(name: .dinos ,pos: 1, scene: StoreScene.newGameScene())
+        createSegButton(name: .eggs ,pos: 0)
+        createSegButton(name: .dinos ,pos: 1)
    
         addChild(createGallery())
-        
         
         createShopButtons(name: .buy, pos: 0)
         createShopButtons(name: .buy, pos: 1)
@@ -75,7 +69,7 @@ class StoreScene: SKScene {
         
     }
     
-    func createShopButtons(name: BuyButtonType, pos: Int ) {
+    func createShopButtons(name: BuyButtonType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -100,7 +94,7 @@ class StoreScene: SKScene {
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int, scene: SKScene) {
+    func createSegButton(name: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -117,10 +111,13 @@ class StoreScene: SKScene {
         
         
         segmentage.selectedHandler = {
-            let scene = scene
-            self.view?.presentScene(scene)
-            print(name)
-            
+            if name == .eggs {
+                self.view?.presentScene(EggScene.newGameScene())
+            } else if name == .dinos {
+                self.view?.presentScene(StoreScene.newGameScene())
+            } else {
+                print("out of the range")
+            }
         }
         
         addChild(segmentage)
