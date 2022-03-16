@@ -7,6 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		132E23E927E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
+		132E23EA27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
+		132E23EB27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */; };
+		132E23EC27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
+		132E23ED27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
+		132E23EE27E0FEE9006CDEAB /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 132E23E827E0FEE9006CDEAB /* OFL.txt */; };
 		133F7B7E27D67E910012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
 		133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7F27D67FA80012CFDD /* RenderController.swift */; };
 		133F7B8127D681090012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
@@ -77,6 +83,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "Aldrich-Regular.ttf"; path = "Aldrich/Aldrich-Regular.ttf"; sourceTree = SOURCE_ROOT; };
+		132E23E827E0FEE9006CDEAB /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = OFL.txt; path = Aldrich/OFL.txt; sourceTree = SOURCE_ROOT; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		133F7B8327D6812E0012CFDD /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -145,6 +153,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		132E23E227E0FEB6006CDEAB /* Aldrich */ = {
+			isa = PBXGroup;
+			children = (
+				132E23E727E0FEE9006CDEAB /* Aldrich-Regular.ttf */,
+				132E23E827E0FEE9006CDEAB /* OFL.txt */,
+			);
+			path = Aldrich;
+			sourceTree = "<group>";
+		};
 		133F7B7A27D67E110012CFDD /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -207,7 +224,7 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
-				A0635E8E27DFD162008EC4A1 /* Aldrich */,
+				132E23E227E0FEB6006CDEAB /* Aldrich */,
 				133F7BA327D6A8550012CFDD /* Extensions */,
 				133F7B9927D69E210012CFDD /* Delegate */,
 				133F7B7C27D67E1E0012CFDD /* Controller */,
@@ -413,9 +430,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A611053727E1010F008ABC33 /* OFL.txt in Resources */,
-				A611053427E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */,
+				132E23EC27E0FEE9006CDEAB /* OFL.txt in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
+				132E23E927E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
@@ -425,9 +442,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A611053827E1010F008ABC33 /* OFL.txt in Resources */,
-				A611053527E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */,
+				132E23ED27E0FEE9006CDEAB /* OFL.txt in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
+				132E23EA27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
@@ -439,7 +456,8 @@
 			files = (
 				A611053927E1010F008ABC33 /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
-				A611053627E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */,
+				132E23EB27E0FEE9006CDEAB /* Aldrich-Regular.ttf in Resources */,
+				132E23EE27E0FEE9006CDEAB /* OFL.txt in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
