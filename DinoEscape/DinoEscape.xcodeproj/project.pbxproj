@@ -61,6 +61,16 @@
 		B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
+		B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
+		B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
+		B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
+		B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
+		B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
+		B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
+		B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
+		B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
+		B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
+		B09BADA427E25BE000047A77 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 		B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
@@ -476,9 +486,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
+				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
@@ -489,8 +501,11 @@
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
+				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
+				B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */,
+				B09BADA427E25BE000047A77 /* EggScene.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -499,9 +514,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
+				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
@@ -512,8 +529,11 @@
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
+				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
+				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
+				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
 				4AEAEF1227D676B100BBD809 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -17,7 +17,7 @@ class EggScene: SKScene {
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill
-        GameController.shared.setScene(scene: scene)
+        //GameController.shared.setScene(scene: scene)
         return scene
     }
     
@@ -34,8 +34,8 @@ class EggScene: SKScene {
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .dinos ,pos: 0)
-        createSegButton(name: .dinos ,pos: 1)
+        createSegButton(name: .eggs ,pos: 0, scene: EggScene.newGameScene())
+        createSegButton(name: .dinos ,pos: 1, scene: StoreScene.newGameScene())
    
 //        addChild(createGallery())
         
@@ -100,7 +100,7 @@ class EggScene: SKScene {
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int) {
+    func createSegButton(name: SegmentageType, pos: Int, scene: SKScene) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
@@ -118,7 +118,8 @@ class EggScene: SKScene {
         
         segmentage.selectedHandler = {
             print(name)
-            
+            let scene = scene
+            self.view?.presentScene(scene)
         }
         
         addChild(segmentage)

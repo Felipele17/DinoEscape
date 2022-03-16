@@ -15,10 +15,9 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //let scene = GameScene.newGameScene()
-        //let scene = HomeScene.newGameScene()
+        let scene = HomeScene.newGameScene()
         //let scene = StoreScene.newGameScene()
-        let scene = EggScene.newGameScene()
-        
+        //let scene = EggScene.newGameScene()
         
         // Present the scene
         let skView = self.view as! SKView
@@ -27,8 +26,11 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
         skView.showsNodeCount = true
+        
+        
     }
 
+    
     override var shouldAutorotate: Bool {
         return true
     }
