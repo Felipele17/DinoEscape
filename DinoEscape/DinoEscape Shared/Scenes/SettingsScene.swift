@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class SettingsScene: SKScene {
+class SettingsScene: MyScene {
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
