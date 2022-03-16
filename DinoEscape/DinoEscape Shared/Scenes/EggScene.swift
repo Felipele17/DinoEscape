@@ -1,21 +1,21 @@
 //
-//  StoreSceneIOS.swift
+//  EggScene.swift
 //  DinoEscape iOS
 //
-//  Created by Raphael Alkamim on 11/03/22.
+//  Created by Leticia Utsunomiya on 15/03/22.
 //
 
 import Foundation
 import SpriteKit
 
-class StoreScene: MyScene {
+class EggScene: SKScene {
     
     var coins: Int = 1000
     
     
     
-    class func newGameScene() -> StoreScene {
-        let scene = StoreScene()
+    class func newGameScene() -> EggScene {
+        let scene = EggScene()
         scene.scaleMode = .resizeFill
         //GameController.shared.setScene(scene: scene)
         return scene
@@ -37,7 +37,7 @@ class StoreScene: MyScene {
         createSegButton(name: .eggs ,pos: 0, scene: EggScene.newGameScene())
         createSegButton(name: .dinos ,pos: 1, scene: StoreScene.newGameScene())
    
-        addChild(createGallery())
+//        addChild(createGallery())
         
         
         createShopButtons(name: .buy, pos: 0)
@@ -45,8 +45,8 @@ class StoreScene: MyScene {
         
         let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
         
-        dinoChoosed.position = CGPoint(x: size.width/2, y: size.height/2.6)
-        dinoChoosed.size = CGSize(width: size.width/1.5, height: size.height/3)
+        dinoChoosed.position = CGPoint(x: size.width/2, y: size.height/2)
+        dinoChoosed.size = CGSize(width: size.width/1.5, height: size.height/1.7)
         addChild(dinoChoosed)
         
     }
@@ -111,16 +111,15 @@ class StoreScene: MyScene {
         
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.1,
+            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
         
         
         
         segmentage.selectedHandler = {
+            print(name)
             let scene = scene
             self.view?.presentScene(scene)
-            print(name)
-            
         }
         
         addChild(segmentage)
@@ -185,24 +184,24 @@ class StoreScene: MyScene {
         return coinTotal
     }
     
-    func createGallery() -> SKSpriteNode {
-        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-        //let button = createDino(name: .t_rex, posX: 0, posY: 0)
-        for i in 0..<3{
-            for j in 0..<2{
-                if i == 2 && j == 0 {
-                    print("")
-                }
-                else{
-                    let button = createDino(name: .t_rex, posX: i, posY: j)
-                    gallery.addChild(button)
-                }
-            }
-        }
-        
-        
-        return gallery
-    }
+//    func createGallery() -> SKSpriteNode {
+//        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
+//        //let button = createDino(name: .t_rex, posX: 0, posY: 0)
+//        for i in 0..<3{
+//            for j in 0..<2{
+//                if i == 2 && j == 0 {
+//                    print("")
+//                }
+//                else{
+//                    let button = createDino(name: .t_rex, posX: i, posY: j)
+//                    gallery.addChild(button)
+//                }
+//            }
+//        }
+//
+//
+//        return gallery
+//    }
     
     
     override func didChangeSize(_ oldSize: CGSize) {
