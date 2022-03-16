@@ -26,6 +26,9 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
 
 class RenderController {
     
+    // MARK: Array de itens
+    var items: [Items] = []
+    
     var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
     var background: SKSpriteNode = SKSpriteNode(imageNamed: "coverTeste")
@@ -78,7 +81,7 @@ class RenderController {
         box.name = "box"
         box.physicsBody?.isDynamic = false
     
-
+        createGoodItems()
 
         
         #if os( iOS)
@@ -134,7 +137,8 @@ class RenderController {
     func createGoodItems(){
         
         let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
-        let direction = directions[Int.random(in: 0..<directions.count)]
+        //let direction = directions[Int.random(in: 0..<directions.count)]
+        let direction: GameCommand = .UP
         let item = Items(image: "cherry", vy: 0, vx: 0, direction: direction)
         item.node.name = "good"
         
@@ -144,6 +148,11 @@ class RenderController {
         case .UP:
             xInitial = CGFloat.random(in: scene.size.width * 0.06...scene.size.width * 0.94)
             yInitial = scene.size.height*1.1
+            
+            item.vy = -5
+            
+            
+          
         case .DOWN:
             xInitial = 0
         case .NONE:
@@ -159,8 +168,12 @@ class RenderController {
             xInitial = 0
 
         }
-        //if x = Int.random(in: <#T##Range<Int>#>)
-        //if y = Int.random(in: <#T##ClosedRange<Int>#>)
+        
+        item.node.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
+        item.node.position = CGPoint(x: xInitial, y: yInitial)
+        scene.addChild(item.node)
+        items.append(item)
+        
     }
     
     func createBadItems(){
@@ -198,14 +211,18 @@ class RenderController {
     func update(_ currentTime: TimeInterval) {
         playerNode.position = GameController.shared.gameData.player!.position
         if let player = GameController.shared.gameData.player {
-            //print(selectDinoCommand(command: player.gameCommand))
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
-            print("position",playerNode.position)
             pointsLabel.text = "\(player.points)"
             lifesLabel.text = "\(player.life)"
             drawFoodBar(food: player.foodBar, foodNodes: foodNodes)
         }
         
+        for item in items {
+            print(item)
+            item.node.position.x += CGFloat(item.vx)
+            item.node.position.y += CGFloat(item.vy)
+            
+        }
         
        
     }
