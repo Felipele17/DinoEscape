@@ -250,6 +250,7 @@
 				4AEAEF1027D676B100BBD809 /* DinoEscape macOS */,
 				4AEAEEEF27D676B000BBD809 /* Products */,
 				13842CF027E2758600E1F88E /* Recovered References */,
+				A6BC68EB27E2548E00093948 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -322,6 +323,14 @@
 				A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6BC68EB27E2548E00093948 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A611053327E1010F008ABC33 /* OFL.txt */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B0C948E727DBDA9600B671EA /* Scenes */ = {
@@ -751,7 +760,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -783,7 +792,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -816,7 +825,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -844,7 +853,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
