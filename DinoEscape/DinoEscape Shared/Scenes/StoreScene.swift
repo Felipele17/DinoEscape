@@ -211,15 +211,15 @@ class StoreScene: MyScene {
     func createGallery() -> SKSpriteNode {
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         //let button = createDino(name: .t_rex, posX: 0, posY: 0)
+        var vetor = [[DinoType.brachiosaurus, DinoType.t_rex], [DinoType.triceratops, DinoType.brachiosaurus], [DinoType.chickenosaurus, DinoType.stegosaurus]]
+        
         for i in 0..<3{
             for j in 0..<2{
-                if i == 2 && j == 0 {
-                    print("")
-                }
-                else{
-                    let button = createDino(name: .t_rex, posX: i, posY: j)
+                
+                
+                    let button = createDino(name: vetor[i][j], posX: i, posY: j)
                     gallery.addChild(button)
-                }
+                
             }
         }
         
