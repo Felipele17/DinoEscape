@@ -163,19 +163,22 @@ class GameController{
     }
     
     func nextLevel(points: Int){
-        if points >= 250 {
+        if points <= 250 {
+            renderer.changeBackground(named: Backgrounds.shared.redBackground())
+        }
+        else if points <= 500 {
             renderer.changeBackground(named: Backgrounds.shared.blueBackground())
         }
-        else if points >= 500 {
+        else if points <= 750 {
             renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
         }
-        else if points >= 750 {
+        else if points <= 1000 {
             renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
         }
-        else if points >= 1000 {
+        else if points <= 1500 {
             renderer.changeBackground(named: Backgrounds.shared.cityBackground())
         }
-        else if points >= 1500 {
+        else {
             renderer.changeBackground(named: Backgrounds.shared.planetBackground())
         }
     }
