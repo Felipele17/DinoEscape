@@ -11,18 +11,23 @@ import SpriteKit
 class HomeScene: MyScene {
     
     var btn = SKButton()
-    var pos = Int()
+    var btn2 = SKButton()
+    var btn3 = SKButton()
+    
     
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
         scene.scaleMode = .resizeFill
         return scene
     }
-    
+    #if os( tvOS )
     override func didMove(to view: SKView) {
-        <#code#>
+        self.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+
+        view.addGestureRecognizer(tap)
     }
-    
+    #endif
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
@@ -64,14 +69,16 @@ class HomeScene: MyScene {
 
         addChild(subtitle)
         
-        createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 0.75))
-        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 0.75))
-        
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
+        addChild(btn)
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 0.75))
+        addChild(btn2)
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 0.75))
+        addChild(btn3)
     }
     
     
-    func createButton(name: ButtonType, pos: Int, titleColor: SKColor)  {
+    func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
@@ -84,7 +91,7 @@ class HomeScene: MyScene {
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        btn = button
+    
         
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
@@ -101,8 +108,12 @@ class HomeScene: MyScene {
             }
         }
 
-        addChild(button)
         addChild(title)
+        
+        return button
+        
+        //addChild(button)
+        
         
     }
     
@@ -120,7 +131,19 @@ func addTapGestureRecognizer() {
 }
 
 @objc func tapped(sender: AnyObject) {
-    print("olá")
+    
+    if btn.isFocused {
+        let scene = GameScene.newGameScene()
+        self.view?.presentScene(scene)
+    }
+    if btn2.isFocused {
+        let scene = SettingsScene.newGameScene()
+        self.view?.presentScene(scene)
+    }
+    if btn3.isFocused {
+        let scene = StoreScene.newGameScene()
+        self.view?.presentScene(scene)
+    }
 }
 #endif
     
