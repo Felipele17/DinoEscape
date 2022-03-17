@@ -58,11 +58,6 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		A611053427E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053527E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053627E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053727E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
-		A611053827E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
 		A611053927E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
 		A6FEAD2427DFB8FD005D20C4 /* ButtonFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */; };
 		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
@@ -115,7 +110,6 @@
 		A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
-		A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		A611053327E1010F008ABC33 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFocus.swift; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
@@ -218,6 +212,7 @@
 				4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */,
 				4AEAEF1027D676B100BBD809 /* DinoEscape macOS */,
 				4AEAEEEF27D676B000BBD809 /* Products */,
+				A6BC68EB27E2548E00093948 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -284,22 +279,20 @@
 			path = "DinoEscape macOS";
 			sourceTree = "<group>";
 		};
-		A0635E8E27DFD162008EC4A1 /* Aldrich */ = {
-			isa = PBXGroup;
-			children = (
-				A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */,
-				A611053327E1010F008ABC33 /* OFL.txt */,
-			);
-			name = Aldrich;
-			path = ../../../../Downloads/Aldrich;
-			sourceTree = "<group>";
-		};
 		A611055F27E10DDF008ABC33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */,
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		A6BC68EB27E2548E00093948 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A611053327E1010F008ABC33 /* OFL.txt */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B0C948E727DBDA9600B671EA /* Scenes */ = {
@@ -705,7 +698,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -737,7 +730,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -770,7 +763,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -798,7 +791,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;

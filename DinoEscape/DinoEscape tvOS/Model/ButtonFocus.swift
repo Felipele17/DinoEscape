@@ -21,6 +21,7 @@ class ButtonFocus: SKNode {
     
     init(value: Int) {
         super.init()
+        let bg = SKSpriteNode()
         self.isUserInteractionEnabled = true
     }
     
@@ -30,5 +31,41 @@ class ButtonFocus: SKNode {
     
     override var canBecomeFocused: Bool {
         return true
+    }
+    
+    // alterando a inclinação do objeto
+    func getLeanGeometry(shift: Float, direction: Direction) -> [vector_float2] {
+        switch direction {
+        case .LEFT:
+            return [
+                vector_float2(0.0 + shift, 1.0 - shift), vector_float2(1.0 + shift, 1.0 + shift),
+                vector_float2(0.0 + shift, 0 + shift), vector_float2(1.0 + shift, 0 - shift)
+            ]
+            
+        case .RIGHT:
+            return [
+                vector_float2(0.0 - shift, 1.0 + shift), vector_float2(1.0 - shift, 1.0 - shift),
+                vector_float2(0.0 - shift, 0 - shift), vector_float2(1.0 - shift, 0 + shift)
+            ]
+        case .UP:
+            return [
+                vector_float2(0.0 - shift, 1.0 + shift), vector_float2(1.0 + shift, 1.0 + shift),
+                vector_float2(0.0 + shift, 0 + shift), vector_float2(1.0 - shift, 0 + shift)
+            ]
+        case .DOWN:
+            return [
+                vector_float2(0.0 + shift, 1.0 - shift), vector_float2(1.0 - shift, 1.0 - shift),
+                vector_float2(0.0 - shift, 0 - shift), vector_float2(1.0 + shift, 0 - shift)
+            ]
+        }
+    }
+    
+    func gainedFocus() {
+        if let bg = self.
+    }
+
+    
+    enum Direction: Int {
+        case UP = 0, RIGHT, DOWN, LEFT;
     }
 }
