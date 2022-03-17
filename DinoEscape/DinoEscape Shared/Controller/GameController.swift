@@ -97,7 +97,7 @@ class GameController{
     }
     
     // MARK: Itens na tela
-    func createGoodItems(){
+    func createItems(){
         
         let badOrGood = Int.random(in: 0...1)
         let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
@@ -131,9 +131,6 @@ class GameController{
             yInitial = renderer.scene.size.height * -0.1
             
             item.vy = 5
-        case .NONE:
-            xInitial = 0
-
         case .RIGHT:
             xInitial = renderer.scene.size.width * 1.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
@@ -145,10 +142,10 @@ class GameController{
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
             
             item.vx = 5
-
+        case .NONE:
+            print()
         case .DEAD:
-            xInitial = 0
-
+            print()
         }
         
         item.node.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
@@ -160,7 +157,7 @@ class GameController{
     
     func recursiveActionItems(){
         let recursive = SKAction.sequence([
-            SKAction.run(createGoodItems),
+            SKAction.run(createItems),
             SKAction.wait(forDuration: 1),
             SKAction.run({[unowned self] in self.recursiveActionItems()})
         ])

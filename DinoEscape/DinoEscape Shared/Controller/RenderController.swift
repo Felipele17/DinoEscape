@@ -51,14 +51,14 @@ class RenderController {
         
         // foodBar
         for i in foodNodes { scene.addChild(i) }
-        drawFoodBar(food: 0.8, foodNodes: foodNodes)
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 10, foodNodes: foodNodes)
         
         
         //player
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
         
-
+        drawDestroierRects()
         
         #if os( iOS)
         drawAnalogic()
@@ -88,7 +88,7 @@ class RenderController {
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let foodMultiplier: Int = Int(food / 2) - 1
+        let foodMultiplier: Int = Int(food / 4) - 1
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
@@ -116,6 +116,40 @@ class RenderController {
         
         scene.addChild(item.node)
         items.append(item)
+    }
+    
+    func drawDestroierRects() {
+        
+        for i in 0..<4 {
+            let rect = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
+
+            if i < 2 {
+                rect.size = CGSize(width: scene.size.width, height: 20)
+                rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: scene.size.width, height: 20))
+                if i == 0 {
+                    rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height*1.2)
+                } else {
+                    rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height * -0.2)
+                }
+            } else {
+                rect.size = CGSize(width: 20, height: scene.size.height)
+                rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: scene.size.height))
+                if i == 2 {
+                    rect.position = CGPoint(x: scene.size.width*1.2, y: scene.size.height/2)
+                } else {
+                    rect.position = CGPoint(x: scene.size.width * -0.2, y: scene.size.height/2)
+                }
+            }
+            print(rect.position)
+            rect.physicsBody?.affectedByGravity = false
+            rect.physicsBody?.allowsRotation = false
+            rect.physicsBody?.affectedByGravity = false
+            rect.physicsBody?.contactTestBitMask = rect.physicsBody!.collisionBitMask
+            
+            rect.name = "rect"
+            scene.addChild(rect)
+
+        }
     }
     
     // MARK: Desenho do dinossauro
@@ -153,7 +187,6 @@ class RenderController {
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
             pointsLabel.text = "\(player.points)"
             lifesLabel.text = "\(player.life)"
-            drawFoodBar(food: player.foodBar, foodNodes: foodNodes)
         }
         
         for item in items {
