@@ -42,8 +42,19 @@ class GameScene: MyScene {
 // Touch-based event handling
 extension GameScene {
     
+    public func changePlayerCommand(vx: CGFloat, vy: CGFloat)  -> GameCommand {
+        if (vx < 0.2) && (vx > -0.2) && vy > 0 { return .UP }
+        if (vx < 0.2) && (vx > -0.2) && vy < 0 { return .DOWN }
+        if  vx <= -0.2 { return .LEFT }
+        if  vx >=  0.2 { return .RIGHT }
+        return .LEFT
+    }
+    
+    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        print("tocou")
+        
         
     }
     
@@ -51,12 +62,21 @@ extension GameScene {
         super.touchesMoved(touches, with: event)
         for touch in touches {
             let location = touch.location(in: scene!)
+            let velocityX = (location.x) / 100
+            print("batata",location.x)
+            let velocityY = (location.y) / 100
+            
+            GameController.shared.gameData.player?.gameCommand = changePlayerCommand(vx: velocityX, vy: velocityY)
+            
+            GameController.shared.movePlayer(dx: GameController.shared.gameData.player?.dinoVx ?? 0, dy: GameController.shared.gameData.player?.dinoVy ?? 0)
+
+
         }
+        
     }
     
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesEnded(touches, with: event)
-        
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {

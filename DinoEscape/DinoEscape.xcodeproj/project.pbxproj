@@ -44,6 +44,8 @@
 		13842CEC27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CED27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
+		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		13842CF227E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
@@ -61,11 +63,6 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		A611053427E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053527E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053627E1010F008ABC33 /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */; };
-		A611053727E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
-		A611053827E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
 		A611053927E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
 		A6FEAD2427DFB8FD005D20C4 /* ButtonFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */; };
 		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
@@ -136,7 +133,6 @@
 		A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
-		A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		A611053327E1010F008ABC33 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFocus.swift; sourceTree = "<group>"; };
 		B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonType.swift; sourceTree = "<group>"; };
@@ -236,6 +232,14 @@
 			path = "DinoEscape Shared/Aldrich";
 			sourceTree = SOURCE_ROOT;
 		};
+		13842CF027E2758600E1F88E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A611053327E1010F008ABC33 /* OFL.txt */,
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		4AEAEEE027D676AE00BBD809 = {
 			isa = PBXGroup;
 			children = (
@@ -245,6 +249,7 @@
 				4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */,
 				4AEAEF1027D676B100BBD809 /* DinoEscape macOS */,
 				4AEAEEEF27D676B000BBD809 /* Products */,
+				13842CF027E2758600E1F88E /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -309,16 +314,6 @@
 				4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */,
 			);
 			path = "DinoEscape macOS";
-			sourceTree = "<group>";
-		};
-		A0635E8E27DFD162008EC4A1 /* Aldrich */ = {
-			isa = PBXGroup;
-			children = (
-				A611053227E1010F008ABC33 /* Aldrich-Regular.ttf */,
-				A611053327E1010F008ABC33 /* OFL.txt */,
-			);
-			name = Aldrich;
-			path = ../../../../Downloads/Aldrich;
 			sourceTree = "<group>";
 		};
 		A611055F27E10DDF008ABC33 /* Model */ = {
@@ -537,6 +532,7 @@
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
+				13842CF127E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				A6FEAD2427DFB8FD005D20C4 /* ButtonFocus.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
@@ -581,6 +577,7 @@
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
+				13842CF227E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
 				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
@@ -755,7 +752,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -788,7 +784,6 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 9R89XP5A63;
-
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -821,8 +816,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -850,9 +844,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-
-DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
