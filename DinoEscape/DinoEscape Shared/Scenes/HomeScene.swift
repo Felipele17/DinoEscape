@@ -10,6 +10,8 @@ import SpriteKit
 
 class HomeScene: MyScene {
     
+    var btn = SKButton()
+    
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
         scene.scaleMode = .resizeFill
@@ -72,6 +74,7 @@ class HomeScene: MyScene {
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        btn = button
         
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
@@ -104,7 +107,7 @@ class HomeScene: MyScene {
 #if os( tvOS )
 extension HomeScene {
     override var preferredFocusEnvironments: [UIFocusEnvironment]{
-        return [button]
+        return [btn]
     }
 }
 #endif

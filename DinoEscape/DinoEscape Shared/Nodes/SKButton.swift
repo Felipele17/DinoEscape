@@ -47,31 +47,7 @@ class SKButton: SKSpriteNode {
         }
     }
     
-}
-
-
-
-extension SKButton {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isButtonEnabled{
-            state = .selected
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if isButtonEnabled {
-            selectedHandler()
-            state = .active
-        }
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-    }
-    
-    #if os( tvOS )
+#if os( tvOS )
     var touchStart: CGPoint?
     var isFocused: Bool = true
     
@@ -80,16 +56,6 @@ extension SKButton {
         vector_float2(0,1),     vector_float2(1,1),
         vector_float2(0,0),     vector_float2(1,0)
     ]
-    
-    init(value: Int) {
-        super.init()
-        let bg = SKSpriteNode()
-        self.isUserInteractionEnabled = true
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     override var canBecomeFocused: Bool {
         return isFocused
@@ -135,12 +101,36 @@ extension SKButton {
             self.alpha = 1
         }
     }
-
+    
     
     enum Direction: Int {
         case UP = 0, RIGHT, DOWN, LEFT;
     }
-    #endif
+#endif
+    
+}
+
+
+
+extension SKButton {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isButtonEnabled{
+            state = .selected
+        }
+    }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isButtonEnabled {
+            selectedHandler()
+            state = .active
+        }
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+    }
 }
 
 
