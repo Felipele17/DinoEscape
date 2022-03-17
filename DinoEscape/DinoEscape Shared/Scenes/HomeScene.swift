@@ -8,12 +8,12 @@
 import Foundation
 import SpriteKit
 
-class HomeScene: SKScene {
+class HomeScene: MyScene {
     
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
         scene.scaleMode = .resizeFill
-        GameController.shared.setScene(scene: scene)
+        //GameController.shared.setScene(scene: scene)
         return scene
     }
     
@@ -53,14 +53,13 @@ class HomeScene: SKScene {
 
         addChild(subtitle)
         
-        createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
-        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
-    
+        createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1), scene:  GameScene.newGameScene())
+        //createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1), scene: SettingsScene.newGameScene())
+        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1), scene: EggScene.newGameScene())
     }
     
     
-    func createButton(name: ButtonType, pos: Int, titleColor: SKColor) {
+    func createButton(name: ButtonType, pos: Int, titleColor: SKColor, scene: SKScene) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
@@ -78,7 +77,8 @@ class HomeScene: SKScene {
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
        
         button.selectedHandler = {
-            print(name)
+            let scene = scene
+            self.view?.presentScene(scene)
         }
         addChild(button)
         addChild(title)
