@@ -17,57 +17,72 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node else {return}
         guard let nodeB = contact.bodyB.node else {return}
-        
+                
         checkDestroier(nodeA: nodeA, nodeB: nodeB)
         
-        if (nodeA.name == "dinossauro" && nodeB.name == "good") {
-            nodeB.removeFromParent()
-            if let player = GameController.shared.gameData.player {
-                player.points += 10
-                if player.foodBar < 20 {
-                    player.foodBar += 1
-                }
-                GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
-            }
-            
-            //GameController.shared.renderer.items.remove(at: items.firstIndex(of: nodeB.)!)
-        } else if (nodeA.name == "good" && nodeB.name == "dinossauro") {
-            nodeA.removeFromParent()
-            if let player = GameController.shared.gameData.player {
-                player.points += 10
-                if player.foodBar < 20 {
-                    player.foodBar += 1
-                }
-                GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
-            }
-        } else if (nodeA.name == "dinossauro" && nodeB.name == "bad") {
-            nodeB.removeFromParent()
-            if let player = GameController.shared.gameData.player {
-                //player.life -= 1
-                if player.foodBar > 2 {
-                    player.foodBar -= 2
-                }
-                GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
-            }
-        } else if (nodeA.name == "bad" && nodeB.name == "dinossauro") {
-            nodeA.removeFromParent()
-            if let player = GameController.shared.gameData.player {
-                if player.foodBar > 2 {
-                    player.foodBar -= 2
-                }
-                GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
-            }
-        }
-
+        checkDinoContact(nodeA: nodeA, nodeB: nodeB)
+        
     }
     
     func checkDestroier(nodeA: SKNode, nodeB: SKNode) {
-        if (nodeA.name == "rect" && nodeB.name == "good") || (nodeA.name == "rect" && nodeB.name == "bad"){
+        if nodeA.name == "rect" {
             nodeB.removeFromParent()
-            print("deleta")
-        } else if (nodeA.name == "good" && nodeB.name == "rect") || (nodeA.name == "bad" && nodeB.name == "rect") {
+        } else if nodeB.name == "rect" {
             nodeA.removeFromParent()
-            print("deleta")
+        }
+    }
+    
+    func checkDinoContact(nodeA: SKNode, nodeB: SKNode){
+        if nodeA.name == "dinossauro" {
+            if nodeB.name == "good" {
+                feedDino()
+            } else if nodeB.name == "bad" {
+                hungryDino()
+            } else if nodeB.name == "meteoro" {
+                meteorDino()
+            }
+            nodeB.removeFromParent()
+            //GameController.shared.renderer.items.remove(at: GameController.shared.renderer.items.firstIndex(of: nodeA as! Items)!)
+        } else if nodeB.name == "dinossauro" {
+            if nodeA.name == "good" {
+                feedDino()
+            } else if nodeA.name == "bad" {
+                hungryDino()
+            } else if nodeA.name == "meteoro" {
+                meteorDino()
+            }
+            nodeA.removeFromParent()
+            //GameController.shared.renderer.items.remove(at: GameController.shared.renderer.items.firstIndex(of: nodeA as! Items)!)
+        }
+    }
+    
+    func feedDino(){
+        if let player = GameController.shared.gameData.player {
+            player.points += 10
+            if player.foodBar < 20 {
+                player.foodBar += 1
+            }
+            GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
+        }
+    }
+    
+    func hungryDino(){
+        if let player = GameController.shared.gameData.player {
+            //player.life -= 1
+            if player.foodBar > 2 {
+                player.foodBar -= 2
+            }
+            GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
+        }
+    }
+    
+    func meteorDino(){
+        if let player = GameController.shared.gameData.player {
+            player.life -= 1
+            if player.life <= 0{
+                player.gameCommand = .DEAD
+            }
         }
     }
 }
+

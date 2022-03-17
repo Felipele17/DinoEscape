@@ -111,10 +111,10 @@ class RenderController {
     
     func drawItem(item: Items){
         //item.node.name = "good"
-        item.node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.node.size.height*0.5, height: item.node.size.height*0.5))
-        item.node.physicsBody?.isDynamic = false
+        item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.height*0.5, height: item.size.height*0.5))
+        item.physicsBody?.isDynamic = false
         
-        scene.addChild(item.node)
+        scene.addChild(item)
         items.append(item)
     }
     
@@ -190,8 +190,8 @@ class RenderController {
         }
         
         for item in items {
-            item.node.position.x += CGFloat(item.vx)
-            item.node.position.y += CGFloat(item.vy)
+            item.position.x += CGFloat(item.vx)
+            item.position.y += CGFloat(item.vy)
             
         }
         

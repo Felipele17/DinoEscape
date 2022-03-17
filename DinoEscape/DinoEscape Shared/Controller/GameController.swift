@@ -100,9 +100,11 @@ class GameController{
     func createItems(){
         
         let badOrGood = Int.random(in: 0...1)
+        let spoiledOrMeteor = Int.random(in: 0...1)
+
         let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
-        let goodImages: [String] = ["cherry", "banana", "apple"]
-        let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple", "meteoro1"]
+        let goodImages: [String] = ["cherry","banana","apple"]
+        let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple"]
         let direction = directions[Int.random(in: 0..<directions.count)]
         let item = Items(image: "", vy: 0, vx: 0, direction: direction)
         
@@ -111,11 +113,17 @@ class GameController{
         var yInitial: CGFloat = 0
         
         if badOrGood == 1 {
-            item.node.texture = SKTexture(imageNamed: goodImages[Int.random(in: 0..<goodImages.count)])
-            item.node.name = "good"
+            item.texture = SKTexture(imageNamed: goodImages[Int.random(in: 0..<goodImages.count)])
+            item.name = "good"
         } else {
-            item.node.texture = SKTexture(imageNamed: badImages[Int.random(in: 0..<badImages.count)])
-            item.node.name = "bad"
+            if spoiledOrMeteor == 1 {
+                item.texture = SKTexture(imageNamed: badImages[Int.random(in: 0..<badImages.count)])
+                item.name = "bad"
+            } else {
+                item.texture = SKTexture(imageNamed: "meteoro1")
+                item.name = "meteoro"
+            }
+            
         }
         
         
@@ -148,8 +156,8 @@ class GameController{
             print()
         }
         
-        item.node.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
-        item.node.position = CGPoint(x: xInitial, y: yInitial)
+        item.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
+        item.position = CGPoint(x: xInitial, y: yInitial)
         
         renderer.drawItem(item: item)
         
