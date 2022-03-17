@@ -19,11 +19,19 @@ class HomeScene: MyScene {
         return scene
     }
     
+    override func didMove(to view: SKView) {
+        <#code#>
+    }
+    
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        
+        #if os( tvOS )
+        addTapGestureRecognizer()
+        #endif
         
         removeAllChildren()
         removeAllActions()
