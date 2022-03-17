@@ -29,13 +29,14 @@ class StoreScene: MyScene {
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0)
-        createSegButton(name: .dinos ,pos: 1)
+        createSegButton(image: .eggs, pos: 0, name: .ovo)
+        createSegButton(image: .dinos, pos: 1, name: .dinos)
+        
    
         addChild(createGallery())
         
-        createShopButtons(name: .buy, pos: 0)
-        createShopButtons(name: .buy, pos: 1)
+        createShopButtons(image: .buy, name: .bai, pos: 0)
+        createShopButtons(image: .selected, name: .selecionado, pos: 1)
         
         let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
         
@@ -45,39 +46,38 @@ class StoreScene: MyScene {
         
     }
     
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
-        texture.filteringMode = .nearest
-        
-        let w: CGFloat = size.width / 4
-        let h = w * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        adsButton.position = CGPoint(
-            x: adsButton.frame.width / 1.1 + CGFloat(pos) * adsButton.frame.width * 1.2,
-            y: size.height / 1.1 )
-        
-        
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
-    }
+//    func createADSButton(pos: Int) -> SKButton {
+//        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
+//        texture.filteringMode = .nearest
+//        
+//        let w: CGFloat = size.width / 4
+//        let h = w * texture.size().height / texture.size().width
+//        
+//        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+//        
+//        adsButton.position = CGPoint(
+//            x: adsButton.frame.width / 1.1 + CGFloat(pos) * adsButton.frame.width * 1.2,
+//            y: size.height / 1.1 )
+//        
+//        
+//        
+//        adsButton.selectedHandler = {
+//            print("ads")
+//            
+//        }
+//        
+//        return adsButton
+//        
+//    }
     
-    func createShopButtons(name: BuyButtonType, pos: Int) {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    func createShopButtons(image: BuyButtonType, name: StoreStrings, pos: Int) {
+        let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3
         let h = w * texture.size().height / texture.size().width
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 6 )
@@ -89,13 +89,22 @@ class StoreScene: MyScene {
             
         }
         
+        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        text.fontName = "Aldrich-Regular"
+        text.fontSize = 20
+        text.numberOfLines = 1
+        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
+        text.position = CGPoint(x: buyButton.size.width/2, y: buyButton.size.height/2)
+        
         addChild(buyButton)
+        buyButton.addChild(text)
+
         
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int) {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    func createSegButton(image: SegmentageType, pos: Int, name: StoreStrings) {
+        let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3.5
@@ -105,13 +114,13 @@ class StoreScene: MyScene {
         
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.1,
+            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
         
         
         
         segmentage.selectedHandler = {
-            if name == .eggs {
+            if name == .ovo {
                 self.view?.presentScene(EggScene.newGameScene())
             } else if name == .dinos {
                 self.view?.presentScene(StoreScene.newGameScene())
@@ -119,8 +128,16 @@ class StoreScene: MyScene {
                 print("out of the range")
             }
         }
+        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        text.fontName = "Aldrich-Regular"
+        text.fontSize = 20
+        text.numberOfLines = 1
+        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
+        text.position = CGPoint(x: segmentage.size.width/2, y: segmentage.size.height/2)
         
         addChild(segmentage)
+        segmentage.addChild(text)
+
         
     }
         
@@ -154,7 +171,7 @@ class StoreScene: MyScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
+//        reader.addChild(createADSButton(pos: 0))
         return reader
     }
     
