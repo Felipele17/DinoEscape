@@ -11,7 +11,7 @@ import SpriteKit
 class ButtonFocus: SKNode {
 
     var touchStart: CGPoint?
-    var isFocused: Bool = false
+    var isFocused: Bool = true
     
     // mexendo com o joystick
     let sourcePositions: [vector_float2] = [
@@ -30,7 +30,7 @@ class ButtonFocus: SKNode {
     }
     
     override var canBecomeFocused: Bool {
-        return true
+        return isFocused
     }
     
     // alterando a inclinação do objeto
@@ -60,8 +60,18 @@ class ButtonFocus: SKNode {
         }
     }
     
-    func gainedFocus() {
-        if let bg = self.
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if context.previouslyFocusedItem === self {
+            self.setScale(self.xScale/1.1)
+            self.setScale(self.yScale/1.1)
+            self.alpha = 0.75
+        }
+        
+        if context.nextFocusedItem === self {
+            self.setScale(self.xScale * 1.1)
+            self.setScale(self.yScale * 1.1)
+            self.alpha = 1
+        }
     }
 
     
