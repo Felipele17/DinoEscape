@@ -41,14 +41,14 @@ class StoreScene: MyScene {
         
         let dinoImage: SKSpriteNode = SKSpriteNode(imageNamed: dinoChoosed)
         
-        dinoImage.position = CGPoint(x: size.width/2, y: size.height/2.8)
-        dinoImage.size = CGSize(width: size.width/1.35, height: size.height/3)
+        dinoImage.position = CGPoint(x: size.width/2, y: size.height/2.6)
+        dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
         addChild(dinoImage)
         
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -82,7 +82,7 @@ class StoreScene: MyScene {
         
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6.5 )
+            y: size.height / 6 )
         
         
         
@@ -108,7 +108,7 @@ class StoreScene: MyScene {
         
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.05,
-            y: size.height / 1.26 )
+            y: size.height / 1.2 )
         
         
         segmentage.selectedHandler = {
@@ -138,7 +138,7 @@ class StoreScene: MyScene {
         
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
-            y: size.height / 1.68 + CGFloat(posY) * dinoButton.frame.height * 1.1 )
+            y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
         
         
         

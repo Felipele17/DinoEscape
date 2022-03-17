@@ -37,14 +37,14 @@ class EggScene: SKScene {
         
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
         
-        egg.position = CGPoint(x: size.width/2, y: size.height/2.1)
-        egg.size = CGSize(width: size.width/1.5, height: size.height/2)
+        egg.position = CGPoint(x: size.width/2, y: size.height/2)
+        egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
         addChild(egg)
         
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4
@@ -78,7 +78,7 @@ class EggScene: SKScene {
         
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6.5 )
+            y: size.height / 6 )
         
         
         
@@ -102,8 +102,8 @@ class EggScene: SKScene {
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
-            y: size.height / 1.26 )
+            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.05,
+            y: size.height / 1.2 )
         
         segmentage.selectedHandler = {
             if name == .eggs {
@@ -120,31 +120,7 @@ class EggScene: SKScene {
     }
         
     
-    func createDino(name: DinoType, posX: Int, posY: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
-        texture.filteringMode = .nearest
-        
-        let w: CGFloat = size.width / 4.8
-        let h = w * texture.size().height / texture.size().width
-        
-        let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        
-        dinoButton.position = CGPoint(
-            x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
-            y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
-        
-        
-        
-        dinoButton.selectedHandler = {
-            print(name)
-            
-        }
-        
-        return dinoButton
-        
-    }
-    
+   
     func createReader(coins: Int) -> SKSpriteNode {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
