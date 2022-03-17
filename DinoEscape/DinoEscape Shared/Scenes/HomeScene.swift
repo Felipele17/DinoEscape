@@ -11,6 +11,7 @@ import SpriteKit
 class HomeScene: MyScene {
     
     var btn = SKButton()
+    var pos = Int()
     
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
@@ -56,8 +57,9 @@ class HomeScene: MyScene {
         addChild(subtitle)
         
         createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
-        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 0.75))
+        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 0.75))
+        
     }
     
     
@@ -90,10 +92,10 @@ class HomeScene: MyScene {
                 print("out of range")
             }
         }
+
         addChild(button)
         addChild(title)
         
-        //return button
     }
     
     
@@ -102,6 +104,17 @@ class HomeScene: MyScene {
         
         setUpScene()
     }
+    
+#if os( tvOS )
+func addTapGestureRecognizer() {
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+    self.scene?.view?.addGestureRecognizer(tapRecognizer)
+}
+
+@objc func tapped(sender: AnyObject) {
+    print("olá")
+}
+#endif
     
 }
 #if os( tvOS )

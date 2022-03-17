@@ -67,7 +67,6 @@
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		A611053927E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
-		A6FEAD2427DFB8FD005D20C4 /* ButtonFocus.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */; };
 		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
 		B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
@@ -138,7 +137,6 @@
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A611053327E1010F008ABC33 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
-		A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonFocus.swift; sourceTree = "<group>"; };
 		B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonType.swift; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
 		B0C948E827DBDBB100B671EA /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
@@ -324,7 +322,6 @@
 		A611055F27E10DDF008ABC33 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				A6FEAD2327DFB8FD005D20C4 /* ButtonFocus.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -549,7 +546,6 @@
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
 				13842CF127E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
-				A6FEAD2427DFB8FD005D20C4 /* ButtonFocus.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
