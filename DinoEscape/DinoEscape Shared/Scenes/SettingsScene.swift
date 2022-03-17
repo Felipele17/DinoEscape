@@ -111,6 +111,32 @@ class SettingsScene: MyScene {
         addChild(title)
     }
     
+    func createSwitch(pos: CGPoint, name: String) {
+        let texture: SKTexture = SKTexture(imageNamed: "switchON")
+        texture.filteringMode = .nearest
+    
+        let w: CGFloat = size.width / 4.8
+        let h = w * texture.size().height / texture.size().width
+        
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = pos
+       
+        button.selectedHandler = {
+            if name == "sound" {
+                //ação de ligar e desligar som
+                //trocar imagem
+            } else if name == "music" {
+                //ação de ligar e desligar musica
+                //trocar imagem
+            } else {
+                //ação de ligar e desligar vibração
+                //trocar imagem
+            }
+        }
+        addChild(button)
+    }
+    
+    
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint) {
         let label: SKLabelNode = SKLabelNode(text: text)
         label.fontName = "Aldrich-Regular"
