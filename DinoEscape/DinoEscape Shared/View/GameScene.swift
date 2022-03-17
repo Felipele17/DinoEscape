@@ -21,6 +21,11 @@ class GameScene: MyScene {
     
     func setUpScene() {
         GameController.shared.setupScene()
+        
+        #if os(tvOS)
+        self.setGesture()
+        #endif
+        
     }
     override func didMove(to view: SKView) {
         //setando a cena
@@ -36,11 +41,32 @@ class GameScene: MyScene {
         // Called before each frame is rendered
         GameController.shared.update(currentTime)
     }
+    
 }
 
 #if os(tvOS)
 // Touch-based event handling
 extension GameScene {
+    
+    func setGesture(){
+        let swipeUp : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeUp.direction = .up
+                
+        let swipeDown: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeDown.direction = .down
+        
+        let swipeLeft : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeLeft.direction = .left
+
+        let swipeRight : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        swipeRight.direction = .right
+        
+        self.view?.addGestureRecognizer(swipeUp)
+        self.view?.addGestureRecognizer(swipeDown)
+        self.view?.addGestureRecognizer(swipeLeft)
+        self.view?.addGestureRecognizer(swipeRight)
+    }
+    
     
     public func changePlayerCommand(vx: CGFloat, vy: CGFloat)  -> GameCommand {
         if (vx < 0.2) && (vx > -0.2) && vy > 0 { return .UP }
@@ -53,7 +79,6 @@ extension GameScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        print("tocou")
         
         
     }
@@ -63,7 +88,6 @@ extension GameScene {
         for touch in touches {
             let location = touch.location(in: scene!)
             let velocityX = (location.x) / 100
-            print("batata",location.x)
             let velocityY = (location.y) / 100
             
             GameController.shared.gameData.player?.gameCommand = changePlayerCommand(vx: velocityX, vy: velocityY)
@@ -81,6 +105,12 @@ extension GameScene {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
         
+    }
+    
+    @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                GameController.shared.getSwipe(swipe: swipeGesture)
+            }
     }
     
     

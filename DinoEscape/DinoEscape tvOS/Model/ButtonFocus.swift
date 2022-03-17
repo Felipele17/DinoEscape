@@ -61,7 +61,7 @@ class ButtonFocus: SKNode {
     }
     
     func gainedFocus() {
-        if let bg = self.
+        //if let bg = self.
     }
 
     
