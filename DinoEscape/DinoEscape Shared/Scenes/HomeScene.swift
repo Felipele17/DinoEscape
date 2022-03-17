@@ -59,7 +59,7 @@ class HomeScene: MyScene {
     }
     
     
-    func createButton(name: ButtonType, pos: Int, titleColor: SKColor) {
+    func createButton(name: ButtonType, pos: Int, titleColor: SKColor)  {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
@@ -89,6 +89,8 @@ class HomeScene: MyScene {
         }
         addChild(button)
         addChild(title)
+        
+        //return button
     }
     
     
@@ -99,4 +101,10 @@ class HomeScene: MyScene {
     }
     
 }
-
+#if os( tvOS )
+extension HomeScene {
+    override var preferredFocusEnvironments: [UIFocusEnvironment]{
+        return [button]
+    }
+}
+#endif

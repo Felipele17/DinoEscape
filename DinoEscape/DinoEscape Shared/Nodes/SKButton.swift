@@ -70,5 +70,77 @@ extension SKButton {
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
+    
+    #if os( tvOS )
+    var touchStart: CGPoint?
+    var isFocused: Bool = true
+    
+    // mexendo com o joystick
+    let sourcePositions: [vector_float2] = [
+        vector_float2(0,1),     vector_float2(1,1),
+        vector_float2(0,0),     vector_float2(1,0)
+    ]
+    
+    init(value: Int) {
+        super.init()
+        let bg = SKSpriteNode()
+        self.isUserInteractionEnabled = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override var canBecomeFocused: Bool {
+        return isFocused
+    }
+    
+    // alterando a inclinação do objeto
+    func getLeanGeometry(shift: Float, direction: Direction) -> [vector_float2] {
+        switch direction {
+        case .LEFT:
+            return [
+                vector_float2(0.0 + shift, 1.0 - shift), vector_float2(1.0 + shift, 1.0 + shift),
+                vector_float2(0.0 + shift, 0 + shift), vector_float2(1.0 + shift, 0 - shift)
+            ]
+            
+        case .RIGHT:
+            return [
+                vector_float2(0.0 - shift, 1.0 + shift), vector_float2(1.0 - shift, 1.0 - shift),
+                vector_float2(0.0 - shift, 0 - shift), vector_float2(1.0 - shift, 0 + shift)
+            ]
+        case .UP:
+            return [
+                vector_float2(0.0 - shift, 1.0 + shift), vector_float2(1.0 + shift, 1.0 + shift),
+                vector_float2(0.0 + shift, 0 + shift), vector_float2(1.0 - shift, 0 + shift)
+            ]
+        case .DOWN:
+            return [
+                vector_float2(0.0 + shift, 1.0 - shift), vector_float2(1.0 - shift, 1.0 - shift),
+                vector_float2(0.0 - shift, 0 - shift), vector_float2(1.0 + shift, 0 - shift)
+            ]
+        }
+    }
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        if context.previouslyFocusedItem === self {
+            self.setScale(self.xScale/1.1)
+            self.setScale(self.yScale/1.1)
+            self.alpha = 0.75
+        }
+        
+        if context.nextFocusedItem === self {
+            self.setScale(self.xScale * 1.1)
+            self.setScale(self.yScale * 1.1)
+            self.alpha = 1
+        }
+    }
+
+    
+    enum Direction: Int {
+        case UP = 0, RIGHT, DOWN, LEFT;
+    }
+    #endif
 }
+
 
