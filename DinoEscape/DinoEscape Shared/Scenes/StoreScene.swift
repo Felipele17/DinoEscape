@@ -51,14 +51,14 @@ class StoreScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 4
+        let w: CGFloat = size.width / 16
         let h = w * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         adsButton.position = CGPoint(
-            x: adsButton.frame.width / 1.1 + CGFloat(pos) * adsButton.frame.width * 1.2,
-            y: size.height / 1.15 )
+            x: size.width/1.102,
+            y: size.height/1.103)
         
         
         
@@ -156,18 +156,20 @@ class StoreScene: MyScene {
         
         reader.addChild(createTotalCoin(coins: coins))
         reader.addChild(createADSButton(pos: 0))
+        reader.addChild(createBackButton())
         return reader
     }
+    
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
-        let w: CGFloat = size.width / 20
-        let h = w * coinTotal.size.height / coinTotal.size.width
+        let w: CGFloat = size.width / 15
+        let h = w * coinTotal.size.height / coinTotal.size.width / 2
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: size.width/1.5, y: size.height/1.1)
+        coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
@@ -175,13 +177,36 @@ class StoreScene: MyScene {
         total.fontSize = 30
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-        total.position = CGPoint(x: size.width/1.25, y: size.height/1.15)
+        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
         
+        
         return coinTotal
     }
+    
+    
+    func createBackButton() -> SKButton {
+        
+        let texture = SKTexture(imageNamed: "coin")
+        texture.filteringMode = .nearest
+        
+        
+        let w: CGFloat = size.width / 15
+        let h = w * texture.size().height / texture.size().width
+        
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
+        button.selectedHandler = {
+            self.view?.presentScene(HomeScene.newGameScene())
+        
+        }
+        return button
+        
+   
+    }
+    
     
     func createGallery() -> SKSpriteNode {
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
