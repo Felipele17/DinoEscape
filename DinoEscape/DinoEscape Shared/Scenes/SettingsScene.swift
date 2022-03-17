@@ -58,24 +58,27 @@ class SettingsScene: MyScene {
         createLabel(text: "  Sound \n effects",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/1.7)
+                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
         )
-        
         
         createLabel(text: "Music",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/2.05)
+                    position: CGPoint(x: size.width/2.83, y: size.height/2.07)
         )
         
         createLabel(text: "Vibration",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/2.535)
+                    position: CGPoint(x: size.width/2.5, y: size.height/2.555)
         )
         createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
         createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        
+        createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "sound")
+        createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "music")
+        createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.535), name: "vibration")
     }
     
     
@@ -111,29 +114,43 @@ class SettingsScene: MyScene {
         addChild(title)
     }
     
+    func changeSwitchImageState(switchButton: SKButton, state: inout Bool){
+
+        if state {
+            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+        } else {
+            switchButton.texture = SKTexture(imageNamed: "switchON")
+        }
+        state.toggle()
+    }
+    
     func createSwitch(pos: CGPoint, name: String) {
+    
+        var state: Bool = true
+
         let texture: SKTexture = SKTexture(imageNamed: "switchON")
         texture.filteringMode = .nearest
     
-        let w: CGFloat = size.width / 4.8
+        let w: CGFloat = size.width / 6.0
         let h = w * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        button.position = pos
+        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        switchButton.position = pos
        
-        button.selectedHandler = {
+        switchButton.selectedHandler = {
             if name == "sound" {
+                self.changeSwitchImageState(switchButton: switchButton, state: &state)
                 //ação de ligar e desligar som
-                //trocar imagem
             } else if name == "music" {
+                self.changeSwitchImageState(switchButton: switchButton, state: &state)
+            
                 //ação de ligar e desligar musica
-                //trocar imagem
             } else {
-                //ação de ligar e desligar vibração
-                //trocar imagem
+                self.changeSwitchImageState(switchButton: switchButton, state: &state)
+                
             }
         }
-        addChild(button)
+        addChild(switchButton)
     }
     
     

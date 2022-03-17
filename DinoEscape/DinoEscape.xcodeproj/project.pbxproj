@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		068DACD527E3C70A00AEF075 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -548,6 +549,7 @@
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
+				068DACD527E3C70A00AEF075 /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
 				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
@@ -719,8 +721,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -752,8 +753,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -786,8 +786,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -815,9 +814,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-
-DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -848,9 +845,7 @@ DEVELOPMENT_TEAM = 9R89XP5A63;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
- 
-				DEVELOPMENT_TEAM = 9R89XP5A63;
-
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -880,7 +875,7 @@ DEVELOPMENT_TEAM = 9R89XP5A63;
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
