@@ -91,6 +91,9 @@
 		DF03BE4227E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4327E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4427E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
+		DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
+		DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
+		DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -138,6 +141,7 @@
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
 		DF03BE4127E25D770005E872 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
+		DF0C0C8627E3CD16001BBAFA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,6 +189,7 @@
 				133F7B9527D6835D0012CFDD /* PowerUp.swift */,
 				132E23F427E130E2006CDEAB /* Items.swift */,
 				DF03BE4127E25D770005E872 /* MyScene.swift */,
+				DF0C0C8627E3CD16001BBAFA /* Background.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -478,6 +483,7 @@
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
+				DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
@@ -510,6 +516,7 @@
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
+				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
 				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
@@ -540,6 +547,7 @@
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
+				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
 				132E23F727E130E2006CDEAB /* Items.swift in Sources */,

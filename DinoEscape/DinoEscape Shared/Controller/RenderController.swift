@@ -12,11 +12,11 @@ class RenderController {
     
     // MARK: Array de itens
     var items: [Items] = []
-    var item: Items?
+    var itemCount: Int = 0
     
     var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
-    var background: SKSpriteNode = SKSpriteNode(imageNamed: "coverTeste")
+    var background: SKSpriteNode = SKSpriteNode(imageNamed: Backgrounds.shared.redBackground())
     var hitBoxNode: SKShapeNode = SKShapeNode()
     var pointsLabel: SKLabelNode = SKLabelNode(text: "0")
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
@@ -115,7 +115,7 @@ class RenderController {
         item.physicsBody?.isDynamic = false
         
         scene.addChild(item)
-        items.append(item)
+        self.appendItems(item: item)
     }
     
     func drawDestroierRects() {
@@ -152,6 +152,22 @@ class RenderController {
         }
     }
     
+    // MARK: Contando itens
+    func appendItems(item: Items){
+        // definindo um contador de itens maximos na tela de 50
+        if items.count < 50{
+            items.append(item)
+        }
+        else{
+            // quando chegar em 50, zera o contador
+            items[itemCount] = item
+            itemCount += 1
+            if itemCount > 49 {
+                itemCount = 0
+            }
+        }
+    }
+    
     // MARK: Desenho do dinossauro
     func selectDinoCommand(command: GameCommand) -> String {
         // Quando o Dino fica na vertical hitbox é dividida por 3
@@ -169,6 +185,11 @@ class RenderController {
         case .DEAD:
             return "rexRight"
         }
+    }
+    
+    // MARK: Desenhando background
+    func changeBackground(named: String){
+        background.texture = SKTexture(imageNamed: named)
     }
     
     // MARK: Desenho do controle

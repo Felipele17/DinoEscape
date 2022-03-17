@@ -61,7 +61,6 @@ class GameController{
     
     func update(_ currentTime: TimeInterval){
         joystickController.update(currentTime)
-        
         movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
         renderer.update(currentTime)
     }
@@ -161,6 +160,24 @@ class GameController{
         
         renderer.drawItem(item: item)
         
+    }
+    
+    func nextLevel(points: Int){
+        if points >= 250 {
+            renderer.changeBackground(named: Backgrounds.shared.blueBackground())
+        }
+        else if points >= 500 {
+            renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
+        }
+        else if points >= 750 {
+            renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
+        }
+        else if points >= 1000 {
+            renderer.changeBackground(named: Backgrounds.shared.cityBackground())
+        }
+        else if points >= 1500 {
+            renderer.changeBackground(named: Backgrounds.shared.planetBackground())
+        }
     }
     
     func recursiveActionItems(){

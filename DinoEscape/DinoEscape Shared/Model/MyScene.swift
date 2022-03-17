@@ -10,9 +10,6 @@ import SpriteKit
 
 class MyScene: SKScene, SKPhysicsContactDelegate{
     // MARK: Colisão
-    func colisionBetween(dino: SKNode, object: SKNode){
-        
-    }
     
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node else {return}
@@ -59,6 +56,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     func feedDino(){
         if let player = GameController.shared.gameData.player {
             player.points += 10
+            GameController.shared.nextLevel(points: player.points ?? 0)
             if player.foodBar < 20 {
                 player.foodBar += 1
             }
