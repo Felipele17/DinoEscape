@@ -50,28 +50,28 @@ class SettingsScene: MyScene {
         addChild(subtitle)
         
         createLabel(text: "Settings",
-                    fontSize: 30,
+                    fontSize: 33,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2, y: size.height/1.35)
+                    position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
         createLabel(text: "  Sound \n effects",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/1.55)
+                    position: CGPoint(x: size.width/2.5, y: size.height/1.7)
         )
         
         
         createLabel(text: "Music",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/1.76)
+                    position: CGPoint(x: size.width/2.5, y: size.height/2.05)
         )
         
         createLabel(text: "Vibration",
                     fontSize: 20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/2.04)
+                    position: CGPoint(x: size.width/2.5, y: size.height/2.535)
         )
         createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
