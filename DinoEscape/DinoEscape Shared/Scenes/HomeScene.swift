@@ -99,13 +99,14 @@ class HomeScene: MyScene {
         button.selectedHandler = {
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
-                self.btn.isFocused = true
+                
+               
             } else if name == .shop {
                 self.view?.presentScene(EggScene.newGameScene())
-                self.btn2.isFocused = true
+
             } else if name == .settings {
                 self.view?.presentScene(SettingsScene.newGameScene())
-                self.btn3.isFocused = true
+
             } else {
                 print("out of range")
             }
@@ -128,24 +129,36 @@ class HomeScene: MyScene {
 func addTapGestureRecognizer() {
     let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
     self.scene?.view?.addGestureRecognizer(tapRecognizer)
+    
 }
+    
+
 
 @objc func tapped(sender: AnyObject) {
     
-    if btn.isFocused {
+    if (btn.isFocused){
         let scene = GameScene.newGameScene()
         self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
     }
-    else if btn2.isFocused {
+    else if (btn2.isFocused){
         let scene = SettingsScene.newGameScene()
         self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
     }
-    else if btn3.isFocused {
-        let scene = StoreScene.newGameScene()
+    else if (btn3.isFocused){
+        let scene = EggScene.newGameScene()
         self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
     }
     else {
-        print("Out of range")
+        print("não sei ler oq vc quer")
     }
 }
 #endif

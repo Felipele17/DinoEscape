@@ -49,11 +49,10 @@ class SKButton: SKSpriteNode {
     
 #if os( tvOS )
     var touchStart: CGPoint?
-    var isFocused: Bool = true
-
+    var isFocusable: Bool = true
 
     override var canBecomeFocused: Bool {
-        return isFocused
+        return isFocusable
     }
 
     
@@ -87,6 +86,7 @@ extension SKButton {
         if isButtonEnabled{
             state = .selected
         }
+        
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
