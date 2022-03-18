@@ -6,8 +6,8 @@
 //
 
 enum EggType: String {
-    case daily = "buttonOrange"
-    case chance = "buttonBlue"
+    case daily = "dailyReward"
+    case chance = "moreChance"
 }
 
 
