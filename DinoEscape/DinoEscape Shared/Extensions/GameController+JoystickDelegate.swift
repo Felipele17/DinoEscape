@@ -68,16 +68,26 @@ extension GameController: JoystickDelegate{
     }
     
     func joystickUpdate(_ currentTime: TimeInterval) {
+        
         #if os( iOS )
         let point = joystickController.virtualController.getVelocity()
         
         let dx: CGFloat = point.dx
         let dy: CGFloat = point.dy
-        
-        
         movePlayer(dx: dx, dy: dy)
+        
         #endif
         
+        // TVOs que funciona com os gestos
+        #if os(tvOS)
+        if let gamePadLeft = joystickController.gamePadLeft {
+            if gamePadLeft.xAxis.value != 0 || gamePadLeft.yAxis.value != 0{
+                let dx: CGFloat = CGFloat(gamePadLeft.xAxis.value)
+                let dy: CGFloat = CGFloat(gamePadLeft.yAxis.value)
+                movePlayer(dx: dx, dy: dy)
+            }
+        }
+        #endif
     }
     
     func selectPlayerState(command:GameCommand){
