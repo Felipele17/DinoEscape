@@ -14,7 +14,9 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene.newGameScene()
+        //let scene = GameScene.newGameScene()
+        let scene = HomeScene.newGameScene()
+        
         
         // Present the scene
         let skView = self.view as! SKView

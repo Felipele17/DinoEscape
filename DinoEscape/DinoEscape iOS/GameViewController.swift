@@ -14,11 +14,10 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //let scene = GameScene.newGameScene()
-
-      let scene = HomeScene.newGameScene()
+        let scene = GameScene.newGameScene()
+        //let scene = HomeScene.newGameScene()
         //let scene = StoreScene.newGameScene()
-        //let scene = EggScene.newGameScene()
+        
         
         // Present the scene
         let skView = self.view as! SKView
