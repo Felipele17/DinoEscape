@@ -211,9 +211,21 @@ class GameController{
     }
 
     func powerUpLogic(powerUp: PowerUp) {
+        var runCount = 0
         if powerUp == .allFood {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                runCount += 1
+                print(runCount)
+                if runCount == 5 {
+                    timer.invalidate()
+                }
+            }
+            // conversa com a render para ela mudar os assets dos powerUps
+            renderer.allFoodRender()
             
         } else if powerUp == .slow {
+            
+            renderer.slowRender()
             
         } else if powerUp == .doubleXP {
             

@@ -217,7 +217,22 @@ class RenderController {
             item.position.y += CGFloat(item.vy)
             
         }
-        
-       
+    }
+    
+    // MARK: Funcoes que mexem na velocidade dos itens
+    func allFoodRender(){
+        for i in items {
+            if i.name != "good" {
+                i.name = "good"
+                i.texture = SKTexture(imageNamed: "cherry")
+            }
+        }
+    }
+    
+    func slowRender(){
+        for i in self.items {
+            i.vx = i.vx * / 2
+            i.vy = i.vy * / 2
+        }
     }
 }

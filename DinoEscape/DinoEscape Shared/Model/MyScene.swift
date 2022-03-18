@@ -62,7 +62,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             if player.foodBar < 10 {
                 player.foodBar += 1
             } else {
-                GameController.shared.powerUpLogic(GameController.shared.getPowerUp())
+                GameController.shared.powerUpLogic(powerUp: GameController.shared.getPowerUp())
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }
