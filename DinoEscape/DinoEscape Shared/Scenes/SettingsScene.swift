@@ -50,27 +50,27 @@ class SettingsScene: MyScene {
         addChild(subtitle)
         
         createLabel(text: "Settings",
-                    fontSize: 33,
+                    fontSize: size.width/13,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
         createLabel(text: "  Sound \n effects",
-                    fontSize: 20,
+                    fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.7, y: size.height/1.7)
         )
         
         createLabel(text: "Music",
-                    fontSize: 20,
+                    fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.83, y: size.height/2.07)
+                    position: CGPoint(x: size.width/2.7, y: size.height/2.07)
         )
         
         createLabel(text: "Vibration",
-                    fontSize: 20,
+                    fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.5, y: size.height/2.555)
+                    position: CGPoint(x: size.width/2.7, y: size.height/2.555)
         )
         createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
@@ -79,6 +79,9 @@ class SettingsScene: MyScene {
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "sound")
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "music")
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.535), name: "vibration")
+        
+       
+        
     }
     
     
