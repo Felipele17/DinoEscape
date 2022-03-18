@@ -59,12 +59,12 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
         
         if let player =  GameController.shared.gameData.player{
             GameController.shared.nextLevel(points: points )
-            if player.foodBar < 10 {
-                player.foodBar += 1
+            if player.foodBar < 8 {
+                player.foodBar += 0.5
             } else {
                 let powerUp = GameController.shared.getPowerUp()
                 print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
-                player.foodBar = 5
+                player.foodBar = 4
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }

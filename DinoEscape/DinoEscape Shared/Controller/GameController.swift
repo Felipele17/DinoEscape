@@ -169,34 +169,39 @@ class GameController{
     }
     
     func nextLevel(points: Int){
-        if points <= 25 {
+        if points == 25 {
             renderer.changeBackground(named: Backgrounds.shared.redBackground())
         }
-        else if points <= 50 {
+        else if points == 50 {
+            newEra()
             cancelActionItems()
             recursiveActionItems(time: 1.2)
             renderer.changeBackground(named: Backgrounds.shared.blueBackground())
         }
-        else if points <= 75 {
+        else if points == 80 {
+            newEra()
             cancelActionItems()
             recursiveActionItems(time: 1)
             renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
             gameData.velocidadeGlobal = 4
         }
-        else if points <= 100 {
+        else if points == 100 {
+            newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
         }
-        else if points <= 150 {
+        else if points == 150 {
+            newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
             renderer.changeBackground(named: Backgrounds.shared.cityBackground())
             gameData.velocidadeGlobal = 5
 
         }
-        else {
+        else if points == 200 {
             cancelActionItems()
+            newEra()
             recursiveActionItems(time: 0.4)
             renderer.changeBackground(named: Backgrounds.shared.planetBackground())
         }
@@ -262,6 +267,18 @@ class GameController{
                     self.gameData.addPoints = 10
                     timer.invalidate()
                 }
+            }
+        }
+    }
+    func newEra(){
+        let newEraLabel = renderer.drawNewEra()
+        var runCount = 0
+        // adiciona o label que indica o powerup selecionado
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runCount += 1
+            if runCount == 2 {
+                self.renderer.excludePowerUp(powerUp: newEraLabel)
+                timer.invalidate()
             }
         }
     }

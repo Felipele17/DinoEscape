@@ -88,7 +88,7 @@ class RenderController {
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let foodMultiplier: Int = Int(food / 2) - 1
+        let foodMultiplier: Int = Int(food / 1.6) - 1
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
@@ -246,12 +246,28 @@ class RenderController {
             label.text = "DOUBLE POINTS"
         }
         
+        label.fontName = "Aldrich-Regular"
         label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         scene.addChild(label)
         return label
     }
     
     func excludePowerUp(powerUp: SKLabelNode){
+        powerUp.removeFromParent()
+    }
+    
+    func drawNewEra() -> SKLabelNode {
+        let label = SKLabelNode()
+
+        label.text = "NEW ERA"
+        label.fontName = "Aldrich-Regular"
+        
+        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 50)
+        scene.addChild(label)
+        return label
+    }
+    
+    func excludeNewEra(powerUp: SKLabelNode){
         powerUp.removeFromParent()
     }
 
