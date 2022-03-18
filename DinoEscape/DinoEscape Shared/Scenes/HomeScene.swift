@@ -13,6 +13,7 @@ class HomeScene: MyScene {
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
+    var pos: Int = 0
     
     
     class func newGameScene() -> HomeScene {
@@ -99,10 +100,13 @@ class HomeScene: MyScene {
         button.selectedHandler = {
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
+                self.pos = 1
             } else if name == .shop {
                 self.view?.presentScene(EggScene.newGameScene())
+                self.pos = 2
             } else if name == .settings {
                 self.view?.presentScene(SettingsScene.newGameScene())
+                self.pos = 3
             } else {
                 print("out of range")
             }
@@ -129,17 +133,20 @@ func addTapGestureRecognizer() {
 
 @objc func tapped(sender: AnyObject) {
     
-    if btn.isFocused {
+    if pos == 1 {
         let scene = GameScene.newGameScene()
         self.view?.presentScene(scene)
     }
-    if btn2.isFocused {
+    else if pos == 2 {
         let scene = SettingsScene.newGameScene()
         self.view?.presentScene(scene)
     }
-    if btn3.isFocused {
+    else if pos == 3 {
         let scene = StoreScene.newGameScene()
         self.view?.presentScene(scene)
+    }
+    else {
+        print("Out of range")
     }
 }
 #endif
