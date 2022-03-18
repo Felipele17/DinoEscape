@@ -17,7 +17,7 @@ class SKButton: SKSpriteNode {
     var selectedHandler: () -> Void = { print("No button action set") }
     
     
-    override init(texture: SKTexture?, color: UIColor, size: CGSize) {
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
     }
@@ -50,25 +50,46 @@ class SKButton: SKSpriteNode {
 }
 
 
-
 extension SKButton {
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+
+#if os(macOS)
+    
+    override func touchesBegan(with event: NSEvent) {
         if isButtonEnabled{
             state = .selected
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesMoved(with event: NSEvent) {
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesEnded(with event: NSEvent) {
         if isButtonEnabled {
             selectedHandler()
             state = .active
         }
     }
     
+    #elseif os(tvOS) || os(iOS)
+        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+            if isButtonEnabled{
+                state = .selected
+            }
+        }
+    
+    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    }
+
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if isButtonEnabled {
+            selectedHandler()
+            state = .active
+        }
+    }
+
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
+    
+    #endif
 }
 
