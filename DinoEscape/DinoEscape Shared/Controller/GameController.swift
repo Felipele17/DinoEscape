@@ -227,6 +227,8 @@ class GameController{
         let powerUpLabel = renderer.drawPowerUp(powerUp: powerUp)
         var runCount = 0
         var runPower = 0
+        
+        // adiciona o label que indica o powerup selecionado
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runPower += 1
             if runPower == 5 {
@@ -234,6 +236,8 @@ class GameController{
                 timer.invalidate()
             }
         }
+        
+        
         if powerUp == .allFood {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 runCount += 1
@@ -242,11 +246,11 @@ class GameController{
                     timer.invalidate()
                 }
             }
+            
             // conversa com a render para ela mudar os assets dos powerUps
             renderer.allFoodRender()
             
         } else if powerUp == .slow {
-            
             // conversa com a render para ela mudar a velocidade dos assets dos powerUps
             renderer.slowRender()
             
