@@ -44,6 +44,11 @@
 		13842CEC27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CED27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
+		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		13842CF227E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
@@ -61,6 +66,8 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		A611053927E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
+		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
 		B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
@@ -114,6 +121,7 @@
 		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
+		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -134,6 +142,7 @@
 		A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A611053327E1010F008ABC33 /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonType.swift; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
 		B0C948E827DBDBB100B671EA /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
@@ -219,6 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */,
+				13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -233,6 +243,13 @@
 			path = "DinoEscape Shared/Aldrich";
 			sourceTree = SOURCE_ROOT;
 		};
+		13842CF027E2758600E1F88E /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		4AEAEEE027D676AE00BBD809 = {
 			isa = PBXGroup;
 			children = (
@@ -242,6 +259,8 @@
 				4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */,
 				4AEAEF1027D676B100BBD809 /* DinoEscape macOS */,
 				4AEAEEEF27D676B000BBD809 /* Products */,
+				13842CF027E2758600E1F88E /* Recovered References */,
+				A6BC68EB27E2548E00093948 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -286,6 +305,7 @@
 		4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				A611055F27E10DDF008ABC33 /* Model */,
 				A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */,
 				4AEAEF0127D676B100BBD809 /* AppDelegate.swift */,
 				4AEAEF0327D676B100BBD809 /* GameViewController.swift */,
@@ -305,6 +325,21 @@
 				4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */,
 			);
 			path = "DinoEscape macOS";
+			sourceTree = "<group>";
+		};
+		A611055F27E10DDF008ABC33 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A6BC68EB27E2548E00093948 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+				A611053327E1010F008ABC33 /* OFL.txt */,
+			);
+			name = "Recovered References";
 			sourceTree = "<group>";
 		};
 		B0C948E727DBDA9600B671EA /* Scenes */ = {
@@ -463,6 +498,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A611053927E1010F008ABC33 /* OFL.txt in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
@@ -487,6 +523,7 @@
 				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
+				13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
@@ -512,12 +549,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
+				13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				DF03BE4327E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
+				13842CF127E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
@@ -528,6 +567,7 @@
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
+				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
@@ -552,6 +592,7 @@
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
+				13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
@@ -562,6 +603,7 @@
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
+				13842CF227E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
 				EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */,
@@ -668,6 +710,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -721,6 +764,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -735,7 +779,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -745,7 +789,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -767,7 +811,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -777,7 +821,7 @@
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -800,7 +844,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -828,7 +872,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -859,7 +903,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";

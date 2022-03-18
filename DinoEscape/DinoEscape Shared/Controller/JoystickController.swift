@@ -25,6 +25,7 @@ class JoystickController{
 #endif
     
     init(){
+        //controle desenhado na tela apenas para iOS
         #if os( iOS )
             virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
         #endif
@@ -54,19 +55,6 @@ class JoystickController{
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardDidDisconnect),
                                                name: NSNotification.Name.GCKeyboardDidDisconnect, object: nil)
         
-#if os( iOS )
-        if #available(iOS 15.0, *) {
-            
-            
-            // Connect to the virtual controller if no physical controllers are available.
-            print(GCController.controllers().isEmpty)
-            if GCController.controllers().isEmpty {
-                //TODO:
-                
-                
-            }
-        }
-#endif
         /// pega os controles que estao conectados no sistema e seleciona o primeiro para ser registrado
         guard let controller = GCController.controllers().first else {
             return
@@ -81,15 +69,6 @@ class JoystickController{
         }
         unregisterGameController()
         
-        
-#if os( iOS )
-        if #available(iOS 15.0, *) {
-            if gameController == nil {
-                print("Sem controle")
-            }
-        }
-#endif
-        
         registerGameController(gameController)
         
         delegate?.controllerDidConnect(controller: gameController)
@@ -99,14 +78,6 @@ class JoystickController{
     func handleControllerDidDisconnect(_ notification: Notification) {
         unregisterGameController()
         delegate?.controllerDidDisconnect()
-        
-#if os( iOS )
-        if #available(iOS 15.0, *) {
-            if GCController.controllers().isEmpty {
-                //TODO: 
-            }
-        }
-#endif
     }
     
     @objc
@@ -156,6 +127,23 @@ class JoystickController{
         }
     }
     
+    func respondToSwipeGesture(gesture: UIGestureRecognizer) {
+            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+                switch swipeGesture.direction {
+                case .right:
+                    self.pressButton( .RIGHT )
+                case .down:
+                    self.pressButton( .DOWN )
+                case .left:
+                    self.pressButton( .LEFT )
+                case .up:
+                    self.pressButton( .UP )
+                default:
+                    break
+                }
+            }
+    }
+    
     // MARK: Buttons
     func pressButton(_ command: GameCommand){
         delegate?.buttonPressed(command: command)
@@ -170,6 +158,11 @@ class JoystickController{
     
     func update(_ currentTime: TimeInterval) {
         checkForKeyboard()
+        #if os(tvOS)
+        if let swipe = GameController.shared.swipe{
+            respondToSwipeGesture(gesture: swipe)
+        }
+        #endif
         delegate?.joystickUpdate(currentTime)
     }
 }

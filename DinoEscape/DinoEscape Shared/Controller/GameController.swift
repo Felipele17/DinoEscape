@@ -15,6 +15,7 @@ class GameController{
         return instance
     }()
     
+    var swipe: UISwipeGestureRecognizer?
     var gameData: GameData
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()
@@ -46,6 +47,8 @@ class GameController{
         joystickController.virtualController.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/7)
         #endif
         
+        
+        
         renderer.setUpScene()
         
         //controle da cena
@@ -64,6 +67,10 @@ class GameController{
         
         movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
         renderer.update(currentTime)
+    }
+    
+    func getSwipe(swipe: UISwipeGestureRecognizer){
+        self.swipe = swipe
     }
     
     //MARK: Movimentacao

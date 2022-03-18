@@ -10,17 +10,33 @@ import SpriteKit
 
 class HomeScene: MyScene {
     
+    var btn = SKButton()
+    var btn2 = SKButton()
+    var btn3 = SKButton()
+    
+    
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
         scene.scaleMode = .resizeFill
         return scene
     }
-    
+    #if os( tvOS )
+    override func didMove(to view: SKView) {
+        self.isUserInteractionEnabled = true
+        let tap = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+
+        view.addGestureRecognizer(tap)
+    }
+    #endif
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        
+        #if os( tvOS )
+        addTapGestureRecognizer()
+        #endif
         
         removeAllChildren()
         removeAllActions()
@@ -53,13 +69,16 @@ class HomeScene: MyScene {
 
         addChild(subtitle)
         
-        createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
-        createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
+        addChild(btn)
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
+        addChild(btn2)
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        addChild(btn3)
     }
     
     
-    func createButton(name: ButtonType, pos: Int, titleColor: SKColor) {
+    func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
@@ -72,6 +91,7 @@ class HomeScene: MyScene {
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+    
         
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
@@ -79,16 +99,23 @@ class HomeScene: MyScene {
         button.selectedHandler = {
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
+                
+               
             } else if name == .shop {
                 self.view?.presentScene(EggScene.newGameScene())
+
             } else if name == .settings {
                 self.view?.presentScene(SettingsScene.newGameScene())
+
             } else {
                 print("out of range")
             }
         }
-        addChild(button)
+
         addChild(title)
+        
+        return button
+        
     }
     
     
@@ -98,5 +125,49 @@ class HomeScene: MyScene {
         setUpScene()
     }
     
+#if os( tvOS )
+func addTapGestureRecognizer() {
+    let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+    self.scene?.view?.addGestureRecognizer(tapRecognizer)
+    
 }
+    
 
+
+@objc func tapped(sender: AnyObject) {
+    
+    if (btn.isFocused){
+        let scene = GameScene.newGameScene()
+        self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+    }
+    else if (btn2.isFocused){
+        let scene = SettingsScene.newGameScene()
+        self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+    }
+    else if (btn3.isFocused){
+        let scene = EggScene.newGameScene()
+        self.view?.presentScene(scene)
+        scene.run(SKAction.wait(forDuration: 0.02))
+        scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+        scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+    }
+    else {
+        print("não sei ler oq vc quer")
+    }
+}
+#endif
+    
+}
+#if os( tvOS )
+extension HomeScene {
+    override var preferredFocusEnvironments: [UIFocusEnvironment]{
+        return [btn]
+    }
+}
+#endif
