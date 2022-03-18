@@ -14,14 +14,20 @@ class RenderController {
     var items: [Items] = []
     var itemCount: Int = 0
     
+    // player
     var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
     var background: SKSpriteNode = SKSpriteNode(imageNamed: Backgrounds.shared.redBackground())
     var hitBoxNode: SKShapeNode = SKShapeNode()
+    
+    // header da tela
     var pointsLabel: SKLabelNode = SKLabelNode(text: "0")
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
+    
+    // contagem regressiva
+    var contagemLabel: SKLabelNode = SKLabelNode()
     
     func setUpScene(){
        
@@ -34,6 +40,8 @@ class RenderController {
         background.size = scene.frame.size
         background.zPosition = -5
         scene.addChild(background)
+        
+        //contador
         
         //SKLabel
         pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
@@ -59,6 +67,7 @@ class RenderController {
         playerNode = draw(player: player)
         
         drawDestroierRects()
+        
         
         #if os( iOS)
         drawAnalogic()
@@ -251,10 +260,7 @@ class RenderController {
         scene.addChild(label)
         return label
     }
-    
-    func excludePowerUp(powerUp: SKLabelNode){
-        powerUp.removeFromParent()
-    }
+
     
     func drawNewEra() -> SKLabelNode {
         let label = SKLabelNode()
@@ -267,8 +273,15 @@ class RenderController {
         return label
     }
     
-    func excludeNewEra(powerUp: SKLabelNode){
-        powerUp.removeFromParent()
+    func excludeNode(label: SKLabelNode){
+        label.removeFromParent()
     }
 
+    func drawContador(){
+        contagemLabel.text = "3"
+        contagemLabel.fontName = "Aldrich-Regular"
+        
+        contagemLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 50)
+        scene.addChild(contagemLabel)
+    }
 }

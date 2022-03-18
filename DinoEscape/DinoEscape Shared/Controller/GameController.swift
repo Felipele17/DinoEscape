@@ -58,6 +58,20 @@ class GameController{
         renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
         renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
         recursiveActionItems(time: 1.5)
+        
+        var runCount = 3 {
+            didSet {
+                renderer.contagemLabel.text = "\(runCount)"
+            }
+        }
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runCount -= 1
+            if runCount == 0 {
+                self.gameData.started = true
+                self.renderer.contagemLabel.removeFromParent()
+                timer.invalidate()
+            }
+        }
 
     }
     // MARK: Update
@@ -65,9 +79,12 @@ class GameController{
         if gameData.player?.isAlive == false {
             //chamar tela de gameOver
         } else {
-            joystickController.update(currentTime)
-            movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
-            renderer.update(currentTime, gameData: gameData)
+            if gameData.started == true {
+                joystickController.update(currentTime)
+                movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
+                renderer.update(currentTime, gameData: gameData)
+            }
+            
         }
         
     }
@@ -237,7 +254,7 @@ class GameController{
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runPower += 1
             if runPower == 5 {
-                self.renderer.excludePowerUp(powerUp: powerUpLabel)
+                self.renderer.excludeNode(label: powerUpLabel)
                 timer.invalidate()
             }
         }
@@ -277,7 +294,7 @@ class GameController{
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runCount += 1
             if runCount == 2 {
-                self.renderer.excludePowerUp(powerUp: newEraLabel)
+                self.renderer.excludeNode(label: newEraLabel)
                 timer.invalidate()
             }
         }
