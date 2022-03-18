@@ -32,11 +32,11 @@ class SKButton: SKSpriteNode {
             switch state {
             case .active:
                 self.isUserInteractionEnabled = true
-                self.alpha = 1
+                self.alpha = 0.7
                 break
                 
             case .selected:
-                self.alpha = 0.7
+                self.alpha = 1
                 break
                 
             case .disabled:
