@@ -11,8 +11,12 @@ class GameData {
     
     var player: Player?
     var score: Int = 0
+    var addPoints: Int = 10
+    var velocidadeGlobal: Int = 3
     
     init(player: Player) {
         self.player = player
     }
+    
+    
 }

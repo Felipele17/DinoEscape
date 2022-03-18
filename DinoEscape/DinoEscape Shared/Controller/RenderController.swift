@@ -231,8 +231,28 @@ class RenderController {
     
     func slowRender(){
         for i in self.items {
-            i.vx = i.vx * / 2
-            i.vy = i.vy * / 2
+            i.vx = i.vx / 2
+            i.vy = i.vy / 2
         }
     }
+    
+    func drawPowerUp(powerUp: PowerUp) -> SKLabelNode {
+        let label = SKLabelNode()
+        if powerUp == .slow {
+            label.text = "SLOW"
+        }else if powerUp == .allFood {
+            label.text = "FOOOOOD"
+        }else if powerUp == .doubleXP {
+            label.text = "DOUBLE POINTS"
+        }
+        
+        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        scene.addChild(label)
+        return label
+    }
+    
+    func excludePowerUp(powerUp: SKLabelNode){
+        powerUp.removeFromParent()
+    }
+
 }

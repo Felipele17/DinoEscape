@@ -54,7 +54,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func feedDino(){
-        GameController.shared.gameData.score += 10
+        GameController.shared.gameData.score += GameController.shared.gameData.addPoints
         var points = GameController.shared.gameData.score
         
         if let player =  GameController.shared.gameData.player{
@@ -62,7 +62,9 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             if player.foodBar < 10 {
                 player.foodBar += 1
             } else {
-                GameController.shared.powerUpLogic(powerUp: GameController.shared.getPowerUp())
+                let powerUp = GameController.shared.getPowerUp()
+                print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
+                player.foodBar = 5
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }

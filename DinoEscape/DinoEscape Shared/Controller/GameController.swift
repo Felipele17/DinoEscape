@@ -57,7 +57,7 @@ class GameController{
         //fisica da cena
         renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
         renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
-        recursiveActionItems()
+        recursiveActionItems(time: 1.5)
 
     }
     // MARK: Update
@@ -137,25 +137,24 @@ class GameController{
         case .UP:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height*1.1
-            
-            item.vy = -5
+            item.vy = -gameData.velocidadeGlobal
           
         case .DOWN:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height * -0.1
+            item.vy = gameData.velocidadeGlobal
             
-            item.vy = 5
         case .RIGHT:
             xInitial = renderer.scene.size.width * 1.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
-            
-            item.vx = -5
+            item.vx = -gameData.velocidadeGlobal
 
         case .LEFT:
             xInitial = renderer.scene.size.width * -0.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
+            item.vx = gameData.velocidadeGlobal
             
-            item.vx = 5
+            
         case .NONE:
             print()
         case .DEAD:
@@ -170,31 +169,44 @@ class GameController{
     }
     
     func nextLevel(points: Int){
-        if points <= 250 {
+        if points <= 25 {
             renderer.changeBackground(named: Backgrounds.shared.redBackground())
         }
-        else if points <= 500 {
+        else if points <= 50 {
+            cancelActionItems()
+            recursiveActionItems(time: 1.2)
             renderer.changeBackground(named: Backgrounds.shared.blueBackground())
         }
-        else if points <= 750 {
+        else if points <= 75 {
+            cancelActionItems()
+            recursiveActionItems(time: 1)
             renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
+            gameData.velocidadeGlobal = 4
         }
-        else if points <= 1000 {
+        else if points <= 100 {
+            cancelActionItems()
+            recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
         }
-        else if points <= 1500 {
+        else if points <= 150 {
+            cancelActionItems()
+            recursiveActionItems(time: 0.6)
             renderer.changeBackground(named: Backgrounds.shared.cityBackground())
+            gameData.velocidadeGlobal = 5
+
         }
         else {
+            cancelActionItems()
+            recursiveActionItems(time: 0.4)
             renderer.changeBackground(named: Backgrounds.shared.planetBackground())
         }
     }
     
-    func recursiveActionItems(){
+    func recursiveActionItems(time: CGFloat){
         let recursive = SKAction.sequence([
             SKAction.run(createItems),
-            SKAction.wait(forDuration: 1),
-            SKAction.run({[unowned self] in self.recursiveActionItems()})
+            SKAction.wait(forDuration: time),
+            SKAction.run({[unowned self] in self.recursiveActionItems(time: time)})
         ])
         
         renderer.scene.run(recursive, withKey: "aKey")
@@ -211,12 +223,22 @@ class GameController{
     }
 
     func powerUpLogic(powerUp: PowerUp) {
+
+        let powerUpLabel = renderer.drawPowerUp(powerUp: powerUp)
         var runCount = 0
+        var runPower = 0
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runPower += 1
+            if runPower == 5 {
+                self.renderer.excludePowerUp(powerUp: powerUpLabel)
+                timer.invalidate()
+            }
+        }
         if powerUp == .allFood {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 runCount += 1
                 print(runCount)
-                if runCount == 5 {
+                if runCount == 10 {
                     timer.invalidate()
                 }
             }
@@ -225,10 +247,18 @@ class GameController{
             
         } else if powerUp == .slow {
             
+            // conversa com a render para ela mudar a velocidade dos assets dos powerUps
             renderer.slowRender()
             
         } else if powerUp == .doubleXP {
-            
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                runCount += 1
+                self.gameData.addPoints = 20
+                if runCount == 10 {
+                    self.gameData.addPoints = 10
+                    timer.invalidate()
+                }
+            }
         }
     }
 }
