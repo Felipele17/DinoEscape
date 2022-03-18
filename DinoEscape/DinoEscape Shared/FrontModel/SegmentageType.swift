@@ -8,6 +8,6 @@
 import Foundation
 
 enum SegmentageType: String {
-    case eggs = "Eggs"
-    case dinos = "Dinos"
+    case eggs = "EggbuttonSelected"
+    case dinos = "Eggbutton"
 }
