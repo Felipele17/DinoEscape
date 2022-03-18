@@ -42,6 +42,7 @@ class RenderController {
         scene.addChild(background)
         
         //contador
+        drawContador()
         
         //SKLabel
         pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
@@ -67,6 +68,7 @@ class RenderController {
         playerNode = draw(player: player)
         
         drawDestroierRects()
+        
         
         
         #if os( iOS)
