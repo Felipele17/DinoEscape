@@ -56,8 +56,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     func feedDino(){
         if let player = GameController.shared.gameData.player {
             player.points += 10
-            GameController.shared.nextLevel(points: player.points ?? 0)
-            if player.foodBar < 20 {
+            GameController.shared.nextLevel(points: player.points )
+            if player.foodBar < 10 {
                 player.foodBar += 1
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)

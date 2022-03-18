@@ -60,9 +60,14 @@ class GameController{
     }
     
     func update(_ currentTime: TimeInterval){
-        joystickController.update(currentTime)
-        movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
-        renderer.update(currentTime)
+        if gameData.player?.life == 0 {
+            
+        } else {
+            joystickController.update(currentTime)
+            movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
+            renderer.update(currentTime)
+        }
+        
     }
     
     //MARK: Movimentacao

@@ -94,6 +94,8 @@
 		DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
 		DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
 		DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
+		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 /* End PBXBuildFile section */
 
@@ -515,6 +517,7 @@
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
+				DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
@@ -546,6 +549,7 @@
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
+				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
@@ -851,7 +855,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -881,7 +885,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 9R89XP5A63;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
