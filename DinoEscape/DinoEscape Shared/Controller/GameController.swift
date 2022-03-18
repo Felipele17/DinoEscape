@@ -203,5 +203,21 @@ class GameController{
     func cancelActionItems() {
         renderer.scene.removeAction(forKey: "aKey")
     }
+    
+    // MARK: Power-ups
+    func getPowerUp() -> PowerUp{
+        let powerUps: [PowerUp] = [.slow, .allFood, .doubleXP]
+        return powerUps[Int.random(in: 0..<powerUps.count)]
+    }
+
+    func powerUpLogic(powerUp: PowerUp) {
+        if powerUp == .allFood {
+            
+        } else if powerUp == .slow {
+            
+        } else if powerUp == .doubleXP {
+            
+        }
+    }
 }
 
