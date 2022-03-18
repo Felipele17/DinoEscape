@@ -23,6 +23,7 @@ class RenderController {
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
     
+    
     func setUpScene(){
        
         
@@ -164,4 +165,5 @@ class RenderController {
         
        
     }
+    
 }
