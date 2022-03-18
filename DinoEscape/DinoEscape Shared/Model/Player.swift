@@ -24,6 +24,7 @@ class Player: CustomStringConvertible {
     var foodBar: CGFloat
     var gameCommand: GameCommand 
     var powerUp: PowerUp?
+    var isAlive: Bool = true 
     
     //variaveis de velocidade
     var dinoVy: CGFloat = 0.0

@@ -202,11 +202,13 @@ class RenderController {
 
     
     // MARK: Update
-    func update(_ currentTime: TimeInterval) {
-        playerNode.position = GameController.shared.gameData.player!.position
-        if let player = GameController.shared.gameData.player {
+    func update(_ currentTime: TimeInterval, gameData: GameData) {
+        
+        pointsLabel.text = "\(gameData.score)"
+
+        playerNode.position = gameData.player!.position
+        if let player = gameData.player {
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
-            pointsLabel.text = "\(player.points)"
             lifesLabel.text = "\(player.life)"
         }
         

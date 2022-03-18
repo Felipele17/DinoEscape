@@ -31,6 +31,8 @@ class GameController{
         renderer = RenderController()
     }
     
+    // MARK: Setup e Set Scene
+    
     func setScene(scene: MyScene){
         renderer.scene = scene
         
@@ -58,14 +60,14 @@ class GameController{
         recursiveActionItems()
 
     }
-    
+    // MARK: Update
     func update(_ currentTime: TimeInterval){
-        if gameData.player?.life == 0 {
-            
+        if gameData.player?.isAlive == false {
+            //chamar tela de gameOver
         } else {
             joystickController.update(currentTime)
             movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
-            renderer.update(currentTime)
+            renderer.update(currentTime, gameData: gameData)
         }
         
     }

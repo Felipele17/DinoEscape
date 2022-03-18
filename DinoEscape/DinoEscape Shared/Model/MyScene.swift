@@ -54,9 +54,11 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func feedDino(){
-        if let player = GameController.shared.gameData.player {
-            player.points += 10
-            GameController.shared.nextLevel(points: player.points )
+        GameController.shared.gameData.score += 10
+        var points = GameController.shared.gameData.score
+        
+        if let player =  GameController.shared.gameData.player{
+            GameController.shared.nextLevel(points: points )
             if player.foodBar < 10 {
                 player.foodBar += 1
             }
@@ -79,6 +81,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             player.life -= 1
             if player.life <= 0{
                 player.gameCommand = .DEAD
+                player.isAlive = false
             }
         }
     }
