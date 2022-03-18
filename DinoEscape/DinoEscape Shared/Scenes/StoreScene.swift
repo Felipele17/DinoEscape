@@ -11,6 +11,7 @@ import SpriteKit
 class StoreScene: MyScene {
     
     var coins: Int = 1000
+    var dinoChoosed: String = "T-Rex"
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
@@ -22,41 +23,43 @@ class StoreScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        //backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 35/255, green: 21/255, blue: 198/255, alpha: 1)
         
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(name: .eggs ,pos: 0)
-        createSegButton(name: .dinos ,pos: 1)
+        createSegButton(image: .eggs, pos: 0, name: .ovo)
+        createSegButton(image: .dinos, pos: 1, name: .dinos)
+        
    
         addChild(createGallery())
         
-        createShopButtons(name: .buy, pos: 0)
-        createShopButtons(name: .buy, pos: 1)
+        createShopButtons(image: .buy, name: .bai, pos: 0)
+        createShopButtons(image: .selected, name: .selecionado, pos: 1)
         
-        let dinoChoosed: SKSpriteNode = SKSpriteNode(imageNamed: "T-Rex")
+        let dinoImage: SKSpriteNode = SKSpriteNode(imageNamed: dinoChoosed)
         
-        dinoChoosed.position = CGPoint(x: size.width/2, y: size.height/2.6)
-        dinoChoosed.size = CGSize(width: size.width/1.5, height: size.height/3)
-        addChild(dinoChoosed)
+        dinoImage.position = CGPoint(x: size.width/2, y: size.height/2.6)
+        dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
+        addChild(dinoImage)
         
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "Buy")
+        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 4
+        let w: CGFloat = size.width / 16
         let h = w * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         adsButton.position = CGPoint(
-            x: adsButton.frame.width / 1.1 + CGFloat(pos) * adsButton.frame.width * 1.2,
-            y: size.height / 1.1 )
+            x: size.width/1.102,
+            y: size.height/1.103)
         
         
         
@@ -69,15 +72,14 @@ class StoreScene: MyScene {
         
     }
     
-    func createShopButtons(name: BuyButtonType, pos: Int) {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    func createShopButtons(image: BuyButtonType, name: StoreStrings, pos: Int) {
+        let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3
         let h = w * texture.size().height / texture.size().width
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 6 )
@@ -89,13 +91,22 @@ class StoreScene: MyScene {
             
         }
         
+        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        text.fontName = "Aldrich-Regular"
+        text.fontSize = 20
+        text.numberOfLines = 1
+        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
+        text.position = CGPoint(x: buyButton.size.width/2, y: buyButton.size.height/2)
+        
         addChild(buyButton)
+        buyButton.addChild(text)
+
         
     }
     
     
-    func createSegButton(name: SegmentageType, pos: Int) {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    func createSegButton(image: SegmentageType, pos: Int, name: StoreStrings) {
+        let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3.5
@@ -105,13 +116,12 @@ class StoreScene: MyScene {
         
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.1,
+            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
         
         
-        
         segmentage.selectedHandler = {
-            if name == .eggs {
+            if name == .ovo {
                 self.view?.presentScene(EggScene.newGameScene())
             } else if name == .dinos {
                 self.view?.presentScene(StoreScene.newGameScene())
@@ -119,8 +129,16 @@ class StoreScene: MyScene {
                 print("out of the range")
             }
         }
+        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        text.fontName = "Aldrich-Regular"
+        text.fontSize = 20
+        text.numberOfLines = 1
+        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
+        text.position = CGPoint(x: segmentage.size.width/2, y: segmentage.size.height/2)
         
         addChild(segmentage)
+        segmentage.addChild(text)
+
         
     }
         
@@ -155,18 +173,20 @@ class StoreScene: MyScene {
         
         reader.addChild(createTotalCoin(coins: coins))
         reader.addChild(createADSButton(pos: 0))
+        reader.addChild(createBackButton())
         return reader
     }
+    
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
-        let w: CGFloat = size.width / 20
-        let h = w * coinTotal.size.height / coinTotal.size.width
+        let w: CGFloat = size.width / 15
+        let h = w * coinTotal.size.height / coinTotal.size.width / 2
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: size.width/1.5, y: size.height/1.1)
+        coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
@@ -174,26 +194,49 @@ class StoreScene: MyScene {
         total.fontSize = 30
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-        total.position = CGPoint(x: size.width/1.25, y: size.height/1.115)
+        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
         
+        
         return coinTotal
     }
+    
+    
+    func createBackButton() -> SKButton {
+        
+        let texture = SKTexture(imageNamed: "coin")
+        texture.filteringMode = .nearest
+        
+        
+        let w: CGFloat = size.width / 15
+        let h = w * texture.size().height / texture.size().width
+        
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
+        button.selectedHandler = {
+            self.view?.presentScene(HomeScene.newGameScene())
+        
+        }
+        return button
+        
+   
+    }
+    
     
     func createGallery() -> SKSpriteNode {
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         //let button = createDino(name: .t_rex, posX: 0, posY: 0)
+        var vetor = [[DinoType.brachiosaurus, DinoType.t_rex], [DinoType.triceratops, DinoType.brachiosaurus], [DinoType.chickenosaurus, DinoType.stegosaurus]]
+        
         for i in 0..<3{
             for j in 0..<2{
-                if i == 2 && j == 0 {
-                    print("")
-                }
-                else{
-                    let button = createDino(name: .t_rex, posX: i, posY: j)
+                
+                
+                    let button = createDino(name: vetor[i][j], posX: i, posY: j)
                     gallery.addChild(button)
-                }
+                
             }
         }
         
