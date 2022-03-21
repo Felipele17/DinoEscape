@@ -22,40 +22,41 @@ class Backgrounds{
         #endif
     }
     func blueBackground() -> String{
-        #if os(iOS)
         background = "blueBackground"
+        #if os(iOS)
         return background
         #else
         return background+"Mac"
         #endif
     }
     func lightGreenBackground() -> String{
-        #if os(iOS)
         background = "lightGreenBackground"
+        #if os(iOS)
         return background
         #else
         return background+"Mac"
         #endif
     }
     func GreenBackground() -> String{
-        #if os(iOS)
         background = "greenBackground"
+        #if os(iOS)
         return background
         #else
         return background+"Mac"
         #endif
     }
     func cityBackground() -> String{
-        #if os(iOS)
         background = "cityBackground"
+        #if os(iOS)
         return background
         #else
         return background+"Mac"
         #endif
     }
     func planetBackground() -> String{
-        #if os(iOS)
         background = "planetBackground"
+
+        #if os(iOS)
         return background
         #else
         return background+"Mac"

@@ -82,6 +82,7 @@ class GameController{
     // MARK: Update
     func update(_ currentTime: TimeInterval){
         if gameData.gameStatus == .end {
+            cancelActionItems()
             //chamar tela de gameOver
             renderer.lifesLabel.text = "0"
         } else {
@@ -93,6 +94,13 @@ class GameController{
             
         }
         
+    }
+    
+    func pauseGame() {
+        if gameData.gameStatus != .end {
+            pauseActionItems()
+            renderer.showPauseMenu()
+        }
     }
     
 #if os(tvOS)
@@ -188,6 +196,8 @@ class GameController{
             print()
         case .DEAD:
             print()
+        case .PAUSE:
+            print()
         }
         
         item.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
@@ -245,6 +255,14 @@ class GameController{
         ])
         
         renderer.scene.run(recursive, withKey: "aKey")
+    }
+    
+    func pauseActionItems() {
+        if gameData.gameStatus == .playing {
+            renderer.scene.action(forKey: "aKey")?.speed = 0
+        } else {
+            renderer.scene.action(forKey: "aKey")?.speed = 1
+        }
     }
     
     func cancelActionItems() {
