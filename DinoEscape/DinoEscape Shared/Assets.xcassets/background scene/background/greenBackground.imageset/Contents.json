@@ -1,12 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "plusDinocoin.pdf",
+      "filename" : "backgroundVerdeEscuro.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "plusDinocoin 2.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
