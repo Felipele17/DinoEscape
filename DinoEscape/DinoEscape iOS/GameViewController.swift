@@ -15,8 +15,8 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         //let scene = GameScene.newGameScene()
-        let scene = HomeScene.newGameScene()
-        //let scene = StoreScene.newGameScene()
+       // let scene = HomeScene.newGameScene()
+        let scene = SettingsPopUpScene.newGameScene()
         
         
         // Present the scene
