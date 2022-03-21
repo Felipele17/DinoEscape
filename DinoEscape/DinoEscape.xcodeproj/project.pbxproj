@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		063E625927E521E600487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		063E625A27E521E700487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -566,6 +568,7 @@
 				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
+				063E625927E521E600487093 /* SKButton.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
@@ -600,6 +603,7 @@
 				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
+				063E625A27E521E700487093 /* SKButton.swift in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
@@ -933,7 +937,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
