@@ -15,8 +15,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-
-        
+        let dinos = try! SkinDataModel.getSkins()
+        if dinos.count == 0 {
+            CreateCoreData.shared.create()
+        }
         return true
     }
 
