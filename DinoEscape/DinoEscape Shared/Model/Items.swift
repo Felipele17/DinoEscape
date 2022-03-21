@@ -9,18 +9,19 @@ import Foundation
 import SpriteKit
 
 
-class Items{
-    var image: String
+class Items: SKSpriteNode{
     var vy: Int
     var vx: Int
     var direction: GameCommand
-    var node: SKSpriteNode
     
-    init(image: String, vy: Int, vx: Int, direction: GameCommand){
-        self.image = image
+    init(image: String, vy: Int, vx: Int, direction: GameCommand = .NONE){
         self.vy = vy
         self.vx = vx
         self.direction = direction
-        self.node = SKSpriteNode(imageNamed: image)
+        super.init(texture: SKTexture(imageNamed: image), color: .clear, size: CGSize(width: 20, height: 20))
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
 }
