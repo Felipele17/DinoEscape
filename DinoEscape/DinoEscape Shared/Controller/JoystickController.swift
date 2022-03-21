@@ -127,6 +127,7 @@ class JoystickController{
         }
     }
     
+    #if os(tvOS)
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
             if let swipeGesture = gesture as? UISwipeGestureRecognizer {
                 switch swipeGesture.direction {
@@ -143,7 +144,7 @@ class JoystickController{
                 }
             }
     }
-    
+    #endif
     // MARK: Buttons
     func pressButton(_ command: GameCommand){
         delegate?.buttonPressed(command: command)

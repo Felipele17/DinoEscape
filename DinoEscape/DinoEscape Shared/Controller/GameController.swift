@@ -15,7 +15,9 @@ class GameController{
         return instance
     }()
     
+    #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
+    #endif
     var gameData: GameData
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()
@@ -70,7 +72,7 @@ class GameController{
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runCount -= 1
             if runCount == 0 {
-                self.gameData.started = true
+                self.gameData.gameStatus = .playing
                 self.renderer.contagemLabel.removeFromParent()
                 timer.invalidate()
             }
@@ -79,10 +81,11 @@ class GameController{
     }
     // MARK: Update
     func update(_ currentTime: TimeInterval){
-        if gameData.player?.isAlive == false {
+        if gameData.gameStatus == .end {
             //chamar tela de gameOver
+            renderer.lifesLabel.text = "0"
         } else {
-            if gameData.started == true {
+            if gameData.gameStatus == .playing {
                 joystickController.update(currentTime)
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
@@ -92,9 +95,11 @@ class GameController{
         
     }
     
+#if os(tvOS)
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
+    #endif
     
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
@@ -201,6 +206,7 @@ class GameController{
             cancelActionItems()
             recursiveActionItems(time: 1.2)
             renderer.changeBackground(named: Backgrounds.shared.blueBackground())
+            print(Backgrounds.shared.blueBackground())
         }
         else if points == 80 {
             newEra()

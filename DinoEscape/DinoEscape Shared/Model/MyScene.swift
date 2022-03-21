@@ -72,7 +72,6 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     
     func hungryDino(){
         if let player = GameController.shared.gameData.player {
-            //player.life -= 1
             if player.foodBar > 2 {
                 player.foodBar -= 2
             }
@@ -85,7 +84,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             player.life -= 1
             if player.life <= 0{
                 player.gameCommand = .DEAD
-                player.isAlive = false
+                GameController.shared.gameData.gameStatus = .end
             }
         }
     }
