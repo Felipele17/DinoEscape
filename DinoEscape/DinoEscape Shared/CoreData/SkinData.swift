@@ -52,6 +52,11 @@ class SkinDataModel {
         return skin
     }
     static func selectSkin(skin: SkinData) throws -> SkinData{
+        //setando skin antiga como nao-selecionada
+        var oldSkin = getSkinSelected()
+        oldSkin.isSelected = false
+        
+        //nova skin como selecionada
         skin.isSelected = true
         try saveContext()
         return skin
@@ -61,5 +66,13 @@ class SkinDataModel {
         return try context.fetch(SkinData.fetchRequest())
     }
     
-    
+    static func getSkinSelected() -> SkinData {
+        let dinos = try! self.getSkins()
+        for i in 0..<dinos.count{
+            if dinos[i].isSelected == true{
+                return dinos[i]
+            }
+        }
+        return dinos[0]
+    }
 }

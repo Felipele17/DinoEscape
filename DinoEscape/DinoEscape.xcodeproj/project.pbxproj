@@ -137,8 +137,6 @@
 		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
 		1346CD1227E8F72500014B87 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
 		1346CD3B27E905CA00014B87 /* SkinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinData.swift; sourceTree = "<group>"; };
-		1346CD3F27E9086700014B87 /* SkinData+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkinData+CoreDataClass.swift"; sourceTree = "<group>"; };
-		1346CD4027E9086700014B87 /* SkinData+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkinData+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		1346CD4827E909A800014B87 /* CreateCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCoreData.swift; sourceTree = "<group>"; };
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
@@ -286,8 +284,6 @@
 		4AEAEEE027D676AE00BBD809 = {
 			isa = PBXGroup;
 			children = (
-				1346CD3F27E9086700014B87 /* SkinData+CoreDataClass.swift */,
-				1346CD4027E9086700014B87 /* SkinData+CoreDataProperties.swift */,
 				4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */,
 				4AEAEEE927D676B000BBD809 /* Assets.xcassets */,
 				4AEAEEF027D676B000BBD809 /* DinoEscape iOS */,
