@@ -49,6 +49,11 @@ class SettingsScene: MyScene {
         subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         addChild(subtitle)
         
+        #if os(macOS) || os(tvOS)
+        title.setScale(1.5)
+        subtitle.setScale(1.5)
+        #endif
+        
         createLabel(text: "Settings",
                     fontSize: size.width/13,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
@@ -79,11 +84,7 @@ class SettingsScene: MyScene {
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "sound")
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "music")
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.535), name: "vibration")
-        
-       
-        
     }
-    
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
@@ -140,6 +141,10 @@ class SettingsScene: MyScene {
         let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         switchButton.position = pos
        
+        #if os(macOS) || os(tvOS)
+        switchButton.setScale(0.5)
+        #endif
+        
         switchButton.selectedHandler = {
             if name == "sound" {
                 self.changeSwitchImageState(switchButton: switchButton, state: &state)
@@ -162,11 +167,17 @@ class SettingsScene: MyScene {
         label.fontName = "Aldrich-Regular"
         label.fontSize = fontSize
         label.numberOfLines = 2
+        label.setScale(0.5)
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         label.fontColor = fontColor
         label.position = position
         addChild(label)
+        
+        
+        #if os(macOS) || os(tvOS)
+        label.setScale(0.5)
+        #endif
     }
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
