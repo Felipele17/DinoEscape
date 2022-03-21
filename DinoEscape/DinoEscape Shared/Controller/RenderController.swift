@@ -246,11 +246,11 @@ class RenderController {
     }
     
     func showPauseMenu() {
-        if GameController.shared.gameData.gameStatus == .playing {
-            GameController.shared.gameData.gameStatus = .pause
-        } else {
-            GameController.shared.gameData.gameStatus = .playing
-        }
+        var pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/2, height: scene.size.height/2))
+        //pauseScene.color = .red
+        pauseScene.position = CGPoint(x:  scene.size.width/2, y:scene.size.height/2)
+        pauseScene.setUpScene()
+        scene.addChild(pauseScene)
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens

@@ -97,9 +97,11 @@ class GameController{
     }
     
     func pauseGame() {
-        if gameData.gameStatus != .end {
+        if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             pauseActionItems()
+            gameData.gameStatus = .pause
             renderer.showPauseMenu()
+            
         }
     }
     

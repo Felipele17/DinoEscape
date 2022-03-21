@@ -8,12 +8,16 @@
 import Foundation
 import SpriteKit
 
-class SettingsPopUpScene: MyScene {
+class SettingsPopUpScene: SKSpriteNode {
     
-    class func newGameScene() -> SettingsPopUpScene {
-        let scene = SettingsPopUpScene()
-        scene.scaleMode = .resizeFill
-        return scene
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+        self.isUserInteractionEnabled = true
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isUserInteractionEnabled = true
     }
     
     func setUpScene() {
@@ -22,36 +26,36 @@ class SettingsPopUpScene: MyScene {
         removeAllChildren()
         removeAllActions()
         
-        let background = SKShapeNode(rect: CGRect(x: size.width / 7,
-                                                  y: size.height / 3.5,
-                                                  width: size.width / 1.4,
-                                                  height: size.height/2))
+        let background = SKShapeNode(rect: CGRect(x: self.size.width/2 * -1,
+                                                  y: self.size.height/2 * -1,
+                                                  width: self.size.width,
+                                                  height: self.size.height))
         
         background.fillColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        
-        addChild(background)
-        
+        print(background.position)
+        self.addChild(background)
+
         createLabel(text: "Settings",
                     fontSize: size.width/13,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
-        
+
         createLabel(text: "Music",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.7, y: size.height/1.7)
         )
-        
+
         createLabel(text: "Vibration",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.7, y: size.height/2.07)
         )
-        
+
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "music")
         createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "vibration")
-        
+
         createBackButton()
         
     }
@@ -128,12 +132,6 @@ class SettingsPopUpScene: MyScene {
         addChild(button)
         
    
-    }
-    
-    override func didChangeSize(_ oldSize: CGSize) {
-        super.didChangeSize(oldSize)
-        
-        setUpScene()
     }
     
 }
