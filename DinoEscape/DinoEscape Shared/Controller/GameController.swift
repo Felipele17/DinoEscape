@@ -270,14 +270,14 @@ class GameController{
         if powerUp == .allFood {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 runCount += 1
-                print(runCount)
+                // conversa com a render para ela mudar os assets dos powerUps
+                self.renderer.allFoodRender()
                 if runCount == 10 {
                     timer.invalidate()
                 }
             }
             
-            // conversa com a render para ela mudar os assets dos powerUps
-            renderer.allFoodRender()
+            
             
         } else if powerUp == .slow {
             // conversa com a render para ela mudar a velocidade dos assets dos powerUps
