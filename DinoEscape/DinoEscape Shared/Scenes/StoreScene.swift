@@ -12,6 +12,7 @@ class StoreScene: MyScene {
     
     var coins: Int = 1000
     var dinoChoosed: String = "T-Rex"
+    var dinoImage = SKSpriteNode()
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
@@ -34,8 +35,10 @@ class StoreScene: MyScene {
         createSegButton(image: .eggs, pos: 0)
         createSegButton(image: .dinos, pos: 1)
         
-        setDinoImage(image1: "t_rex", image2: "t_rex")
+        setDinoImage(image: "t-RexLeft0")
+        addChild(dinoImage)
         addChild(createGallery())
+       
         
         createShopButtons(image: .buy, pos: 0)
         createShopButtons(image: .selected, pos: 1)
@@ -45,9 +48,9 @@ class StoreScene: MyScene {
     }
     
     
-    func setDinoImage(image1: String, image2: String ) {
-        var dinoImage: SKSpriteNode = SKSpriteNode(imageNamed: image1)
-        
+    
+    func setDinoImage(image: String) {
+
         let square: SKShapeNode = SKShapeNode(rect: CGRect(
             x: size.width/6,
             y: size.height/4.6,
@@ -58,17 +61,13 @@ class StoreScene: MyScene {
         square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
         
         
-//        for i in 0 ... 2 {
-//            dinoImage = SKSpriteNode(imageNamed: "image\(i)")
-//        }
-        
         addChild(square)
         
         dinoImage.position = CGPoint(x:size.width/2, y: size.width/1.2)
         dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
         
-            
-        square.addChild(dinoImage)
+        
+        dinoImage.texture = SKTexture(imageNamed: image)
     }
     
     func createADSButton(pos: Int) -> SKButton {
@@ -169,26 +168,27 @@ class StoreScene: MyScene {
         
         
         dinoButton.selectedHandler = {
+            
             switch name {
             case .t_rex:
                 print(name)
-                self.setDinoImage(image1: "t-RexLeft0", image2: "t-RexLeft1" )
+                self.setDinoImage(image: "t-RexLeft0" )
             
             case .triceratops:
                 print(name)
-                self.setDinoImage(image1: "triceratopsLeft0", image2: "triceratopsLeft1" )
+                self.setDinoImage(image: "triceratopsLeft0" )
                     
             case .stegosaurus:
                 print(name)
-                self.setDinoImage(image1: "stegosaurusLeft0", image2: "stegosaurusLeft1" )
+                self.setDinoImage(image: "stegosaurusLeft0" )
                 
             case .brachiosaurus:
                 print(name)
-                self.setDinoImage(image1: "brachiosaurusLeft0", image2: "brachiosaurusLeft1" )
+                self.setDinoImage(image: "brachiosaurusLeft0" )
                 
             case .chickenosaurus:
                 print(name)
-                self.setDinoImage(image1: "chickenosaurusLeft0", image2: "chickenosaurusLeft1" )
+                self.setDinoImage(image: "chickenosaurusLeft0" )
                 
             }
             
