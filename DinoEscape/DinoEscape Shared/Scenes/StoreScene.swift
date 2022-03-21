@@ -23,36 +23,41 @@ class StoreScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        //backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        backgroundColor = SKColor(red: 35/255, green: 21/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+
         
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(image: .eggs, pos: 0, name: .ovo)
-        createSegButton(image: .dinos, pos: 1, name: .dinos)
+        createSegButton(image: .eggs, pos: 0)
+        createSegButton(image: .dinos, pos: 1)
         
    
         addChild(createGallery())
         
-        createShopButtons(image: .buy, name: .bai, pos: 0)
-        createShopButtons(image: .selected, name: .selecionado, pos: 1)
+        createShopButtons(image: .buy, pos: 0)
+        createShopButtons(image: .selected, pos: 1)
         
+        
+        
+    }
+    
+    
+    func setDinoImage() {
         let dinoImage: SKSpriteNode = SKSpriteNode(imageNamed: dinoChoosed)
         
         dinoImage.position = CGPoint(x: size.width/2, y: size.height/2.6)
         dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
         addChild(dinoImage)
-        
     }
     
     func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "buttonYellow")
+        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 16
+        let w: CGFloat = size.width/16
         let h = w * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -72,7 +77,7 @@ class StoreScene: MyScene {
         
     }
     
-    func createShopButtons(image: BuyButtonType, name: StoreStrings, pos: Int) {
+    func createShopButtons(image: BuyButtonType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -87,25 +92,17 @@ class StoreScene: MyScene {
         
         
         buyButton.selectedHandler = {
-            print(name)
+
             
         }
         
-        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
-        text.fontName = "Aldrich-Regular"
-        text.fontSize = 20
-        text.numberOfLines = 1
-        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
-        text.position = CGPoint(x: buyButton.size.width/2, y: buyButton.size.height/2)
         
         addChild(buyButton)
-        buyButton.addChild(text)
-
         
     }
     
     
-    func createSegButton(image: SegmentageType, pos: Int, name: StoreStrings) {
+    func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -121,24 +118,18 @@ class StoreScene: MyScene {
         
         
         segmentage.selectedHandler = {
-            if name == .ovo {
+            print("\(pos)")
+            switch image {
+            case .eggs:
                 self.view?.presentScene(EggScene.newGameScene())
-            } else if name == .dinos {
+            case .dinos:
                 self.view?.presentScene(StoreScene.newGameScene())
-            } else {
-                print("out of the range")
             }
         }
-        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
-        text.fontName = "Aldrich-Regular"
-        text.fontSize = 20
-        text.numberOfLines = 1
-        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
-        text.position = CGPoint(x: segmentage.size.width/2, y: segmentage.size.height/2)
+        
+       
         
         addChild(segmentage)
-        segmentage.addChild(text)
-
         
     }
         
@@ -206,7 +197,7 @@ class StoreScene: MyScene {
     
     func createBackButton() -> SKButton {
         
-        let texture = SKTexture(imageNamed: "coin")
+        let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
         

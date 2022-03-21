@@ -21,19 +21,19 @@ class EggScene: SKScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        //backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        backgroundColor = SKColor(red: 35/255, green: 21/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+
     
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
         
-        createSegButton(image: .eggs, pos: 0, name: .ovo)
-        createSegButton(image: .dinos, pos: 1, name: .dinos)
+        createSegButton(image: .eggs, pos: 0)
+        createSegButton(image: .dinos, pos: 1)
         
-        createShopButtons(image: .daily, pos: 0, name: .dailyreward)
-        createShopButtons(image: .chance, pos: 1, name: .onemorechance)
+        createShopButtons(image: .daily, pos: 0)
+        createShopButtons(image: .chance, pos: 1)
         
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         
@@ -67,7 +67,7 @@ class EggScene: SKScene {
         
     }
     
-    func createShopButtons(image: EggType, pos: Int, name: StoreStrings ) {
+    func createShopButtons(image: EggType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -83,23 +83,16 @@ class EggScene: SKScene {
         
         
         buyButton.selectedHandler = {
-            print(name)
+            print(image)
             
         }
-        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
-        text.fontName = "Aldrich-Regular"
-        text.fontSize = 18
-        text.numberOfLines = 1
-        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
-        text.position = CGPoint(x: buyButton.size.width/2, y: buyButton.size.height/2)
        
         addChild(buyButton)
-        buyButton.addChild(text)
         
     }
     
     
-    func createSegButton(image: SegmentageType, pos: Int, name: StoreStrings) {
+    func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -109,7 +102,7 @@ class EggScene: SKScene {
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.85 + CGFloat(pos) * segmentage.frame.width * 1.05,
+            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
         
         segmentage.selectedHandler = {
@@ -120,26 +113,9 @@ class EggScene: SKScene {
             case .dinos:
                 self.view?.presentScene(StoreScene.newGameScene())
             }
-            /*
-            if name == .eggs {
-                self.view?.presentScene(EggScene.newGameScene())
-            } else if name == .dinos {
-                self.view?.presentScene(StoreScene.newGameScene())
-            } else {
-                print("out of the range")
-            }
-             */
         }
         
-        let text: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
-        text.fontName = "Aldrich-Regular"
-        text.fontSize = 20
-        text.numberOfLines = 1
-        text.fontColor = SKColor(red: 1, green: 1, blue: 1, alpha: 1)
-        text.position = CGPoint(x: segmentage.size.width, y: segmentage.size.height)
-        
         addChild(segmentage)
-        segmentage.addChild(text)
     }
         
     
@@ -179,7 +155,7 @@ class EggScene: SKScene {
     
     func createBackButton() -> SKButton {
         
-        let texture = SKTexture(imageNamed: "coin")
+        let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
         
