@@ -307,7 +307,6 @@
 		4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */ = {
 			isa = PBXGroup;
 			children = (
-				A611055F27E10DDF008ABC33 /* Model */,
 				A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */,
 				4AEAEF0127D676B100BBD809 /* AppDelegate.swift */,
 				4AEAEF0327D676B100BBD809 /* GameViewController.swift */,
@@ -327,13 +326,6 @@
 				4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */,
 			);
 			path = "DinoEscape macOS";
-			sourceTree = "<group>";
-		};
-		A611055F27E10DDF008ABC33 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
 			sourceTree = "<group>";
 		};
 		A6BC68EB27E2548E00093948 /* Recovered References */ = {
