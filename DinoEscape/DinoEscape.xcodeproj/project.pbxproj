@@ -106,6 +106,9 @@
 		B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
+		B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
+		B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
+		B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
 		DF03BE4227E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4327E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4427E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
@@ -171,6 +174,7 @@
 		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
+		B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		DF03BE4127E25D770005E872 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		DF0C0C8627E3CD16001BBAFA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		EE04A67027E2803700934ED8 /* ButtonCollors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollors.swift; sourceTree = "<group>"; };
@@ -381,6 +385,7 @@
 				B0C948EA27DBDBD100B671EA /* SettingsScene.swift */,
 				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
 				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
+				B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -546,6 +551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */,
+				B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
@@ -605,6 +611,7 @@
 				1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
+				B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				063E625927E521E600487093 /* SKButton.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
@@ -629,6 +636,7 @@
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
+				B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
