@@ -32,7 +32,7 @@ class SKButton: SKSpriteNode {
             switch state {
             case .active:
                 self.isUserInteractionEnabled = true
-                self.alpha = 1
+                self.alpha = 1.1
                 break
                 
             case .selected:
@@ -47,6 +47,36 @@ class SKButton: SKSpriteNode {
         }
     }
     
+#if os( tvOS )
+    var touchStart: CGPoint?
+    var isFocusable: Bool = true
+
+    override var canBecomeFocused: Bool {
+        return isFocusable
+    }
+
+    
+    override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
+        
+        if context.previouslyFocusedItem === self {
+            self.setScale(self.xScale/1.1)
+            self.setScale(self.yScale/1.1)
+            self.alpha = 0.75
+        }
+        
+        if context.nextFocusedItem === self {
+            self.setScale(self.xScale * 1.1)
+            self.setScale(self.yScale * 1.1)
+            self.alpha = 1
+        }
+    }
+    
+    
+    enum Direction: Int {
+        case UP = 0, RIGHT, DOWN, LEFT;
+    }
+#endif
+    
 }
 
 
@@ -58,6 +88,7 @@ extension SKButton {
         if isButtonEnabled{
             state = .selected
         }
+        
     }
     
     override func touchesMoved(with event: NSEvent) {
@@ -92,4 +123,5 @@ extension SKButton {
     
     #endif
 }
+
 

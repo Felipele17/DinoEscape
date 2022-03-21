@@ -21,6 +21,10 @@ class GameScene: MyScene {
     
     func setUpScene() {
         GameController.shared.setupScene()
+        #if os(tvOS)
+        self.setGesture()
+        #endif
+        
     }
     override func didMove(to view: SKView) {
         //setando a cena
@@ -36,51 +40,7 @@ class GameScene: MyScene {
         // Called before each frame is rendered
         GameController.shared.update(currentTime)
     }
+    
 }
 
-#if os(iOS) || os(tvOS)
-// Touch-based event handling
-extension GameScene {
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesBegan(touches, with: event)
-        
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesMoved(touches, with: event)
-        for touch in touches {
-            let location = touch.location(in: scene!)
-        }
-    }
-    
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
-    
-    
-}
-#endif
-
-#if os(OSX)
-// Mouse-based event handling
-extension GameScene {
-    
-    override func mouseDown(with event: NSEvent) {
-        
-    }
-    
-    override func mouseDragged(with event: NSEvent) {
-    }
-    
-    override func mouseUp(with event: NSEvent) {
-    }
-    
-}
-#endif
 
