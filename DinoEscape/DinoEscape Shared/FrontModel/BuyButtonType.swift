@@ -8,7 +8,7 @@
 import Foundation
 
 enum BuyButtonType: String {
-    case buy = "buttonGreen"
-    case selected = "buttonBlue"
+    case buy = "buyButton"
+    case selected = "selectedButton"
    
 }
