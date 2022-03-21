@@ -10,9 +10,6 @@ import CoreData
 
 class SkinDataModel {
     
-    static var shared =  SkinDataModel()
-    
-    
     static var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
         container.loadPersistentStores{ _, error in
