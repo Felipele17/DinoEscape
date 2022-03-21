@@ -112,7 +112,6 @@ class SettingsScene: MyScene {
         title.fontSize = 20
         title.fontColor = titleColor
         
-        
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
         
@@ -186,13 +185,11 @@ class SettingsScene: MyScene {
         label.fontName = "Aldrich-Regular"
         label.fontSize = fontSize
         label.numberOfLines = 2
-        label.setScale(0.5)
         label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         label.fontColor = fontColor
         label.position = position
         addChild(label)
-        
         
         #if os(macOS) || os(tvOS)
         label.setScale(0.5)
