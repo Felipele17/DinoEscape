@@ -32,6 +32,8 @@ class GameController{
         renderer = RenderController()
     }
     
+    // MARK: Setup e Set Scene
+    
     func setScene(scene: MyScene){
         renderer.scene = scene
         
@@ -58,15 +60,36 @@ class GameController{
         //fisica da cena
         renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
         renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
-        recursiveActionItems()
+        recursiveActionItems(time: 1.5)
+        
+        var runCount = 3 {
+            didSet {
+                renderer.contagemLabel.text = "\(runCount)"
+            }
+        }
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runCount -= 1
+            if runCount == 0 {
+                self.gameData.started = true
+                self.renderer.contagemLabel.removeFromParent()
+                timer.invalidate()
+            }
+        }
 
     }
-    
+    // MARK: Update
     func update(_ currentTime: TimeInterval){
-        joystickController.update(currentTime)
+        if gameData.player?.isAlive == false {
+            //chamar tela de gameOver
+        } else {
+            if gameData.started == true {
+                joystickController.update(currentTime)
+                movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
+                renderer.update(currentTime, gameData: gameData)
+            }
+            
+        }
         
-        movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
-        renderer.update(currentTime)
     }
     
     func getSwipe(swipe: UISwipeGestureRecognizer){
@@ -104,12 +127,14 @@ class GameController{
     }
     
     // MARK: Itens na tela
-    func createGoodItems(){
+    func createItems(){
         
         let badOrGood = Int.random(in: 0...1)
+        let spoiledOrMeteor = Int.random(in: 0...1)
+
         let directions: [GameCommand] = [.LEFT, .RIGHT, .UP, .DOWN]
-        let goodImages: [String] = ["cherry", "banana", "apple"]
-        let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple", "meteoro1"]
+        let goodImages: [String] = ["cherry","banana","apple"]
+        let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple"]
         let direction = directions[Int.random(in: 0..<directions.count)]
         let item = Items(image: "", vy: 0, vx: 0, direction: direction)
         
@@ -118,11 +143,17 @@ class GameController{
         var yInitial: CGFloat = 0
         
         if badOrGood == 1 {
-            item.node.texture = SKTexture(imageNamed: goodImages[Int.random(in: 0..<goodImages.count)])
-            item.node.name = "good"
+            item.texture = SKTexture(imageNamed: goodImages[Int.random(in: 0..<goodImages.count)])
+            item.name = "good"
         } else {
-            item.node.texture = SKTexture(imageNamed: badImages[Int.random(in: 0..<badImages.count)])
-            item.node.name = "bad"
+            if spoiledOrMeteor == 1 {
+                item.texture = SKTexture(imageNamed: badImages[Int.random(in: 0..<badImages.count)])
+                item.name = "bad"
+            } else {
+                item.texture = SKTexture(imageNamed: "meteoro1")
+                item.name = "meteoro"
+            }
+            
         }
         
         
@@ -130,46 +161,81 @@ class GameController{
         case .UP:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height*1.1
-            
-            item.vy = -5
+            item.vy = -gameData.velocidadeGlobal
           
         case .DOWN:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height * -0.1
+            item.vy = gameData.velocidadeGlobal
             
-            item.vy = 5
-        case .NONE:
-            xInitial = 0
-
         case .RIGHT:
             xInitial = renderer.scene.size.width * 1.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
-            
-            item.vx = -5
+            item.vx = -gameData.velocidadeGlobal
 
         case .LEFT:
             xInitial = renderer.scene.size.width * -0.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
+            item.vx = gameData.velocidadeGlobal
             
-            item.vx = 5
-
+            
+        case .NONE:
+            print()
         case .DEAD:
-            xInitial = 0
-
+            print()
         }
         
-        item.node.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
-        item.node.position = CGPoint(x: xInitial, y: yInitial)
+        item.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
+        item.position = CGPoint(x: xInitial, y: yInitial)
         
         renderer.drawItem(item: item)
         
     }
     
-    func recursiveActionItems(){
+    func nextLevel(points: Int){
+        if points == 25 {
+            renderer.changeBackground(named: Backgrounds.shared.redBackground())
+        }
+        else if points == 50 {
+            newEra()
+            cancelActionItems()
+            recursiveActionItems(time: 1.2)
+            renderer.changeBackground(named: Backgrounds.shared.blueBackground())
+        }
+        else if points == 80 {
+            newEra()
+            cancelActionItems()
+            recursiveActionItems(time: 1)
+            renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
+            gameData.velocidadeGlobal = 4
+        }
+        else if points == 100 {
+            newEra()
+            cancelActionItems()
+            recursiveActionItems(time: 0.8)
+            renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
+        }
+        else if points == 150 {
+            newEra()
+            cancelActionItems()
+            recursiveActionItems(time: 0.6)
+            renderer.changeBackground(named: Backgrounds.shared.cityBackground())
+            gameData.velocidadeGlobal = 5
+
+        }
+        else if points == 200 {
+            cancelActionItems()
+            newEra()
+            recursiveActionItems(time: 0.4)
+            renderer.changeBackground(named: Backgrounds.shared.planetBackground())
+        }
+    }
+    
+    func recursiveActionItems(time: CGFloat){
         let recursive = SKAction.sequence([
-            SKAction.run(createGoodItems),
-            SKAction.wait(forDuration: 1),
-            SKAction.run({[unowned self] in self.recursiveActionItems()})
+            SKAction.run(createItems),
+            SKAction.wait(forDuration: time),
+            SKAction.run({[unowned self] in self.recursiveActionItems(time: time)})
         ])
         
         renderer.scene.run(recursive, withKey: "aKey")
@@ -177,6 +243,68 @@ class GameController{
     
     func cancelActionItems() {
         renderer.scene.removeAction(forKey: "aKey")
+    }
+    
+    // MARK: Power-ups
+    func getPowerUp() -> PowerUp{
+        let powerUps: [PowerUp] = [.slow, .allFood, .doubleXP]
+        return powerUps[Int.random(in: 0..<powerUps.count)]
+    }
+
+    func powerUpLogic(powerUp: PowerUp) {
+
+        let powerUpLabel = renderer.drawPowerUp(powerUp: powerUp)
+        var runCount = 0
+        var runPower = 0
+        
+        // adiciona o label que indica o powerup selecionado
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runPower += 1
+            if runPower == 5 {
+                self.renderer.excludeNode(label: powerUpLabel)
+                timer.invalidate()
+            }
+        }
+        
+        
+        if powerUp == .allFood {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                runCount += 1
+                // conversa com a render para ela mudar os assets dos powerUps
+                self.renderer.allFoodRender()
+                if runCount == 10 {
+                    timer.invalidate()
+                }
+            }
+            
+            
+            
+        } else if powerUp == .slow {
+            // conversa com a render para ela mudar a velocidade dos assets dos powerUps
+            renderer.slowRender()
+            
+        } else if powerUp == .doubleXP {
+            Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+                runCount += 1
+                self.gameData.addPoints = 20
+                if runCount == 10 {
+                    self.gameData.addPoints = 10
+                    timer.invalidate()
+                }
+            }
+        }
+    }
+    func newEra(){
+        let newEraLabel = renderer.drawNewEra()
+        var runCount = 0
+        // adiciona o label que indica o powerup selecionado
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runCount += 1
+            if runCount == 2 {
+                self.renderer.excludeNode(label: newEraLabel)
+                timer.invalidate()
+            }
+        }
     }
 }
 
