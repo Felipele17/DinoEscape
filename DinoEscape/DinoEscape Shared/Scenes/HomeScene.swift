@@ -32,6 +32,7 @@ class HomeScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
+
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
         
 #if os( tvOS )
@@ -41,7 +42,11 @@ class HomeScene: MyScene {
         removeAllChildren()
         removeAllActions()
         
+#if os(macOS)
+        let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
+#elseif os(tvOS) || os(iOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
+#endif
         
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundImage.size = frame.size
@@ -112,11 +117,22 @@ class HomeScene: MyScene {
         }
 
         
-#elseif os(macOS) || os(tvOS)
+#elseif os(tvOS)
         title.setScale(1.5)
+        title.position = CGPoint(x: size.width/2, y: size.height/1.09)
+        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         subtitle.setScale(1.5)
-
         
+#elseif os(macOS)
+        title.setScale(2)
+        subtitle.setScale(2)
+        title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+
+        btn.setScale(0.6)
+        btn2.setScale(0.6)
+        btn3.setScale(0.6)
+  
 #endif
         
     }
@@ -135,9 +151,16 @@ class HomeScene: MyScene {
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        
+        #if os(iOS) || os(tvOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
+        
+        #elseif os(macOS)
+        title.fontSize = 40
+        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
+        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
+        
+#endif
         
         button.selectedHandler = {
             if name == .play {
