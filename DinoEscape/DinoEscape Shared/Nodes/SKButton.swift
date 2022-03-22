@@ -75,6 +75,9 @@ class SKButton: SKSpriteNode {
     enum Direction: Int {
         case UP = 0, RIGHT, DOWN, LEFT;
     }
+    
+    
+    
 #endif
     
 }
