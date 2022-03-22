@@ -98,8 +98,8 @@ class GameController{
     
     func pauseGame() {
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
-            pauseActionItems()
             gameData.gameStatus = .pause
+            pauseActionItems()
             renderer.showPauseMenu()
             
         }
@@ -260,7 +260,7 @@ class GameController{
     }
     
     func pauseActionItems() {
-        if gameData.gameStatus == .playing {
+        if gameData.gameStatus == .pause {
             renderer.scene.action(forKey: "aKey")?.speed = 0
         } else {
             renderer.scene.action(forKey: "aKey")?.speed = 1
@@ -298,7 +298,7 @@ class GameController{
                 runCount += 1
                 // conversa com a render para ela mudar os assets dos powerUps
                 self.renderer.allFoodRender()
-                if runCount == 10 {
+                if runCount == 5 {
                     timer.invalidate()
                 }
             }

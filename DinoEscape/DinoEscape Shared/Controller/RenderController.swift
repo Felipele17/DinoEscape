@@ -246,11 +246,11 @@ class RenderController {
     }
     
     func showPauseMenu() {
-        var pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/2, height: scene.size.height/2))
-        //pauseScene.color = .red
-        pauseScene.position = CGPoint(x:  scene.size.width/2, y:scene.size.height/2)
-        pauseScene.setUpScene()
-        scene.addChild(pauseScene)
+        let pauseScene1 = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        pauseScene1.zPosition = 10
+        scene.addChild(pauseScene1)
+
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens
