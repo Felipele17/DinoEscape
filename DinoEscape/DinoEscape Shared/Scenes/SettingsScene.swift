@@ -22,8 +22,8 @@ class SettingsScene: MyScene {
     var switch2 = SKButton()
     var switch3 = SKButton()
     
-    weak var audioDelegate: AudioDelegate?
     var musicOn: Bool = true
+    let node = SKButton()
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -244,9 +244,10 @@ class SettingsScene: MyScene {
             
             print("botão azul")
         } else if (switch1.isFocused) {
-            print("switcher 1")
+            
         } else if (switch2.isFocused) {
-            print("switcher 2")
+toggleMusic()
+            
         } else if (switch3.isFocused) {
             print("switcher 3")
         } else {
@@ -255,20 +256,21 @@ class SettingsScene: MyScene {
     }
     
     func toggleMusic() {
-        if let node = audioDelegate?.toggleMusic() {
-            
-            let texture: [SKTexture] = [SKTexture(imageNamed: "switchON"),
-                                        SKTexture(imageNamed: "switchOFF")]
-            musicOn.toggle()
+        
+        musicOn.toggle()
             
             if musicOn {
-                node.texture = texture[0]
+                switch2.texture = SKTexture(imageNamed: "switchON")
+                //node.texture = texture[0]
+                print("entrou no if - musicOn = true")
+                
             } else {
-                node.texture = texture[1]
+                switch2.texture = SKTexture(imageNamed: "switchOFF")
+                //node.texture = texture[1]
+                print("entrou no else - musicOn = false")
+                
             }
-        } else {
-            return
-        }
+        
     }
     
 #endif
