@@ -16,6 +16,7 @@ class GameViewController: NSViewController {
         
 //        let scene = SettingsScene.newGameScene()
         //let scene = HomeScene.newGameScene()
+        //let scene = StoreScene.newGameScene()
         let scene = EggScene.newGameScene()
         
         // Present the scene
