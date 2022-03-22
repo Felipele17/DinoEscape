@@ -38,11 +38,6 @@ class StoreScene: MyScene {
         setDinoImage(image: "t-RexLeft0")
         addChild(dinoImage)
         addChild(createGallery())
-       
-        
-        createShopButtons(image: .buy, pos: 0)
-        createShopButtons(image: .selected, pos: 1)
-        
         
         
     }
@@ -94,7 +89,7 @@ class StoreScene: MyScene {
         
     }
     
-    func createShopButtons(image: BuyButtonType, pos: Int) {
+    func createShopButtons(name: SkinData,image: BuyButtonType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -107,12 +102,20 @@ class StoreScene: MyScene {
             y: size.height / 6 )
         
         
-        
-        buyButton.selectedHandler = {
-
-            
+        switch image {
+        case .selected:
+            buyButton.selectedHandler = {
+                let texture: SKTexture = SKTexture(imageNamed: "buyButton")
+                texture.filteringMode = .nearest
+                print("clicou")
+            }
+        case .buy:
+            buyButton.selectedHandler = {
+                #warning("Colocar conferencias de moeda")
+                try! SkinDataModel.buyDino(skin: name)
+                print("clicou")
+            }
         }
-        
         
         addChild(buyButton)
         
@@ -151,8 +154,8 @@ class StoreScene: MyScene {
     }
         
     
-    func createDino(name: DinoType, posX: Int, posY: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    func createDino(name: SkinData, posX: Int, posY: Int, isBought: Bool, isSelected: Bool) -> SKButton {
+        let texture: SKTexture = SKTexture(imageNamed: name.image ?? "frameTrex")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 4.8
@@ -168,33 +171,48 @@ class StoreScene: MyScene {
         
         
         dinoButton.selectedHandler = {
-            
-            switch name {
-            case .t_rex:
+            //,,,,"other"]
+            if name.name == "t-Rex" {
                 print(name)
                 self.setDinoImage(image: "t-RexLeft0" )
-            
-            case .triceratops:
-                print(name)
-                self.setDinoImage(image: "triceratopsLeft0" )
-                    
-            case .stegosaurus:
-                print(name)
-                self.setDinoImage(image: "stegosaurusLeft0" )
-                
-            case .brachiosaurus:
+            }
+            else if name.name == "brachiosaurus" {
                 print(name)
                 self.setDinoImage(image: "brachiosaurusLeft0" )
-                
-            case .chickenosaurus:
+            }
+            else if name.name == "chickenosaurus" {
                 print(name)
                 self.setDinoImage(image: "chickenosaurusLeft0" )
-                
+            }
+            else if name.name == "stegosaurus" {
+                print(name)
+                self.setDinoImage(image: "stegosaurusLeft0" )
+            }
+            else if name.name == "triceratops" {
+                print(name)
+                self.setDinoImage(image: "triceratopsLeft0" )
+            }
+            else if name.name == "other" {
+                #warning("mudar o nome")
+                print(name)
+                self.setDinoImage(image: "t-RexLeft0" )
             }
             
+            if !name.isBought {
+                self.createShopButtons(name: name, image: .buy, pos: 0)
+
+            }
+            self.createShopButtons(name: name, image: .selected, pos: 1)
             
         }
         
+        if !isBought{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"Off")
+        }
+        
+        if isSelected{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
+        }
         return dinoButton
         
     }
@@ -259,15 +277,14 @@ class StoreScene: MyScene {
     func createGallery() -> SKSpriteNode {
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         //let button = createDino(name: .t_rex, posX: 0, posY: 0)
-        var vetor = [[DinoType.brachiosaurus, DinoType.t_rex], [DinoType.triceratops, DinoType.brachiosaurus], [DinoType.chickenosaurus, DinoType.stegosaurus]]
-        
+        let vetor = try! SkinDataModel.getSkins()
+        let plot = [[vetor[5],vetor[4],vetor[2]],[vetor[0],vetor[1],vetor[3]]]
+        var plotDino = 0
         for i in 0..<3{
             for j in 0..<2{
-                
-                
-                    let button = createDino(name: vetor[i][j], posX: i, posY: j)
-                    gallery.addChild(button)
-                
+                let button = createDino(name: plot[j][i], posX: i, posY: j,isBought: plot[j][i].isBought,isSelected: plot[j][i].isSelected)
+                gallery.addChild(button)
+                plotDino+=1
             }
         }
         
