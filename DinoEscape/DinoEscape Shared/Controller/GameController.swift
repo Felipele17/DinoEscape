@@ -31,6 +31,8 @@ class GameController{
                             gameCommand: .UP,
                             powerUp: .none)
         gameData = GameData(player: player)
+        gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+        print("rex",gameData.skinSelected)
         renderer = RenderController()
     }
     
@@ -211,33 +213,32 @@ class GameController{
     
     func nextLevel(points: Int){
         if points == 25 {
-            renderer.changeBackground(named: Backgrounds.shared.redBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
         }
         else if points == 50 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1.2)
-            renderer.changeBackground(named: Backgrounds.shared.blueBackground())
-            print(Backgrounds.shared.blueBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "blueBackground"))
         }
         else if points == 80 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1)
-            renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "lightGreenBackground"))
             gameData.velocidadeGlobal = 4
         }
         else if points == 100 || points == 110 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
-            renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "greenBackground"))
         }
         else if points == 150 || points == 160  {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
-            renderer.changeBackground(named: Backgrounds.shared.cityBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "cityBackground"))
             gameData.velocidadeGlobal = 5
 
         }
@@ -245,7 +246,7 @@ class GameController{
             cancelActionItems()
             newEra()
             recursiveActionItems(time: 0.4)
-            renderer.changeBackground(named: Backgrounds.shared.planetBackground())
+            renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "planetBackground"))
         }
     }
     

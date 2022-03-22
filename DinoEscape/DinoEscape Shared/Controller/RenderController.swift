@@ -17,7 +17,7 @@ class RenderController {
     // player
     var scene: MyScene = MyScene()
     var playerNode: SKSpriteNode = SKSpriteNode()
-    var background: SKSpriteNode = SKSpriteNode(imageNamed: Backgrounds.shared.redBackground())
+    var background: SKSpriteNode = SKSpriteNode(imageNamed: Backgrounds.shared.newBackground(background: "redBackground"))
     var hitBoxNode: SKShapeNode = SKShapeNode()
     
     // header da tela
@@ -95,7 +95,7 @@ class RenderController {
     
     @discardableResult
     func draw(player: Player) -> SKSpriteNode {
-        let node = SKSpriteNode(imageNamed: "rexRight")
+        let node = SKSpriteNode(imageNamed: GameController.shared.gameData.skinSelected+"Right0")
         node.position = player.position
         node.name = player.name
         node.size = CGSize(width: scene.size.height*0.1, height: scene.size.height*0.1)
@@ -193,23 +193,23 @@ class RenderController {
     }
     
     // MARK: Desenho do dinossauro
-    func selectDinoCommand(command: GameCommand) -> String {
+    func selectDinoCommand(command: GameCommand, skin: String) -> String {
         // Quando o Dino fica na vertical hitbox é dividida por 3
         switch command{
         case .UP:
-            return "rexUp"
+            return skin+"BackL"
         case .NONE:
-            return "rexUp"
+            return skin+"Right0"
         case .RIGHT:
-            return "rexRight"
+            return skin+"Right0"
         case .DOWN:
-            return "rexDown"
+            return skin+"FrontL"
         case .LEFT:
-            return  "rexLeft"
+            return  skin+"Left0"
         case .DEAD:
-            return "rexRight"
+            return skin+"Right0"
         case .PAUSE:
-            return "rexRight"
+            return skin+"Right0"
         }
     }
     
@@ -234,7 +234,7 @@ class RenderController {
 
         playerNode.position = gameData.player!.position
         if let player = gameData.player {
-            playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand))
+            playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand, skin: gameData.skinSelected))
             lifesLabel.text = "\(player.life)"
         }
         

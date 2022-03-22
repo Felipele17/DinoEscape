@@ -40,6 +40,15 @@
 		133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
 		133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B9C27D69E970012CFDD /* JoystickController.swift */; };
 		133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
+		1346CD1327E8F72500014B87 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD1127E8F72500014B87 /* Model.xcdatamodeld */; };
+		1346CD1427E8F72500014B87 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD1127E8F72500014B87 /* Model.xcdatamodeld */; };
+		1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD1127E8F72500014B87 /* Model.xcdatamodeld */; };
+		1346CD3C27E905CA00014B87 /* SkinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD3B27E905CA00014B87 /* SkinData.swift */; };
+		1346CD3D27E905CA00014B87 /* SkinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD3B27E905CA00014B87 /* SkinData.swift */; };
+		1346CD3E27E905CA00014B87 /* SkinData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD3B27E905CA00014B87 /* SkinData.swift */; };
+		1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
+		1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
+		1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
 		13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
@@ -139,6 +148,9 @@
 		133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickDelegate.swift; sourceTree = "<group>"; };
 		133F7B9C27D69E970012CFDD /* JoystickController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoystickController.swift; sourceTree = "<group>"; };
 		133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameController+JoystickDelegate.swift"; sourceTree = "<group>"; };
+		1346CD1227E8F72500014B87 /* Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Model.xcdatamodel; sourceTree = "<group>"; };
+		1346CD3B27E905CA00014B87 /* SkinData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkinData.swift; sourceTree = "<group>"; };
+		1346CD4827E909A800014B87 /* CreateCoreData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateCoreData.swift; sourceTree = "<group>"; };
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
@@ -264,6 +276,16 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
+		1346CD3A27E905B600014B87 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				1346CD1127E8F72500014B87 /* Model.xcdatamodeld */,
+				1346CD3B27E905CA00014B87 /* SkinData.swift */,
+				1346CD4827E909A800014B87 /* CreateCoreData.swift */,
+			);
+			path = CoreData;
+			sourceTree = "<group>";
+		};
 		13842CE627E2561800E1F88E /* Aldrich */ = {
 			isa = PBXGroup;
 			children = (
@@ -300,6 +322,7 @@
 			isa = PBXGroup;
 			children = (
 				DF20482E27EA48A000C0F515 /* GameCenter */,
+				1346CD3A27E905B600014B87 /* CoreData */,
 				13842CE627E2561800E1F88E /* Aldrich */,
 				133F7BA327D6A8550012CFDD /* Extensions */,
 				133F7B9927D69E210012CFDD /* Delegate */,
@@ -569,9 +592,11 @@
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				DF109F9627E8F89A0012139D /* GameStatus.swift in Sources */,
 				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
+				1346CD3C27E905CA00014B87 /* SkinData.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
@@ -581,6 +606,7 @@
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
 				EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */,
+				1346CD1327E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
 				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
 				DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */,
@@ -616,11 +642,13 @@
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */,
+				1346CD3D27E905CA00014B87 /* SkinData.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
 				DF20483127EA48B200C0F515 /* GameCenterController.swift in Sources */,
+				1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
@@ -633,6 +661,7 @@
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */,
+				1346CD1427E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */,
 				B09BADA427E25BE000047A77 /* EggScene.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
@@ -647,6 +676,7 @@
 				B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				DF109F9827E8F89A0012139D /* GameStatus.swift in Sources */,
+				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
@@ -668,9 +698,11 @@
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
 				063E625A27E521E700487093 /* SKButton.swift in Sources */,
+				1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
+				1346CD3E27E905CA00014B87 /* SkinData.swift in Sources */,
 				13842CF227E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
@@ -1064,6 +1096,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		1346CD1127E8F72500014B87 /* Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				1346CD1227E8F72500014B87 /* Model.xcdatamodel */,
+			);
+			currentVersion = 1346CD1227E8F72500014B87 /* Model.xcdatamodel */;
+			path = Model.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 4AEAEEE127D676AE00BBD809 /* Project object */;
 }
