@@ -10,6 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    var gController: GameCenterController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +20,7 @@ class GameViewController: UIViewController {
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
         
+        scene.delegateGameCenter = self
        // let scene = HomeScene.newGameScene()
         //let scene = SettingsPopUpScene.newGameScene()
         

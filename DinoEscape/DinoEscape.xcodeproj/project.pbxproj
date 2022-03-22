@@ -112,6 +112,8 @@
 		DF20483127EA48B200C0F515 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20482F27EA48AF00C0F515 /* GameCenterController.swift */; };
 		DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20482F27EA48AF00C0F515 /* GameCenterController.swift */; };
 		DF20483527EA4B5A00C0F515 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20483427EA4B5A00C0F515 /* GameKit.framework */; };
+		DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
+		DF20483927EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */; };
 		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* ButtonCollors.swift */; };
@@ -173,6 +175,8 @@
 		DF109F9527E8F89A0012139D /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		DF20482F27EA48AF00C0F515 /* GameCenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterController.swift; sourceTree = "<group>"; };
 		DF20483427EA4B5A00C0F515 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterDelegate.swift; sourceTree = "<group>"; };
+		DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameCenterDelegate.swift"; sourceTree = "<group>"; };
 		EE04A67027E2803700934ED8 /* ButtonCollors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollors.swift; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 		EE45F1CE27E27D6E0098B92F /* EggType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggType.swift; sourceTree = "<group>"; };
@@ -243,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */,
+				DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -252,6 +257,7 @@
 			children = (
 				133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */,
 				13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */,
+				DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -557,6 +563,7 @@
 				B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
+				DF20483927EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift in Sources */,
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
@@ -574,6 +581,7 @@
 				EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
 				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
+				DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */,
 				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
 				B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */,
