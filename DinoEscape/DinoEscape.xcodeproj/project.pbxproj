@@ -106,6 +106,12 @@
 		B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
+		B0F162A127EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
+		B0F162A227EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
+		B0F162A327EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
+		B0F162A527EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
+		B0F162A627EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
+		B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
 		B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
 		B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
 		B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
@@ -117,9 +123,9 @@
 		DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF0C0C8627E3CD16001BBAFA /* Background.swift */; };
 		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
-		EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* ButtonCollors.swift */; };
-		EE04A67227E2803700934ED8 /* ButtonCollors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* ButtonCollors.swift */; };
-		EE04A67327E2803700934ED8 /* ButtonCollors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* ButtonCollors.swift */; };
+		EE04A67127E2803700934ED8 /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* GameOverButtonTypes.swift */; };
+		EE04A67227E2803700934ED8 /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* GameOverButtonTypes.swift */; };
+		EE04A67327E2803700934ED8 /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* GameOverButtonTypes.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 		EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
 		EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
@@ -174,10 +180,12 @@
 		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
+		B0F162A027EA5C7A000DB51B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		B0F162A427EA6975000DB51B /* ScoreTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypes.swift; sourceTree = "<group>"; };
 		B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		DF03BE4127E25D770005E872 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		DF0C0C8627E3CD16001BBAFA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
-		EE04A67027E2803700934ED8 /* ButtonCollors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonCollors.swift; sourceTree = "<group>"; };
+		EE04A67027E2803700934ED8 /* GameOverButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverButtonTypes.swift; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 		EE45F1CE27E27D6E0098B92F /* EggType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -386,6 +394,7 @@
 				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
 				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
 				B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */,
+				B0F162A027EA5C7A000DB51B /* GameOverScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -406,7 +415,8 @@
 				B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */,
 				B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */,
 				EE45F1CE27E27D6E0098B92F /* EggType.swift */,
-				EE04A67027E2803700934ED8 /* ButtonCollors.swift */,
+				EE04A67027E2803700934ED8 /* GameOverButtonTypes.swift */,
+				B0F162A427EA6975000DB51B /* ScoreTypes.swift */,
 			);
 			path = FrontModel;
 			sourceTree = "<group>";
@@ -568,10 +578,12 @@
 				DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B7E27D67E910012CFDD /* GameController.swift in Sources */,
 				133F7B8827D681560012CFDD /* Player.swift in Sources */,
+				B0F162A527EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
-				EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */,
+				EE04A67127E2803700934ED8 /* GameOverButtonTypes.swift in Sources */,
 				1346CD1327E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
+				B0F162A127EA5C7A000DB51B /* GameOverScene.swift in Sources */,
 				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
 				B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */,
@@ -594,6 +606,7 @@
 				13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
+				B0F162A627EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				DF03BE4327E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
@@ -624,7 +637,8 @@
 				EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */,
 				B09BADA427E25BE000047A77 /* EggScene.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
-				EE04A67227E2803700934ED8 /* ButtonCollors.swift in Sources */,
+				B0F162A227EA5C7A000DB51B /* GameOverScene.swift in Sources */,
+				EE04A67227E2803700934ED8 /* GameOverButtonTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +666,7 @@
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
 				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
+				B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
 				063E625A27E521E700487093 /* SKButton.swift in Sources */,
 				1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */,
@@ -662,10 +677,11 @@
 				13842CF227E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
+				B0F162A327EA5C7A000DB51B /* GameOverScene.swift in Sources */,
 				EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */,
 				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
 				4AEAEF1227D676B100BBD809 /* AppDelegate.swift in Sources */,
-				EE04A67327E2803700934ED8 /* ButtonCollors.swift in Sources */,
+				EE04A67327E2803700934ED8 /* GameOverButtonTypes.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
