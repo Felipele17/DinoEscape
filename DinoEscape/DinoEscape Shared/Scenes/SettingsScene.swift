@@ -41,28 +41,19 @@ class SettingsScene: MyScene {
         
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
-        title.fontSize = 40
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
         title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.09)
         addChild(title)
         
         let subtitle: SKLabelNode = SKLabelNode(text: "E S C A P E")
         subtitle.fontName = "Aldrich-Regular"
-        subtitle.fontSize = 40
         subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         subtitle.numberOfLines = 2
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         addChild(subtitle)
-        
-        #if os(macOS) || os(tvOS)
-        title.setScale(1.5)
-        subtitle.setScale(1.5)
-        #endif
         
         createLabel(text: "Settings",
                     fontSize: size.width/13,
@@ -102,6 +93,55 @@ class SettingsScene: MyScene {
         addChild(switch1)
         addChild(switch2)
         addChild(switch3)
+        
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom{
+        case .pad:
+            title.fontSize = size.width/12
+            title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+            
+            subtitle.fontSize = size.width/12
+            subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+            
+            btn.setScale(0.8)
+            btn2.setScale(0.8)
+            btn3.setScale(0.8)
+            
+        case .phone:
+            if UIDevice.current.name == "iPhone 8" {
+                title.fontSize = 40
+                title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+                
+                subtitle.fontSize = 40
+                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+                
+                btn.setScale(0.9)
+                btn2.setScale(0.9)
+                btn3.setScale(0.9)
+                
+            } else {
+                title.fontSize = 40
+                title.position = CGPoint(x: size.width/2, y: size.height/1.09)
+                
+                subtitle.fontSize = 40
+                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+            }
+
+            
+            
+        default:
+            print("oi")
+        }
+
+        
+#elseif os(macOS) || os(tvOS)
+        title.setScale(1.5)
+        subtitle.setScale(1.5)
+
+        
+#endif
+        
+        
     }
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
