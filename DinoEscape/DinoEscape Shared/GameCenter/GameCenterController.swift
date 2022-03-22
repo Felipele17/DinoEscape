@@ -11,10 +11,11 @@ import GameKit
 import UIKit
 #endif
 
+
 class GameCenterController {
     let LEADERBOARD_ID = "dino_players"
     
-    #if os(iOS)
+    #if os(iOS) || os(tvOS)
     var viewController: UIViewController?
     init(viewController: UIViewController) {
         self.viewController = viewController

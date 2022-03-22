@@ -114,6 +114,8 @@
 		DF20483527EA4B5A00C0F515 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20483427EA4B5A00C0F515 /* GameKit.framework */; };
 		DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF20483927EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */; };
+		DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
+		DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		EE04A67127E2803700934ED8 /* ButtonCollors.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE04A67027E2803700934ED8 /* ButtonCollors.swift */; };
@@ -626,6 +628,7 @@
 				063E625927E521E600487093 /* SKButton.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
+				DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */,
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
@@ -658,6 +661,7 @@
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
+				DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
 				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
