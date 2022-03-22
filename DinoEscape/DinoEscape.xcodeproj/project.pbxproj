@@ -77,7 +77,6 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		A611053927E1010F008ABC33 /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = A611053327E1010F008ABC33 /* OFL.txt */; };
 		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
 		B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
@@ -527,7 +526,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A611053927E1010F008ABC33 /* OFL.txt in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,

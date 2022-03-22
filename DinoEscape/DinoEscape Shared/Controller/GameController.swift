@@ -14,8 +14,10 @@ class GameController{
         let instance = GameController()
         return instance
     }()
-    
+    #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
+    #endif
+    
     var gameData: GameData
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()
@@ -93,11 +95,11 @@ class GameController{
         }
         
     }
-    
+    #if os(tvOS)
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
-    
+    #endif
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
         
