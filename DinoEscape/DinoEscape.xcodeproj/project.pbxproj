@@ -60,7 +60,6 @@
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
-		4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
 		4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF827D676B000BBD809 /* LaunchScreen.storyboard */; };
@@ -123,6 +122,7 @@
 		EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
 		EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
 		EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
+		EEC28DD927E914A300A3E6E1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF127D676B000BBD809 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -545,6 +545,7 @@
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
+				EEC28DD927E914A300A3E6E1 /* AppDelegate.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
 				1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */,
@@ -570,7 +571,6 @@
 				B0EEDD8627DFD16F00372B2F /* DinoType.swift in Sources */,
 				DF03BE4227E25D770005E872 /* MyScene.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
-				4AEAEEF227D676B000BBD809 /* AppDelegate.swift in Sources */,
 				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
 				EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */,
 			);
@@ -825,7 +825,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -857,7 +857,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -890,7 +890,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -918,7 +918,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -949,7 +949,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -979,7 +979,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = 94F3957BTD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
