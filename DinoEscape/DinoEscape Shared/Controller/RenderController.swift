@@ -25,6 +25,9 @@ class RenderController {
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
+    #if os(iOS)
+    var pauseNode: SKButton = SKButton(imageNamed: "pause")
+    #endif
     
     // contagem regressiva
     var contagemLabel: SKLabelNode = SKLabelNode()
@@ -49,7 +52,7 @@ class RenderController {
         scene.addChild(pointsLabel)
         
         //coracao
-        heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.97)
+        heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
         heartImage.setScale(0.5)
         scene.addChild(heartImage)
         
@@ -62,6 +65,16 @@ class RenderController {
         for i in foodNodes { scene.addChild(i) }
         drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 10, foodNodes: foodNodes)
         
+#if os(iOS)
+        //pause node
+        pauseNode.position = CGPoint(x: scene.size.width*0.1, y: scene.size.height*0.95)
+        pauseNode.setScale(0.4)
+        pauseNode.selectedHandler = {
+            GameController.shared.pauseGame()
+        }
+        pauseNode.zPosition = 5
+        scene.addChild(pauseNode)
+        #endif
         
         //player
         let player = GameController.shared.gameData.player!
@@ -195,6 +208,8 @@ class RenderController {
             return  skin+"Left0"
         case .DEAD:
             return skin+"Right0"
+        case .PAUSE:
+            return skin+"Right0"
         }
     }
     
@@ -228,6 +243,14 @@ class RenderController {
             item.position.y += CGFloat(item.vy)
             
         }
+    }
+    
+    func showPauseMenu() {
+        let pauseScene1 = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        pauseScene1.zPosition = 10
+        scene.addChild(pauseScene1)
+
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens

@@ -32,6 +32,9 @@ class JoystickController{
         
         //preenchendo o mapa com os comandos do jogo
         
+        // pausar
+        keyMap[.escape] = .PAUSE
+        
         //opcao com as setinhas
         keyMap[.rightArrow] = .RIGHT
         keyMap[.leftArrow] = .LEFT
@@ -127,6 +130,7 @@ class JoystickController{
         }
     }
     
+    #if os(tvOS)
     func respondToSwipeGesture(gesture: UIGestureRecognizer) {
             if let swipeGesture = gesture as? UISwipeGestureRecognizer {
                 switch swipeGesture.direction {
@@ -143,7 +147,7 @@ class JoystickController{
                 }
             }
     }
-    
+    #endif
     // MARK: Buttons
     func pressButton(_ command: GameCommand){
         delegate?.buttonPressed(command: command)
