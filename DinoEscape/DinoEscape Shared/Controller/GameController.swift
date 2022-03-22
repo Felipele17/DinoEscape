@@ -227,13 +227,13 @@ class GameController{
             renderer.changeBackground(named: Backgrounds.shared.lightGreenBackground())
             gameData.velocidadeGlobal = 4
         }
-        else if points == 100 {
+        else if points == 100 || points == 110 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.GreenBackground())
         }
-        else if points == 150 {
+        else if points == 150 || points == 160  {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
@@ -241,7 +241,7 @@ class GameController{
             gameData.velocidadeGlobal = 5
 
         }
-        else if points == 200 {
+        else if points == 200 || points == 210 {
             cancelActionItems()
             newEra()
             recursiveActionItems(time: 0.4)

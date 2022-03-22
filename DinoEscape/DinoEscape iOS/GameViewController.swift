@@ -15,6 +15,10 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         
         let scene = GameScene.newGameScene()
+        
+        let gController = GameCenterController(viewController: self)
+        gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
+        
        // let scene = HomeScene.newGameScene()
         //let scene = SettingsPopUpScene.newGameScene()
         
@@ -27,7 +31,7 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         
-        
+
     }
 
     

@@ -16,6 +16,9 @@ class GameViewController: NSViewController {
         
         let scene = GameScene.newGameScene()
         
+        let gController = GameCenterController(viewController: self)
+        gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
+        
         // Present the scene
         let skView = self.view as! SKView
         skView.presentScene(scene)
