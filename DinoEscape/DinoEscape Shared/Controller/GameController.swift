@@ -11,17 +11,14 @@ import GameController
 
 class GameController{
     
-#if os( tvOS )
-let tapRecognizer = UITapGestureRecognizer()
-#endif
-    
     static var shared: GameController = {
         let instance = GameController()
         return instance
     }()
+    
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
-    
+    var pause: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -120,8 +117,10 @@ let tapRecognizer = UITapGestureRecognizer()
         self.swipe = swipe
     }
     
-    
-    #endif
+    func getPause(pause: UITapGestureRecognizer){
+        self.pause = pause
+    }
+#endif
     
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
