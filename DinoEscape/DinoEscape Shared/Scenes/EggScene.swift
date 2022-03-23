@@ -22,8 +22,7 @@ class EggScene: SKScene {
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-
-    
+        
         removeAllChildren()
         removeAllActions()
         
@@ -35,10 +34,19 @@ class EggScene: SKScene {
         createShopButtons(image: .daily, pos: 0)
         createShopButtons(image: .chance, pos: 1)
         
-        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         
+        #if os(iOS)
+        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
         egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        
+        #elseif os(macOS)
+        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
+        egg.position = CGPoint(x: size.width/2, y: size.height/2)
+        egg.size = CGSize(width: size.width/3, height: size.height/1.7)
+        
+        #endif
+        
         addChild(egg)
         
     }
@@ -47,7 +55,11 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
+#if os(iOS)
         let w: CGFloat = size.width / 16
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+#endif
         let h = w * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -86,7 +98,7 @@ class EggScene: SKScene {
             print(image)
             
         }
-       
+        
         addChild(buyButton)
         
     }
@@ -96,14 +108,29 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 3.5
         let h = w * texture.size().height / texture.size().width
         
+#elseif os(macOS)
+        let w: CGFloat = size.width / 10
+        let h = w * texture.size().height / texture.size().width
+        
+#endif
+        
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
+#if os(iOS) || os(tvOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
+        
+#elseif os(macOS)
+        segmentage.position = CGPoint(
+            x: segmentage.frame.width / 0.22 + CGFloat(pos) * segmentage.frame.width * 1.25,
+            y: size.height / 1.2 )
+        
+#endif
         
         segmentage.selectedHandler = {
             print("BOTAO APERTADO: \(pos)")
@@ -117,9 +144,9 @@ class EggScene: SKScene {
         
         addChild(segmentage)
     }
-        
     
-   
+    
+    
     func createReader(coins: Int) -> SKSpriteNode {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
@@ -133,19 +160,41 @@ class EggScene: SKScene {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
+#if os(iOS)
         let w: CGFloat = size.width / 15
         let h = w * coinTotal.size.height / coinTotal.size.width / 2
         
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        
+#endif
+        
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        
+        
+#if os(iOS)
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
+        
+#elseif os(macOS)
+        coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
+        coin.size = CGSize(width: w, height: h)
+        
+#endif
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
         total.fontName = "Aldrich-Regular"
         total.fontSize = 30
+        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        
+#if os(macOS)
+        total.fontSize = 60
+        total.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
+        
+#endif
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
@@ -158,27 +207,35 @@ class EggScene: SKScene {
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
-        
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 15
         let h = w * texture.size().height / texture.size().width
-        
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
-        
+            
         }
-        return button
         
-   
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+        let h = w * texture.size().height / texture.size().width
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = CGPoint(x: size.width / 12 , y: size.height/1.103)
+        button.selectedHandler = {
+            self.view?.presentScene(HomeScene.newGameScene())
+            
+        }
+#endif
+
+        return button
     }
-    
     
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
         
         setUpScene()
     }
-   
+    
     
 }
