@@ -49,6 +49,8 @@
 		1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
 		1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
 		1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
+		1346CD4C27EB8CCC00014B87 /* GameViewController+GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */; };
+		1346CD4D27EB8CCC00014B87 /* GameViewController+GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */; };
 		13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
@@ -623,6 +625,7 @@
 				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
+				1346CD4C27EB8CCC00014B87 /* GameViewController+GameCenterDelegate.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				DF03BE4327E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
@@ -669,6 +672,7 @@
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				DF109F9827E8F89A0012139D /* GameStatus.swift in Sources */,
 				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
+				1346CD4D27EB8CCC00014B87 /* GameViewController+GameCenterDelegate.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
@@ -871,7 +875,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -904,7 +908,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -938,7 +942,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -966,7 +970,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -997,7 +1001,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = TX88D8XM39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";

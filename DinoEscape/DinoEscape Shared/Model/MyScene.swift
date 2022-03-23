@@ -8,9 +8,14 @@
 import Foundation
 import SpriteKit
 
+protocol UpdateGameCenterDelegate: AnyObject{
+    func sendGameScore(score: Int)
+}
+
+
 class MyScene: SKScene, SKPhysicsContactDelegate{
     // MARK: Colisão
-    weak var delegateGameCenter: GameCenterDelegate?
+    weak var delegateGameCenter: UpdateGameCenterDelegate?
 
     
     func didBegin(_ contact: SKPhysicsContact) {
