@@ -11,6 +11,10 @@ import GameController
 
 class GameController{
     
+#if os( tvOS )
+let tapRecognizer = UITapGestureRecognizer()
+#endif
+    
     static var shared: GameController = {
         let instance = GameController()
         return instance
@@ -100,10 +104,12 @@ class GameController{
         
     }
     
+    
     func pauseGame() {
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
+
             renderer.showPauseMenu()
             
         }
@@ -337,27 +343,6 @@ class GameController{
             }
         }
     }
-    
-#if os( tvOS )
-    
-    let tapRecognizer = UITapGestureRecognizer()
-    
-    func addTapGestureRecognizer() {
-        
-        tapRecognizer.addTarget(self, action: #selector(tapped(sender:)))
-        
-        tapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
-        
-    }
-    
-
-    
-    @objc func tapped(sender: AnyObject) {
-        
-        
-        
-    }
-#endif
     
 }
 

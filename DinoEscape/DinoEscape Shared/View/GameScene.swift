@@ -33,8 +33,16 @@ class GameScene: MyScene {
     override func didMove(to view: SKView) {
         //setando a cena
         self.setUpScene()
+        
         #if os( tvOS )
+        
+        func addGestureRecognizer() {
+            tapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+            self.view?.addGestureRecognizer(tapRecognizer)
+        }
+        
         self.view?.addGestureRecognizer(tapRecognizer)
+        
         #endif
     }
     
