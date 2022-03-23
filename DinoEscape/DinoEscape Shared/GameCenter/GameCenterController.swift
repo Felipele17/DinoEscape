@@ -29,7 +29,7 @@ class GameCenterController {
         auth()
     }
     
-    #elseif os(iOS)
+    #elseif os(iOS) || os( tvOS )
     var viewController: UIViewController?
     init(viewController: UIViewController){
         self.viewController = viewController

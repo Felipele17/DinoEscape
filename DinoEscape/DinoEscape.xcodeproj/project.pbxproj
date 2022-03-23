@@ -77,7 +77,8 @@
 		4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };		A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
+		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
 		A6E3DA8127EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
 		A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
 		A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
@@ -882,7 +883,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -915,7 +916,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -949,7 +950,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -977,7 +978,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1008,7 +1009,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = V8V28A4DX2;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1038,7 +1039,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 94F3957BTD;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";

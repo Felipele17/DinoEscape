@@ -10,12 +10,14 @@ import SpriteKit
 import GameController
 
 class GameController{
+    
     static var shared: GameController = {
         let instance = GameController()
         return instance
     }()
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
+    
     #endif
     
     var gameData: GameData
@@ -111,6 +113,8 @@ class GameController{
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
+    
+    
     #endif
     
     //MARK: Movimentacao
@@ -333,5 +337,27 @@ class GameController{
             }
         }
     }
+    
+#if os( tvOS )
+    
+    let tapRecognizer = UITapGestureRecognizer()
+    
+    func addTapGestureRecognizer() {
+        
+        tapRecognizer.addTarget(self, action: #selector(tapped(sender:)))
+        
+        tapRecognizer.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+        
+    }
+    
+
+    
+    @objc func tapped(sender: AnyObject) {
+        
+        
+        
+    }
+#endif
+    
 }
 
