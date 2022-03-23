@@ -18,11 +18,11 @@ class SettingsScene: MyScene {
     var btn3 = SKButton()
     
     // switches
-    var switch1 = SKButton()
     var switch2 = SKButton()
     var switch3 = SKButton()
     
-    var musicOn: Bool = true
+    var toggleON: Bool = true
+    
     let node = SKButton()
     
     class func newGameScene() -> SettingsScene {
@@ -73,11 +73,11 @@ class SettingsScene: MyScene {
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
-        createLabel(text: "  Sound \n effects",
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
-        )
+//        createLabel(text: "  Sound \n effects",
+//                    fontSize: size.width/20,
+//                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+//                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
+//        )
         
         createLabel(text: "Music",
                     fontSize: size.width/20,
@@ -103,17 +103,20 @@ class SettingsScene: MyScene {
         btn3.setScale(0.5)
         
         
-        switch1 = createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "sound")
         switch2 = createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "music")
         switch3 = createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.535), name: "vibration")
         
-        addChild(switch1)
         addChild(switch2)
         addChild(switch3)
         
         
         self.isUserInteractionEnabled = true
+        
+#if os(tvOS)
+        
         addTapGestureRecognizer()
+        
+#endif
     }
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
@@ -156,7 +159,7 @@ class SettingsScene: MyScene {
             
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchON")
-            
+        
         }
         state.toggle()
     }
@@ -193,7 +196,6 @@ class SettingsScene: MyScene {
             }
         }
         return switchButton
-        
     }
     
     
@@ -243,35 +245,32 @@ class SettingsScene: MyScene {
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
             
             print("botão azul")
-        } else if (switch1.isFocused) {
             
         } else if (switch2.isFocused) {
-toggleMusic()
+            switchToggle(switchButton: switch2)
             
-        } else if (switch3.isFocused) {
-            print("switcher 3")
         } else {
             print("no hablo sua logica")
         }
     }
+
+    #if os(tvOS) || os(macOS)
     
-    func toggleMusic() {
-        
-        musicOn.toggle()
+    func switchToggle(switchButton: SKButton) {
+       
+        toggleON.toggle()
             
-            if musicOn {
-                switch2.texture = SKTexture(imageNamed: "switchON")
-                //node.texture = texture[0]
-                print("entrou no if - musicOn = true")
+        if toggleON {
+                switchButton.texture = SKTexture(imageNamed: "switchON")
                 
             } else {
-                switch2.texture = SKTexture(imageNamed: "switchOFF")
-                //node.texture = texture[1]
-                print("entrou no else - musicOn = false")
+                switchButton.texture = SKTexture(imageNamed: "switchOFF")
                 
             }
         
     }
+    
+#endif
     
 #endif
     
@@ -291,7 +290,7 @@ toggleMusic()
 #if os(tvOS)
 extension SettingsScene {
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return[switch1, switch2, switch3, btn, btn2, btn3]
+        return[switch2, switch3, btn, btn2, btn3]
     }
 }
 #endif
