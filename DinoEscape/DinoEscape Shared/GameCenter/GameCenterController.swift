@@ -2,7 +2,7 @@
 //  GameCenterController.swift
 //  gameTesteGC
 //
-//  Created by Beatriz Duque on 23/03/22.
+//  Created by Carolina Ortega on 15/03/22.
 //
 
 import Foundation
