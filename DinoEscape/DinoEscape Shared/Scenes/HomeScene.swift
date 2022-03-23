@@ -98,9 +98,9 @@ class HomeScene: MyScene {
                 subtitle.fontSize = 40
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
                 
-                btn.setScale(0.9)
-                btn2.setScale(0.9)
-                btn3.setScale(0.9)
+                btn.setScale(0.8)
+                btn2.setScale(0.8)
+                btn3.setScale(0.8)
                 
             } else {
                 title.fontSize = 40
@@ -209,14 +209,14 @@ class HomeScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-        else if (btn2.isFocused){
+        else if (btn.isFocused){
             let scene = SettingsScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-        else if (btn3.isFocused){
+        else if (btn2.isFocused){
             let scene = EggScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))

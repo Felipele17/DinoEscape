@@ -189,21 +189,39 @@ class EggScene: SKScene {
         
         
 #if os(iOS)
-        coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
-        coin.size = CGSize(width: w, height: h)
+        
+        if UIDevice.current.name == "iPhone 8" {
+            coin.position = CGPoint(x: size.width/1.65, y: size.height/1.10)
+            coin.size = CGSize(width: w, height: h)
+        
+        } else {
+            coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
+            coin.size = CGSize(width: w, height: h)
+            
+            
+        }
         
 #elseif os(macOS)
         coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
 #endif
-        
+
+#if os(iOS) || os(tvOS)
         let total: SKLabelNode = SKLabelNode(text:String(coins))
         total.fontName = "Aldrich-Regular"
         total.fontSize = 30
-        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
-#if os(macOS)
+        if UIDevice.current.name == "iPhone 8" {
+            total.position = CGPoint(x: size.width/1.32, y: size.height/1.12)
+
+        } else {
+            total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        }
+        
+        
+        
+#elseif os(macOS)
         total.fontSize = 60
         total.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
         

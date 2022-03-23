@@ -16,7 +16,6 @@ class SettingsScene: MyScene {
     var btn3 = SKButton()
     
     // switches
-    var switch1 = SKButton()
     var switch2 = SKButton()
     var switch3 = SKButton()
     
@@ -65,22 +64,16 @@ class SettingsScene: MyScene {
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
-        createLabel(text: "  Sound \n effects",
+        createLabel(text: "Music",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/1.7)
         )
         
-        createLabel(text: "Music",
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/2.07)
-        )
-        
         createLabel(text: "Vibration",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/2.555)
+                    position: CGPoint(x: size.width/2.9, y: size.height/2.1)
         )
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
@@ -90,11 +83,9 @@ class SettingsScene: MyScene {
         addChild(btn2)
         addChild(btn3)
         
-        switch1 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/1.7), name: "sound")
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.05), name: "music")
-        switch3 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.535), name: "vibration")
+        switch2 = createSwitch(pos: CGPoint(x: size.width/1.55, y: size.height/1.7), name: "music")
+        switch3 = createSwitch(pos: CGPoint(x: size.width/1.55, y: size.height/2.1), name: "vibration")
         
-        addChild(switch1)
         addChild(switch2)
         addChild(switch3)
         
@@ -119,9 +110,9 @@ class SettingsScene: MyScene {
                 subtitle.fontSize = 40
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
                 
-                btn.setScale(0.9)
-                btn2.setScale(0.9)
-                btn3.setScale(0.9)
+                btn.setScale(0.8)
+                btn2.setScale(0.8)
+                btn3.setScale(0.8)
                 
             } else {
                 title.fontSize = 40
@@ -131,8 +122,7 @@ class SettingsScene: MyScene {
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
             }
             
-            
-            
+
         default:
             print("oi")
         }
@@ -226,10 +216,7 @@ class SettingsScene: MyScene {
 #endif
         
         switchButton.selectedHandler = {
-            if name == "sound" {
-                self.changeSwitchImageState(switchButton: switchButton, state: &state)
-                //ação de ligar e desligar som
-            } else if name == "music" {
+            if name == "music" {
                 self.changeSwitchImageState(switchButton: switchButton, state: &state)
                 
                 //ação de ligar e desligar musica
@@ -285,13 +272,6 @@ class SettingsScene: MyScene {
         }
         else if (btn3.isFocused){
             let scene = EggScene.newGameScene()
-            self.view?.presentScene(scene)
-            scene.run(SKAction.wait(forDuration: 0.02))
-            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (switch1.isFocused){
-            let scene = changeSwitchImageState(switchButton: switch1, state: &state)
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
