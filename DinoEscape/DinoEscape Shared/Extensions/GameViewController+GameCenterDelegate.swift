@@ -7,8 +7,9 @@
 
 import Foundation
 
-extension GameViewController: GameCenterDelegate {
+extension GameViewController: UpdateGameCenterDelegate {
     func sendGameScore(score: Int) {
-        gController?.sendScoreToGameCenter(score: score)
+        let gController = GameCenterController(viewController: self)
+        gController.sendScoreToGameCenter(score: score)
     }
 }

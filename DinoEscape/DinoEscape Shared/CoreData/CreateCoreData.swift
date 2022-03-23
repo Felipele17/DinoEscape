@@ -10,12 +10,12 @@ import CoreData
 
 class CreateCoreData {
     static var shared = CreateCoreData()
-    
-    let dinos = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops"]
+    let dinos = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","other"]
+    let images = ["frameTrex","frameBraci","frameChicken","frameSte", "frameTrice","frameTrex"]
     func create(){
-        for dino in dinos{
-            _ = try! SkinDataModel.createSkin(name: dino,
-                                                   image: dino,
+        for i in 0..<dinos.count{
+            _ = try! SkinDataModel.createSkin(name: dinos[i],
+                                                   image: images[i],
                                                    isSelected: false,
                                                    isBought: false)
         }
