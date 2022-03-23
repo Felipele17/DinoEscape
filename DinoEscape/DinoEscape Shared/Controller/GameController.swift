@@ -14,10 +14,10 @@ class GameController{
         let instance = GameController()
         return instance
     }()
-    
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
     #endif
+    
     var gameData: GameData
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()

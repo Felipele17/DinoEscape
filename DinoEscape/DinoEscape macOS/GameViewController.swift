@@ -14,7 +14,10 @@ class GameViewController: NSViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let scene = GameScene.newGameScene()
+//        let scene = SettingsScene.newGameScene()
+        //let scene = HomeScene.newGameScene()
+        //let scene = StoreScene.newGameScene()
+        let scene = EggScene.newGameScene()
         
         #if os(iOS)
         let gController = GameCenterController(viewController: self)
