@@ -56,59 +56,85 @@ class GameOverScene: MyScene {
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
         title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.12)
+        title.position = CGPoint(x: size.width/2, y: size.height/1.13)
         addChild(title)
         
-        createScore(name: .highScore, score: score, posX: 0, posY: 0)
-        createScore(name: .score, score: score, posX: 0, posY: 1)
+        createHighScore(name: .highScore, score: highScore, posY: 0)
+        createScore(score: score)
         
         
-        playAgain = createButton(name: .menu, posX: 0,posY: 0)
+        playAgain = createButton(name: .menu, posY: 0)
         addChild(playAgain)
-        menu = createButton(name: .playAgain, posX: 0, posY: 1)
+        menu = createButton(name: .playAgain, posY: 1)
         addChild(menu)
     }
     
     
-    func createScore(name: ScoreTypes, score: Int, posX: Int, posY: Int) {
+    func createHighScore(name: ScoreTypes, score: Int, posY: Int) {
         let name: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
         name.fontName = "Aldrich-Regular"
-        name.fontSize = 25
+        name.fontSize = 20
         name.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         name.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         name.numberOfLines = 2
         name.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         name.position = CGPoint(x: frame.width / 2 ,
-                                y: frame.height * 0.4 + CGFloat(posY) * frame.height * 0.2)
+                                y: frame.height / 1.45 + CGFloat(posY) *  frame.height * 0.12)
         
         
         
         let score: SKLabelNode = SKLabelNode(text: String(score))
         score.fontName = "Aldrich-Regular"
-        score.fontSize = 25
+        score.fontSize = 30
         score.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         score.numberOfLines = 2
         score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        score.position = CGPoint(x: name.frame.width / 2,
-                                 y: name.frame.height * 1 + CGFloat(posY) * name.frame.height / 1)
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.53 + CGFloat(posY) * frame.height  * 0.1)
         
         addChild(name)
         addChild(score)
     }
     
-    func createButton(name: GameOverButtonTypes, posX: Int, posY: Int) -> SKButton {
+    func createScore(score: Int) {
+        
+        let score: SKLabelNode = SKLabelNode(text: String(score))
+        score.fontName = "Aldrich-Regular"
+        score.fontSize = 80
+        score.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        score.numberOfLines = 2
+        score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.3)
+        
+    
+        addChild(score)
+    }
+    
+    
+    func createButton(name: GameOverButtonTypes, posY: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3
-        let h = w * texture.size().height / texture.size().width
+        var w : CGFloat
+        var h : CGFloat
+        
+        if name == .playAgain {
+            w = size.width / 2
+            h = w * texture.size().height / texture.size().width
+        } else {
+            w = size.width / 2.5
+            h = w * texture.size().height / texture.size().width
+        }
+        
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         
-        button.position = CGPoint(x: button.frame.width * 1.5 + CGFloat(posX) * button.frame.width / 1,
-                                  y: button.frame.height * 9 + CGFloat(posY) * button.frame.height / 0.8)
+        button.position = CGPoint(x: frame.width / 2,
+                                  y: frame.height / 2.25  + CGFloat(posY) * button.frame.height * 1.2)
         
         
         button.selectedHandler = {
