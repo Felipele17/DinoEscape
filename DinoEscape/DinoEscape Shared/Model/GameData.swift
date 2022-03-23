@@ -13,7 +13,8 @@ class GameData {
     var score: Int = 0
     var addPoints: Int = 10
     var velocidadeGlobal: Int = 3
-    var started = false
+    var gameStatus: GameStatus = .notStarted
+    var skinSelected = "t-rex"
     
     init(player: Player) {
         self.player = player
