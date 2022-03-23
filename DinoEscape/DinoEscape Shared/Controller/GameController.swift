@@ -74,7 +74,7 @@ class GameController{
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runCount -= 1
             if runCount == 0 {
-                self.gameData.started = true
+                self.gameData.gameStatus = .playing
                 self.renderer.contagemLabel.removeFromParent()
                 timer.invalidate()
             }
@@ -83,10 +83,12 @@ class GameController{
     }
     // MARK: Update
     func update(_ currentTime: TimeInterval){
-        if gameData.player?.isAlive == false {
+        if gameData.gameStatus == .end {
+            cancelActionItems()
             //chamar tela de gameOver
+            renderer.lifesLabel.text = "0"
         } else {
-            if gameData.started == true {
+            if gameData.gameStatus == .playing {
                 joystickController.update(currentTime)
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
@@ -95,11 +97,22 @@ class GameController{
         }
         
     }
-    #if os(tvOS)
+    
+    func pauseGame() {
+        if gameData.gameStatus != .end && gameData.gameStatus != .pause {
+            gameData.gameStatus = .pause
+            pauseActionItems()
+            renderer.showPauseMenu()
+            
+        }
+    }
+    
+#if os(tvOS)
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
     #endif
+    
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
         
@@ -187,6 +200,8 @@ class GameController{
             print()
         case .DEAD:
             print()
+        case .PAUSE:
+            print()
         }
         
         item.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
@@ -213,13 +228,13 @@ class GameController{
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "lightGreenBackground"))
             gameData.velocidadeGlobal = 4
         }
-        else if points == 100 {
+        else if points == 100 || points == 110 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "greenBackground"))
         }
-        else if points == 150 {
+        else if points == 150 || points == 160  {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
@@ -227,7 +242,7 @@ class GameController{
             gameData.velocidadeGlobal = 5
 
         }
-        else if points == 200 {
+        else if points == 200 || points == 210 {
             cancelActionItems()
             newEra()
             recursiveActionItems(time: 0.4)
@@ -243,6 +258,14 @@ class GameController{
         ])
         
         renderer.scene.run(recursive, withKey: "aKey")
+    }
+    
+    func pauseActionItems() {
+        if gameData.gameStatus == .pause {
+            renderer.scene.action(forKey: "aKey")?.speed = 0
+        } else {
+            renderer.scene.action(forKey: "aKey")?.speed = 1
+        }
     }
     
     func cancelActionItems() {
@@ -276,7 +299,7 @@ class GameController{
                 runCount += 1
                 // conversa com a render para ela mudar os assets dos powerUps
                 self.renderer.allFoodRender()
-                if runCount == 10 {
+                if runCount == 5 {
                     timer.invalidate()
                 }
             }

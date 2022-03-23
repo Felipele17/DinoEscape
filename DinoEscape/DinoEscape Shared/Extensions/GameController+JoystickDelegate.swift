@@ -43,6 +43,8 @@ extension GameController: JoystickDelegate{
             gameData.player?.dinoVy = 0
             gameData.player?.dinoVx = 0
             return
+        case .PAUSE:
+            pauseGame()
         }
     }
     
@@ -63,6 +65,8 @@ extension GameController: JoystickDelegate{
         case .DEAD:
             gameData.player?.dinoVy = 0
             gameData.player?.dinoVx = 0
+            return
+        case .PAUSE:
             return
         }
     }
