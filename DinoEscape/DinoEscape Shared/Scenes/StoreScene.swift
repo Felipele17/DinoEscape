@@ -19,18 +19,10 @@ class StoreScene: MyScene {
     var gallery = SKSpriteNode()
     var selectedDino = SkinData()
     
-    var isBought: String = "purchasedButton" {
-        didSet {
-            buyButton.texture = SKTexture(imageNamed: self.isBought)
-        }
-    }
+    var isBought: String = "purchasedButton"
     
-    var isSelected: String = "selectedButton" {
-        didSet {
-            selectButton.texture = SKTexture(imageNamed: self.isSelected)
-        }
-    }
-
+    var isSelected: String = "selectedButton"
+    
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
@@ -40,11 +32,11 @@ class StoreScene: MyScene {
     
     
     func setUpScene() {
-    
+        
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-
+        
         
         removeAllChildren()
         removeAllActions()
@@ -62,7 +54,7 @@ class StoreScene: MyScene {
         if skins.count != 0{
             gallery = createGallery()
             addChild(gallery)
-
+            
         }
         
         self.buyButton = createShopButtons(image: self.isBought, pos: 0)
@@ -75,7 +67,7 @@ class StoreScene: MyScene {
     
     
     func setDinoImage(image: String) {
-
+        
         let square: SKShapeNode = SKShapeNode(rect: CGRect(
             x: size.width/6,
             y: size.height/4.6,
@@ -120,7 +112,6 @@ class StoreScene: MyScene {
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
-        
         let texture: SKTexture = SKTexture(imageNamed:image)
         texture.filteringMode = .nearest
         
@@ -132,6 +123,36 @@ class StoreScene: MyScene {
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 6 )
         
+        
+        buyButton.selectedHandler = { [self] in
+            self.buyButton.removeFromParent()
+            self.selectButton.removeFromParent()
+            
+            if image == "selectedButton" {
+                print("selecionado")
+            } else if image == "selectButton" {
+                _ = try! SkinDataModel.selectSkin(skin: self.selectedDino)
+                self.isSelected = "selectedButton"
+                
+                self.gallery = self.createGallery()
+                self.addChild(self.gallery)
+            } else if image == "buyButton" {
+                _ = try! SkinDataModel.buyDino(skin: self.selectedDino)
+                self.isBought = "purchasedButton"
+                
+                self.gallery = self.createGallery()
+                self.addChild(self.gallery)
+            } else {
+                print("comprado")
+            }
+            
+            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+            self.addChild(self.buyButton)
+            
+            self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+            self.addChild(self.selectButton)
+            
+        }
         
         return buyButton
         
@@ -163,12 +184,12 @@ class StoreScene: MyScene {
             }
         }
         
-       
+        
         
         addChild(segmentage)
         
     }
-        
+    
     
     func createDino(name: SkinData, posX: Int, posY: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: name.image ?? "frameTrex")
@@ -186,7 +207,7 @@ class StoreScene: MyScene {
         if !name.isBought{
             dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"Off")
         }
-
+        
         if name.isSelected{
             dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
         }
@@ -197,30 +218,33 @@ class StoreScene: MyScene {
         
         
         dinoButton.selectedHandler = { [self] in
-            self.buyButton.removeFromParent()
             self.selectButton.removeFromParent()
+            self.buyButton.removeFromParent()
             
             if name.isBought{
-                buyImage = "purchasedButton"
+                self.isBought = "purchasedButton"
             }else {
-                buyImage = "buyButton"
+                self.isBought = "buyButton"
             }
             
             if !name.isSelected {
-                selectImage = "selectButton"
+                self.isSelected = "selectButton"
             }else{
-                selectImage = "selectedButton"
+                self.isSelected = "selectedButton"
+            }
+            
+            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+            self.addChild(buyButton)
+            
+            
+            if name.isBought {
+                self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+                self.addChild(selectButton)
             }
             
             
-            self.buyButton = self.createShopButtons(image: buyImage, pos: 0)
-            self.addChild(buyButton)
-            
-            self.selectButton = self.createShopButtons(image: selectImage, pos: 1)
-            self.addChild(selectButton)
-            
             self.setDinoImage(image: name.name! + "Left0" )
-                        
+            self.selectedDino = name
         }
         
         return dinoButton
@@ -276,15 +300,16 @@ class StoreScene: MyScene {
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
-        
+            
         }
         return button
         
-   
+        
     }
     
     
     func createGallery() -> SKSpriteNode {
+        self.gallery.removeFromParent()
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         let plot = [[self.vetor[5],self.vetor[4],self.vetor[2]],[self.vetor[0],self.vetor[1],self.vetor[3]]]
         for i in 0..<3{
@@ -306,12 +331,12 @@ class StoreScene: MyScene {
     }
     
     override func update(_ currentTime: TimeInterval) {
-//        self.gallery.removeFromParent()
-//        self.gallery = createGallery()
-//        addChild(gallery)
+        //        self.gallery.removeFromParent()
+        //        self.gallery = createGallery()
+        //        addChild(gallery)
         
         
     }
-   
+    
     
 }
