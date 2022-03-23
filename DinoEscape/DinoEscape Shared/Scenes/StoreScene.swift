@@ -131,6 +131,7 @@ class StoreScene: MyScene {
                 print("selecionado")
             } else if image == "selectButton" {
                 _ = try! SkinDataModel.selectSkin(skin: self.selectedDino)
+                GameController.shared.gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
                 self.isSelected = "selectedButton"
                 
                 self.gallery = self.createGallery()
