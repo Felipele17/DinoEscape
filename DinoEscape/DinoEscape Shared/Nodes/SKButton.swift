@@ -40,8 +40,8 @@ class SKButton: SKSpriteNode {
                 break
                 
             case .disabled:
-                self.isUserInteractionEnabled = false
-                self.alpha = 0.2
+                self.isUserInteractionEnabled = true
+                self.alpha = 0.4
                 break
             }
         }
