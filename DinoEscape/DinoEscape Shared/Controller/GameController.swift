@@ -36,6 +36,18 @@ class GameController{
         renderer = RenderController()
     }
     
+    func restartGame() {
+        if let player = gameData.player {
+            player.position = CGPoint(x: 0, y: 0)
+            player.size = CGSize(width: 50, height: 50)
+            player.life = 3
+            player.powerUp = .none
+            player.gameCommand = .UP
+        }
+        gameData.restartGameData()
+        gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+    }
+    
     // MARK: Setup e Set Scene
     
     func setScene(scene: MyScene){

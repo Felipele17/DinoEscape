@@ -10,11 +10,11 @@ import SpriteKit
 
 class GameOverScene: MyScene {
     
-    var highScore: Int = 140
-    var score: Int = 100
+    var highScore: Int = UserDefaults().integer(forKey: "HighScore")
+    var score: Int = GameController.shared.gameData.score
     
     var playAgain = SKButton()
-    var menu = SKButton()
+    var menuA = SKButton()
     
     class func newGameScene() -> GameOverScene {
         let scene = GameOverScene()
@@ -66,8 +66,8 @@ class GameOverScene: MyScene {
         
         playAgain = createButton(name: .menu, posY: 0)
         addChild(playAgain)
-        menu = createButton(name: .playAgain, posY: 1)
-        addChild(menu)
+        menuA = createButton(name: .playAgain, posY: 1)
+        addChild(menuA)
     }
     
     
@@ -176,7 +176,7 @@ class GameOverScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-        else if (menu.isFocused){
+        else if (menuA.isFocused){
             let scene = HomeScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))

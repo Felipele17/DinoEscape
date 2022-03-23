@@ -100,7 +100,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
                 
                 let dinoCoins = GameController.shared.gameData.score/10 + player.dinoCoins
                 UserDefaults().set(dinoCoins, forKey: "DinoCoins")
-
+                self.view?.presentScene(GameOverScene.newGameScene())
+                GameController.shared.restartGame()
             }
         }
     }
