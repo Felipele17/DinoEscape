@@ -21,6 +21,7 @@ class GameOverScene: MyScene {
         scene.scaleMode = .resizeFill
         return scene
     }
+    
 #if os( tvOS )
     override func didMove(to view: SKView) {
         self.isUserInteractionEnabled = true

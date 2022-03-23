@@ -1,16 +1,13 @@
 //
-//  ButtonCollors.swift
+//  GameOverButtonTypes.swift
 //  DinoEscape
 //
-//  Created by Leticia Utsunomiya on 16/03/22.
+//  Created by Raphael Alkamim on 23/03/22.
 //
 
 import Foundation
+
 enum GameOverButtonTypes: String {
     case playAgain = "playAgainButton"
     case menu = "menuButton"
-    
-    
-    
-    
 }

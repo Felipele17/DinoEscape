@@ -14,8 +14,8 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let scene = GameScene.newGameScene()
+        let scene = GameOverScene.newGameScene()
+        //let scene = GameScene.newGameScene()
         scene.delegateGameCenter = self
 
         
@@ -23,7 +23,6 @@ class GameViewController: UIViewController {
         gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
         
        // let scene = HomeScene.newGameScene()
-        let scene = GameOverScene.newGameScene()
         
         
         // Present the scene
