@@ -8,8 +8,15 @@
 import Foundation
 import SpriteKit
 
+protocol UpdateGameCenterDelegate: AnyObject{
+    func sendGameScore(score: Int)
+}
+
+
 class MyScene: SKScene, SKPhysicsContactDelegate{
     // MARK: Colisão
+    weak var delegateGameCenter: UpdateGameCenterDelegate?
+
     
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node else {return}
@@ -18,6 +25,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
         checkDestroier(nodeA: nodeA, nodeB: nodeB)
         
         checkDinoContact(nodeA: nodeA, nodeB: nodeB)
+        
         
     }
     
@@ -55,7 +63,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     
     func feedDino(){
         GameController.shared.gameData.score += GameController.shared.gameData.addPoints
-        var points = GameController.shared.gameData.score
+        let points = GameController.shared.gameData.score
         
         if let player =  GameController.shared.gameData.player{
             GameController.shared.nextLevel(points: points )
@@ -72,7 +80,6 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     
     func hungryDino(){
         if let player = GameController.shared.gameData.player {
-            //player.life -= 1
             if player.foodBar > 2 {
                 player.foodBar -= 2
             }
@@ -85,7 +92,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             player.life -= 1
             if player.life <= 0{
                 player.gameCommand = .DEAD
-                player.isAlive = false
+                GameController.shared.gameData.gameStatus = .end
+                delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
             }
         }
     }
