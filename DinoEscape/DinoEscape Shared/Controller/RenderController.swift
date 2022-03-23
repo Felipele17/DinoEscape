@@ -273,11 +273,11 @@ class RenderController {
     func drawPowerUp(powerUp: PowerUp) -> SKLabelNode {
         let label = SKLabelNode()
         if powerUp == .slow {
-            label.text = "SLOW"
+            label.text = "SLOW".localized()
         }else if powerUp == .allFood {
-            label.text = "FOOOOOD"
+            label.text = "FOOOOOD".localized()
         }else if powerUp == .doubleXP {
-            label.text = "DOUBLE POINTS"
+            label.text = "DOUBLE POINTS".localized()
         }
         
         label.fontName = "Aldrich-Regular"
@@ -290,7 +290,7 @@ class RenderController {
     func drawNewEra() -> SKLabelNode {
         let label = SKLabelNode()
 
-        label.text = "NEW ERA"
+        label.text = "NEW ERA".localized()
         label.fontName = "Aldrich-Regular"
         
         label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 50)

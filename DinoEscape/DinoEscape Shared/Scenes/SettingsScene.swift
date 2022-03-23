@@ -62,7 +62,7 @@ class SettingsScene: MyScene {
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         addChild(subtitle)
         
-        createLabel(text: "Settings",
+        createLabel(text: "Settings".localized(),
                     fontSize: size.width/13,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
@@ -74,13 +74,13 @@ class SettingsScene: MyScene {
 //                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
 //        )
         
-        createLabel(text: "Music",
+        createLabel(text: "Music".localized(),
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/2.07)
         )
         
-        createLabel(text: "Vibration",
+        createLabel(text: "Vibration".localized(),
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/2.555)
