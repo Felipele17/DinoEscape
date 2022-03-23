@@ -23,7 +23,7 @@ class GameViewController: UIViewController {
         gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
         
        // let scene = HomeScene.newGameScene()
-        //let scene = SettingsPopUpScene.newGameScene()
+        let scene = GameOverScene.newGameScene()
         
         
         // Present the scene
