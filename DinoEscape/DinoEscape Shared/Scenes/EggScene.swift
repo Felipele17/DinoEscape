@@ -35,7 +35,7 @@ class EggScene: SKScene {
         createShopButtons(image: .chance, pos: 1)
         
         
-        #if os(iOS)
+        #if os(iOS) || os(tvOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
         egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
@@ -55,7 +55,7 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-#if os(iOS)
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 16
 #elseif os(macOS)
         let w: CGFloat = size.width / 20
@@ -88,10 +88,25 @@ class EggScene: SKScene {
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        buyButton.position = CGPoint(
-            x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6 )
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom{
+        case .pad:
+            print("ipad")
+        case .phone:
+            if UIDevice.current.name == "iPhone 8" {
+                buyButton.position = CGPoint(
+                    x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                    y: size.height / 6.5 )
+            } else {
+                buyButton.position = CGPoint(
+                    x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                    y: size.height / 6 )
+            }
+        default:
+            print("oi")
+        }
         
+#endif
         
         
         buyButton.selectedHandler = {
