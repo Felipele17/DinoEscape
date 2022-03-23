@@ -10,13 +10,19 @@ import SpriteKit
 import GameplayKit
 
 class GameViewController: UIViewController {
+    var gController: GameCenterController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let scene = HomeScene.newGameScene()
         //let scene = GameScene.newGameScene()
+        scene.delegateGameCenter = self
+
+        
+        let gController = GameCenterController(viewController: self)
+        gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
+        
        // let scene = HomeScene.newGameScene()
-        let scene = SettingsPopUpScene.newGameScene()
         
         
         // Present the scene
@@ -27,7 +33,7 @@ class GameViewController: UIViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
         
-        
+
     }
 
     

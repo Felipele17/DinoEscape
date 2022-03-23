@@ -72,4 +72,10 @@ class SkinDataModel {
         }
         return dinos[0]
     }
+    
+    //deletar
+    static func deleteSkin(skin: SkinData) throws {
+        context.delete(skin)
+        try saveContext()
+    }
 }

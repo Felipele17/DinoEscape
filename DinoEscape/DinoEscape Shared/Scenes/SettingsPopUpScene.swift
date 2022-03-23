@@ -8,12 +8,17 @@
 import Foundation
 import SpriteKit
 
-class SettingsPopUpScene: MyScene {
+class SettingsPopUpScene: SKSpriteNode {
     
-    class func newGameScene() -> SettingsPopUpScene {
-        let scene = SettingsPopUpScene()
-        scene.scaleMode = .resizeFill
-        return scene
+    override init(texture: SKTexture?, color: SKColor, size: CGSize) {
+        super.init(texture: texture, color: color, size: size)
+        self.isUserInteractionEnabled = true
+        self.setUpScene()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.isUserInteractionEnabled = true
     }
     
     func setUpScene() {
@@ -21,38 +26,44 @@ class SettingsPopUpScene: MyScene {
         
         removeAllChildren()
         removeAllActions()
-        
-        let background = SKShapeNode(rect: CGRect(x: size.width / 7,
-                                                  y: size.height / 3.5,
-                                                  width: size.width / 1.4,
-                                                  height: size.height/2))
+
+        let background = SKShapeNode(rect: CGRect(x: self.size.width/2 * -1,
+                                                  y: self.size.height/2 * -1,
+                                                  width: self.size.width,
+                                                  height: self.size.height))
         
         background.fillColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        print(background.position)
+        self.addChild(background)
+
+        background.addChild(createLabel(text: "Settings",
+                                        fontSize: size.height/13,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.center
+                            ))
         
-        addChild(background)
+        background.addChild(createLabel(text: "Music",
+                                        fontSize: size.height/22,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.left
+                            ))
         
-        createLabel(text: "Settings",
-                    fontSize: size.width/13,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2, y: size.height/1.45)
-        )
+        background.addChild(createLabel(text: "Vibration",
+                                        fontSize: size.height/22,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.left
+                            ))
         
-        createLabel(text: "Music",
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
-        )
         
-        createLabel(text: "Vibration",
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.7, y: size.height/2.07)
-        )
+        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), name: "music"))
         
-        createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/1.7), name: "music")
-        createSwitch(pos: CGPoint(x: size.width/1.45, y: size.height/2.05), name: "vibration")
+        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), name: "vibration"))
         
-        createBackButton()
+        background.addChild(createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1)))
+        
         
     }
     
@@ -69,14 +80,13 @@ class SettingsPopUpScene: MyScene {
         state.toggle()
     }
     
-    func createSwitch(pos: CGPoint, name: String) {
+    func createSwitch(pos: CGPoint, name: String) -> SKButton {
         
         var state: Bool = true
         
         let texture: SKTexture = SKTexture(imageNamed: "switchON")
         texture.filteringMode = .nearest
-        
-        let w: CGFloat = size.width / 6.0
+        let w: CGFloat = size.width / 5.0
         let h = w * texture.size().height / texture.size().width
         
         let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -93,47 +103,42 @@ class SettingsPopUpScene: MyScene {
             }
             
         }
-        addChild(switchButton)
+        return switchButton
     }
     
     
     
-    func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint) {
+    func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint, alignmentH: SKLabelHorizontalAlignmentMode) -> SKLabelNode {
         let label: SKLabelNode = SKLabelNode(text: text)
         label.fontName = "Aldrich-Regular"
         label.fontSize = fontSize
         label.numberOfLines = 2
-        label.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        label.horizontalAlignmentMode = alignmentH
         label.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         label.fontColor = fontColor
         label.position = position
-        addChild(label)
+        return label
     }
     
-    func createBackButton() {
+    func createBackButton(position: CGPoint) -> SKButton{
         
         let texture = SKTexture(imageNamed: "buyButton")
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.width / 3
+        let w: CGFloat = size.height / 3
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        button.position = CGPoint(x: size.width / 2 , y: size.height/2.8)
+        button.position = position
         button.selectedHandler = {
             self.removeFromParent()
-        
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
         }
-        addChild(button)
+        return button
         
    
-    }
-    
-    override func didChangeSize(_ oldSize: CGSize) {
-        super.didChangeSize(oldSize)
-        
-        setUpScene()
     }
     
 }
