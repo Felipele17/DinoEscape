@@ -93,7 +93,14 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             if player.life <= 0{
                 player.gameCommand = .DEAD
                 GameController.shared.gameData.gameStatus = .end
-                delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                if player.points < GameController.shared.gameData.score {
+                    delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                    UserDefaults().set(GameController.shared.gameData.score, forKey: "HighScore")
+                }
+                
+                let dinoCoins = GameController.shared.gameData.score/10 + player.dinoCoins
+                UserDefaults().set(dinoCoins, forKey: "DinoCoins")
+
             }
         }
     }

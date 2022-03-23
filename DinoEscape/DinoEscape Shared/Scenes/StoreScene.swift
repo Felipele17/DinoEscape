@@ -11,7 +11,7 @@ import SpriteKit
 class StoreScene: MyScene {
     
     let vetor = try! SkinDataModel.getSkins()
-    var coins: Int = 1000
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
     var dinoChoosed: String = "T-Rex"
     var dinoImage = SKSpriteNode()
     var buyButton = SKButton()
@@ -32,7 +32,6 @@ class StoreScene: MyScene {
     
     
     func setUpScene() {
-        
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
