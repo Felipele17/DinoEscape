@@ -10,15 +10,20 @@ import SpriteKit
 
 class SettingsScene: MyScene {
     
+    var state: Bool = true
+    
     // buttons
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
     
     // switches
-    var switch1 = SKButton()
     var switch2 = SKButton()
     var switch3 = SKButton()
+    
+    var toggleON: Bool = true
+    
+    let node = SKButton()
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -27,8 +32,6 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
-        self.isUserInteractionEnabled = true
-        
         removeAllChildren()
         removeAllActions()
         
@@ -65,11 +68,11 @@ class SettingsScene: MyScene {
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
-        createLabel(text: "  Sound \n effects",
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/1.7)
-        )
+//        createLabel(text: "  Sound \n effects",
+//                    fontSize: size.width/20,
+//                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+//                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
+//        )
         
         createLabel(text: "Music",
                     fontSize: size.width/20,
@@ -90,11 +93,9 @@ class SettingsScene: MyScene {
         addChild(btn2)
         addChild(btn3)
         
-        switch1 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/1.7), name: "sound")
         switch2 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.05), name: "music")
         switch3 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.535), name: "vibration")
         
-        addChild(switch1)
         addChild(switch2)
         addChild(switch3)
         
@@ -160,8 +161,8 @@ class SettingsScene: MyScene {
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
-        texture.filteringMode = .nearest
         let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        texture.filteringMode = .nearest
         title.fontName = "Aldrich-Regular"
         title.fontSize = 20
         title.fontColor = titleColor
@@ -196,14 +197,17 @@ class SettingsScene: MyScene {
         addChild(title)
         
         return button
+        
     }
     
     func changeSwitchImageState(switchButton: SKButton, state: inout Bool){
         
         if state {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchON")
+        
         }
         state.toggle()
     }
@@ -218,7 +222,9 @@ class SettingsScene: MyScene {
         let w: CGFloat = size.width / 6.0
         let h = w * texture.size().height / texture.size().width
         
-        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let switchButton: SKButton = SKButton(texture: texture,
+                                              color: .clear,
+                                              size: CGSize(width: w, height: h))
         switchButton.position = pos
         
 #if os(macOS) || os(tvOS)
@@ -258,63 +264,63 @@ class SettingsScene: MyScene {
 #endif
     }
     
-#if os( tvOS )
+#if os(tvOS)
+    
+    var isToggle: Bool = true
+    
     func addTapGestureRecognizer() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
         self.scene?.view?.addGestureRecognizer(tapRecognizer)
-        
     }
     
-    
-    
     @objc func tapped(sender: AnyObject) {
-        
-        if (btn.isFocused){
+        if (btn.isFocused) {
             let scene = GameScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (btn2.isFocused){
+        } else if (btn2.isFocused) {
             let scene = SettingsScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (btn3.isFocused){
+        } else if (btn3.isFocused) {
             let scene = EggScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (switch1.isFocused){
-            let scene = changeSwitchImageState(switchButton: switch1, state: &state)
-            self.view?.presentScene(scene)
-            scene.run(SKAction.wait(forDuration: 0.02))
-            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (switch2.isFocused) {
-            let scene = changeSwitchImageState(switchButton: switch2, state: &state)
-            self.view?.presentScene(scene)
-            scene.run(SKAction.wait(forDuration: 0.02))
-            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (switch3.isFocused) {
-            let scene = changeSwitchImageState(switchButton: switch3, state: &state)
-            self.view?.presentScene(scene)
-            scene.run(SKAction.wait(forDuration: 0.02))
-            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else {
+            
+            print("botão azul")
+            
+        } else if (switch2.isFocused) {
+            switchToggle(switchButton: switch2)
+            
+        } else {
             print("no hablo sua logica")
         }
     }
+
+    #if os(tvOS) || os(macOS)
+    
+    func switchToggle(switchButton: SKButton) {
+       
+        toggleON.toggle()
+            
+        if toggleON {
+                switchButton.texture = SKTexture(imageNamed: "switchON")
+                
+            } else {
+                switchButton.texture = SKTexture(imageNamed: "switchOFF")
+                
+            }
+        
+    }
+    
+#endif
+    
 #endif
     
     override func didChangeSize(_ oldSize: CGSize) {
@@ -323,6 +329,18 @@ class SettingsScene: MyScene {
         setUpScene()
     }
     
+    override func didMove(to view: SKView) {
+        super.didMove(to: view)
+        setUpScene()
+    }
 }
 
+
+#if os(tvOS)
+extension SettingsScene {
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return[switch2, switch3, btn, btn2, btn3]
+    }
+}
+#endif
 
