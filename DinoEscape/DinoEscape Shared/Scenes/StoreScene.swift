@@ -120,8 +120,6 @@ class StoreScene: MyScene {
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
-        buyButton.removeFromParent()
-        selectButton.removeFromParent()
         
         let texture: SKTexture = SKTexture(imageNamed:image)
         texture.filteringMode = .nearest
@@ -134,41 +132,7 @@ class StoreScene: MyScene {
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 6 )
         
-        if image == "selectButton"{
-            self.isSelected = "selectedButton"
-        }
-        else if image == "purchasedButton" {
-            self.isBought = "purchasedButton"
-        }
-        else if image == "selectedButton" {
-            self.isSelected = "selectedButton"
-        }
-        else if image == "purchasedButton"{
-            self.isSelected = "purchasedButton"
-        }
-//        switch image {
-//        case .selected:
-//            buyButton.selectedHandler = {
-//                self.isSelected = "selectedButton"
-//                print("clicou")
-//            }
-//        case .buy:
-//            buyButton.selectedHandler = {
-//                #warning("Colocar conferencias de moeda")
-//                self.isBought = "purchasedButton"
-//                try! SkinDataModel.buyDino(skin: self.selectedDino)
-//                print("clicou")
-//            }
-//        case .select:
-//            buyButton.selectedHandler = {
-//                self.isSelected = "selectedButton"
-//                try! SkinDataModel.selectSkin(skin: self.selectedDino)
-//                print("clicouaqui")
-//            }
-//        case .purchased:
-//            self.isSelected = "purchasedButton"
-//        }
-//
+        
         return buyButton
         
     }
@@ -206,9 +170,12 @@ class StoreScene: MyScene {
     }
         
     
-    func createDino(name: SkinData, posX: Int, posY: Int, isBought: Bool, isSelected: Bool) -> SKButton {
+    func createDino(name: SkinData, posX: Int, posY: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: name.image ?? "frameTrex")
         texture.filteringMode = .nearest
+        
+        var buyImage: String = ""
+        var selectImage: String = ""
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
@@ -216,67 +183,45 @@ class StoreScene: MyScene {
         let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         
+        if !name.isBought{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"Off")
+        }
+
+        if name.isSelected{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
+        }
+        
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
             y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
         
         
-        
         dinoButton.selectedHandler = { [self] in
-            if name.name == "t-Rex" {
-                print(name)
-                self.setDinoImage(image: "t-RexLeft0" )
-            }
-            else if name.name == "brachiosaurus" {
-                print(name)
-                self.setDinoImage(image: "brachiosaurusLeft0" )
-            }
-            else if name.name == "chickenosaurus" {
-                print(name)
-                self.setDinoImage(image: "chickenosaurusLeft0" )
-            }
-            else if name.name == "stegosaurus" {
-                print(name)
-                self.setDinoImage(image: "stegosaurusLeft0" )
-            }
-            else if name.name == "triceratops" {
-                print(name)
-                self.setDinoImage(image: "triceratopsLeft0" )
-            }
-            else if name.name == "other" {
-                #warning("mudar o nome")
-                print(name)
-                self.setDinoImage(image: "t-RexLeft0" )
-            }
+            self.buyButton.removeFromParent()
+            self.selectButton.removeFromParent()
             
-            self.selectedDino = name
-            
-            if name.isBought {
-                self.isBought = "purchasedButton"
-            }
-            else {
-                self.isBought = "buyButton"
+            if name.isBought{
+                buyImage = "purchasedButton"
+            }else {
+                buyImage = "buyButton"
             }
             
             if !name.isSelected {
-                self.isSelected = "selectButton"
+                selectImage = "selectButton"
+            }else{
+                selectImage = "selectedButton"
             }
             
-            else{
-                self.isSelected = "selectedButton"
-            }
             
+            self.buyButton = self.createShopButtons(image: buyImage, pos: 0)
+            self.addChild(buyButton)
+            
+            self.selectButton = self.createShopButtons(image: selectImage, pos: 1)
+            self.addChild(selectButton)
+            
+            self.setDinoImage(image: name.name! + "Left0" )
+                        
         }
-        
-        
-        if !isBought{
-            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"Off")
-        }
-        
-        if isSelected{
-            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
-        }
-        
         
         return dinoButton
         
@@ -344,7 +289,7 @@ class StoreScene: MyScene {
         let plot = [[self.vetor[5],self.vetor[4],self.vetor[2]],[self.vetor[0],self.vetor[1],self.vetor[3]]]
         for i in 0..<3{
             for j in 0..<2{
-                let button = createDino(name: plot[j][i], posX: i, posY: j,isBought: plot[j][i].isBought,isSelected: plot[j][i].isSelected)
+                let button = createDino(name: plot[j][i], posX: i, posY: j)
                 gallery.addChild(button)
             }
         }
