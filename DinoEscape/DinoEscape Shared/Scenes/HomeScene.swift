@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class HomeScene: MyScene {
     
@@ -14,6 +15,8 @@ class HomeScene: MyScene {
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
+    var player = AVPlayer()
+    var video = SKVideoNode(fileNamed: "gameplay.mov")
     
     
     class func newGameScene() -> HomeScene {
@@ -33,7 +36,7 @@ class HomeScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-
+        
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
         
 #if os( tvOS )
@@ -42,6 +45,12 @@ class HomeScene: MyScene {
         
         removeAllChildren()
         removeAllActions()
+        
+        video = setVideoNode()!
+        addChild(video)
+        video.play()
+        
+        
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
@@ -113,13 +122,13 @@ class HomeScene: MyScene {
                 subtitle.fontSize = 40
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
             }
-
+            
             
             
         default:
             print("oi")
         }
-
+        
         
 #elseif os(tvOS)
         title.setScale(1.5)
@@ -132,34 +141,82 @@ class HomeScene: MyScene {
         subtitle.setScale(2)
         title.position = CGPoint(x: size.width/2, y: size.height/1.07)
         subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
-
+        
         btn.setScale(0.6)
         btn2.setScale(0.6)
         btn3.setScale(0.6)
-  
+        
 #endif
         
+    }
+    
+    func setVideoNode() -> SKVideoNode? {
+        var video = ""
+        var multiplier = 0.0
+        #if os(macOS) || os(tvOS)
+        video = "gameplay"
+        multiplier = 0.85
+        #else
+        video = "gameplayIOS"
+        multiplier = 0.35
+        #endif
+        
+        let videoNode: SKVideoNode? = {
+            guard let urlString = Bundle.main.path(forResource: video, ofType: "mov") else {
+                return nil
+            }
+            
+            let url = URL(fileURLWithPath: urlString)
+            let item = AVPlayerItem(url: url)
+            player = AVPlayer(playerItem: item)
+            return SKVideoNode(avPlayer: player)
+        }()
+        
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
+                                                       object: player.currentItem, queue: nil)
+                { notification in
+                    self.player.seek(to: CMTime.zero)
+                    self.player.play()
+                    print("reset Video")
+                }
+        
+        videoNode?.position = CGPoint(x: frame.midX, y: frame.midY)
+        videoNode?.zPosition = -10
+        videoNode?.setScale(multiplier)
+        videoNode?.alpha = 0.8
+        
+        return videoNode
     }
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
-        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        
+        var title: SKLabelNode
+        
+        switch name {
+        case .play:
+            title = SKLabelNode(text: "Play".localized())
+        case .settings:
+            title = SKLabelNode(text: "Settings".localized())
+        case .shop:
+            title = SKLabelNode(text: "Shop".localized())
+        }
         title.fontName = "Aldrich-Regular"
+        
         title.fontSize = 20
         title.fontColor = titleColor
-        
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        #if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
         
-        #elseif os(macOS)
+#elseif os(macOS)
         title.fontSize = 40
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
         title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
@@ -167,6 +224,7 @@ class HomeScene: MyScene {
 #endif
         
         button.selectedHandler = {
+            self.video.removeFromParent()
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
                 

@@ -1,0 +1,38 @@
+/* 
+  Localization.strings
+  DinoEscape
+
+  Created by Thallis Sousa on 23/03/22.
+  
+*/
+
+// HomeScene
+"Play" = "Jugar";
+"Settings" = "Ajustes";
+"Shop" = "Tienda";
+
+// ButtonType
+"Play" = "Jugar";
+"Settings" = "Ajustes";
+"Shop" = "Tienda";
+
+// RenderController
+"SLOW" = "LENTAMENTE";
+"FOOOOOD" = "COMIIIIDA";
+"DOUBLE POINTS" = "PUNTOS DOBLES";
+"NEW ERA" = "NUEVA ERA";
+
+// SettingScene
+"Music" = "Canción";
+"Vibration" = "Vibración";
+"Settings" = "Ajustes";
+
+// SettingPopUpScene
+"Vibration" = "Vibración";
+"Music" = "Canción";
+"Pause" = "En pausa";
+
+// GameOverScene
+"G A M E   O V E R" = "F I N   D E L   J U E G O";
+
+
