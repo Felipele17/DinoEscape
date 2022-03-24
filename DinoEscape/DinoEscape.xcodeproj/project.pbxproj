@@ -62,6 +62,9 @@
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
 		4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF827D676B000BBD809 /* LaunchScreen.storyboard */; };
@@ -177,6 +180,7 @@
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
+		146584A827ED00FC001FED13 /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loungeMusic.mp3; path = ../../../../../../../../Downloads/loungeMusic.mp3; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -459,10 +463,11 @@
 		B0F1F07D27EB9E18009A9B1F /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08727EBB922009A9B1F /* MusicType.swift */,
+				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */,
 				B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */,
+				146584A827ED00FC001FED13 /* loungeMusic.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -588,6 +593,7 @@
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
+				146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,6 +607,7 @@
 				B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
+				146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -611,6 +618,7 @@
 			files = (
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
+				146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,

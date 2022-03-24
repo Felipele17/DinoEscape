@@ -32,8 +32,10 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
+        MusicService.shared.playLoungeMusic()
         removeAllChildren()
         removeAllActions()
+       
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
@@ -199,9 +201,11 @@ class SettingsScene: MyScene {
         
         if state {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            UserDefaults().set("switchOFF", forKey: "switchMusic")
             
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchON")
+            UserDefaults().set("switchON", forKey: "switchMusic")
         
         }
         state.toggle()
@@ -211,7 +215,7 @@ class SettingsScene: MyScene {
         
         var state: Bool = true
         
-        let texture: SKTexture = SKTexture(imageNamed: "switchON")
+        let texture: SKTexture = SKTexture(imageNamed: UserDefaults().string(forKey: "switchMusic") ?? "switchOFF")
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 6.0
@@ -232,7 +236,8 @@ class SettingsScene: MyScene {
                 //ação de ligar e desligar som
             } else if name == "music" {
                 self.changeSwitchImageState(switchButton: switchButton, state: &state)
-                
+                MusicService.shared.updateUserDefaults()
+                MusicService.shared.playLoungeMusic()
                 //ação de ligar e desligar musica
             } else {
                 self.changeSwitchImageState(switchButton: switchButton, state: &state)

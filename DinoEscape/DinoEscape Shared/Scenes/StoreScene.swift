@@ -35,6 +35,8 @@ class StoreScene: MyScene {
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+//        MusicService.shared.playLondgeMusic()
+        MusicService.shared.playGameMusic()
         
         
         removeAllChildren()

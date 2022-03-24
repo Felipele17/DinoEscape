@@ -32,6 +32,7 @@ class HomeScene: MyScene {
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
+        MusicService.shared.playLoungeMusic()
         
 
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
