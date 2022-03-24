@@ -19,6 +19,7 @@ class GameController{
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
     var pause: UITapGestureRecognizer?
+    var backButton: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -132,6 +133,10 @@ class GameController{
     func getPause(pause: UITapGestureRecognizer){
         self.pause = pause
     }
+    func getBackButton(backButton: UITapGestureRecognizer) {
+        print("Tô entrando na função de getBackButton")
+    }
+    
 #endif
     
     //MARK: Movimentacao

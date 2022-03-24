@@ -12,6 +12,7 @@ class SettingsPopUpScene: SKSpriteNode {
     
 #if os( tvOS )
     var btn = SKButton()
+    var backButton = UITapGestureRecognizer()
 #endif
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
@@ -67,7 +68,11 @@ class SettingsPopUpScene: SKSpriteNode {
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), name: "vibration"))
         
         btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
-        
+        #if os(tvOS)
+        if btn.isFocused {
+            removeFromParent()
+        }
+        #endif
         background.addChild(btn)
         
     }
@@ -145,14 +150,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
     }
     #if os( tvOS )
-//    var backButton: UIView?
-//    
-//    func forceFocus(to: UIView) {
-//        backButton = to
-//        setNeedsFocusUpdate()
-//        updateFocusIfNeeded()
-//    }
-//    
+
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return [btn]
     }

@@ -12,28 +12,15 @@ import UIKit
 #if os( tvOS )
 extension SettingsPopUpScene {
     
-//    func addTapGestureRecognizer() {
-//        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
-//        self.scene?.view?.addGestureRecognizer(tapRecognizer)
-//
-//    }
+    func setFocusOnBackButton() {
+        print("hello")
+    }
     
+    @objc func respondToBackButton(gesture: UITapGestureRecognizer) {
+            if let backButton = gesture as? UITapGestureRecognizer {
+                GameController.shared.getBackButton(backButton: backButton)
+            }
+    }
     
-    
-//    @objc func tapped(sender: AnyObject) {
-//
-//        if (btn.isFocused){
-//
-//            print("To focando no botão de volta")
-//            let scene = GameScene.newGameScene()
-//            self.view?.presentScene(scene)
-//            scene.run(SKAction.wait(forDuration: 0.02))
-//            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-//            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-//        }
-//        else {
-//            print("não sei ler oq vc quer")
-//        }
-//    }
 }
 #endif
