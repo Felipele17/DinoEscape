@@ -230,10 +230,4 @@ class HomeScene: MyScene {
 #endif
     
 }
-#if os( tvOS )
-extension HomeScene {
-    override var preferredFocusEnvironments: [UIFocusEnvironment]{
-        return [btn]
-    }
-}
-#endif
+

@@ -20,5 +20,11 @@ class GameData {
         self.player = player
     }
     
-    
+    func restartGameData() {
+        score = 0
+        addPoints = 10
+        velocidadeGlobal = 3
+        gameStatus = .notStarted
+        skinSelected = "t-rex"
+    }
 }

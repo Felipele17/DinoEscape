@@ -10,9 +10,19 @@ import SpriteKit
 
 class StoreScene: MyScene {
     
-    var coins: Int = 1000
+    let vetor = try! SkinDataModel.getSkins()
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
     var dinoChoosed: String = "T-Rex"
     var dinoImage = SKSpriteNode()
+    var buyButton = SKButton()
+    var selectButton = SKButton()
+    var gallery = SKSpriteNode()
+    var selectedDino = SkinData()
+    
+    var isBought: String = "purchasedButton"
+    
+    var isSelected: String = "selectedButton"
+    
     
     class func newGameScene() -> StoreScene {
         let scene = StoreScene()
@@ -25,7 +35,7 @@ class StoreScene: MyScene {
         self.isUserInteractionEnabled = true
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-
+        
         
         removeAllChildren()
         removeAllActions()
@@ -36,21 +46,27 @@ class StoreScene: MyScene {
         createSegButton(image: .dinos, pos: 1)
         
         setDinoImage(image: "t-RexLeft0")
+        
         addChild(dinoImage)
-        addChild(createGallery())
-       
         
-        createShopButtons(image: .buy, pos: 0)
-        createShopButtons(image: .selected, pos: 1)
+        let skins = try! SkinDataModel.getSkins()
+        if skins.count != 0{
+            gallery = createGallery()
+            addChild(gallery)
+            
+        }
         
-        
+        self.buyButton = createShopButtons(image: self.isBought, pos: 0)
+        self.selectButton = createShopButtons(image: self.isSelected, pos: 1)
+        addChild(self.selectButton)
+        addChild(buyButton)
         
     }
     
     
     
     func setDinoImage(image: String) {
-
+        
         let square: SKShapeNode = SKShapeNode(rect: CGRect(
             x: size.width/6,
             y: size.height/4.6,
@@ -65,10 +81,10 @@ class StoreScene: MyScene {
         
         dinoImage.position = CGPoint(x:size.width/2, y: size.width/1.2)
         dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
-        
-        
         dinoImage.texture = SKTexture(imageNamed: image)
     }
+    
+    
     
     func createADSButton(pos: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
@@ -94,8 +110,8 @@ class StoreScene: MyScene {
         
     }
     
-    func createShopButtons(image: BuyButtonType, pos: Int) {
-        let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
+    func createShopButtons(image: String, pos: Int) -> SKButton {
+        let texture: SKTexture = SKTexture(imageNamed:image)
         texture.filteringMode = .nearest
         
         let w: CGFloat = size.width / 3
@@ -107,14 +123,38 @@ class StoreScene: MyScene {
             y: size.height / 6 )
         
         
-        
-        buyButton.selectedHandler = {
-
+        buyButton.selectedHandler = { [self] in
+            self.buyButton.removeFromParent()
+            self.selectButton.removeFromParent()
+            
+            if image == "selectedButton" {
+                print("selecionado")
+            } else if image == "selectButton" {
+                _ = try! SkinDataModel.selectSkin(skin: self.selectedDino)
+                GameController.shared.gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+                self.isSelected = "selectedButton"
+                
+                self.gallery = self.createGallery()
+                self.addChild(self.gallery)
+            } else if image == "buyButton" {
+                _ = try! SkinDataModel.buyDino(skin: self.selectedDino)
+                self.isBought = "purchasedButton"
+                
+                self.gallery = self.createGallery()
+                self.addChild(self.gallery)
+            } else {
+                print("comprado")
+            }
+            
+            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+            self.addChild(self.buyButton)
+            
+            self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+            self.addChild(self.selectButton)
             
         }
         
-        
-        addChild(buyButton)
+        return buyButton
         
     }
     
@@ -144,16 +184,19 @@ class StoreScene: MyScene {
             }
         }
         
-       
+        
         
         addChild(segmentage)
         
     }
-        
     
-    func createDino(name: DinoType, posX: Int, posY: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
+    
+    func createDino(name: SkinData, posX: Int, posY: Int) -> SKButton {
+        let texture: SKTexture = SKTexture(imageNamed: name.image ?? "frameTrex")
         texture.filteringMode = .nearest
+        
+        var buyImage: String = ""
+        var selectImage: String = ""
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
@@ -161,38 +204,47 @@ class StoreScene: MyScene {
         let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         
+        if !name.isBought{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"Off")
+        }
+        
+        if name.isSelected{
+            dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
+        }
+        
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
             y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
         
         
-        
-        dinoButton.selectedHandler = {
+        dinoButton.selectedHandler = { [self] in
+            self.selectButton.removeFromParent()
+            self.buyButton.removeFromParent()
             
-            switch name {
-            case .t_rex:
-                print(name)
-                self.setDinoImage(image: "t-RexLeft0" )
+            if name.isBought{
+                self.isBought = "purchasedButton"
+            }else {
+                self.isBought = "buyButton"
+            }
             
-            case .triceratops:
-                print(name)
-                self.setDinoImage(image: "triceratopsLeft0" )
-                    
-            case .stegosaurus:
-                print(name)
-                self.setDinoImage(image: "stegosaurusLeft0" )
-                
-            case .brachiosaurus:
-                print(name)
-                self.setDinoImage(image: "brachiosaurusLeft0" )
-                
-            case .chickenosaurus:
-                print(name)
-                self.setDinoImage(image: "chickenosaurusLeft0" )
-                
+            if !name.isSelected {
+                self.isSelected = "selectButton"
+            }else{
+                self.isSelected = "selectedButton"
+            }
+            
+            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+            self.addChild(buyButton)
+            
+            
+            if name.isBought {
+                self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+                self.addChild(selectButton)
             }
             
             
+            self.setDinoImage(image: name.name! + "Left0" )
+            self.selectedDino = name
         }
         
         return dinoButton
@@ -248,26 +300,22 @@ class StoreScene: MyScene {
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
-        
+            
         }
         return button
         
-   
+        
     }
     
     
     func createGallery() -> SKSpriteNode {
+        self.gallery.removeFromParent()
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-        //let button = createDino(name: .t_rex, posX: 0, posY: 0)
-        var vetor = [[DinoType.brachiosaurus, DinoType.t_rex], [DinoType.triceratops, DinoType.brachiosaurus], [DinoType.chickenosaurus, DinoType.stegosaurus]]
-        
+        let plot = [[self.vetor[5],self.vetor[4],self.vetor[2]],[self.vetor[0],self.vetor[1],self.vetor[3]]]
         for i in 0..<3{
             for j in 0..<2{
-                
-                
-                    let button = createDino(name: vetor[i][j], posX: i, posY: j)
-                    gallery.addChild(button)
-                
+                let button = createDino(name: plot[j][i], posX: i, posY: j)
+                gallery.addChild(button)
             }
         }
         
@@ -281,6 +329,14 @@ class StoreScene: MyScene {
         
         setUpScene()
     }
-   
+    
+    override func update(_ currentTime: TimeInterval) {
+        //        self.gallery.removeFromParent()
+        //        self.gallery = createGallery()
+        //        addChild(gallery)
+        
+        
+    }
+    
     
 }

@@ -68,22 +68,17 @@ class SettingsScene: MyScene {
                     position: CGPoint(x: size.width/2, y: size.height/1.45)
         )
         
-//        createLabel(text: "  Sound \n effects",
-//                    fontSize: size.width/20,
-//                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-//                    position: CGPoint(x: size.width/2.7, y: size.height/1.7)
-//        )
         
         createLabel(text: "Music",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/2.07)
+                    position: CGPoint(x: size.width/2.9, y: size.height/1.7)
         )
         
         createLabel(text: "Vibration",
                     fontSize: size.width/20,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/2.555)
+                    position: CGPoint(x: size.width/2.9, y: size.height/2.07)
         )
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
@@ -93,8 +88,8 @@ class SettingsScene: MyScene {
         addChild(btn2)
         addChild(btn3)
         
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.05), name: "music")
-        switch3 = createSwitch(pos: CGPoint(x: size.width/1.6, y: size.height/2.535), name: "vibration")
+        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), name: "music")
+        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), name: "vibration")
         
         addChild(switch2)
         addChild(switch3)
