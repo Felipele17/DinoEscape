@@ -103,7 +103,6 @@ class SettingsPopUpScene: SKSpriteNode {
                 //ação de ligar e desligar som
             } else if name == "vibration" {
                 self.changeSwitchImageState(switchButton: switchButton, state: &state)
-                
                 //ação de ligar e desligar vibração
             }
             
@@ -131,7 +130,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.height / 3
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -145,32 +144,18 @@ class SettingsPopUpScene: SKSpriteNode {
         
         
     }
-    
-#if os( tvOS )
-    func addTapGestureRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
-        self.scene?.view?.addGestureRecognizer(tapRecognizer)
-        
+    #if os( tvOS )
+//    var backButton: UIView?
+//    
+//    func forceFocus(to: UIView) {
+//        backButton = to
+//        setNeedsFocusUpdate()
+//        updateFocusIfNeeded()
+//    }
+//    
+    override var preferredFocusEnvironments: [UIFocusEnvironment] {
+        return [btn]
     }
-    
-    
-    
-    @objc func tapped(sender: AnyObject) {
-        
-        if (btn.isFocused){
-            
-            print("To focando no botão de volta")
-//            let scene = GameScene.newGameScene()
-//            self.presentScene(scene)
-//            scene.run(SKAction.wait(forDuration: 0.02))
-//            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-//            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-           
-        }
-        else {
-            print("não sei ler oq vc quer")
-        }
-    }
-#endif
+    #endif
     
 }
