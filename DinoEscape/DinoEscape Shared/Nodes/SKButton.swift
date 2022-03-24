@@ -85,6 +85,19 @@ extension SKButton {
 
 #if os(macOS)
     
+    override func mouseDown(with event: NSEvent) {
+        if isButtonEnabled{
+            state = .selected
+        }
+    }
+    
+    override func mouseUp(with event: NSEvent) {
+        if isButtonEnabled {
+            selectedHandler()
+            state = .active
+        }
+    }
+    
     override func touchesBegan(with event: NSEvent) {
         if isButtonEnabled{
             state = .selected

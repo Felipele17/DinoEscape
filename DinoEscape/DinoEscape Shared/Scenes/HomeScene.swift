@@ -10,6 +10,7 @@ import SpriteKit
 
 class HomeScene: MyScene {
     
+    
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
@@ -52,6 +53,9 @@ class HomeScene: MyScene {
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
+        
+        
+        
         
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"

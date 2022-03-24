@@ -10,7 +10,6 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
-#if os( tvOS )
     var btn = SKButton()
     var backButton = UITapGestureRecognizer()
 #endif
