@@ -121,6 +121,18 @@
 		B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
 		B0F1F07A27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
 		B0F1F07B27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
+		B0F1F08027EB9E2F009A9B1F /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */; };
+		B0F1F08127EB9E2F009A9B1F /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */; };
+		B0F1F08227EB9E2F009A9B1F /* MusicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */; };
+		B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */; };
+		B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */; };
+		B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */; };
+		B0F1F08827EBB922009A9B1F /* MusicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08727EBB922009A9B1F /* MusicType.swift */; };
+		B0F1F08927EBB922009A9B1F /* MusicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08727EBB922009A9B1F /* MusicType.swift */; };
+		B0F1F08A27EBB922009A9B1F /* MusicType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08727EBB922009A9B1F /* MusicType.swift */; };
+		B0F1F08C27EBBF5A009A9B1F /* SoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */; };
+		B0F1F08D27EBBF5A009A9B1F /* SoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */; };
+		B0F1F08E27EBBF5A009A9B1F /* SoundAction.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */; };
 		DF03BE4227E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4327E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
 		DF03BE4427E25D770005E872 /* MyScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF03BE4127E25D770005E872 /* MyScene.swift */; };
@@ -199,6 +211,10 @@
 		B0F162A427EA6975000DB51B /* ScoreTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypes.swift; sourceTree = "<group>"; };
 		B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverButtonTypes.swift; sourceTree = "<group>"; };
+		B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
+		B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamePlayMusic.mp3; sourceTree = "<group>"; };
+		B0F1F08727EBB922009A9B1F /* MusicType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicType.swift; sourceTree = "<group>"; };
+		B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoundAction.swift; sourceTree = "<group>"; };
 		DF03BE4127E25D770005E872 /* MyScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScene.swift; sourceTree = "<group>"; };
 		DF0C0C8627E3CD16001BBAFA /* Background.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Background.swift; sourceTree = "<group>"; };
 		DF109F9527E8F89A0012139D /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
@@ -336,6 +352,7 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
+				B0F1F07D27EB9E18009A9B1F /* Music */,
 				DF20482E27EA48A000C0F515 /* GameCenter */,
 				1346CD3A27E905B600014B87 /* CoreData */,
 				13842CE627E2561800E1F88E /* Aldrich */,
@@ -437,6 +454,17 @@
 				B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */,
 			);
 			path = FrontModel;
+			sourceTree = "<group>";
+		};
+		B0F1F07D27EB9E18009A9B1F /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
+				B0F1F08727EBB922009A9B1F /* MusicType.swift */,
+				B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */,
+				B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */,
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		DF20482E27EA48A000C0F515 /* GameCenter */ = {
@@ -557,6 +585,7 @@
 			files = (
 				13842CEC27E2561800E1F88E /* OFL.txt in Resources */,
 				13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
+				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
@@ -569,6 +598,7 @@
 			files = (
 				13842CED27E2561800E1F88E /* OFL.txt in Resources */,
 				13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
+				B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
@@ -582,6 +612,7 @@
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
+				B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -601,7 +632,9 @@
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
 				EEC28DD927E914A300A3E6E1 /* AppDelegate.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
+				B0F1F08027EB9E2F009A9B1F /* MusicService.swift in Sources */,
 				133F7BA527D6A8660012CFDD /* GameController+JoystickDelegate.swift in Sources */,
+				B0F1F08827EBB922009A9B1F /* MusicType.swift in Sources */,
 				1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				DF109F9627E8F89A0012139D /* GameStatus.swift in Sources */,
@@ -623,6 +656,7 @@
 				B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
 				DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */,
 				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
+				B0F1F08C27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
 				B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */,
@@ -640,6 +674,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0F1F08127EB9E2F009A9B1F /* MusicService.swift in Sources */,
 				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
@@ -657,6 +692,7 @@
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */,
+				B0F1F08927EBB922009A9B1F /* MusicType.swift in Sources */,
 				1346CD3D27E905CA00014B87 /* SkinData.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
@@ -666,6 +702,7 @@
 				1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F627E130E2006CDEAB /* Items.swift in Sources */,
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
+				B0F1F08D27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				063E625927E521E600487093 /* SKButton.swift in Sources */,
@@ -700,6 +737,8 @@
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
+				B0F1F08E27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
+				B0F1F08227EB9E2F009A9B1F /* MusicService.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
@@ -708,6 +747,7 @@
 				DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */,
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
+				B0F1F08A27EBB922009A9B1F /* MusicType.swift in Sources */,
 				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
 				DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
@@ -899,7 +939,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -916,7 +956,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = luca.dino;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -932,7 +972,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -949,7 +989,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = luca.dino;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -966,7 +1006,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -994,7 +1034,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1025,7 +1065,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1055,7 +1095,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";

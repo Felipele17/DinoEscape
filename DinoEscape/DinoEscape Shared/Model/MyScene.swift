@@ -71,8 +71,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
                 player.foodBar += 0.5
             } else {
                 let powerUp = GameController.shared.getPowerUp()
-                print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
-                player.foodBar = 4
+                print("PowerUp",GameController.shared.powerUpLogic(powerUp: .slow))
+                player.foodBar = 6
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }
@@ -80,8 +80,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     
     func hungryDino(){
         if let player = GameController.shared.gameData.player {
-            if player.foodBar > 2 {
-                player.foodBar -= 2
+            if player.foodBar > 4 {
+                player.foodBar -= 1
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }
