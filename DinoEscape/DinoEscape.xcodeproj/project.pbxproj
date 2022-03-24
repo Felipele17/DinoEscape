@@ -158,6 +158,7 @@
 		0639B86A27EBB5F40041C408 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		0639B86C27EBB6110041C408 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
 		06C59A7527ECFEA6007A459E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localization.strings; sourceTree = "<group>"; };
+		06C59A7627ED0994007A459E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localization.strings"; sourceTree = "<group>"; };
 		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
@@ -559,6 +560,7 @@
 				Base,
 				"pt-BR",
 				es,
+				"es-419",
 			);
 			mainGroup = 4AEAEEE027D676AE00BBD809;
 			productRefGroup = 4AEAEEEF27D676B000BBD809 /* Products */;
@@ -770,6 +772,7 @@
 				0639B86A27EBB5F40041C408 /* en */,
 				0639B86C27EBB6110041C408 /* pt-BR */,
 				06C59A7527ECFEA6007A459E /* es */,
+				06C59A7627ED0994007A459E /* es-419 */,
 			);
 			name = Localization.strings;
 			sourceTree = "<group>";
