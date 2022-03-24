@@ -10,9 +10,8 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
-#if os( tvOS )
     var btn = SKButton()
-#endif
+
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
