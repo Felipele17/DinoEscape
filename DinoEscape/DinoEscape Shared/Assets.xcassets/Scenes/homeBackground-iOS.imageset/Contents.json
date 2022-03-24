@@ -1,17 +1,15 @@
 {
   "images" : [
     {
-      "filename" : "homeBackground-iOS.png",
+      "filename" : "backgroundHome.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "homeBackground-iOS@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "homeBackground-iOS@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }

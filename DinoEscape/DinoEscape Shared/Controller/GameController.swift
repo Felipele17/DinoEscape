@@ -10,12 +10,15 @@ import SpriteKit
 import GameController
 
 class GameController{
+    
     static var shared: GameController = {
         let instance = GameController()
         return instance
     }()
+    
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
+    var pause: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -34,6 +37,19 @@ class GameController{
         gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
         print("rex",gameData.skinSelected)
         renderer = RenderController()
+    }
+    
+    func restartGame() {
+        if let player = gameData.player {
+            player.position = CGPoint(x: 0, y: 0)
+            player.size = CGSize(width: 50, height: 50)
+            player.life = 3
+            player.powerUp = .none
+            player.gameCommand = .UP
+        }
+        gameData.restartGameData()
+        gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+        renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
     }
     
     // MARK: Setup e Set Scene
@@ -98,10 +114,12 @@ class GameController{
         
     }
     
+    
     func pauseGame() {
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
+
             renderer.showPauseMenu()
             
         }
@@ -111,7 +129,11 @@ class GameController{
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
-    #endif
+    
+    func getPause(pause: UITapGestureRecognizer){
+        self.pause = pause
+    }
+#endif
     
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
@@ -204,10 +226,7 @@ class GameController{
             print()
         }
         
-        item.size = CGSize(width: renderer.scene.size.height*0.05, height: renderer.scene.size.height*0.05)
-        item.position = CGPoint(x: xInitial, y: yInitial)
-        
-        renderer.drawItem(item: item)
+        renderer.drawItem(item: item, x: xInitial, y: yInitial)
         
     }
     
@@ -287,7 +306,7 @@ class GameController{
         // adiciona o label que indica o powerup selecionado
         Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
             runPower += 1
-            if runPower == 5 {
+            if runPower == 3 {
                 self.renderer.excludeNode(label: powerUpLabel)
                 timer.invalidate()
             }

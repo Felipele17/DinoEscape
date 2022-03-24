@@ -10,6 +10,9 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
+    var btn = SKButton()
+
+    
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -26,7 +29,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
         removeAllChildren()
         removeAllActions()
-
+        
         let background = SKShapeNode(rect: CGRect(x: self.size.width/2 * -1,
                                                   y: self.size.height/2 * -1,
                                                   width: self.size.width,
@@ -41,29 +44,30 @@ class SettingsPopUpScene: SKSpriteNode {
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: 0, y: background.frame.size.height/3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
-                            ))
+                                       ))
         
         background.addChild(createLabel(text: "Music".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
                                         alignmentH: SKLabelHorizontalAlignmentMode.left
-                            ))
+                                       ))
         
         background.addChild(createLabel(text: "Vibration".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
                                         alignmentH: SKLabelHorizontalAlignmentMode.left
-                            ))
+                                       ))
         
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), name: "music"))
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), name: "vibration"))
         
-        background.addChild(createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1)))
+        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
         
+        background.addChild(btn)
         
     }
     
@@ -138,7 +142,34 @@ class SettingsPopUpScene: SKSpriteNode {
         }
         return button
         
-   
+        
     }
+    
+#if os( tvOS )
+    func addTapGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+        self.scene?.view?.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    
+    
+    @objc func tapped(sender: AnyObject) {
+        
+        if (btn.isFocused){
+            
+            print("To focando no botão de volta")
+//            let scene = GameScene.newGameScene()
+//            self.presentScene(scene)
+//            scene.run(SKAction.wait(forDuration: 0.02))
+//            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
+//            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+           
+        }
+        else {
+            print("não sei ler oq vc quer")
+        }
+    }
+#endif
     
 }

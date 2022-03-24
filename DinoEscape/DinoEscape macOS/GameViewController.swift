@@ -12,20 +12,33 @@ import GameplayKit
 class GameViewController: NSViewController {
 
     override func viewDidLoad() {
+        let dinos = try! SkinDataModel.getSkins()
+        if dinos.count == 0 {
+            CreateCoreData.shared.create()
+        }
+//        print("rex",dinos[0].image)
+//        print("rex",dinos[0].isBought)
+//        print("rex",dinos[0].isSelected)
+
+        
+//        for dino in dinos{
+//            try! SkinDataModel.deleteSkin(skin: dino)
+//        }
+        
         super.viewDidLoad()
         
         //let scene = EggScene.newGameScene()
         //let scene = SettingsScene.newGameScene()
         //let scene = HomeScene.newGameScene()
         //let scene = StoreScene.newGameScene()
-        let scene = GameScene.newGameScene()
+        let scene = HomeScene.newGameScene()
         scene.delegateGameCenter = self
 
         
 
         let gController = GameCenterController(viewController: self)
-        gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
-            
+        gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
+
         // Present the scene
         let skView = self.view as! SKView
         skView.presentScene(scene)
@@ -34,7 +47,6 @@ class GameViewController: NSViewController {
         
         skView.showsFPS = true
         skView.showsNodeCount = true
-        skView.showsPhysics = true
     }
 
 }

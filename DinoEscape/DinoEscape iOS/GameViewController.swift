@@ -20,9 +20,7 @@ class GameViewController: UIViewController {
 
         
         let gController = GameCenterController(viewController: self)
-        gController.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
-        
-       // let scene = HomeScene.newGameScene()
+        gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
         
         
         // Present the scene

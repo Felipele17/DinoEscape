@@ -72,7 +72,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             } else {
                 let powerUp = GameController.shared.getPowerUp()
                 print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
-                player.foodBar = 4
+                player.foodBar = 6
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }
@@ -80,8 +80,8 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     
     func hungryDino(){
         if let player = GameController.shared.gameData.player {
-            if player.foodBar > 2 {
-                player.foodBar -= 2
+            if player.foodBar > 4 {
+                player.foodBar -= 1
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
         }
@@ -93,7 +93,15 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             if player.life <= 0{
                 player.gameCommand = .DEAD
                 GameController.shared.gameData.gameStatus = .end
-                delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                if player.points < GameController.shared.gameData.score {
+                    delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                    UserDefaults().set(GameController.shared.gameData.score, forKey: "HighScore")
+                }
+                
+                let dinoCoins = GameController.shared.gameData.score/10 + player.dinoCoins
+                UserDefaults().set(dinoCoins, forKey: "DinoCoins")
+                self.view?.presentScene(GameOverScene.newGameScene())
+                GameController.shared.restartGame()
             }
         }
     }

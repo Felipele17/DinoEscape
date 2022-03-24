@@ -112,7 +112,10 @@ class RenderController {
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let foodMultiplier: Int = Int(food / 1.6) - 1
+        let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
+        // 8 -> 1 * 5 = 5
+        // 6 -> 0.5 * 5 -> 2.5
+        print(foodMultiplier)
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
@@ -133,10 +136,23 @@ class RenderController {
         }
     }
     
-    func drawItem(item: Items){
-        //item.node.name = "good"
+    func drawItem(item: Items, x: CGFloat, y: CGFloat){
+        var multiplier = 0.05
+        if item.name == "meteoro" {
+            multiplier = 0.08
+            if item.direction == .LEFT {
+                item.xScale = item.xScale * -1
+            } else if item.direction == .DOWN {
+                item.yScale = item.yScale * -1
+            }
+        }
+        item.size = CGSize(width: scene.size.height*multiplier, height: scene.size.height*multiplier)
+        item.position = CGPoint(x: x, y: y)
+        
         item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.height*0.5, height: item.size.height*0.5))
         item.physicsBody?.isDynamic = false
+        
+        
         
         scene.addChild(item)
         self.appendItems(item: item)
@@ -259,14 +275,18 @@ class RenderController {
             if i.name != "good" {
                 i.name = "good"
                 i.texture = SKTexture(imageNamed: "cherry")
+                i.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
             }
         }
     }
     
     func slowRender(){
         for i in self.items {
-            i.vx = i.vx / 2
-            i.vy = i.vy / 2
+            if i.vx / 2 > 1 || i.vy / 2 > 1 {
+                i.vx = i.vx / 2
+                i.vy = i.vy / 2
+            }
+            
         }
     }
     
