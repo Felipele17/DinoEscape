@@ -26,6 +26,11 @@ extension GameScene {
         let swipeRight : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = .right
         
+        let pause =  UITapGestureRecognizer()
+        pause.addTarget(self, action: #selector(self.respondToPause))
+        pause.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+        
+        self.view?.addGestureRecognizer(pause)
         self.view?.addGestureRecognizer(swipeUp)
         self.view?.addGestureRecognizer(swipeDown)
         self.view?.addGestureRecognizer(swipeLeft)
@@ -77,7 +82,11 @@ extension GameScene {
                 GameController.shared.getSwipe(swipe: swipeGesture)
             }
     }
-    
+    @objc func respondToPause(gesture: UITapGestureRecognizer) {
+            if let tapGesture = gesture as? UITapGestureRecognizer {
+                GameController.shared.getPause(pause: tapGesture)
+            }
+    }
     
 }
 #endif

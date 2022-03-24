@@ -31,8 +31,8 @@ class GameViewController: NSViewController {
         //let scene = SettingsScene.newGameScene()
         let scene = HomeScene.newGameScene()
         //let scene = StoreScene.newGameScene()
-        //let scene = GameScene.newGameScene()
-        //scene.delegateGameCenter = self
+        let scene = HomeScene.newGameScene()
+        scene.delegateGameCenter = self
 
         
 
@@ -47,7 +47,6 @@ class GameViewController: NSViewController {
         
         skView.showsFPS = true
         skView.showsNodeCount = true
-        skView.showsPhysics = true
     }
 
 }

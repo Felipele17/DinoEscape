@@ -30,7 +30,7 @@ class Player: CustomStringConvertible {
     var dinoVy: CGFloat = 0.0
     var dinoVx: CGFloat = 0.0
     
-    init(name: String, color: SKColor, position: CGPoint, size: CGSize, skin: Skin, life: Int = 3, foodBar: CGFloat = 5.0, gameCommand: GameCommand, powerUp: PowerUp = .none ) {
+    init(name: String, color: SKColor, position: CGPoint, size: CGSize, skin: Skin, life: Int = 3, foodBar: CGFloat = 6.0, gameCommand: GameCommand, powerUp: PowerUp = .none ) {
         self.name = name
         self.color = color
         self.position = position
