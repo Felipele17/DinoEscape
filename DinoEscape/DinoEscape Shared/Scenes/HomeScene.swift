@@ -10,6 +10,7 @@ import SpriteKit
 
 class HomeScene: MyScene {
     
+    
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
