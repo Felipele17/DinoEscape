@@ -31,6 +31,22 @@
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "3x"
+    },
+    {
+      "filename" : "selectedButtonES.pdf",
+      "idiom" : "universal",
+      "locale" : "es",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "es",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "es",
+      "scale" : "3x"
     }
   ],
   "info" : {
