@@ -10,12 +10,15 @@ import SpriteKit
 import GameController
 
 class GameController{
+    
     static var shared: GameController = {
         let instance = GameController()
         return instance
     }()
+    
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
+    var pause: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -110,10 +113,12 @@ class GameController{
         
     }
     
+    
     func pauseGame() {
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
+
             renderer.showPauseMenu()
             
         }
@@ -123,7 +128,11 @@ class GameController{
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
     }
-    #endif
+    
+    func getPause(pause: UITapGestureRecognizer){
+        self.pause = pause
+    }
+#endif
     
     //MARK: Movimentacao
     func movePlayer(dx: CGFloat, dy: CGFloat){
