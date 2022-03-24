@@ -191,11 +191,21 @@ class HomeScene: MyScene {
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
-        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        
+        var title: SKLabelNode
+        
+        switch name {
+        case .play:
+            title = SKLabelNode(text: "Play".localized())
+        case .settings:
+            title = SKLabelNode(text: "Settings".localized())
+        case .shop:
+            title = SKLabelNode(text: "Shop".localized())
+        }
         title.fontName = "Aldrich-Regular"
+        
         title.fontSize = 20
         title.fontColor = titleColor
-        
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width

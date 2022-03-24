@@ -41,21 +41,21 @@ class SettingsPopUpScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
-        background.addChild(createLabel(text: "Pause",
+        background.addChild(createLabel(text: "Pause".localized(),
                                         fontSize: size.height/13,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: 0, y: background.frame.size.height/3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
         
-        background.addChild(createLabel(text: "Music",
+        background.addChild(createLabel(text: "Music".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
                                         alignmentH: SKLabelHorizontalAlignmentMode.left
                                        ))
         
-        background.addChild(createLabel(text: "Vibration",
+        background.addChild(createLabel(text: "Vibration".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
