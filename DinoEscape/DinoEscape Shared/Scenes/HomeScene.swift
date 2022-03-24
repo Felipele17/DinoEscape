@@ -33,7 +33,7 @@ class HomeScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-
+        
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
         
 #if os( tvOS )
@@ -113,13 +113,13 @@ class HomeScene: MyScene {
                 subtitle.fontSize = 40
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
             }
-
+            
             
             
         default:
             print("oi")
         }
-
+        
         
 #elseif os(tvOS)
         title.setScale(1.5)
@@ -132,11 +132,11 @@ class HomeScene: MyScene {
         subtitle.setScale(2)
         title.position = CGPoint(x: size.width/2, y: size.height/1.07)
         subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
-
+        
         btn.setScale(0.6)
         btn2.setScale(0.6)
         btn3.setScale(0.6)
-  
+        
 #endif
         
     }
@@ -144,22 +144,32 @@ class HomeScene: MyScene {
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
-        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        
+        var title: SKLabelNode
+        
+        switch name {
+        case .play:
+            title = SKLabelNode(text: "Play".localized())
+        case .settings:
+            title = SKLabelNode(text: "Settings".localized())
+        case .shop:
+            title = SKLabelNode(text: "Shop".localized())
+        }
         title.fontName = "Aldrich-Regular"
+        
         title.fontSize = 20
         title.fontColor = titleColor
-        
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        #if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
         
-        #elseif os(macOS)
+#elseif os(macOS)
         title.fontSize = 40
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
         title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
