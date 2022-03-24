@@ -1,20 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "dailyReward.pdf",
-      "idiom" : "universal",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "scale" : "3x"
-    },
-    {
-      "filename" : "dailyReward-1.pdf",
+      "filename" : "selectedButton.pdf",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "1x"
@@ -30,7 +17,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "premioDiarioBtn.pdf",
+      "filename" : "selectedButton-1.pdf",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "1x"
