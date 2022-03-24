@@ -10,8 +10,8 @@ import SpriteKit
 
 class EggScene: SKScene {
     
-    var coins: Int = 1000
-    
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
+
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill
@@ -35,17 +35,17 @@ class EggScene: SKScene {
         createShopButtons(image: .chance, pos: 1)
         
         
-        #if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
         egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
         
-        #elseif os(macOS)
+#elseif os(macOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
         egg.size = CGSize(width: size.width/3, height: size.height/1.7)
         
-        #endif
+#endif
         
         addChild(egg)
         
@@ -85,15 +85,22 @@ class EggScene: SKScene {
         
         let w: CGFloat = size.width / 3
         let h = w * texture.size().height / texture.size().width
-        
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        buyButton.position = CGPoint(
-            x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6 )
-        
-        
-        
+    
+        #if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            buyButton.position = CGPoint(
+                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                y: size.height / 6 )
+        case .pad:
+            buyButton.position = CGPoint(
+                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                y: size.height / 7 )
+        default:
+            print("default")
+        }
+        #endif
         buyButton.selectedHandler = {
             print(image)
             
@@ -160,7 +167,7 @@ class EggScene: SKScene {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
-#if os(iOS)
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 15
         let h = w * coinTotal.size.height / coinTotal.size.width / 2
         
@@ -173,7 +180,7 @@ class EggScene: SKScene {
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         
         
-#if os(iOS)
+#if os(iOS) || os(tvOS)
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
@@ -227,7 +234,7 @@ class EggScene: SKScene {
             
         }
 #endif
-
+        
         return button
     }
     
