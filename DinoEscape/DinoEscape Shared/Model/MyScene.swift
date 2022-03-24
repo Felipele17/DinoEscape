@@ -71,7 +71,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
                 player.foodBar += 0.5
             } else {
                 let powerUp = GameController.shared.getPowerUp()
-                print("PowerUp",GameController.shared.powerUpLogic(powerUp: .slow))
+                print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
                 player.foodBar = 6
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
