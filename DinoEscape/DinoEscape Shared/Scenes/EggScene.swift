@@ -11,7 +11,7 @@ import SpriteKit
 class EggScene: SKScene {
     
     var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
-
+    
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill
@@ -43,7 +43,7 @@ class EggScene: SKScene {
 #elseif os(macOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/3, height: size.height/1.7)
+        egg.size = CGSize(width: size.width/3, height: size.height/1.5)
         
 #endif
         
@@ -91,10 +91,10 @@ class EggScene: SKScene {
         
         let h = w * texture.size().height / texture.size().width
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-       
-
         
-        #if os(iOS) || os(tvOS)
+        
+        
+#if os(iOS) || os(tvOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
@@ -108,12 +108,12 @@ class EggScene: SKScene {
             print("default")
         }
         
-        #elseif os(macOS)
+#elseif os(macOS)
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 0.345 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 7 )
+            y: size.height / 10 )
         
-        #endif
+#endif
         buyButton.selectedHandler = {
             print(image)
             

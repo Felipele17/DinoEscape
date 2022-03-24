@@ -55,13 +55,13 @@ class StoreScene: MyScene {
             addChild(gallery)
             
         }
-        #if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
         self.buyButton = createShopButtons(image: self.isBought, pos: 0)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 1)
-        #elseif os(macOS)
+#elseif os(macOS)
         self.buyButton = createShopButtons(image: self.isBought, pos: 1)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 0)
-        #endif
+#endif
         addChild(self.selectButton)
         addChild(buyButton)
         
@@ -70,21 +70,36 @@ class StoreScene: MyScene {
     
     
     func setDinoImage(image: String) {
-        
+
+#if os(iOS) || os(tvOS)
         let square: SKShapeNode = SKShapeNode(rect: CGRect(
             x: size.width/6,
             y: size.height/4.6,
             width: size.width/1.5,
             height: size.height/3))
-        
         square.lineWidth = 10
         square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
         
+        addChild(square)
+        
+        dinoImage.position = CGPoint(x: size.width/2, y: size.width/1.1)
+        dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
+        
+#elseif os(macOS)
+        let square: SKShapeNode = SKShapeNode(rect: CGRect(
+            x: size.width/2.3,
+            y: size.height/12.2,
+            width: size.width/2.5,
+            height: size.height/1.8))
+        square.lineWidth = 10
+        square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
         
         addChild(square)
         
-        dinoImage.position = CGPoint(x:size.width/2, y: size.width/1.2)
-        dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
+        dinoImage.position = CGPoint(x: size.width/1.58, y: size.width/4.5)
+        dinoImage.size = CGSize(width: size.width/2.7, height: size.height/1.7)
+#endif
+        
         dinoImage.texture = SKTexture(imageNamed: image)
     }
     
@@ -132,7 +147,7 @@ class StoreScene: MyScene {
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        #if os(iOS) || os(tvOS)
+#if os(iOS) || os(tvOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
@@ -146,12 +161,12 @@ class StoreScene: MyScene {
             print("default")
         }
         
-        #elseif os(macOS)
+#elseif os(macOS)
         buyButton.position = CGPoint(
-            x: frame.width / 2,
+            x: frame.width / 3,
             y: buyButton.frame.width / 2 + CGFloat(pos) * buyButton.frame.width * 0.5 )
         
-        #endif
+#endif
         
         buyButton.selectedHandler = { [self] in
             self.buyButton.removeFromParent()
@@ -212,7 +227,7 @@ class StoreScene: MyScene {
 #elseif os(macOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
-            y: size.height / 1.2 )
+            y: size.height / 1.15 )
         
 #endif
         
@@ -345,7 +360,7 @@ class StoreScene: MyScene {
         
         return coinTotal
     }
-
+    
     
     
     func createBackButton() -> SKButton {
@@ -380,14 +395,33 @@ class StoreScene: MyScene {
     
     func createGallery() -> SKSpriteNode {
         self.gallery.removeFromParent()
+#if os(iOS) || os(tvOS)
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
+#elseif os(macOS)
+        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width/2, height: size.height/2))
+        gallery.position = CGPoint(x: size.width/14, y: size.height/2.35)
+        gallery.setScale(0.5)
+#endif
+        
         let plot = [[self.vetor[5],self.vetor[4],self.vetor[2]],[self.vetor[0],self.vetor[1],self.vetor[3]]]
+        let plotMacOS = [self.vetor[5],self.vetor[4],self.vetor[2],self.vetor[0],self.vetor[1],self.vetor[3]]
+
+
+#if os(iOS) || os(tvOS)
         for i in 0..<3{
             for j in 0..<2{
                 let button = createDino(name: plot[j][i], posX: i, posY: j)
                 gallery.addChild(button)
             }
         }
+#elseif os(macOS)
+        for i in 0..<6{
+                let button = createDino(name: plotMacOS[i], posX: i, posY: 0)
+                gallery.addChild(button)
+            
+        }
+        
+#endif
         
         
         return gallery

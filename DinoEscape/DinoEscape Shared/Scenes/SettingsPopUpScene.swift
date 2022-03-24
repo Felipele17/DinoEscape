@@ -66,7 +66,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), name: "vibration"))
         
-        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
+        let btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
         
         background.addChild(btn)
         
