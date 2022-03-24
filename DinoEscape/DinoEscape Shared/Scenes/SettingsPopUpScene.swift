@@ -9,10 +9,15 @@ import Foundation
 import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
-    
+
     var btn = SKButton()
+#if os( tvOS )
     var backButton = UITapGestureRecognizer()
 #endif
+    
+    #if os(tvOS)
+    var toggleON: Bool = true
+    #endif
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -148,6 +153,24 @@ class SettingsPopUpScene: SKSpriteNode {
         
         
     }
+    
+#if os(tvOS) || os(macOS)
+
+func switchToggle(switchButton: SKButton) {
+   
+    toggleON.toggle()
+        
+    if toggleON {
+            switchButton.texture = SKTexture(imageNamed: "switchON")
+            
+        } else {
+            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            
+        }
+    
+}
+
+#endif
     #if os( tvOS )
 
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
