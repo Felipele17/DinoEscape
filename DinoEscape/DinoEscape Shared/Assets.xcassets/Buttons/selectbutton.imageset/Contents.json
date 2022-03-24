@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "moreChance.pdf",
+      "filename" : "selectButton.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -14,7 +14,23 @@
       "scale" : "3x"
     },
     {
-      "filename" : "moreChanceES.pdf",
+      "filename" : "selecionarButton.pdf",
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "selectButtonES.pdf",
       "idiom" : "universal",
       "locale" : "es",
       "scale" : "1x"
