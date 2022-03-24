@@ -6,6 +6,11 @@
   
 */
 
+// HomeScene
+"Play" = "Jogar";
+"Settings" = "Configurações";
+"Shop" = "Loja";
+
 // ButtonType
 "Play" = "Jogar";
 "Settings" = "Configurações";
