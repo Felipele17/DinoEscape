@@ -150,6 +150,9 @@
 		DF20483927EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */; };
 		DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
+		DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
+		DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
+		DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */; };
 		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
@@ -222,6 +225,8 @@
 		DF20483427EA4B5A00C0F515 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterDelegate.swift; sourceTree = "<group>"; };
 		DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameViewController+GameCenterDelegate.swift"; sourceTree = "<group>"; };
+		DF2F5C5A27ECFD250018C99C /* gameplay.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplay.mov; sourceTree = "<group>"; };
+		DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIOS.mov; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 		EE45F1CE27E27D6E0098B92F /* EggType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -352,6 +357,7 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
+				DF2F5C5927ECFD140018C99C /* Video */,
 				B0F1F07D27EB9E18009A9B1F /* Music */,
 				DF20482E27EA48A000C0F515 /* GameCenter */,
 				1346CD3A27E905B600014B87 /* CoreData */,
@@ -483,6 +489,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		DF2F5C5927ECFD140018C99C /* Video */ = {
+			isa = PBXGroup;
+			children = (
+				DF2F5C5A27ECFD250018C99C /* gameplay.mov */,
+				DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */,
+			);
+			path = Video;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -584,6 +599,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				13842CEC27E2561800E1F88E /* OFL.txt in Resources */,
+				DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */,
 				13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
@@ -600,6 +616,7 @@
 				13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
+				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
@@ -609,6 +626,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
@@ -1065,7 +1083,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1095,7 +1113,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
