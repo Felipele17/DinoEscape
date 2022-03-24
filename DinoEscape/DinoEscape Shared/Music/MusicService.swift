@@ -8,24 +8,35 @@
 import Foundation
 import AVFAudio
 
-class MusicService: AudioDelegate {
+class MusicService  {
     
-    
-    
-    
+ 
     static let shared = MusicService()
     
-    private var audioPlayer: AVAudioPlayer!
+    private var audioPlayer: [String : AVAudioPlayer] = [:]
     
     
-    func toggleMusic() -> SKButton {
+    func toggleMusic() -> Void {
         switch self.updateUserDefaults() {
         case true:
-            self.soundManager(with: .gameMusic, soundAction: .play, .loop)
-            button.updateImage(with: .musicOn)
+            self.soundManager(with: .gameMusic, action: .play)
+            
         case false:
-            self.soundManager(with: .gameMusic, soundAction: .pause, .loop)
-            button.updateImage(with: .musicOff)
+            self.soundManager(with: .gameMusic, action: .pause)
+        }
+    }
+    
+    func playGameMusic() {
+        if getUserDefaultsStatus() == true {
+            soundManager(with: .gameMusic, action: .play)
+            soundManager(with: .otherScenes, action: .pause)
+        }
+    }
+    
+    func playLondgeMusic() {
+        if getUserDefaultsStatus() == true {
+            soundManager(with: .gameMusic, action: .pause)
+            soundManager(with: .otherScenes, action: .play)
         }
     }
     
@@ -33,7 +44,7 @@ class MusicService: AudioDelegate {
         return UserDefaults.standard.bool(forKey: "music")
     }
     
-    func updateUserDefauts() -> Bool{
+    func updateUserDefaults() -> Bool{
         var music = UserDefaults.standard.bool(forKey: "music")
         music.toggle()
         UserDefaults.standard.setValue(music, forKey: "music")
@@ -57,7 +68,7 @@ class MusicService: AudioDelegate {
     }
     
     func getMusic(musicType: MusicType) -> AVAudioPlayer? {
-        if let music = self.audioPlayer {
+        if let music = self.audioPlayer[musicType.rawValue] {
             return music
         }
         
@@ -73,7 +84,7 @@ class MusicService: AudioDelegate {
                 case.otherScenes:
                     music.volume = 0.5
                 }
-                
+                self.audioPlayer[musicType.rawValue] = music
                 return music
                 
             } catch {
