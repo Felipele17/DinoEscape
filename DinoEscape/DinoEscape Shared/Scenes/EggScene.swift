@@ -10,8 +10,8 @@ import SpriteKit
 
 class EggScene: SKScene {
     
-    var coins: Int = 1000
-    
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
+
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill

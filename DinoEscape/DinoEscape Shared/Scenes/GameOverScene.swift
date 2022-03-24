@@ -10,8 +10,8 @@ import SpriteKit
 
 class GameOverScene: MyScene {
     
-    var highScore: Int = 140
-    var score: Int = 100
+    var highScore: Int = UserDefaults().integer(forKey: "HighScore")
+    var score: Int = GameController.shared.gameData.score
     
     var playAgain = SKButton()
     var menuDino = SKButton()
@@ -122,6 +122,15 @@ class GameOverScene: MyScene {
         var w : CGFloat
         var h : CGFloat
         
+        #if os(macOS)
+        if name == .playAgain {
+            w = size.width / 6
+            h = w * texture.size().height / texture.size().width
+        } else {
+            w = size.width / 7.5
+            h = w * texture.size().height / texture.size().width
+        }
+        #else
         if name == .playAgain {
             w = size.width / 2
             h = w * texture.size().height / texture.size().width
@@ -129,6 +138,8 @@ class GameOverScene: MyScene {
             w = size.width / 2.5
             h = w * texture.size().height / texture.size().width
         }
+        #endif
+        
         
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
