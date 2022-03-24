@@ -214,6 +214,7 @@ class HomeScene: MyScene {
 #endif
         
         button.selectedHandler = {
+            self.video.removeFromParent()
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
                 
