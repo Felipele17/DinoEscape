@@ -146,6 +146,11 @@ class JoystickController{
                 }
             }
     }
+    func respondToPause(pause: UITapGestureRecognizer){
+        if let tapGesture = pause as? UITapGestureRecognizer {
+            self.pressButton(.PAUSE)
+        }
+    }
     #endif
     
     // MARK: Buttons
@@ -165,6 +170,9 @@ class JoystickController{
         #if os(tvOS)
         if let swipe = GameController.shared.swipe{
             respondToSwipeGesture(gesture: swipe)
+        }
+        if let pause = GameController.shared.pause{
+            respondToPause(pause: pause)
         }
         #endif
         delegate?.joystickUpdate(currentTime)
