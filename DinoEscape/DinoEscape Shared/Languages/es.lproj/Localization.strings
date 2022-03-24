@@ -30,7 +30,7 @@
 // SettingPopUpScene
 "Vibration" = "Vibración";
 "Music" = "Canción";
-"Vibration" = "Vibración";
+"Pause" = "En pausa";
 
 // GameOverScene
 "G A M E   O V E R" = "F I N   D E L   J U E G O";

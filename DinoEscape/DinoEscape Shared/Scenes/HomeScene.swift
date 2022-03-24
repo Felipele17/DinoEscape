@@ -7,6 +7,7 @@
 
 import Foundation
 import SpriteKit
+import AVFoundation
 
 class HomeScene: MyScene {
     
@@ -14,6 +15,8 @@ class HomeScene: MyScene {
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
+    var player = AVPlayer()
+    var video = SKVideoNode(fileNamed: "gameplay.mov")
     
     
     class func newGameScene() -> HomeScene {
@@ -42,6 +45,12 @@ class HomeScene: MyScene {
         
         removeAllChildren()
         removeAllActions()
+        
+        video = setVideoNode()!
+        addChild(video)
+        video.play()
+        
+        
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
@@ -141,6 +150,44 @@ class HomeScene: MyScene {
         
     }
     
+    func setVideoNode() -> SKVideoNode? {
+        var video = ""
+        var multiplier = 0.0
+        #if os(macOS) || os(tvOS)
+        video = "gameplay"
+        multiplier = 0.85
+        #else
+        video = "gameplayIOS"
+        multiplier = 0.35
+        #endif
+        
+        let videoNode: SKVideoNode? = {
+            guard let urlString = Bundle.main.path(forResource: video, ofType: "mov") else {
+                return nil
+            }
+            
+            let url = URL(fileURLWithPath: urlString)
+            let item = AVPlayerItem(url: url)
+            player = AVPlayer(playerItem: item)
+            return SKVideoNode(avPlayer: player)
+        }()
+        
+        NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
+                                                       object: player.currentItem, queue: nil)
+                { notification in
+                    self.player.seek(to: CMTime.zero)
+                    self.player.play()
+                    print("reset Video")
+                }
+        
+        videoNode?.position = CGPoint(x: frame.midX, y: frame.midY)
+        videoNode?.zPosition = -10
+        videoNode?.setScale(multiplier)
+        videoNode?.alpha = 0.8
+        
+        return videoNode
+    }
+    
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
@@ -177,6 +224,7 @@ class HomeScene: MyScene {
 #endif
         
         button.selectedHandler = {
+            self.video.removeFromParent()
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
                 
