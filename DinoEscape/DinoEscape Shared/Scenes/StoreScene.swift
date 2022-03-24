@@ -55,9 +55,13 @@ class StoreScene: MyScene {
             addChild(gallery)
             
         }
-        
+        #if os(iOS) || os(tvOS)
         self.buyButton = createShopButtons(image: self.isBought, pos: 0)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 1)
+        #elseif os(macOS)
+        self.buyButton = createShopButtons(image: self.isBought, pos: 1)
+        self.selectButton = createShopButtons(image: self.isSelected, pos: 0)
+        #endif
         addChild(self.selectButton)
         addChild(buyButton)
         
@@ -90,7 +94,11 @@ class StoreScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width/16
+#if os(iOS) || os(tvOS)
+        let w: CGFloat = size.width / 16
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+#endif
         let h = w * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -114,14 +122,36 @@ class StoreScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed:image)
         texture.filteringMode = .nearest
         
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 3
+#elseif os(macOS)
+        let w: CGFloat = size.width / 7
+#endif
+        
         let h = w * texture.size().height / texture.size().width
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        buyButton.position = CGPoint(
-            x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-            y: size.height / 6 )
         
+        #if os(iOS) || os(tvOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            buyButton.position = CGPoint(
+                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                y: size.height / 6 )
+        case .pad:
+            buyButton.position = CGPoint(
+                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                y: size.height / 7 )
+        default:
+            print("default")
+        }
+        
+        #elseif os(macOS)
+        buyButton.position = CGPoint(
+            x: frame.width / 2,
+            y: buyButton.frame.width / 2 + CGFloat(pos) * buyButton.frame.width * 0.5 )
+        
+        #endif
         
         buyButton.selectedHandler = { [self] in
             self.buyButton.removeFromParent()
@@ -158,24 +188,36 @@ class StoreScene: MyScene {
         
     }
     
-    
     func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 3.5
         let h = w * texture.size().height / texture.size().width
         
+#elseif os(macOS)
+        let w: CGFloat = size.width / 10
+        let h = w * texture.size().height / texture.size().width
+        
+#endif
+        
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
-        
+#if os(iOS) || os(tvOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
         
+#elseif os(macOS)
+        segmentage.position = CGPoint(
+            x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
+            y: size.height / 1.2 )
+        
+#endif
         
         segmentage.selectedHandler = {
-            print("\(pos)")
+            print("BOTAO APERTADO: \(pos)")
             switch image {
             case .eggs:
                 self.view?.presentScene(EggScene.newGameScene())
@@ -184,10 +226,7 @@ class StoreScene: MyScene {
             }
         }
         
-        
-        
         addChild(segmentage)
-        
     }
     
     
@@ -265,26 +304,48 @@ class StoreScene: MyScene {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 15
         let h = w * coinTotal.size.height / coinTotal.size.width / 2
         
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        
+#endif
+        
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        
+        
+#if os(iOS) || os(tvOS)
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
+        
+#elseif os(macOS)
+        coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
+        coin.size = CGSize(width: w, height: h)
+        
+#endif
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
         total.fontName = "Aldrich-Regular"
         total.fontSize = 30
+        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        
+#if os(macOS)
+        total.fontSize = 60
+        total.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
+        
+#endif
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
         
-        
         return coinTotal
     }
+
     
     
     func createBackButton() -> SKButton {
@@ -292,19 +353,28 @@ class StoreScene: MyScene {
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
-        
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 15
         let h = w * texture.size().height / texture.size().width
-        
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
             
         }
+        
+#elseif os(macOS)
+        let w: CGFloat = size.width / 20
+        let h = w * texture.size().height / texture.size().width
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = CGPoint(x: size.width / 12 , y: size.height/1.103)
+        button.selectedHandler = {
+            self.view?.presentScene(HomeScene.newGameScene())
+            
+        }
+#endif
+        
         return button
-        
-        
     }
     
     
