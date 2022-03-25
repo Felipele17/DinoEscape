@@ -159,7 +159,7 @@ class SettingsScene: MyScene {
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
-        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
+        let title: SKLabelNode = SKLabelNode(text: "\(name.rawValue.localized())")
         texture.filteringMode = .nearest
         title.fontName = "Aldrich-Regular"
         title.fontSize = 20
