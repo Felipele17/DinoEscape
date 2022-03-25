@@ -148,7 +148,7 @@ class EggScene: SKScene {
 #elseif os(macOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
-            y: size.height / 1.2 )
+            y: size.height / 1.1 )
         
 #endif
         
