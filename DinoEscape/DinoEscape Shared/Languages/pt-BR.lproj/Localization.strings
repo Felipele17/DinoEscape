@@ -8,12 +8,12 @@
 
 // HomeScene
 "Play" = "Jogar";
-"Settings" = "Configurações";
+"Settings" = "Ajustes";
 "Shop" = "Loja";
 
 // ButtonType
 "Play" = "Jogar";
-"Settings" = "Configurações";
+"Settings" = "Ajustes";
 "Shop" = "Loja";
 
 // RenderController
@@ -25,7 +25,7 @@
 // SettingScene
 "Music" = "Música";
 "Vibration" = "Vibração";
-"Settings" = "Configurações";
+"Settings" = "Ajustes";
 
 // SettingPopUpScene
 "Vibration" = "Vibração";
