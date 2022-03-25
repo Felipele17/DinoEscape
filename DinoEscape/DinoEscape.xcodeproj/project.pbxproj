@@ -24,6 +24,9 @@
 		133D058B27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
 		133D058C27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
 		133D058D27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
+		133D058F27EE611B00DA8269 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 133D058E27EE611B00DA8269 /* loungeMusic.mp3 */; };
+		133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 133D058E27EE611B00DA8269 /* loungeMusic.mp3 */; };
+		133D059127EE611B00DA8269 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 133D058E27EE611B00DA8269 /* loungeMusic.mp3 */; };
 		133F7B7E27D67E910012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
 		133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7F27D67FA80012CFDD /* RenderController.swift */; };
 		133F7B8127D681090012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
@@ -183,6 +186,7 @@
 		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133D058627EE593D00DA8269 /* haptic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = haptic.json; sourceTree = "<group>"; };
 		133D058A27EE5D7C00DA8269 /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
+		133D058E27EE611B00DA8269 /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loungeMusic.mp3; sourceTree = "<group>"; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		133F7B8327D6812E0012CFDD /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -507,6 +511,7 @@
 				B0F1F08727EBB922009A9B1F /* MusicType.swift */,
 				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */,
+				133D058E27EE611B00DA8269 /* loungeMusic.mp3 */,
 				B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */,
 			);
 			path = Music;
@@ -648,6 +653,7 @@
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
+				133D058F27EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -664,6 +670,7 @@
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
 				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
+				133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -677,6 +684,7 @@
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				0639B86927EBB5F40041C408 /* Localization.strings in Resources */,
 				133D058927EE593D00DA8269 /* haptic.json in Resources */,
+				133D059127EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
