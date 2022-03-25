@@ -9,6 +9,10 @@ import Foundation
 import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
+    
+    var btn = SKButton()
+    var btnHome = SKButton()
+
 
     var btn = SKButton()
 #if os( tvOS )
@@ -45,21 +49,21 @@ class SettingsPopUpScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
-        background.addChild(createLabel(text: "Settings",
+        background.addChild(createLabel(text: "Pause".localized(),
                                         fontSize: size.height/13,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: 0, y: background.frame.size.height/3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
         
-        background.addChild(createLabel(text: "Music",
+        background.addChild(createLabel(text: "Music".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
                                         alignmentH: SKLabelHorizontalAlignmentMode.left
                                        ))
         
-        background.addChild(createLabel(text: "Vibration",
+        background.addChild(createLabel(text: "Vibration".localized(),
                                         fontSize: size.height/22,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
@@ -71,14 +75,11 @@ class SettingsPopUpScene: SKSpriteNode {
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), name: "vibration"))
         
-        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
-        #if os(tvOS)
-        if btn.isFocused {
-            removeFromParent()
-        }
-        #endif
-        background.addChild(btn)
+        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
+        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
         
+        background.addChild(btn)
+        background.addChild(btnHome)
     }
     
     
@@ -135,7 +136,7 @@ class SettingsPopUpScene: SKSpriteNode {
     
     func createBackButton(position: CGPoint) -> SKButton{
         
-        let texture = SKTexture(imageNamed: "buyButton")
+        let texture = SKTexture(imageNamed: "resumeButton")
         texture.filteringMode = .nearest
         
         
@@ -153,12 +154,34 @@ class SettingsPopUpScene: SKSpriteNode {
         
         
     }
+    func createHomeButton(position: CGPoint) -> SKButton{
+        
+        let texture = SKTexture(imageNamed: "homeBackButton")
+        texture.filteringMode = .nearest
+        
+        
+        let w: CGFloat = size.height / 4
+        let h = w * texture.size().height / texture.size().width
+        
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = position
+        button.selectedHandler = {
+            self.scene?.view?.presentScene(HomeScene.newGameScene())
+        }
+        return button
+        
+        
+    }
+#if os( tvOS )
+    func addTapGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+        self.scene?.view?.addGestureRecognizer(tapRecognizer)
+        
+    }
     
-#if os(tvOS) || os(macOS)
-
-func switchToggle(switchButton: SKButton) {
-   
-    toggleON.toggle()
+    
+    
+    @objc func tapped(sender: AnyObject) {
         
     if toggleON {
             switchButton.texture = SKTexture(imageNamed: "switchON")

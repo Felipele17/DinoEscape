@@ -50,7 +50,7 @@ class GameOverScene: MyScene {
         gameOverImage.zPosition = -5
         addChild(gameOverImage)
         
-        let title: SKLabelNode = SKLabelNode(text: "G A M E   O V E R")
+        let title: SKLabelNode = SKLabelNode(text: "G A M E   O V E R".localized())
         title.fontName = "Aldrich-Regular"
         title.fontSize = 35
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
