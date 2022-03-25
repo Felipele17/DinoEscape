@@ -66,6 +66,12 @@
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
+		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
+		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
 		4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF827D676B000BBD809 /* LaunchScreen.storyboard */; };
@@ -188,6 +194,8 @@
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
+		146584A827ED00FC001FED13 /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loungeMusic.mp3; path = ../../../../../../../../Downloads/loungeMusic.mp3; sourceTree = "<group>"; };
+		14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchType.swift; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
 		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -474,6 +482,7 @@
 				EE45F1CE27E27D6E0098B92F /* EggType.swift */,
 				B0F162A427EA6975000DB51B /* ScoreTypes.swift */,
 				B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */,
+				14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */,
 			);
 			path = FrontModel;
 			sourceTree = "<group>";
@@ -481,10 +490,11 @@
 		B0F1F07D27EB9E18009A9B1F /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08727EBB922009A9B1F /* MusicType.swift */,
+				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */,
 				B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */,
+				146584A827ED00FC001FED13 /* loungeMusic.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -624,6 +634,7 @@
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
+				146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -639,6 +650,7 @@
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
 				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
+				146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -651,6 +663,7 @@
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				0639B86927EBB5F40041C408 /* Localization.strings in Resources */,
+				146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
@@ -693,6 +706,7 @@
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
 				B0F162A127EA5C7A000DB51B /* GameOverScene.swift in Sources */,
 				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
+				14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
 				DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */,
 				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
@@ -755,6 +769,7 @@
 				B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */,
 				A6E3DA8127EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
 				1346CD1427E8F72500014B87 /* Model.xcdatamodeld in Sources */,
+				14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */,
 				B09BADA427E25BE000047A77 /* EggScene.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
@@ -778,6 +793,7 @@
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				B0F1F08E27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				B0F1F08227EB9E2F009A9B1F /* MusicService.swift in Sources */,
+				14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
