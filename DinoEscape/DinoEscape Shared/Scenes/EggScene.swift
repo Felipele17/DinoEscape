@@ -11,7 +11,7 @@ import SpriteKit
 class EggScene: SKScene {
     
     var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
-
+    
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill
@@ -43,7 +43,7 @@ class EggScene: SKScene {
 #elseif os(macOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
         egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/3, height: size.height/1.7)
+        egg.size = CGSize(width: size.width/3, height: size.height/1.5)
         
 #endif
         
@@ -83,11 +83,18 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 3
+#elseif os(macOS)
+        let w: CGFloat = size.width / 7
+#endif
+        
         let h = w * texture.size().height / texture.size().width
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-    
-        #if os(iOS)
+        
+        
+        
+#if os(iOS) || os(tvOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
@@ -100,7 +107,13 @@ class EggScene: SKScene {
         default:
             print("default")
         }
-        #endif
+        
+#elseif os(macOS)
+        buyButton.position = CGPoint(
+            x: buyButton.frame.width / 0.345 + CGFloat(pos) * buyButton.frame.width * 1.2,
+            y: size.height / 10 )
+        
+#endif
         buyButton.selectedHandler = {
             print(image)
             
@@ -134,7 +147,7 @@ class EggScene: SKScene {
         
 #elseif os(macOS)
         segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.22 + CGFloat(pos) * segmentage.frame.width * 1.25,
+            x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
             y: size.height / 1.2 )
         
 #endif
