@@ -21,6 +21,9 @@
 		133D058727EE593D00DA8269 /* haptic.json in Resources */ = {isa = PBXBuildFile; fileRef = 133D058627EE593D00DA8269 /* haptic.json */; };
 		133D058827EE593D00DA8269 /* haptic.json in Resources */ = {isa = PBXBuildFile; fileRef = 133D058627EE593D00DA8269 /* haptic.json */; };
 		133D058927EE593D00DA8269 /* haptic.json in Resources */ = {isa = PBXBuildFile; fileRef = 133D058627EE593D00DA8269 /* haptic.json */; };
+		133D058B27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
+		133D058C27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
+		133D058D27EE5D7C00DA8269 /* HapticService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133D058A27EE5D7C00DA8269 /* HapticService.swift */; };
 		133F7B7E27D67E910012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
 		133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7F27D67FA80012CFDD /* RenderController.swift */; };
 		133F7B8127D681090012CFDD /* GameController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7B7D27D67E910012CFDD /* GameController.swift */; };
@@ -69,9 +72,6 @@
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
-		146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
-		146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
-		146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -182,6 +182,7 @@
 		06C59A7627ED0994007A459E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localization.strings"; sourceTree = "<group>"; };
 		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133D058627EE593D00DA8269 /* haptic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = haptic.json; sourceTree = "<group>"; };
+		133D058A27EE5D7C00DA8269 /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
 		133F7B7D27D67E910012CFDD /* GameController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameController.swift; sourceTree = "<group>"; };
 		133F7B7F27D67FA80012CFDD /* RenderController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RenderController.swift; sourceTree = "<group>"; };
 		133F7B8327D6812E0012CFDD /* GameData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameData.swift; sourceTree = "<group>"; };
@@ -198,7 +199,6 @@
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
-		146584A827ED00FC001FED13 /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loungeMusic.mp3; path = ../../../../../../../../Downloads/loungeMusic.mp3; sourceTree = "<group>"; };
 		14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchType.swift; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
@@ -288,6 +288,7 @@
 			isa = PBXGroup;
 			children = (
 				133D058627EE593D00DA8269 /* haptic.json */,
+				133D058A27EE5D7C00DA8269 /* HapticService.swift */,
 			);
 			path = HapticFeedback;
 			sourceTree = "<group>";
@@ -507,7 +508,6 @@
 				B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */,
 				B0F1F08B27EBBF5A009A9B1F /* SoundAction.swift */,
 				B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */,
-				146584A827ED00FC001FED13 /* loungeMusic.mp3 */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -648,7 +648,6 @@
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
-				146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -665,7 +664,6 @@
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
 				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
-				146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -679,7 +677,6 @@
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				0639B86927EBB5F40041C408 /* Localization.strings in Resources */,
 				133D058927EE593D00DA8269 /* haptic.json in Resources */,
-				146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */,
 				13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08627EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */,
@@ -710,6 +707,7 @@
 				1346CD3C27E905CA00014B87 /* SkinData.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
+				133D058B27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */,
@@ -766,6 +764,7 @@
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
+				133D058C27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
 				DF20483127EA48B200C0F515 /* GameCenterController.swift in Sources */,
 				1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */,
@@ -817,6 +816,7 @@
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */,
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
+				133D058D27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				B0F1F08A27EBB922009A9B1F /* MusicType.swift in Sources */,
 				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
@@ -1024,7 +1024,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1057,7 +1057,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1091,7 +1091,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1119,7 +1119,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1150,7 +1150,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1180,7 +1180,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = YJHS8SK8R5;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";

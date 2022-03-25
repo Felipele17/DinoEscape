@@ -33,8 +33,6 @@ class GameViewController: NSViewController {
         //let scene = SettingsScene.newGameScene()
         //let scene = HomeScene.newGameScene()
         let scene = StoreScene.newGameScene()
-        scene.delegateGameCenter = self
-
         
 
         let gController = GameCenterController(viewController: self)
