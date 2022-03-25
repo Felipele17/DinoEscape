@@ -20,13 +20,12 @@ class HapticService{
         var vibration = UserDefaults.standard.bool(forKey: "vibration")
         vibration.toggle()
         UserDefaults.standard.setValue(vibration, forKey: "vibration")
-        
         return self.getUserDefaultsStatus()
     }
     
     func addVibration(){
         if UserDefaults.standard.bool(forKey: "vibration"){
-            guard let url = Bundle.main.url(forResource: "teste",
+            guard let url = Bundle.main.url(forResource: "haptic",
                                             withExtension: "json") else {
                         
                 print("could not load file")
