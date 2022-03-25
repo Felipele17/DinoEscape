@@ -19,8 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if dinos.count == 0 {
             CreateCoreData.shared.create()
             UserDefaults.standard.set(true, forKey: "music")
-            UserDefaults.standard.string(forKey: "switchMusic")
-            UserDefaults.standard.string(forKey: "switchVibration")
+            UserDefaults.standard.set(true, forKey: "vibration")
             
         }
 //        print("rex",dinos[0].image)
