@@ -8,8 +8,8 @@
 import Foundation
 
 enum MusicType: String {
-    case gameMusic = "gamePlayMusic2"
-    case otherScenes = "gamePlayMusic"
+    case gameMusic = "gamePlayMusic"
+    case otherScenes = "loungeMusic"
 
 }
 

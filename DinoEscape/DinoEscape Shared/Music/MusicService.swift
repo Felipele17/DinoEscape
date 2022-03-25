@@ -28,17 +28,24 @@ class MusicService  {
     
     func playGameMusic() {
         if getUserDefaultsStatus() == true {
+            soundManager(with: .otherScenes, action: .pause)
             soundManager(with: .gameMusic, action: .play)
+        } else {
+            soundManager(with: .gameMusic, action: .pause)
+        }
+    }
+    
+    func playLoungeMusic() {
+        if getUserDefaultsStatus() == true {
+            soundManager(with: .gameMusic, action: .pause)
+            soundManager(with: .otherScenes, action: .play)
+        } else {
             soundManager(with: .otherScenes, action: .pause)
         }
     }
     
-    func playLondgeMusic() {
-        if getUserDefaultsStatus() == true {
-            soundManager(with: .gameMusic, action: .pause)
-            soundManager(with: .otherScenes, action: .play)
-        }
-    }
+    
+   
     
     func getUserDefaultsStatus() -> Bool {
         return UserDefaults.standard.bool(forKey: "music")

@@ -6,7 +6,3 @@
 //
 
 import Foundation
-
-protocol GameCenterDelegate: AnyObject{
-    func sendGameScore(score: Int)
-}

@@ -32,8 +32,11 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
+        MusicService.shared.playLoungeMusic()
+        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         removeAllChildren()
         removeAllActions()
+       
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
@@ -88,8 +91,8 @@ class SettingsScene: MyScene {
         addChild(btn2)
         addChild(btn3)
         
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), name: "music")
-        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), name: "vibration")
+        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), type: .music)
+        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
         
         addChild(switch2)
         addChild(switch3)
@@ -195,24 +198,42 @@ class SettingsScene: MyScene {
         
     }
     
-    func changeSwitchImageState(switchButton: SKButton, state: inout Bool){
-        
-        if state {
-            switchButton.texture = SKTexture(imageNamed: "switchOFF")
-            
+    
+    func changeSwitchMusic() -> String {
+        var imageName : String
+        if UserDefaults.standard.bool(forKey: "music") == true {
+            imageName = "switchON"
         } else {
-            switchButton.texture = SKTexture(imageNamed: "switchON")
-        
+            imageName = "switchOFF"
         }
-        state.toggle()
+        return imageName
     }
     
-    func createSwitch(pos: CGPoint, name: String) -> SKButton {
+    func changeSwitchVibration() -> String {
+        var imageName : String
+        if UserDefaults.standard.bool(forKey: "vibration") == true {
+            imageName = "switchON"
+        } else {
+            imageName = "switchOFF"
+        }
+        return imageName
+    }
+    
+    func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
         
         var state: Bool = true
         
-        let texture: SKTexture = SKTexture(imageNamed: "switchON")
+        let texture: SKTexture
+        
+        switch type {
+        case .music:
+            texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+        case .vibration:
+            texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+        }
+        
         texture.filteringMode = .nearest
+        
         
         let w: CGFloat = size.width / 6.0
         let h = w * texture.size().height / texture.size().width
@@ -227,17 +248,17 @@ class SettingsScene: MyScene {
 #endif
         
         switchButton.selectedHandler = {
-            if name == "sound" {
-                self.changeSwitchImageState(switchButton: switchButton, state: &state)
-                //ação de ligar e desligar som
-            } else if name == "music" {
-                self.changeSwitchImageState(switchButton: switchButton, state: &state)
+            switch type {
+            case .music:
+                MusicService.shared.updateUserDefaults()
+                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                MusicService.shared.playLoungeMusic()
                 
-                //ação de ligar e desligar musica
-            } else {
-                self.changeSwitchImageState(switchButton: switchButton, state: &state)
-                
+            case .vibration:
+                print(UserDefaults.standard.set(false, forKey: "vibration"))
+                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
             }
+           
         }
         return switchButton
     }

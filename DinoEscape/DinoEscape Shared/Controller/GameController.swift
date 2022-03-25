@@ -56,12 +56,13 @@ class GameController{
     // MARK: Setup e Set Scene
     
     func setScene(scene: MyScene){
+     
         renderer.scene = scene
         
     }
 
     func setupScene(){
-        
+        MusicService.shared.playGameMusic()
         //player
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)

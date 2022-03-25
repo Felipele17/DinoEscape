@@ -35,6 +35,7 @@ class HomeScene: MyScene {
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
+        MusicService.shared.playLoungeMusic()
         
         
         backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
@@ -177,7 +178,6 @@ class HomeScene: MyScene {
                 { notification in
                     self.player.seek(to: CMTime.zero)
                     self.player.play()
-                    print("reset Video")
                 }
         
         videoNode?.position = CGPoint(x: frame.midX, y: frame.midY)
@@ -226,8 +226,8 @@ class HomeScene: MyScene {
         button.selectedHandler = {
             self.video.removeFromParent()
             if name == .play {
-                self.view?.presentScene(GameScene.newGameScene())
-                
+                var scene = GameScene.newGameScene()
+                self.view?.presentScene(scene)
                 
             } else if name == .shop {
                 self.view?.presentScene(EggScene.newGameScene())

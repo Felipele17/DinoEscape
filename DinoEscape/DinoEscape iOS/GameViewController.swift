@@ -16,7 +16,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         let scene = HomeScene.newGameScene()
         //let scene = GameScene.newGameScene()
-        scene.delegateGameCenter = self
 
         
         let gController = GameCenterController(viewController: self)
