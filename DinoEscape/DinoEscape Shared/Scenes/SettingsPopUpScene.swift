@@ -190,6 +190,7 @@ class SettingsPopUpScene: SKSpriteNode {
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = position
         button.selectedHandler = {
+            GameController.shared.restartGame()
             self.scene?.view?.presentScene(HomeScene.newGameScene())
         }
         return button
