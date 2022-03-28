@@ -68,11 +68,11 @@ class RenderController {
         rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.03))
         rectOut.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
         rectOut.fillColor = .clear
-        rectOut.lineWidth = 3
-        rectOut.strokeColor = .blue
+        rectOut.lineWidth = 1
+        rectOut.strokeColor = .black
         
         rectIn.size = CGSize(width: scene.size.width * 0.1, height: scene.size.height * 0.03)
-        rectIn.color = .yellow
+        rectIn.color = .yellow.withAlphaComponent(0.5)
         
         drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         
