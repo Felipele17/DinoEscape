@@ -65,10 +65,8 @@ class HomeScene: MyScene {
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
-        
-        
-        
-        
+
+        #if os(iOS) || os(tvOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -85,6 +83,17 @@ class HomeScene: MyScene {
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
         addChild(subtitle)
+        #elseif os(macOS)
+        let title: SKLabelNode = SKLabelNode(text: "D I N O  E S C A P E")
+        title.fontName = "Aldrich-Regular"
+        title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        title.numberOfLines = 0
+        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        addChild(title)
+        
+        #endif
+        
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         addChild(btn)
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
@@ -148,11 +157,9 @@ class HomeScene: MyScene {
         btn3.setScale(0.3)
         
 #elseif os(macOS)
-        title.setScale(2)
-        subtitle.setScale(2)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.07)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         
+        title.fontSize = 120
+        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
         
         btn.setScale(0.6)
         btn2.setScale(0.6)

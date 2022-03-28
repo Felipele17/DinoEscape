@@ -10,9 +10,8 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
-    var btn = SKButton()
     var btnHome = SKButton()
-
+    var btnBack = SKButton()
 
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
@@ -41,6 +40,7 @@ class SettingsPopUpScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
+#if os(iOS) || os(tvOS)
         background.addChild(createLabel(text: "Pause".localized(),
                                         fontSize: size.height/13,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
@@ -67,10 +67,39 @@ class SettingsPopUpScene: SKSpriteNode {
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), type: .vibration))
         
-        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
+#elseif os(macOS)
+        background.addChild(createLabel(text: "Pause".localized(),
+                                        fontSize: size.height/10,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.center
+                                       ))
+        
+        background.addChild(createLabel(text: "Music".localized(),
+                                        fontSize: size.height/18,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: background.frame.size.width/4 * -1, y: background.frame.size.height/8),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.left
+                                       ))
+        
+        background.addChild(createLabel(text: "Vibration".localized(),
+                                        fontSize: size.height/18,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: background.frame.size.width/4 * -1, y: background.frame.size.height/8 * -1),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.left
+                                       ))
+        
+        
+        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
+        
+        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), type: .vibration))
+
+#endif
+        
+        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
         
-        background.addChild(btn)
+        background.addChild(btnBack)
         background.addChild(btnHome)
     }
     
@@ -121,8 +150,17 @@ class SettingsPopUpScene: SKSpriteNode {
         }
         
         texture.filteringMode = .nearest
-        let w: CGFloat = size.width / 5.0
+        
+#if os(iOS) || os(tvOS)
+        let w: CGFloat = size.width / 9.0
         let h = w * texture.size().height / texture.size().width
+
+#elseif os(macOS)
+        let w: CGFloat = size.width / 8.0
+        let h = w * texture.size().height / texture.size().width
+
+#endif
+        
         
         let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         switchButton.position = pos
@@ -164,7 +202,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.height / 3
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -184,7 +222,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.height / 4
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -208,14 +246,11 @@ class SettingsPopUpScene: SKSpriteNode {
     
     @objc func tapped(sender: AnyObject) {
         
-        if (btn.isFocused){
+        if (btnBack.isFocused){
             
-            print("To focando no botão de volta")
-//            let scene = GameScene.newGameScene()
-//            self.presentScene(scene)
-//            scene.run(SKAction.wait(forDuration: 0.02))
-//            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-//            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+            self.removeFromParent()
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
            
         }
         else {
