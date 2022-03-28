@@ -14,6 +14,22 @@
       "scale" : "3x"
     },
     {
+      "filename" : "buyButton-pt.pdf",
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "pt-BR",
+      "scale" : "3x"
+    },
+    {
       "filename" : "buyButtonES.pdf",
       "idiom" : "universal",
       "locale" : "es",
@@ -30,7 +46,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "comprarButton.pdf",
+      "filename" : "buyButton-1.pdf",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "1x"
