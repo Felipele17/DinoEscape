@@ -19,7 +19,7 @@ class CreateCoreData {
                                                    image: images[i],
                                                    isSelected: false,
                                                    isBought: false,
-                                                    price: Int16(prices[i]))
+                                                    price: Int32(prices[i]))
         }
         
         //setando o rex

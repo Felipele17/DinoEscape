@@ -33,7 +33,7 @@ class SkinDataModel {
     }
     
     // criar Skin
-    static func createSkin(name: String, image: String, isSelected: Bool, isBought: Bool, price: Int16) throws -> SkinData {
+    static func createSkin(name: String, image: String, isSelected: Bool, isBought: Bool, price: Int32) throws -> SkinData {
         guard let skin =  NSEntityDescription.insertNewObject(forEntityName: "SkinData", into: context) as? SkinData else {preconditionFailure()}
         skin.name = name
         skin.image = image

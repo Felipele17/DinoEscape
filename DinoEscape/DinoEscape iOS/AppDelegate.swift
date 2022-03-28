@@ -30,7 +30,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //        for dino in dinos{
 //            try! SkinDataModel.deleteSkin(skin: dino)
 //        }
-//
+
         return true
     }
 
