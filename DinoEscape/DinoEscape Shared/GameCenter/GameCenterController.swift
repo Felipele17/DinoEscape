@@ -19,6 +19,13 @@ import UIKit
 
 
 class GameCenterController {
+    
+    static var shared: GameCenterController = {
+        let instance = GameCenterController(viewController: GameViewController())
+        return instance
+    }()
+    
+    
     let LEADERBOARD_ID = "dino_players" ///na appstore connect deve ser criado um ID para o gameCnter
     
     

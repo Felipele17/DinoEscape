@@ -8,22 +8,15 @@
 import Foundation
 import SpriteKit
 
-protocol UpdateGameCenterDelegate: AnyObject{
-    func sendGameScore(score: Int)
-}
-
 
 class MyScene: SKScene, SKPhysicsContactDelegate{
     // MARK: Colisão
-    weak var delegateGameCenter: UpdateGameCenterDelegate?
-
     
     func didBegin(_ contact: SKPhysicsContact) {
         guard let nodeA = contact.bodyA.node else {return}
         guard let nodeB = contact.bodyB.node else {return}
                 
         checkDestroier(nodeA: nodeA, nodeB: nodeB)
-        
         checkDinoContact(nodeA: nodeA, nodeB: nodeB)
         
         
@@ -94,8 +87,10 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
                 player.gameCommand = .DEAD
                 GameController.shared.gameData.gameStatus = .end
                 if player.points < GameController.shared.gameData.score {
-                    delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
-                    UserDefaults().set(GameController.shared.gameData.score, forKey: "HighScore")
+                    let score = GameController.shared.gameData.score
+                    //delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                    GameCenterController.shared.sendScoreToGameCenter(score: score)
+                    UserDefaults().set(score, forKey: "HighScore")
                 }
                 
                 let dinoCoins = GameController.shared.gameData.score/10 + player.dinoCoins
