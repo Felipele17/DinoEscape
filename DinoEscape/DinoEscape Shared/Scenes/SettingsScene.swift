@@ -255,9 +255,7 @@ class SettingsScene: MyScene {
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
-                print(UserDefaults.standard.set(false, forKey: "vibration"))
                 HapticService.shared.updateUserDefaults()
-                print(UserDefaults.standard.bool(forKey: "vibration"))
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 HapticService.shared.addVibration()
                 

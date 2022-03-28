@@ -63,7 +63,7 @@ class RenderController {
         
         // foodBar
         for i in foodNodes { scene.addChild(i) }
-        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 10, foodNodes: foodNodes)
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0, foodNodes: foodNodes)
         
 #if os(iOS)
         //pause node
@@ -112,10 +112,16 @@ class RenderController {
     }
     
     func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
+        let rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.1))
+
+        
         let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
-        // 8 -> 1 * 5 = 5
-        // 6 -> 0.5 * 5 -> 2.5
-        print(foodMultiplier)
+        
+        rectOut.position = CGPoint(x: scene.size.width / 2, y: scene.size.height * 0.7)
+        rectOut.fillColor = .clear
+        rectOut.lineWidth = 1
+        rectOut.strokeColor = .red
+
         for i in 0..<5 {
             if i <= foodMultiplier {
                 foodNodes[i].texture = SKTexture(imageNamed: "cherry")
@@ -134,6 +140,8 @@ class RenderController {
                 foodNodes[i].position = CGPoint(x: foodNodes[0].position.x * (1 + CGFloat(i)/4), y: foodNodes[0].position.y)
             }
         }
+        
+        scene.addChild(rectOut)
     }
     
     func drawItem(item: Items, x: CGFloat, y: CGFloat){
@@ -266,6 +274,14 @@ class RenderController {
         pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         pauseScene1.zPosition = 10
         scene.addChild(pauseScene1)
+
+    }
+    
+    func restartGame() {
+        changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0, foodNodes: foodNodes)
+        pointsLabel.text = "\(GameController.shared.gameData.score)"
+        lifesLabel.text = "\(GameController.shared.gameData.player?.life ?? 3)"
 
     }
     

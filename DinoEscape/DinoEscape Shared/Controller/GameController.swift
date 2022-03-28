@@ -46,10 +46,12 @@ class GameController{
             player.life = 3
             player.powerUp = .none
             player.gameCommand = .UP
+            player.foodBar = 6.0
         }
         gameData.restartGameData()
         gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
-        renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
+        joystickController.virtualController.resetStick()
+        renderer.restartGame()
     }
     
     // MARK: Setup e Set Scene
