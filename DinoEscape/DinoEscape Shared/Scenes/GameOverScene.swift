@@ -128,14 +128,20 @@ class GameOverScene: MyScene {
         
         let score: SKLabelNode = SKLabelNode(text: String(score))
         score.fontName = "Aldrich-Regular"
-        score.fontSize = 80
         score.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         score.numberOfLines = 2
-        score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        score.fontColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        #if os(iOS) || os(tvOS)
+        score.fontSize = 80
         score.position = CGPoint(x: frame.width / 2,
                                  y: frame.height / 1.3)
-        
+        #elseif os(macOS)
+        score.fontSize = 90
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.27)
+
+        #endif
         
         addChild(score)
     }
