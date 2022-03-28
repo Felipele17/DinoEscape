@@ -97,7 +97,7 @@ class GameOverScene: MyScene {
         name.numberOfLines = 2
         name.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         name.position = CGPoint(x: frame.width / 2 ,
-                                y: frame.height / 1.45 + CGFloat(posY) *  frame.height * 0.12)
+                                y: frame.height / 1.35 + CGFloat(posY) *  frame.height * 0.12)
         
         
         
@@ -109,7 +109,7 @@ class GameOverScene: MyScene {
         score.numberOfLines = 2
         score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         score.position = CGPoint(x: frame.width / 2,
-                                 y: frame.height / 1.53 + CGFloat(posY) * frame.height  * 0.1)
+                                 y: frame.height / 1.40 + CGFloat(posY) * frame.height  * 0.1)
         
         addChild(name)
         addChild(score)
@@ -125,7 +125,7 @@ class GameOverScene: MyScene {
         score.numberOfLines = 2
         score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         score.position = CGPoint(x: frame.width / 2,
-                                 y: frame.height / 1.3)
+                                 y: frame.height / 1.25)
         
         
         addChild(score)
@@ -149,10 +149,10 @@ class GameOverScene: MyScene {
         }
 #else
         if name == .playAgain {
-            w = size.width / 2
+            w = size.width / 3.0
             h = w * texture.size().height / texture.size().width
         } else {
-            w = size.width / 2.5
+            w = size.width / 3.5
             h = w * texture.size().height / texture.size().width
         }
 #endif
