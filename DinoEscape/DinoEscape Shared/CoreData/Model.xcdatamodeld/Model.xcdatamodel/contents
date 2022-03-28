@@ -5,8 +5,9 @@
         <attribute name="isBought" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="isSelected" optional="YES" attributeType="Boolean" usesScalarValueType="YES"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="price" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="SkinData" positionX="-54" positionY="9" width="128" height="89"/>
+        <element name="SkinData" positionX="-54" positionY="9" width="128" height="104"/>
     </elements>
 </model>

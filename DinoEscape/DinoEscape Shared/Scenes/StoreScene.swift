@@ -178,17 +178,18 @@ class StoreScene: MyScene {
                 print("selecionado")
             } else if image == "selectButton" {
                 _ = try! SkinDataModel.selectSkin(skin: self.selectedDino)
-                GameController.shared.gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+                //GameController.shared.gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
                 self.isSelected = "selectedButton"
-                
                 self.gallery = self.createGallery()
                 self.addChild(self.gallery)
             } else if image == "buyButton" {
-                _ = try! SkinDataModel.buyDino(skin: self.selectedDino)
-                self.isBought = "purchasedButton"
-                
-                self.gallery = self.createGallery()
-                self.addChild(self.gallery)
+                if buyDino() == true {
+                    _ = try! SkinDataModel.buyDino(skin: self.selectedDino)
+                    self.isBought = "purchasedButton"
+                    
+                    self.gallery = self.createGallery()
+                    self.addChild(self.gallery)
+                }
             } else {
                 print("comprado")
             }
@@ -442,6 +443,13 @@ class StoreScene: MyScene {
         //        addChild(gallery)
         
         
+    }
+    
+    func buyDino()-> Bool{
+        if self.coins >= Int(self.selectedDino.price){
+            return true
+        }
+        return false
     }
     
     
