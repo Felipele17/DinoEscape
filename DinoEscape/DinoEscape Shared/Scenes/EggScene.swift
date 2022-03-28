@@ -43,8 +43,8 @@ class EggScene: SKScene {
         
 #elseif os(macOS)
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
-        egg.position = CGPoint(x: size.width/2, y: size.height/1.95)
-        egg.size = CGSize(width: size.width/3.5, height: size.height/1.6)
+        egg.position = CGPoint(x: size.width/2, y: size.height/2)
+        egg.size = CGSize(width: size.width/3, height: size.height/1.5)
         
 #endif
         

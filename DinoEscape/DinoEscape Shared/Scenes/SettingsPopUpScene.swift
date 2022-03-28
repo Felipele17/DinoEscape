@@ -10,9 +10,8 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
-    var btn = SKButton()
     var btnHome = SKButton()
-
+    var btnBack = SKButton()
 
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
@@ -97,10 +96,10 @@ class SettingsPopUpScene: SKSpriteNode {
 
 #endif
         
-        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
+        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
         
-        background.addChild(btn)
+        background.addChild(btnBack)
         background.addChild(btnHome)
     }
     
@@ -153,7 +152,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 5.0
+        let w: CGFloat = size.width / 9.0
         let h = w * texture.size().height / texture.size().width
 
 #elseif os(macOS)
@@ -203,7 +202,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.height / 3
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -223,7 +222,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.height / 4
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
@@ -247,14 +246,11 @@ class SettingsPopUpScene: SKSpriteNode {
     
     @objc func tapped(sender: AnyObject) {
         
-        if (btn.isFocused){
+        if (btnBack.isFocused){
             
-            print("To focando no botão de volta")
-//            let scene = GameScene.newGameScene()
-//            self.presentScene(scene)
-//            scene.run(SKAction.wait(forDuration: 0.02))
-//            scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
-//            scene.view?.window?.rootViewController?.updateFocusIfNeeded()
+            self.removeFromParent()
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
            
         }
         else {
