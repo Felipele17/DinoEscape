@@ -99,7 +99,7 @@ class StoreScene: MyScene {
         addChild(square)
         
         dinoImage.position = CGPoint(x: size.width/1.58, y: size.width/4.5)
-        dinoImage.size = CGSize(width: size.width/2.7, height: size.height/1.7)
+        dinoImage.size = CGSize(width: size.width/2.9, height: size.height/1.9)
 #endif
         
         dinoImage.texture = SKTexture(imageNamed: image)
@@ -229,7 +229,7 @@ class StoreScene: MyScene {
 #elseif os(macOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
-            y: size.height / 1.15 )
+            y: size.height / 1.1 )
         
 #endif
         
@@ -256,7 +256,7 @@ class StoreScene: MyScene {
         
         let w: CGFloat = size.width / 4.8
         let h = w * texture.size().height / texture.size().width
-        
+
         let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
         
@@ -267,11 +267,12 @@ class StoreScene: MyScene {
         if name.isSelected{
             dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex")+"BuySelected")
         }
-        
+
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
             y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
-        
+
+
         
         dinoButton.selectedHandler = { [self] in
             self.selectButton.removeFromParent()
@@ -401,7 +402,7 @@ class StoreScene: MyScene {
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
 #elseif os(macOS)
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width/2, height: size.height/2))
-        gallery.position = CGPoint(x: size.width/14, y: size.height/2.35)
+        gallery.position = CGPoint(x: size.width/14, y: size.height/2.3)
         gallery.setScale(0.5)
 #endif
         

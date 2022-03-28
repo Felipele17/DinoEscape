@@ -14,22 +14,6 @@
       "scale" : "3x"
     },
     {
-      "filename" : "comprarButton.pdf",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "3x"
-    },
-    {
       "filename" : "buyButtonES.pdf",
       "idiom" : "universal",
       "locale" : "es",
@@ -43,6 +27,22 @@
     {
       "idiom" : "universal",
       "locale" : "es",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "comprarButton.pdf",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
       "scale" : "3x"
     }
   ],
