@@ -259,7 +259,7 @@ class SettingsScene: MyScene {
                 HapticService.shared.updateUserDefaults()
                 print(UserDefaults.standard.bool(forKey: "vibration"))
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-                HapticService.shared.addVibration()
+                HapticService.shared.addVibration(haptic: "haptic")
                 
             }
            
