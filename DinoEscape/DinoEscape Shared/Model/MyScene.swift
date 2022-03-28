@@ -65,7 +65,7 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             } else {
                 let powerUp = GameController.shared.getPowerUp()
                 print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
-                HapticService.shared.addVibration(haptic: "haptic")
+                HapticService.shared.addVibration(haptic: "Haptic")
                 player.foodBar = 6
             }
             GameController.shared.renderer.drawFoodBar(food: player.foodBar)
@@ -82,9 +82,9 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
     }
     
     func meteorDino(){
+        HapticService.shared.addVibration(haptic: "Haptic2")
         if let player = GameController.shared.gameData.player {
             player.life -= 1
-            HapticService.shared.addVibration(haptic: "haptic2")
             if player.life <= 0{
                 player.gameCommand = .DEAD
                 GameController.shared.gameData.gameStatus = .end

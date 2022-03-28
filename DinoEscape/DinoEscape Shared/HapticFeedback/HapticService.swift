@@ -25,23 +25,30 @@ class HapticService{
     
     func addVibration(haptic: String){
         if UserDefaults.standard.bool(forKey: "vibration"){
-            guard let url = Bundle.main.url(forResource: haptic,
-                                            withExtension: "json") else {
-                        
+            guard let url = loadJson(forFilename: haptic) else {
                 print("could not load file")
-                        
                 return
                 }
-
-            do {
+                do {
                     try engine?.playPattern(from: url)
                 } catch {
                     print("play error: \(error)")
                 }
         }
         else {
-            print("vribracao desativada")
+            print("vibracao desativada")
         }
         
     }
+    
+    func loadJson(forFilename fileName: String) -> URL? {
+
+        if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
+            return url
+        }
+        print("error")
+        return nil
+    }
 }
+
+
