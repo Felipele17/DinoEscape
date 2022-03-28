@@ -309,8 +309,6 @@ class SettingsScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
             
-            print("botão azul")
-            
         } else if (switch2.isFocused) {
             switchToggle(switchButton: switch2)
             
@@ -335,7 +333,7 @@ class SettingsScene: MyScene {
         
     }
     
-#endif
+    #endif
     
 #endif
     
