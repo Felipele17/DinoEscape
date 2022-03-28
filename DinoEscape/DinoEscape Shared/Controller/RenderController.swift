@@ -29,6 +29,9 @@ class RenderController {
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
     #endif
     
+    var rectOut = SKShapeNode()
+    let rectIn = SKSpriteNode()
+    
     // contagem regressiva
     var contagemLabel: SKLabelNode = SKLabelNode()
     
@@ -62,8 +65,16 @@ class RenderController {
         
         
         // foodBar
-        for i in foodNodes { scene.addChild(i) }
-        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0, foodNodes: foodNodes)
+        rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.03))
+        rectOut.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
+        rectOut.fillColor = .clear
+        rectOut.lineWidth = 3
+        rectOut.strokeColor = .blue
+        
+        rectIn.size = CGSize(width: scene.size.width * 0.1, height: scene.size.height * 0.03)
+        rectIn.color = .yellow
+        
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         
 #if os(iOS)
         //pause node
@@ -111,36 +122,17 @@ class RenderController {
         return node
     }
     
-    func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.1))
-
+    func drawFoodBar(food: CGFloat) {
+        rectIn.removeFromParent()
+        rectOut.removeFromParent()
         
         let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
         
-        rectOut.position = CGPoint(x: scene.size.width / 2, y: scene.size.height * 0.7)
-        rectOut.fillColor = .clear
-        rectOut.lineWidth = 1
-        rectOut.strokeColor = .red
+        rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
 
-        for i in 0..<5 {
-            if i <= foodMultiplier {
-                foodNodes[i].texture = SKTexture(imageNamed: "cherry")
-            } else {
-                foodNodes[i].texture = SKTexture(imageNamed: "grayCherry")
-
-            }
-        }
+        rectIn.size.width = scene.size.width * 0.1 * CGFloat(foodMultiplier)
         
-        for i in 0..<foodNodes.count {
-            
-            foodNodes[i].setScale(0.35)
-            if i == 0 {
-                foodNodes[i].position = CGPoint(x: scene.size.width/2 * 0.665, y: pointsLabel.position.y*0.97)
-            } else {
-                foodNodes[i].position = CGPoint(x: foodNodes[0].position.x * (1 + CGFloat(i)/4), y: foodNodes[0].position.y)
-            }
-        }
-        
+        scene.addChild(rectIn)
         scene.addChild(rectOut)
     }
     
@@ -191,7 +183,6 @@ class RenderController {
             print(rect.position)
             rect.physicsBody?.affectedByGravity = false
             rect.physicsBody?.allowsRotation = false
-            rect.physicsBody?.affectedByGravity = false
             rect.physicsBody?.contactTestBitMask = rect.physicsBody!.collisionBitMask
             
             rect.name = "rect"
@@ -279,7 +270,7 @@ class RenderController {
     
     func restartGame() {
         changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
-        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0, foodNodes: foodNodes)
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         pointsLabel.text = "\(GameController.shared.gameData.score)"
         lifesLabel.text = "\(GameController.shared.gameData.player?.life ?? 3)"
 

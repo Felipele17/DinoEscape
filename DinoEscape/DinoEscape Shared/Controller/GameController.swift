@@ -50,7 +50,10 @@ class GameController{
         }
         gameData.restartGameData()
         gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+        
+        #if os(iOS)
         joystickController.virtualController.resetStick()
+        #endif
         renderer.restartGame()
     }
     

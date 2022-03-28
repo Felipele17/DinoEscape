@@ -32,8 +32,8 @@ class HapticService{
                         
                 return
                 }
-                    
-                do {
+
+            do {
                     try engine?.playPattern(from: url)
                 } catch {
                     print("play error: \(error)")
