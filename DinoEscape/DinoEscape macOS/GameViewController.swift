@@ -31,7 +31,7 @@ class GameViewController: NSViewController {
         
         //let scene = EggScene.newGameScene()
         //let scene = SettingsScene.newGameScene()
-        let scene = GameOverScene.newGameScene()
+        let scene = GameScene.newGameScene()
         //let scene = HomeScene.newGameScene()
         //let scene = StoreScene.newGameScene()
         //scene.delegateGameCenter = self

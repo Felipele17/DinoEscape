@@ -257,9 +257,13 @@ class HomeScene: MyScene {
             self.video.removeFromParent()
             if name == .play {
                 var scene = GameScene.newGameScene()
+                print(UserDefaults.standard.integer(forKey: "DinoCoins"))
+
                 self.view?.presentScene(scene)
                 
             } else if name == .shop {
+                print(UserDefaults.standard.integer(forKey: "DinoCoins"))
+
                 self.view?.presentScene(EggScene.newGameScene())
                 
             } else if name == .settings {
