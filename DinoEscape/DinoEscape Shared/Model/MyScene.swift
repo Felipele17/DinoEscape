@@ -65,9 +65,10 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             } else {
                 let powerUp = GameController.shared.getPowerUp()
                 print("PowerUp",GameController.shared.powerUpLogic(powerUp: powerUp))
+                HapticService.shared.addVibration(haptic: "Haptic")
                 player.foodBar = 6
             }
-            GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
+            GameController.shared.renderer.drawFoodBar(food: player.foodBar)
         }
     }
     
@@ -76,11 +77,12 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
             if player.foodBar > 4 {
                 player.foodBar -= 1
             }
-            GameController.shared.renderer.drawFoodBar(food: player.foodBar, foodNodes: GameController.shared.renderer.foodNodes)
+            GameController.shared.renderer.drawFoodBar(food: player.foodBar)
         }
     }
     
     func meteorDino(){
+        HapticService.shared.addVibration(haptic: "Haptic2")
         if let player = GameController.shared.gameData.player {
             player.life -= 1
             if player.life <= 0{
@@ -91,10 +93,12 @@ class MyScene: SKScene, SKPhysicsContactDelegate{
                     //delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
                     GameCenterController.shared.sendScoreToGameCenter(score: score)
                     UserDefaults().set(score, forKey: "HighScore")
+                    
                 }
                 
                 let dinoCoins = GameController.shared.gameData.score/10 + player.dinoCoins
                 UserDefaults().set(dinoCoins, forKey: "DinoCoins")
+                GameController.shared.gameData.player?.dinoCoins = dinoCoins
                 self.view?.presentScene(GameOverScene.newGameScene())
                 GameController.shared.restartGame()
             }

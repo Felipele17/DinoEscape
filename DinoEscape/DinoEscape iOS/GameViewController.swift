@@ -17,6 +17,7 @@ class GameViewController: UIViewController {
         let scene = GameOverScene.newGameScene()
         // let scene = GameScene.newGameScene()
 
+
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
         
