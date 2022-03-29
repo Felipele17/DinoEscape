@@ -7,14 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		06301AAD27F3806700F80420 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 06301AAC27F3806700F80420 /* .swiftlint.yml */; };
+		06301AAE27F3806700F80420 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 06301AAC27F3806700F80420 /* .swiftlint.yml */; };
+		06301AAF27F3806700F80420 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 06301AAC27F3806700F80420 /* .swiftlint.yml */; };
 		0639B85A27EBB2E90041C408 /* String + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0639B85927EBB2E90041C408 /* String + Location.swift */; };
 		0639B85B27EBB2E90041C408 /* String + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0639B85927EBB2E90041C408 /* String + Location.swift */; };
 		0639B85C27EBB2E90041C408 /* String + Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0639B85927EBB2E90041C408 /* String + Location.swift */; };
 		0639B86727EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0639B86827EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0639B86927EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
-		063E625927E521E600487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
-		063E625A27E521E700487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
 		069386B727F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		069386B827F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
@@ -66,7 +67,6 @@
 		13842CED27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
-		13842CF227E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
@@ -163,7 +163,6 @@
 		DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
 		DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
 		DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */; };
-		DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 		EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
@@ -173,6 +172,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		06301AAC27F3806700F80420 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		0639B85927EBB2E90041C408 /* String + Location.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Location.swift"; sourceTree = "<group>"; };
 		0639B86A27EBB5F40041C408 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		0639B86C27EBB6110041C408 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
@@ -367,6 +367,7 @@
 		4AEAEEE027D676AE00BBD809 = {
 			isa = PBXGroup;
 			children = (
+				06301AAC27F3806700F80420 /* .swiftlint.yml */,
 				4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */,
 				4AEAEEE927D676B000BBD809 /* Assets.xcassets */,
 				4AEAEEF027D676B000BBD809 /* DinoEscape iOS */,
@@ -534,6 +535,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEAEF2727D676B100BBD809 /* Build configuration list for PBXNativeTarget "DinoEscape iOS" */;
 			buildPhases = (
+				06301AAB27F37CDB00F80420 /* Run SwiftLint */,
 				4AEAEEEA27D676B000BBD809 /* Sources */,
 				4AEAEEEB27D676B000BBD809 /* Frameworks */,
 				4AEAEEEC27D676B000BBD809 /* Resources */,
@@ -551,6 +553,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEAEF2A27D676B100BBD809 /* Build configuration list for PBXNativeTarget "DinoEscape tvOS" */;
 			buildPhases = (
+				06301AB127F3822F00F80420 /* Run SwiftLint */,
 				4AEAEEFB27D676B100BBD809 /* Sources */,
 				4AEAEEFC27D676B100BBD809 /* Frameworks */,
 				4AEAEEFD27D676B100BBD809 /* Resources */,
@@ -568,6 +571,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEAEF2D27D676B100BBD809 /* Build configuration list for PBXNativeTarget "DinoEscape macOS" */;
 			buildPhases = (
+				06301AB227F3824500F80420 /* Run SwiftLint */,
 				4AEAEF0B27D676B100BBD809 /* Sources */,
 				4AEAEF0C27D676B100BBD809 /* Frameworks */,
 				4AEAEF0D27D676B100BBD809 /* Resources */,
@@ -589,7 +593,7 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1320;
-				LastUpgradeCheck = 1320;
+				LastUpgradeCheck = 1330;
 				TargetAttributes = {
 					4AEAEEED27D676B000BBD809 = {
 						CreatedOnToolsVersion = 13.2.1;
@@ -640,6 +644,7 @@
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 				069386B727F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */,
+				06301AAD27F3806700F80420 /* .swiftlint.yml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -647,6 +652,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06301AAE27F3806700F80420 /* .swiftlint.yml in Resources */,
 				13842CED27E2561800E1F88E /* OFL.txt in Resources */,
 				0639B86827EBB5F40041C408 /* Localization.strings in Resources */,
 				13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
@@ -663,6 +669,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				06301AAF27F3806700F80420 /* .swiftlint.yml in Resources */,
 				069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
@@ -675,6 +682,63 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		06301AAB27F37CDB00F80420 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		06301AB127F3822F00F80420 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		06301AB227F3824500F80420 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AEAEEEA27D676B000BBD809 /* Sources */ = {
@@ -748,7 +812,6 @@
 				133F7BA227D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8727DFD16F00372B2F /* DinoType.swift in Sources */,
 				B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
-				DF4D899527E4F3AA0052AE30 /* SKButton.swift in Sources */,
 				B0F1F08927EBB922009A9B1F /* MusicType.swift in Sources */,
 				1346CD3D27E905CA00014B87 /* SkinData.swift in Sources */,
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
@@ -763,7 +826,6 @@
 				B0F1F08D27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
-				063E625927E521E600487093 /* SKButton.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
 				DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */,
@@ -815,14 +877,12 @@
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
-				063E625A27E521E700487093 /* SKButton.swift in Sources */,
 				1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				0639B85C27EBB2E90041C408 /* String + Location.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
 				1346CD3E27E905CA00014B87 /* SkinData.swift in Sources */,
-				13842CF227E2784900E1F88E /* SKButton.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
 				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
 				B0F162A327EA5C7A000DB51B /* GameOverScene.swift in Sources */,
@@ -1077,7 +1137,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1105,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1133,10 +1193,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DinoEscape macOS/DinoEscape_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1163,10 +1224,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DinoEscape macOS/DinoEscape_macOS.entitlements";
+				CODE_SIGN_IDENTITY = "-";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
