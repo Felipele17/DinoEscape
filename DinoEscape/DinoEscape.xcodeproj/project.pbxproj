@@ -17,8 +17,6 @@
 		0639B86827EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0639B86927EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
-		069386B827F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
-		069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -188,7 +186,6 @@
 		0639B86A27EBB5F40041C408 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localization.strings; sourceTree = "<group>"; };
 		0639B86C27EBB6110041C408 /* pt-BR */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "pt-BR"; path = "pt-BR.lproj/Localization.strings"; sourceTree = "<group>"; };
 		0660F09727EE59B90099D32D /* gameplayIpadOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIpadOS.mov; sourceTree = "<group>"; };
-		069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = loungeMusic.mp3; sourceTree = "<group>"; };
 		06C59A7527ECFEA6007A459E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localization.strings; sourceTree = "<group>"; };
 		06C59A7627ED0994007A459E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localization.strings"; sourceTree = "<group>"; };
 		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
@@ -385,7 +382,6 @@
 		13842CF027E2758600E1F88E /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
-				069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -685,7 +681,6 @@
 				133D058827EE593D00DA8269 /* Haptic.json in Resources */,
 				B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
-				069386B827F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
 				DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
@@ -699,7 +694,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06301AAF27F3806700F80420 /* .swiftlint.yml in Resources */,
-				069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
@@ -1050,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1082,7 +1076,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1115,7 +1109,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1143,7 +1137,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1175,7 +1169,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1206,7 +1200,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
