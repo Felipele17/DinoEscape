@@ -16,7 +16,6 @@
 		063E625927E521E600487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		063E625A27E521E700487093 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
-		069386B727F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		069386B827F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -386,6 +385,7 @@
 		13842CF027E2758600E1F88E /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
+				069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */,
 			);
 			name = "Recovered References";
 			sourceTree = "<group>";
@@ -668,7 +668,6 @@
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				133D058F27EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
 				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
-				069386B727F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
