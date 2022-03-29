@@ -1,0 +1,86 @@
+{
+  "Version": 1,
+  "Pattern": [
+    {
+      "Event": {
+        "Time": 0.06,
+        "EventType": "HapticTransient",
+        "EventParameters": [
+          {
+            "ParameterID": "HapticIntensity",
+            "ParameterValue": 0.6235294117647059
+          },
+          {
+            "ParameterID": "HapticSharpness",
+            "ParameterValue": 0.6235294117647059
+          }
+        ]
+      }
+    },
+    {
+      "Event": {
+        "Time": 0.11473684210526315,
+        "EventType": "HapticTransient",
+        "EventParameters": [
+          {
+            "ParameterID": "HapticIntensity",
+            "ParameterValue": 0.8411764705882353
+          },
+          {
+            "ParameterID": "HapticSharpness",
+            "ParameterValue": 0.8411764705882353
+          }
+        ]
+      }
+    },
+    {
+      "Event": {
+        "Time": 0.20105263157894737,
+        "EventType": "HapticTransient",
+        "EventParameters": [
+          {
+            "ParameterID": "HapticIntensity",
+            "ParameterValue": 0.9529411764705882
+          },
+          {
+            "ParameterID": "HapticSharpness",
+            "ParameterValue": 0.9529411764705882
+          }
+        ]
+      }
+    },
+    {
+      "Event": {
+        "Time": 0.2894736842105263,
+        "EventType": "HapticContinuous",
+        "EventDuration": 0.1755263157894737,
+        "EventParameters": [
+          {
+            "ParameterID": "HapticIntensity",
+            "ParameterValue": 0.24705882352941178
+          },
+          {
+            "ParameterID": "HapticSharpness",
+            "ParameterValue": 0.24761904761904763
+          }
+        ]
+      }
+    },
+    {
+      "Event": {
+        "Time": 0.265,
+        "EventType": "HapticTransient",
+        "EventParameters": [
+          {
+            "ParameterID": "HapticIntensity",
+            "ParameterValue": 0.24705882352941178
+          },
+          {
+            "ParameterID": "HapticSharpness",
+            "ParameterValue": 0.32857142857142857
+          }
+        ]
+      }
+    }
+  ]
+}

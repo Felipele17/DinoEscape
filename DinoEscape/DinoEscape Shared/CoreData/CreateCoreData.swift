@@ -10,14 +10,16 @@ import CoreData
 
 class CreateCoreData {
     static var shared = CreateCoreData()
-    let dinos = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","other"]
-    let images = ["frameTrex","frameBraci","frameChicken","frameSte", "frameTrice","frameTrex"]
+    let dinos = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","veloci"]
+    let images = ["frameTrex","frameBraci","frameChicken","frameSte", "frameTrice","frameVeloci"]
+    let prices = [0,10,100000,10,10,10]
     func create(){
         for i in 0..<dinos.count{
             _ = try! SkinDataModel.createSkin(name: dinos[i],
                                                    image: images[i],
                                                    isSelected: false,
-                                                   isBought: false)
+                                                   isBought: false,
+                                                    price: Int32(prices[i]))
         }
         
         //setando o rex
