@@ -16,6 +16,7 @@ class EggScene: SKScene {
     var moreButton: SKButton = SKButton()
     var premioDate: String = UserDefaults.standard.string(forKey: "premioDate") ?? "0"
     let formatter = DateFormatter()
+    var eggNode = SKSpriteNode()
 
     
     class func newGameScene() -> EggScene {
@@ -55,18 +56,18 @@ class EggScene: SKScene {
         
         
 #if os(iOS) || os(tvOS)
-        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
-        egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        eggNode = SKSpriteNode(imageNamed: "ovo")
+        eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
         
 #elseif os(macOS)
-        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
-        egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/3, height: size.height/1.5)
+        eggNode = SKSpriteNode(imageNamed: "ovo-mac")
+        eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        eggNode.size = CGSize(width: size.width/3, height: size.height/1.5)
         
 #endif
         
-        addChild(egg)
+        addChild(eggNode)
         
     }
     
@@ -141,6 +142,7 @@ class EggScene: SKScene {
                 if let skins = skins {
                     for i in skins {
                         if i.name == premio {
+                            self.eggNode.texture = SKTexture(imageNamed: i.image ?? "frameTrex")
                             if i.isBought == false {
                                 _ = try! SkinDataModel.buyDino(skin: i)
                             } else {
@@ -175,7 +177,7 @@ class EggScene: SKScene {
             return hoursPassed
 
         }
-        return 0
+        return 25
 
     }
     
