@@ -14,22 +14,6 @@
       "scale" : "3x"
     },
     {
-      "filename" : "playAgainButton-1.pdf",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "3x"
-    },
-    {
       "filename" : "jogarNovamenteBtn-1.pdf",
       "idiom" : "universal",
       "locale" : "pt-BR",
@@ -59,6 +43,22 @@
     {
       "idiom" : "universal",
       "locale" : "es",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "playAgainButton-1.pdf",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
       "scale" : "3x"
     }
   ],

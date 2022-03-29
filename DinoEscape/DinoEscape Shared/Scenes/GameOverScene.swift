@@ -44,15 +44,28 @@ class GameOverScene: MyScene {
         removeAllActions()
         
         let gameOverImage: SKSpriteNode = SKSpriteNode(imageNamed: "TRexGameOver")
+        gameOverImage.zPosition = -5
         
+#if os(iOS) || os(tvOS)
         gameOverImage.position = CGPoint(x: size.width/2, y: size.height/5)
         gameOverImage.size = CGSize(width:  size.width, height: size.height/3)
-        gameOverImage.zPosition = -5
+        
+#elseif os(macOS)
+        gameOverImage.position = CGPoint(x: size.width/2, y: size.height/5)
+        gameOverImage.size = CGSize(width: size.width/3, height: size.height/3)
+        
+#endif
+        
+        
         addChild(gameOverImage)
         
         let title: SKLabelNode = SKLabelNode(text: "G A M E   O V E R".localized())
         title.fontName = "Aldrich-Regular"
+        #if os(iOS) || os(tvOS)
         title.fontSize = 35
+        #elseif os(macOS)
+        title.fontSize = 85
+        #endif
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
@@ -74,26 +87,41 @@ class GameOverScene: MyScene {
     func createHighScore(name: ScoreTypes, score: Int, posY: Int) {
         let name: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
         name.fontName = "Aldrich-Regular"
+        #if os(iOS) || os(tvOS)
         name.fontSize = 20
+        #elseif os(macOS)
+        name.fontSize = 40
+        #endif
         name.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         name.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         name.numberOfLines = 2
         name.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         name.position = CGPoint(x: frame.width / 2 ,
-                                y: frame.height / 1.45 + CGFloat(posY) *  frame.height * 0.12)
+                                y: frame.height / 1.35 + CGFloat(posY) *  frame.height * 0.12)
         
         
         
         let score: SKLabelNode = SKLabelNode(text: String(score))
         score.fontName = "Aldrich-Regular"
+        #if os(iOS) || os(tvOS)
         score.fontSize = 30
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.53 + CGFloat(posY) * frame.height  * 0.1)
+        
+        #elseif os(macOS)
+        score.fontSize = 40
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.57 + CGFloat(posY) * frame.height  * 0.1)
+        
+        #endif
         score.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         score.numberOfLines = 2
         score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         score.position = CGPoint(x: frame.width / 2,
-                                 y: frame.height / 1.53 + CGFloat(posY) * frame.height  * 0.1)
+                                 y: frame.height / 1.40 + CGFloat(posY) * frame.height  * 0.1)
         
+       
         addChild(name)
         addChild(score)
     }
@@ -102,15 +130,21 @@ class GameOverScene: MyScene {
         
         let score: SKLabelNode = SKLabelNode(text: String(score))
         score.fontName = "Aldrich-Regular"
-        score.fontSize = 80
         score.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         score.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         score.numberOfLines = 2
-        score.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        score.fontColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        #if os(iOS) || os(tvOS)
+        score.fontSize = 80
         score.position = CGPoint(x: frame.width / 2,
-                                 y: frame.height / 1.3)
+                                 y: frame.height / 1.25)
+        #elseif os(macOS)
+        score.fontSize = 90
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.27)
+
+        #endif
         
-    
         addChild(score)
     }
     
@@ -122,7 +156,7 @@ class GameOverScene: MyScene {
         var w : CGFloat
         var h : CGFloat
         
-        #if os(macOS)
+#if os(macOS)
         if name == .playAgain {
             w = size.width / 6
             h = w * texture.size().height / texture.size().width
@@ -130,15 +164,15 @@ class GameOverScene: MyScene {
             w = size.width / 7.5
             h = w * texture.size().height / texture.size().width
         }
-        #else
+#else
         if name == .playAgain {
-            w = size.width / 2
+            w = size.width / 3.0
             h = w * texture.size().height / texture.size().width
         } else {
-            w = size.width / 2.5
+            w = size.width / 3.5
             h = w * texture.size().height / texture.size().width
         }
-        #endif
+#endif
         
         
         

@@ -36,7 +36,7 @@ class SettingsScene: MyScene {
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         removeAllChildren()
         removeAllActions()
-       
+        
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
@@ -49,6 +49,7 @@ class SettingsScene: MyScene {
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
         
+#if os(iOS) || os(tvOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -63,8 +64,20 @@ class SettingsScene: MyScene {
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         subtitle.numberOfLines = 2
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
-        addChild(subtitle)
         
+        addChild(subtitle)
+#elseif os(macOS)
+        let title: SKLabelNode = SKLabelNode(text: "D I N O  E S C A P E")
+        title.fontName = "Aldrich-Regular"
+        title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        title.numberOfLines = 0
+        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        addChild(title)
+        
+#endif
+      
+#if os(iOS)
         createLabel(text: "Settings".localized(),
                     fontSize: size.width/13,
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
@@ -83,6 +96,23 @@ class SettingsScene: MyScene {
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/2.07)
         )
+
+#elseif os(macOS) || os(tvOS)
+        
+        createLabel(text: "Settings".localized(),
+                    fontSize: size.width/13,
+                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                    position: CGPoint(x: size.width/2, y: size.height/1.55)
+        )
+        
+        
+        createLabel(text: "Music".localized(),
+                    fontSize: size.width/20,
+                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                    position: CGPoint(x: size.width/2.9, y: size.height/1.9)
+        )
+        
+#endif
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
         btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
@@ -91,11 +121,19 @@ class SettingsScene: MyScene {
         addChild(btn2)
         addChild(btn3)
         
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), type: .music)
-        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
         
+       
+        
+#if os(iOS)
+        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), type: .music)
         addChild(switch2)
+        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
         addChild(switch3)
+#elseif os(macOS)
+        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.9), type: .music)
+        addChild(switch2)
+#endif
+        
         
 #if os(iOS)
         switch UIDevice.current.userInterfaceIdiom{
@@ -143,18 +181,14 @@ class SettingsScene: MyScene {
         subtitle.setScale(1.5)
         
 #elseif os(macOS)
-        title.setScale(2)
-        subtitle.setScale(2)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.07)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+        title.fontSize = 120
+        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
         
         btn.setScale(0.6)
         btn2.setScale(0.6)
         btn3.setScale(0.6)
         
 #endif
-        
-        
     }
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
@@ -260,7 +294,7 @@ class SettingsScene: MyScene {
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
-           
+            
         }
         return switchButton
     }
@@ -311,8 +345,6 @@ class SettingsScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
             
-            print("botão azul")
-            
         } else if (switch2.isFocused) {
             switchToggle(switchButton: switch2)
             
@@ -320,24 +352,24 @@ class SettingsScene: MyScene {
             print("no hablo sua logica")
         }
     }
-
-    #if os(tvOS) || os(macOS)
+    
+#if os(tvOS) || os(macOS)
     
     func switchToggle(switchButton: SKButton) {
-       
+        
         toggleON.toggle()
-            
+        
         if toggleON {
-                switchButton.texture = SKTexture(imageNamed: "switchON")
-                
-            } else {
-                switchButton.texture = SKTexture(imageNamed: "switchOFF")
-                
-            }
+            switchButton.texture = SKTexture(imageNamed: "switchON")
+            
+        } else {
+            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            
+        }
         
     }
     
-#endif
+    #endif
     
 #endif
     
