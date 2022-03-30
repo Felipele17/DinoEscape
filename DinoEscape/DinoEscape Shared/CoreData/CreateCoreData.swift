@@ -12,7 +12,7 @@ class CreateCoreData {
     static var shared = CreateCoreData()
     let dinos = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","veloci"]
     let images = ["frameTrex","frameBraci","frameChicken","frameSte", "frameTrice","frameVeloci"]
-    let prices = [0,10,100000,10,10,10]
+    let prices = [0,1000,100000,1000,1000,1000]
     func create(){
         for i in 0..<dinos.count{
             _ = try! SkinDataModel.createSkin(name: dinos[i],

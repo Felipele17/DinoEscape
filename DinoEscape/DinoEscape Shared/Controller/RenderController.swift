@@ -332,9 +332,10 @@ class RenderController {
         let label = SKLabelNode()
         
         label.text = "NEW ERA".localized()
+        label.fontSize = 40
         label.fontName = "Aldrich-Regular"
         
-        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 50)
+        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 180)
         scene.addChild(label)
         return label
     }

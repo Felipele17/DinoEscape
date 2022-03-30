@@ -174,7 +174,7 @@ class HomeScene: MyScene {
         var video = ""
         var multiplier = 0.0
         #if os(macOS) || os(tvOS)
-        video = "gameplay"
+        video = "gameplayMac"
         multiplier = 0.85
         #else
         switch UIDevice.current.userInterfaceIdiom{

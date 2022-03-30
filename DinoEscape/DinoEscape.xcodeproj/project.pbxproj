@@ -167,8 +167,8 @@
 		DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
-		DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
-		DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplay.mov */; };
+		DF2F5C5B27ECFD250018C99C /* gameplayMac.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */; };
+		DF2F5C5C27ECFD250018C99C /* gameplayMac.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */; };
 		DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
@@ -255,7 +255,7 @@
 		DF20482F27EA48AF00C0F515 /* GameCenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterController.swift; sourceTree = "<group>"; };
 		DF20483427EA4B5A00C0F515 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
 		DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterDelegate.swift; sourceTree = "<group>"; };
-		DF2F5C5A27ECFD250018C99C /* gameplay.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplay.mov; sourceTree = "<group>"; };
+		DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayMac.mov; sourceTree = "<group>"; };
 		DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIOS.mov; sourceTree = "<group>"; };
 		DFDC9F3727F2349200DC93CD /* Haptic2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Haptic2.json; sourceTree = "<group>"; };
 		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
@@ -547,7 +547,7 @@
 		DF2F5C5927ECFD140018C99C /* Video */ = {
 			isa = PBXGroup;
 			children = (
-				DF2F5C5A27ECFD250018C99C /* gameplay.mov */,
+				DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */,
 				DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */,
 				0660F09727EE59B90099D32D /* gameplayIpadOS.mov */,
 			);
@@ -684,7 +684,7 @@
 				133D058827EE593D00DA8269 /* Haptic.json in Resources */,
 				B0F1F08527EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
 				4AEAEF0727D676B100BBD809 /* Main.storyboard in Resources */,
-				DF2F5C5B27ECFD250018C99C /* gameplay.mov in Resources */,
+				DF2F5C5B27ECFD250018C99C /* gameplayMac.mov in Resources */,
 				DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
@@ -697,7 +697,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				06301AAF27F3806700F80420 /* .swiftlint.yml in Resources */,
-				DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */,
+				DF2F5C5C27ECFD250018C99C /* gameplayMac.mov in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
 				0639B86927EBB5F40041C408 /* Localization.strings in Resources */,
