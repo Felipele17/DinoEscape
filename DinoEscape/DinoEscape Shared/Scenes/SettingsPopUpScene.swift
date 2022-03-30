@@ -101,6 +101,10 @@ class SettingsPopUpScene: SKSpriteNode {
         
 #endif
         
+        #if os(tvOS)
+        addTapGestureRecognizer()
+        #endif
+        
         background.addChild(btnBack)
         background.addChild(btnHome)
     }
