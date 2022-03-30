@@ -35,4 +35,8 @@
 // GameOverScene
 "G A M E   O V E R" = "F I M   D E   J O G O";
 
-
+// OnboardScene
+"Escape the meteors!" = "Fuja dos meteoros!" ;
+"Avoid bad foods so you don't get sluggish" = "Evite comidas ruins para  não ficar lento" ;
+"Collect good food to get faster" = "Colete comidas boas para ficar mais rápido" ;
+"Fill the power bar to earn a power-up!" = "Preencha a barra de alimentação para ganhar um power-up!" ;

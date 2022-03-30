@@ -125,8 +125,7 @@ class GameController{
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
-
-            renderer.showPauseMenu()
+            renderer.showOnboard()
             
         }
     }

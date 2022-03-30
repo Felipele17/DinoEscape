@@ -282,6 +282,14 @@ class RenderController {
         
     }
     
+    func showOnboard() {
+        let onboard = OnboardScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        onboard.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        onboard.zPosition = 10
+        scene.addChild(onboard)
+        
+    }
+    
     func restartGame() {
         changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
         drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
