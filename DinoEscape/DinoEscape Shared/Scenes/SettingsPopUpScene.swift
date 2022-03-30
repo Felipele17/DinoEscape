@@ -72,7 +72,24 @@ class SettingsPopUpScene: SKSpriteNode {
         case .pad:
             print("Config ipad")
         case .tv:
-            print("Config tv")
+            background.addChild(createLabel(text: "Pause".localized(),
+                                            fontSize: size.height/13,
+                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                            position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.center
+                                           ))
+            
+            background.addChild(createLabel(text: "Music".localized(),
+                                            fontSize: size.height/20,
+                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                            position: CGPoint(x: background.frame.size.width/3 * -0.5, y: background.frame.size.height/8),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.left
+                                           ))
+            
+            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/8, y: background.frame.size.height/8), type: .music))
+            
+            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -0.35))
+            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/1.5 * -0.5))
         default:
             print("qualquer")
             
@@ -86,9 +103,9 @@ class SettingsPopUpScene: SKSpriteNode {
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
         HapticService.shared.updateUserDefaults()
-        #if os(iOS)
+#if os(iOS)
         switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-        #endif
+#endif
         HapticService.shared.addVibration(haptic: "Haptic")
         background.addChild(createLabel(text: "Music".localized(),
                                         fontSize: size.height/18,
@@ -104,9 +121,9 @@ class SettingsPopUpScene: SKSpriteNode {
         
 #endif
         
-        #if os(tvOS)
+#if os(tvOS)
         addTapGestureRecognizer()
-        #endif
+#endif
         
         background.addChild(btnBack)
         background.addChild(btnHome)
@@ -179,9 +196,9 @@ class SettingsPopUpScene: SKSpriteNode {
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                #if os(iOS)
+#if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-                #endif
+#endif
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }

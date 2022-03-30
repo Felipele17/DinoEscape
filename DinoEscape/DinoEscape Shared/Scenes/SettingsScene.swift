@@ -77,7 +77,7 @@ class SettingsScene: MyScene {
         addChild(title)
         
 #endif
-      
+        
 #if os(iOS)
         createLabel(text: "Settings".localized(),
                     fontSize: size.width/13,
@@ -97,7 +97,7 @@ class SettingsScene: MyScene {
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/2.07)
         )
-
+        
 #elseif os(macOS) || os(tvOS)
         
         createLabel(text: "Settings".localized(),
@@ -114,16 +114,19 @@ class SettingsScene: MyScene {
         )
         
 #endif
+        
+#if os(iOS) || os(macOS)
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        
+        addChild(btn3)
+#endif
+        
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
-        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
         
         addChild(btn)
         addChild(btn2)
-        addChild(btn3)
         
-        
-       
         
 #if os(iOS)
         switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), type: .music)
@@ -181,6 +184,10 @@ class SettingsScene: MyScene {
         subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         subtitle.setScale(1.5)
         
+        btn.setScale(0.3)
+        btn2.setScale(0.3)
+        btn3.setScale(0.3)
+        
 #elseif os(macOS)
         title.fontSize = 120
         title.position = CGPoint(x: size.width/2, y: size.height/1.11)
@@ -233,7 +240,7 @@ class SettingsScene: MyScene {
         
     }
     
-
+    
     func changeSwitchMusic() -> String {
         var imageName : String
         if UserDefaults.standard.bool(forKey: "music") == true {
@@ -253,7 +260,7 @@ class SettingsScene: MyScene {
         }
         return imageName
     }
-  
+    
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
         
         var state: Bool = true
@@ -264,13 +271,13 @@ class SettingsScene: MyScene {
         case .music:
 #if os(tvOS) 
             addTapGestureRecognizer()
-           
+            
 #endif
             texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
             
         case .vibration:
             texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-
+            
         }
         
         texture.filteringMode = .nearest
@@ -292,16 +299,16 @@ class SettingsScene: MyScene {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
-                #if os(iOS)
+#if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
-                #endif
+#endif
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                #if os(iOS)
+#if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-                #endif
+#endif
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
@@ -384,7 +391,7 @@ class SettingsScene: MyScene {
         
     }
     
-    #endif
+#endif
     
 #endif
     
