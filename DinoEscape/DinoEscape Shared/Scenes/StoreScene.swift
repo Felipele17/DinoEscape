@@ -5,6 +5,7 @@
 //  Created by Raphael Alkamim on 11/03/22.
 //
 
+
 import Foundation
 import SpriteKit
 
@@ -105,8 +106,13 @@ class StoreScene: MyScene {
             
             addChild(square)
             
-            dinoImage.position = CGPoint(x: size.width/2, y: size.width/1.1)
-            dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
+            dinoImage.position = CGPoint(x: size.width/2, y: size.width/1.2)
+            dinoImage.size = CGSize(width: size.width/2.0, height: size.height/3.5)
+            
+            if UIDevice.current.name == "iPhone 8" {
+                dinoImage.position = CGPoint(x: size.width/2, y: size.width/1.5)
+                dinoImage.size = CGSize(width: size.width/2, height: size.height/4)
+            }
         default:
             print("oi")
             
@@ -144,8 +150,23 @@ class StoreScene: MyScene {
         priceLabel.fontName = "Aldrich-Regular"
         priceLabel.fontSize = 30
         priceLabel.color = .red
-        priceLabel.position = CGPoint(x: 0, y: dinoImage.position.y/2.5 * -1)
+        priceLabel.position = CGPoint(x: size.width / 4.25, y: dinoImage.position.y/1.8 * -1)
+       
+#if os(iOS)
+        priceLabel = SKLabelNode(text: "\(selectedDino.price)")
+        priceLabel.fontName = "Aldrich-Regular"
+        priceLabel.fontSize = 30
+        priceLabel.color = .red
+        priceLabel.position = CGPoint(x: size.width / 4.25, y: dinoImage.position.y/2.5 * -1)
         
+        if UIDevice.current.name == "iPhone 8" {
+            priceLabel = SKLabelNode(text: "\(selectedDino.price)")
+            priceLabel.fontName = "Aldrich-Regular"
+            priceLabel.fontSize = 30
+            priceLabel.color = .red
+            priceLabel.position = CGPoint(x: size.width / 4.25, y: dinoImage.position.y/2.7 * -1)
+        }
+#endif
 #if os(macOS)
         priceLabel.fontSize = 60
         priceLabel.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
@@ -200,7 +221,7 @@ class StoreScene: MyScene {
         case .pad:
             w = size.width / 4
         case .phone:
-            w = size.width / 3
+            w = size.width / 3.3
         default:
             w = size.width / 3
         }
@@ -217,7 +238,7 @@ class StoreScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
-                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                x: buyButton.frame.width / 0.95 + CGFloat(pos) * buyButton.frame.width * 1.2,
                 y: size.height / 6 )
         case .pad:
             buyButton.position = CGPoint(
@@ -469,7 +490,7 @@ class StoreScene: MyScene {
     
     func createGallery() -> SKSpriteNode {
         self.gallery.removeFromParent()
-        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: self.size.width, height: self.size.height))
+        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
 
 #if os(iOS)
         switch UIDevice.current.userInterfaceIdiom {
@@ -477,7 +498,11 @@ class StoreScene: MyScene {
             gallery.position = CGPoint(x: self.size.width/10, y: self.size.height/14)
             gallery.setScale(0.8)
         case .phone:
-            gallery.position = CGPoint(x: size.width/14, y: size.height/2.3)
+            if UIDevice.current.name == "iPhone 8" {
+                gallery.position = CGPoint(x: size.width/20, y: size.height/16.5)
+                gallery.setScale(0.9)
+            }
+            print("print")
         default:
             print("oi")
         }
