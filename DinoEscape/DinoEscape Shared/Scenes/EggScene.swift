@@ -11,6 +11,13 @@ import SpriteKit
 class EggScene: SKScene {
     
     var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
+    var premios: [String] = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","veloci"]
+    var timerButton: SKButton = SKButton()
+    var moreButton: SKButton = SKButton()
+    var premioDate: String = UserDefaults.standard.string(forKey: "premioDate") ?? "0"
+    let formatter = DateFormatter()
+    var eggNode = SKSpriteNode()
+
     
     class func newGameScene() -> EggScene {
         let scene = EggScene()
@@ -20,6 +27,10 @@ class EggScene: SKScene {
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
+        formatter.dateFormat = "yyyy/MM/dd HH:mm"
+        
+        let timePassed = calculateHours()
+
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         MusicService.shared.playLoungeMusic()
@@ -29,26 +40,34 @@ class EggScene: SKScene {
         
         addChild(createReader(coins: coins))
         
+        
         createSegButton(image: .eggs, pos: 0)
         createSegButton(image: .dinos, pos: 1)
         
-        createShopButtons(image: .daily, pos: 0)
-        createShopButtons(image: .chance, pos: 1)
+        timerButton = createShopButtons(image: .daily, pos: 0)
+        if timePassed < 24 {
+            timerButton.isButtonEnabled = false
+            timerButton.texture = SKTexture(imageNamed: "moreChance")
+        }
+        moreButton = createShopButtons(image: .chance, pos: 1)
+        
+        addChild(timerButton)
+        addChild(moreButton)
         
         
 #if os(iOS) || os(tvOS)
-        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
-        egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        eggNode = SKSpriteNode(imageNamed: "ovo")
+        eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
         
 #elseif os(macOS)
-        let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo-mac")
-        egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/3, height: size.height/1.5)
+        eggNode = SKSpriteNode(imageNamed: "ovo-mac")
+        eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
+        eggNode.size = CGSize(width: size.width/3, height: size.height/1.5)
         
 #endif
         
-        addChild(egg)
+        addChild(eggNode)
         
     }
     
@@ -80,7 +99,7 @@ class EggScene: SKScene {
         
     }
     
-    func createShopButtons(image: EggType, pos: Int) {
+    func createShopButtons(image: EggType, pos: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
@@ -116,14 +135,51 @@ class EggScene: SKScene {
         
 #endif
         buyButton.selectedHandler = {
-            print(image)
-            
+            if image == .daily {
+                let premio = self.premios[Int.random(in: 0..<self.premios.count)]
+                let skins = try? SkinDataModel.getSkins()
+                
+                if let skins = skins {
+                    for i in skins {
+                        if i.name == premio {
+                            self.eggNode.texture = SKTexture(imageNamed: i.image ?? "frameTrex")
+                            if i.isBought == false {
+                                _ = try! SkinDataModel.buyDino(skin: i)
+                            } else {
+                                print("repetido")
+                            }
+                            break
+                        }
+                    }
+                    buyButton.isButtonEnabled = false
+                    buyButton.texture = SKTexture(imageNamed: "moreChance")
+
+                    let dateTake = Date()
+                    let dateString = self.formatter.string(from: dateTake)
+                    
+                    UserDefaults.standard.set(dateString, forKey: "premioDate")
+
+                    
+                }
+            }
         }
         
-        addChild(buyButton)
+        return buyButton
         
     }
     
+    func calculateHours() -> Double{
+        let dateTaken = formatter.date(from: premioDate)
+        if let dateTaken = dateTaken {
+            let diffSeconds = Date().timeIntervalSinceReferenceDate - dateTaken.timeIntervalSinceReferenceDate
+            let hoursPassed = diffSeconds/(60.0 * 60.0)
+                        
+            return hoursPassed
+
+        }
+        return 25
+
+    }
     
     func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")

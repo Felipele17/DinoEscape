@@ -1060,7 +1060,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp2;
+				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1092,7 +1092,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp2;
+				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
