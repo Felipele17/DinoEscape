@@ -262,7 +262,7 @@ class SettingsScene: MyScene {
         
         switch type {
         case .music:
-#if os(tvOS) || os(macOS)
+#if os(tvOS) 
             addTapGestureRecognizer()
            
 #endif
