@@ -11,7 +11,7 @@ import SpriteKit
 class EggScene: SKScene {
     
     var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
-    var premios: [String] = ["t-Rex","brachiosaurus","chickenosaurus","stegosaurus","triceratops","veloci"]
+    var premios: [String] = ["t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex","brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus","chickenosaurus","stegosaurus", "stegosaurus", "stegosaurus","triceratops","veloci"]
     var timerButton: SKButton = SKButton()
     var moreButton: SKButton = SKButton()
     var premioDate: String = UserDefaults.standard.string(forKey: "premioDate") ?? "0"
@@ -46,10 +46,9 @@ class EggScene: SKScene {
         
         timerButton = createShopButtons(image: .daily, pos: 0)
         if timePassed < 24 {
-            timerButton.isButtonEnabled = false
-            timerButton.texture = SKTexture(imageNamed: "moreChance")
+            self.timerButton.isButtonEnabled = false
+            self.timerButton.state = .disabled
         }
-        moreButton = createShopButtons(image: .chance, pos: 1)
         
         addChild(timerButton)
         addChild(moreButton)
@@ -118,11 +117,11 @@ class EggScene: SKScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
-                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                x: self.size.width / 2,
                 y: size.height / 6 )
         case .pad:
             buyButton.position = CGPoint(
-                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                x: self.size.width / 2,
                 y: size.height / 7 )
         default:
             print("default")
@@ -130,11 +129,12 @@ class EggScene: SKScene {
         
 #elseif os(macOS)
         buyButton.position = CGPoint(
-            x: buyButton.frame.width / 0.345 + CGFloat(pos) * buyButton.frame.width * 1.2,
+            x: self.size.width / 2 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 10 )
         
 #endif
-        buyButton.selectedHandler = {
+        buyButton.selectedHandler = { [weak self] in
+            guard let self = self else { return }
             if image == .daily {
                 let premio = self.premios[Int.random(in: 0..<self.premios.count)]
                 let skins = try? SkinDataModel.getSkins()
@@ -142,7 +142,8 @@ class EggScene: SKScene {
                 if let skins = skins {
                     for i in skins {
                         if i.name == premio {
-                            self.eggNode.texture = SKTexture(imageNamed: i.image ?? "frameTrex")
+                            self.eggNode.texture = SKTexture(imageNamed: (i.image ?? "frameTrexBuySelected") + "BuySelected" )
+                            self.eggNode.size = CGSize(width: self.size.height * 0.3, height: self.size.height * 0.3)
                             if i.isBought == false {
                                 _ = try! SkinDataModel.buyDino(skin: i)
                             } else {
@@ -151,8 +152,9 @@ class EggScene: SKScene {
                             break
                         }
                     }
-                    buyButton.isButtonEnabled = false
-                    buyButton.texture = SKTexture(imageNamed: "moreChance")
+                    
+                    self.timerButton.isButtonEnabled = false
+                    self.timerButton.state = .disabled
 
                     let dateTake = Date()
                     let dateString = self.formatter.string(from: dateTake)
