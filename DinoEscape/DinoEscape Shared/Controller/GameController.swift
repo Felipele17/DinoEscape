@@ -35,7 +35,6 @@ class GameController{
                             powerUp: .none)
         gameData = GameData(player: player)
         gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
-        print("rex",gameData.skinSelected)
         renderer = RenderController()
     }
     
