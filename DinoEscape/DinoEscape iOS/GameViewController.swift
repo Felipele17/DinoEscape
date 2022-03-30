@@ -14,7 +14,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-//        let scene = GameOverScene.newGameScene()
+        //let scene = GameOverScene.newGameScene()
         let scene = HomeScene.newGameScene()
 
 

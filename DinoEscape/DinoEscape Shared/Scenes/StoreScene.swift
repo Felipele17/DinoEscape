@@ -93,8 +93,8 @@ class StoreScene: MyScene {
             
             addChild(square)
             
-            dinoImage.position = CGPoint(x: size.width/2, y: size.width/2.5)
-            dinoImage.size = CGSize(width: size.width/1.75, height: size.height/2.15)
+            dinoImage.position = CGPoint(x: size.width/2, y: size.width/2)
+            dinoImage.size = CGSize(width: size.width/2, height: size.height/2.5)
         case .phone:
             let square: SKShapeNode = SKShapeNode(rect: CGRect(
                 x: size.width/6,
@@ -146,7 +146,7 @@ class StoreScene: MyScene {
         dinoImage.size = CGSize(width: size.width/2.9, height: size.height/1.9)
 #endif
         
-        priceLabel = SKLabelNode(text: "\(selectedDino.price)")
+        priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
         priceLabel.fontName = "Aldrich-Regular"
         priceLabel.fontSize = 30
         priceLabel.color = .red
@@ -302,24 +302,51 @@ class StoreScene: MyScene {
     func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
+        var w: CGFloat = 0
+        var h: CGFloat = 0
         
-#if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 3.5
-        let h = w * texture.size().height / texture.size().width
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            w = size.width / 3.5
+            h = w * texture.size().height / texture.size().width
+        case .pad:
+            w = size.width / 4.5
+            h = w * texture.size().height / texture.size().width
+        default:
+            print("oi")
+        }
+#elseif os(tvOS)
+        w = size.width / 3.5
+        h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS)
-        let w: CGFloat = size.width / 10
-        let h = w * texture.size().height / texture.size().width
+        w = size.width / 10
+        h = w * texture.size().height / texture.size().width
         
 #endif
         
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            segmentage.position = CGPoint(
+                x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
+                y: size.height / 1.2 )
+        case .pad:
+            segmentage.position = CGPoint(
+                x: segmentage.frame.width / 0.59 + CGFloat(pos) * segmentage.frame.width * 1.05,
+                y: size.height / 1.18 )
+        default:
+            print("oi")
+            
+        }
+        
+#elseif os(tvOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
             y: size.height / 1.2 )
-        
 #elseif os(macOS)
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.228 + CGFloat(pos) * segmentage.frame.width * 1.24,
@@ -413,36 +440,73 @@ class StoreScene: MyScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
+        var w: CGFloat = 0
+        var h: CGFloat = 0
         
-#if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 15
-        let h = w * coinTotal.size.height / coinTotal.size.width / 2
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            w = size.width / 15
+            h = w * coinTotal.size.height / coinTotal.size.width / 1.5
+        case .phone:
+            w = size.width / 15
+            h = w * coinTotal.size.height / coinTotal.size.width / 2
+
+        default:
+            print("oi")
+            
+        }
         
+#elseif os(tvOS)
+        w = size.width / 15
+        h = w * coinTotal.size.height / coinTotal.size.width / 2
+
 #elseif os(macOS)
-        let w: CGFloat = size.width / 20
-        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        w = size.width / 20
+        h = w * coinTotal.size.height / coinTotal.size.width / 0.7
         
 #endif
-        
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         
-        
-#if os(iOS) || os(tvOS)
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            coin.position = CGPoint(x: size.width/1.5, y: size.height/1.11)
+            coin.size = CGSize(width: w, height: h)
+        case .phone:
+            coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
+            coin.size = CGSize(width: w, height: h)
+        default:
+            print("oi")
+            
+        }
+#elseif os(tvOS)
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
-        
 #elseif os(macOS)
         coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
 #endif
-        
         coinsLabel = SKLabelNode(text:String(coins))
         coinsLabel.fontName = "Aldrich-Regular"
         coinsLabel.fontSize = 30
-        coinsLabel.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
         
-#if os(macOS)
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        
+        case .pad:
+            coinsLabel.position = CGPoint(x: size.width/1.27, y: size.height/1.1)
+        case .phone:
+            coinsLabel.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        default:
+            print("oi")
+        
+        }
+#elseif os(tvOS)
+        coinsLabel.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+
+#elseif os(macOS)
         coinsLabel.fontSize = 60
         coinsLabel.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
         
@@ -463,9 +527,21 @@ class StoreScene: MyScene {
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
-#if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 15
-        let h = w * texture.size().height / texture.size().width
+        var w: CGFloat = 0
+        var h: CGFloat = 0
+        
+#if os(iOS)
+        w = size.width / 15
+        h = w * texture.size().height / texture.size().width
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
+        button.selectedHandler = {
+            self.view?.presentScene(HomeScene.newGameScene())
+            
+        }
+#elseif os(tvOS)
+        w = size.width / 15
+        h = w * texture.size().height / texture.size().width
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
@@ -474,8 +550,8 @@ class StoreScene: MyScene {
         }
         
 #elseif os(macOS)
-        let w: CGFloat = size.width / 20
-        let h = w * texture.size().height / texture.size().width
+        w = size.width / 20
+        h = w * texture.size().height / texture.size().width
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = CGPoint(x: size.width / 12 , y: size.height/1.103)
         button.selectedHandler = {
@@ -495,7 +571,7 @@ class StoreScene: MyScene {
 #if os(iOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            gallery.position = CGPoint(x: self.size.width/10, y: self.size.height/14)
+            gallery.position = CGPoint(x: self.size.width/10, y: self.size.height/12.5)
             gallery.setScale(0.8)
         case .phone:
             if UIDevice.current.name == "iPhone 8" {
