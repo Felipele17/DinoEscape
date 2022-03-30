@@ -76,6 +76,12 @@
 		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		4AC05A6D27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */; };
+		4AC05A6E27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */; };
+		4AC05A6F27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */; };
+		146584A927ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AA27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
+		146584AB27ED00FC001FED13 /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 146584A827ED00FC001FED13 /* loungeMusic.mp3 */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -208,6 +214,8 @@
 		13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Aldrich-Regular.ttf"; sourceTree = "<group>"; };
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
+		4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPopUpScene+tvOS.swift"; sourceTree = "<group>"; };
+		146584A827ED00FC001FED13 /* loungeMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = loungeMusic.mp3; path = ../../../../../../../../Downloads/loungeMusic.mp3; sourceTree = "<group>"; };
 		14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchType.swift; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
@@ -355,6 +363,8 @@
 				133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */,
 				0639B85927EBB2E90041C408 /* String + Location.swift */,
 				13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */,
+				DF20483827EA55F600C0F515 /* GameViewController+GameCenterDelegate.swift */,
+				4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -727,6 +737,7 @@
 				1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				DF109F9627E8F89A0012139D /* GameStatus.swift in Sources */,
+				4AC05A6D27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */,
 				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
 				1346CD3C27E905CA00014B87 /* SkinData.swift in Sources */,
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
@@ -803,6 +814,7 @@
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
+				4AC05A6E27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */,
 				B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */,
 				A6E3DA8127EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
 				1346CD1427E8F72500014B87 /* Model.xcdatamodeld in Sources */,
@@ -849,6 +861,8 @@
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
+				063E625A27E521E700487093 /* SKButton.swift in Sources */,
+				4AC05A6F27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */,
 				1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,

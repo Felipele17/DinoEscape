@@ -40,7 +40,7 @@ class SKButton: SKSpriteNode {
                 break
                 
             case .disabled:
-                self.isUserInteractionEnabled = true
+                self.isUserInteractionEnabled = false
                 self.alpha = 0.4
                 break
             }
@@ -75,8 +75,6 @@ class SKButton: SKSpriteNode {
     enum Direction: Int {
         case UP = 0, RIGHT, DOWN, LEFT;
     }
-    
-    
     
 #endif
     
