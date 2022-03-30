@@ -237,29 +237,29 @@ class GameController{
     }
     
     func nextLevel(points: Int){
-        if points == 25 {
+        if points == 0 {
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
         }
-        else if points == 50 {
+        else if points == 500 || points == 510 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1.2)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "blueBackground"))
         }
-        else if points == 80 {
+        else if points == 800 || points == 810 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "lightGreenBackground"))
             gameData.velocidadeGlobal = 4
         }
-        else if points == 100 || points == 110 {
+        else if points == 1000 || points == 1010 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "greenBackground"))
         }
-        else if points == 150 || points == 160  {
+        else if points == 1500 || points == 1510  {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
@@ -267,7 +267,7 @@ class GameController{
             gameData.velocidadeGlobal = 5
 
         }
-        else if points == 200 || points == 210 {
+        else if points == 2000 || points == 2010 {
             cancelActionItems()
             newEra()
             recursiveActionItems(time: 0.4)
