@@ -14,13 +14,12 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let scene = HomeScene.newGameScene()
-        //let scene = GameScene.newGameScene()
+        let scene = GameOverScene.newGameScene()
+//        let scene = HomeScene.newGameScene()
 
-        
+
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
-        
         
         // Present the scene
         let skView = self.view as! SKView

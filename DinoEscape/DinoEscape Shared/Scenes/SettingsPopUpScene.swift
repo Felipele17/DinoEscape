@@ -10,7 +10,6 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
-    var btn = SKButton()
     var btnHome = SKButton()
 
 
@@ -49,51 +48,84 @@ class SettingsPopUpScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
+#if os(iOS) || os(tvOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            background.addChild(createLabel(text: "Pause".localized(),
+                                            fontSize: size.height/13,
+                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                            position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.center
+                                           ))
+            
+            background.addChild(createLabel(text: "Music".localized(),
+                                            fontSize: size.height/20,
+                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.left
+                                           ))
+            
+            background.addChild(createLabel(text: "Vibration".localized(),
+                                            fontSize: size.height/20,
+                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.left
+                                           ))
+            
+            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
+            
+            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), type: .vibration))
+            
+            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
+            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/1.5 * -1))
+        case .pad:
+            print("Config ipad")
+        case .tv:
+            print("Config tv")
+        default:
+            print("qualquer")
+            
+        }
+        
+#elseif os(macOS)
         background.addChild(createLabel(text: "Pause".localized(),
-                                        fontSize: size.height/13,
+                                        fontSize: size.height/10,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                                         position: CGPoint(x: 0, y: background.frame.size.height/3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
         
         background.addChild(createLabel(text: "Music".localized(),
-                                        fontSize: size.height/22,
+                                        fontSize: size.height/18,
                                         fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                        position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
+                                        position: CGPoint(x: background.frame.size.width/4 * -1, y: background.frame.size.height/8),
                                         alignmentH: SKLabelHorizontalAlignmentMode.left
                                        ))
-        
-        background.addChild(createLabel(text: "Vibration".localized(),
-                                        fontSize: size.height/22,
-                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                        position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
-                                        alignmentH: SKLabelHorizontalAlignmentMode.left
-                                       ))
-        
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
         
-        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), type: .vibration))
+        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/5.5 * -1))
+        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
         
-        btn = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
-        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
+#endif
         
-        background.addChild(btn)
+        #if os(tvOS)
+        addTapGestureRecognizer()
+        #endif
+        
+        background.addChild(btnBack)
         background.addChild(btnHome)
     }
     
-    
-    
-    
-//    func changeSwitchImageState(switchButton: SKButton, state: inout Bool){
-//
-//        if state {
-//            switchButton.texture = SKTexture(imageNamed: "switchOFF")
-//        } else {
-//            switchButton.texture = SKTexture(imageNamed: "switchON")
-//        }
-//        state.toggle()
-//    }
+    //    func changeSwitchImageState(switchButton: SKButton, state: inout Bool){
+    //
+    //        if state {
+    //            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+    //        } else {
+    //            switchButton.texture = SKTexture(imageNamed: "switchON")
+    //        }
+    //        state.toggle()
+    //    }
     
     func changeSwitchMusic() -> String {
         var imageName : String
@@ -114,7 +146,7 @@ class SettingsPopUpScene: SKSpriteNode {
         }
         return imageName
     }
-
+    
     
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
         
@@ -129,8 +161,16 @@ class SettingsPopUpScene: SKSpriteNode {
         }
         
         texture.filteringMode = .nearest
+        
+#if os(iOS) || os(tvOS)
         let w: CGFloat = size.width / 5.0
         let h = w * texture.size().height / texture.size().width
+        
+#elseif os(macOS)
+        let w: CGFloat = size.width / 8.0
+        let h = w * texture.size().height / texture.size().width
+        
+#endif
         
         let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         switchButton.position = pos
@@ -145,7 +185,7 @@ class SettingsPopUpScene: SKSpriteNode {
             case .vibration:
                 print(UserDefaults.standard.set(false, forKey: "vibration"))
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-        
+                
             }
             
         }
@@ -171,9 +211,14 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "resumeButton")
         texture.filteringMode = .nearest
         
+#if os(iOS)
+        let w: CGFloat = size.height / 3.5
+        let h = w * texture.size().height / texture.size().width
         
         let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
+        
+#endif
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = position
@@ -191,9 +236,16 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "homeBackButton")
         texture.filteringMode = .nearest
         
-        
-        let w: CGFloat = size.height / 4
+#if os(iOS)
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
+        
+#elseif os(macOS)
+        let w: CGFloat = size.height / 3
+        let h = w * texture.size().height / texture.size().width
+        
+#endif
+        
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = position
@@ -222,6 +274,15 @@ class SettingsPopUpScene: SKSpriteNode {
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
             
+        if (btnBack.isFocused){
+            
+            self.removeFromParent()
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
+            
+        }
+        else {
+            print("não sei ler oq vc quer")
         }
     
 }

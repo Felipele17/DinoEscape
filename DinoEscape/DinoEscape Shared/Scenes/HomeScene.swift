@@ -55,18 +55,18 @@ class HomeScene: MyScene {
         
 #if os(macOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
-#elseif os(tvOS) || os(iOS)
+#elseif os(iOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
+        #elseif os(tvOS)
+        let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
 #endif
         
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
-        
-        
-        
-        
+
+        #if os(iOS) || os(tvOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -83,6 +83,17 @@ class HomeScene: MyScene {
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
         addChild(subtitle)
+        #elseif os(macOS)
+        let title: SKLabelNode = SKLabelNode(text: "D I N O  E S C A P E")
+        title.fontName = "Aldrich-Regular"
+        title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
+        title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
+        title.numberOfLines = 0
+        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        addChild(title)
+        
+        #endif
+        
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         addChild(btn)
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
@@ -137,11 +148,18 @@ class HomeScene: MyScene {
         subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
         subtitle.setScale(1.5)
         
+        btn.position = CGPoint(x: size.width/5, y: size.height/5.8)
+        btn2.position = CGPoint(x: btn.size.width * 1.5, y: size.height/5.8)
+        btn3.position = CGPoint(x: btn.size.width * 2.0, y: size.height/5.8)
+
+        btn.setScale(0.3)
+        btn2.setScale(0.3)
+        btn3.setScale(0.3)
+        
 #elseif os(macOS)
-        title.setScale(2)
-        subtitle.setScale(2)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.07)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+        
+        title.fontSize = 120
+        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
         
         btn.setScale(0.6)
         btn2.setScale(0.6)
@@ -158,8 +176,16 @@ class HomeScene: MyScene {
         video = "gameplay"
         multiplier = 0.85
         #else
+        switch UIDevice.current.userInterfaceIdiom{
+        case .pad:
+            video = "gameplayIpadOS"
+            multiplier = 0.55
+        case .phone:
         video = "gameplayIOS"
         multiplier = 0.35
+        default:
+            print("default")
+        }
         #endif
         
         let videoNode: SKVideoNode? = {
@@ -212,7 +238,7 @@ class HomeScene: MyScene {
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
         
@@ -221,15 +247,23 @@ class HomeScene: MyScene {
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
         title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
         
+        #elseif os(tvOS)
+        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 0.5, y: size.height/9.0)
+
+        
 #endif
         
         button.selectedHandler = {
             self.video.removeFromParent()
             if name == .play {
                 var scene = GameScene.newGameScene()
+                print(UserDefaults.standard.integer(forKey: "DinoCoins"))
+
                 self.view?.presentScene(scene)
                 
             } else if name == .shop {
+                print(UserDefaults.standard.integer(forKey: "DinoCoins"))
+
                 self.view?.presentScene(EggScene.newGameScene())
                 
             } else if name == .settings {
@@ -285,9 +319,7 @@ class HomeScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-        else {
-            print("não sei ler oq vc quer")
-        }
+
     }
 #endif
     

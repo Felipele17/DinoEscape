@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "selectedButton.pdf",
+      "filename" : "menuButton.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "menuButton-1.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "menuButton-2.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }

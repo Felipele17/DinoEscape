@@ -25,15 +25,18 @@ class RenderController {
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
-    #if os(iOS)
+#if os(iOS)
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
-    #endif
+#endif
+    
+    var rectOut = SKShapeNode()
+    let rectIn = SKSpriteNode()
     
     // contagem regressiva
     var contagemLabel: SKLabelNode = SKLabelNode()
     
     func setUpScene(){
-       
+        
         
         //adicionar e remover itens na tela
         scene.removeAllChildren()
@@ -49,21 +52,43 @@ class RenderController {
         
         //SKLabel
         pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
+        pointsLabel.fontName = "Aldrich-Regular"
         scene.addChild(pointsLabel)
         
         //coracao
+#if os(iOS) || os(tvOS)
         heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
         heartImage.setScale(0.5)
+#elseif os(macOS)
+        heartImage.position = CGPoint(x: scene.size.width*0.92, y: scene.size.height*0.95)
+        heartImage.setScale(0.75)
+#endif
+        
+        
         scene.addChild(heartImage)
         
         //lifeslabel
+        lifesLabel.fontName = "Aldrich-Regular"
+#if os(iOS) || os(tvOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
+#elseif os(macOS)
+        lifesLabel.position = CGPoint(x: heartImage.position.x*1.04, y: heartImage.position.y*0.985)
+        lifesLabel.fontSize = 35
+#endif
         scene.addChild(lifesLabel)
         
         
         // foodBar
-        for i in foodNodes { scene.addChild(i) }
-        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 10, foodNodes: foodNodes)
+        rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.03))
+        rectOut.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
+        rectOut.fillColor = .clear
+        rectOut.lineWidth = 1
+        rectOut.strokeColor = .black
+        
+        rectIn.size = CGSize(width: scene.size.width * 0.1, height: scene.size.height * 0.03)
+        rectIn.color = .yellow.withAlphaComponent(0.5)
+        
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         
 #if os(iOS)
         //pause node
@@ -74,7 +99,7 @@ class RenderController {
         }
         pauseNode.zPosition = 5
         scene.addChild(pauseNode)
-        #endif
+#endif
         
         //player
         let player = GameController.shared.gameData.player!
@@ -84,11 +109,11 @@ class RenderController {
         
         
         
-        #if os( iOS)
+#if os( iOS)
         drawAnalogic()
-        #endif
-
-    
+#endif
+        
+        
     }
     
     // MARK: Desenho dos nós na tela
@@ -107,33 +132,22 @@ class RenderController {
         node.physicsBody?.contactTestBitMask = node.physicsBody!.collisionBitMask
         
         scene.addChild(node)
-    
+        
         return node
     }
     
-    func drawFoodBar(food: CGFloat, foodNodes: [SKSpriteNode]) {
-        let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
-        // 8 -> 1 * 5 = 5
-        // 6 -> 0.5 * 5 -> 2.5
-        print(foodMultiplier)
-        for i in 0..<5 {
-            if i <= foodMultiplier {
-                foodNodes[i].texture = SKTexture(imageNamed: "cherry")
-            } else {
-                foodNodes[i].texture = SKTexture(imageNamed: "grayCherry")
-
-            }
-        }
+    func drawFoodBar(food: CGFloat) {
+        rectIn.removeFromParent()
+        rectOut.removeFromParent()
         
-        for i in 0..<foodNodes.count {
-            
-            foodNodes[i].setScale(0.35)
-            if i == 0 {
-                foodNodes[i].position = CGPoint(x: scene.size.width/2 * 0.665, y: pointsLabel.position.y*0.97)
-            } else {
-                foodNodes[i].position = CGPoint(x: foodNodes[0].position.x * (1 + CGFloat(i)/4), y: foodNodes[0].position.y)
-            }
-        }
+        let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
+        
+        rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
+        
+        rectIn.size.width = scene.size.width * 0.1 * CGFloat(foodMultiplier)
+        
+        scene.addChild(rectIn)
+        scene.addChild(rectOut)
     }
     
     func drawItem(item: Items, x: CGFloat, y: CGFloat){
@@ -162,7 +176,7 @@ class RenderController {
         
         for i in 0..<4 {
             let rect = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
-
+            
             if i < 2 {
                 rect.size = CGSize(width: scene.size.width, height: 20)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: scene.size.width, height: 20))
@@ -183,12 +197,11 @@ class RenderController {
             print(rect.position)
             rect.physicsBody?.affectedByGravity = false
             rect.physicsBody?.allowsRotation = false
-            rect.physicsBody?.affectedByGravity = false
             rect.physicsBody?.contactTestBitMask = rect.physicsBody!.collisionBitMask
             
             rect.name = "rect"
             scene.addChild(rect)
-
+            
         }
     }
     
@@ -235,19 +248,19 @@ class RenderController {
     }
     
     // MARK: Desenho do controle
-    #if os( iOS )
+#if os( iOS )
     func drawAnalogic() {
         scene.addChild(GameController.shared.joystickController.virtualController)
         
     }
-    #endif
-
+#endif
+    
     
     // MARK: Update
     func update(_ currentTime: TimeInterval, gameData: GameData) {
         
         pointsLabel.text = "\(gameData.score)"
-
+        
         playerNode.position = gameData.player!.position
         if let player = gameData.player {
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand, skin: gameData.skinSelected))
@@ -266,7 +279,15 @@ class RenderController {
         pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         pauseScene1.zPosition = 10
         scene.addChild(pauseScene1)
-
+        
+    }
+    
+    func restartGame() {
+        changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
+        drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
+        pointsLabel.text = "\(GameController.shared.gameData.score)"
+        lifesLabel.text = "\(GameController.shared.gameData.player?.life ?? 3)"
+        
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens
@@ -305,11 +326,11 @@ class RenderController {
         scene.addChild(label)
         return label
     }
-
+    
     
     func drawNewEra() -> SKLabelNode {
         let label = SKLabelNode()
-
+        
         label.text = "NEW ERA".localized()
         label.fontName = "Aldrich-Regular"
         
@@ -321,7 +342,7 @@ class RenderController {
     func excludeNode(label: SKLabelNode){
         label.removeFromParent()
     }
-
+    
     func drawContador(){
         contagemLabel.text = "3"
         contagemLabel.fontName = "Aldrich-Regular"

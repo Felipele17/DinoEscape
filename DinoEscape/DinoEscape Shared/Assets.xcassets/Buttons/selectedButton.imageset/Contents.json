@@ -1,23 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "selectedButton.pdf",
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "1x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "2x"
-    },
-    {
-      "idiom" : "universal",
-      "locale" : "en",
-      "scale" : "3x"
-    },
-    {
-      "filename" : "selectedButton-1.pdf",
+      "filename" : "selected-port.pdf",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "1x"
@@ -33,7 +17,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "selectedButtonES.pdf",
+      "filename" : "selected-spa.pdf",
       "idiom" : "universal",
       "locale" : "es",
       "scale" : "1x"
@@ -46,6 +30,22 @@
     {
       "idiom" : "universal",
       "locale" : "es",
+      "scale" : "3x"
+    },
+    {
+      "filename" : "selected-eng.pdf",
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "1x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
+      "scale" : "2x"
+    },
+    {
+      "idiom" : "universal",
+      "locale" : "en",
       "scale" : "3x"
     }
   ],
