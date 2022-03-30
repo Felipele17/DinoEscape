@@ -60,16 +60,16 @@ class SettingsPopUpScene: SKSpriteNode {
             background.addChild(createLabel(text: "Vibration".localized(),
                                             fontSize: size.height/20,
                                             fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -1),
+                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -0.2),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
             
             background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
             
-            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -1), type: .vibration))
+            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -0.2), type: .vibration))
             
-            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
-            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/1.5 * -1))
+            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
+            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
         case .pad:
             print("Config ipad")
         case .tv:
@@ -155,7 +155,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 5.0
+        let w: CGFloat = size.width / 4.0
         let h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS)
