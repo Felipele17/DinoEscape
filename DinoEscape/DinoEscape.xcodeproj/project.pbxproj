@@ -18,7 +18,6 @@
 		0639B86927EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
 		069386B827F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
-		069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 069386B627F24E7F00CC3B8D /* loungeMusic.mp3 */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -699,7 +698,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				06301AAF27F3806700F80420 /* .swiftlint.yml in Resources */,
-				069386B927F24E7F00CC3B8D /* loungeMusic.mp3 in Resources */,
 				DF2F5C5C27ECFD250018C99C /* gameplay.mov in Resources */,
 				13842CEE27E2561800E1F88E /* OFL.txt in Resources */,
 				4AEAEF1727D676B100BBD809 /* Main.storyboard in Resources */,
