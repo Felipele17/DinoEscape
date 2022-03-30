@@ -319,9 +319,7 @@ class HomeScene: MyScene {
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-        else {
-            print("não sei ler oq vc quer")
-        }
+
     }
 #endif
     
