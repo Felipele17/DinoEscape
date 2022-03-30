@@ -129,7 +129,7 @@ class SettingsScene: MyScene {
         addChild(switch2)
         switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
         addChild(switch3)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.9), type: .music)
         addChild(switch2)
 #endif
