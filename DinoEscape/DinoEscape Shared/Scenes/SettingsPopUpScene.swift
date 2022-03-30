@@ -99,6 +99,10 @@ class SettingsPopUpScene: SKSpriteNode {
         btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3.5 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.5 * -1))
         
+        #if os(tvOS)
+        addTapGestureRecognizer()
+        #endif
+        
         background.addChild(btnBack)
         background.addChild(btnHome)
     }
