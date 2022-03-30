@@ -21,7 +21,6 @@ class GameScene: MyScene {
     
     func setUpScene() {
         GameController.shared.setupScene()
-       
         #if os(tvOS)
         self.setGesture()
         #endif
