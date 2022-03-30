@@ -76,8 +76,6 @@ class SKButton: SKSpriteNode {
         case UP = 0, RIGHT, DOWN, LEFT;
     }
     
-    
-    
 #endif
     
 }
