@@ -8,6 +8,7 @@
 import Foundation
 import SpriteKit
 
+
 class SettingsScene: MyScene {
     
     var state: Bool = true
@@ -129,7 +130,7 @@ class SettingsScene: MyScene {
         addChild(switch2)
         switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
         addChild(switch3)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.9), type: .music)
         addChild(switch2)
 #endif
@@ -232,7 +233,7 @@ class SettingsScene: MyScene {
         
     }
     
-    
+
     func changeSwitchMusic() -> String {
         var imageName : String
         if UserDefaults.standard.bool(forKey: "music") == true {
@@ -252,7 +253,7 @@ class SettingsScene: MyScene {
         }
         return imageName
     }
-    
+  
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
         
         var state: Bool = true
@@ -261,9 +262,15 @@ class SettingsScene: MyScene {
         
         switch type {
         case .music:
+#if os(tvOS) 
+            addTapGestureRecognizer()
+           
+#endif
             texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+            
         case .vibration:
             texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+
         }
         
         texture.filteringMode = .nearest
@@ -285,12 +292,16 @@ class SettingsScene: MyScene {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
+                #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                #endif
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
+                #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+                #endif
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
@@ -348,6 +359,9 @@ class SettingsScene: MyScene {
         } else if (switch2.isFocused) {
             switchToggle(switchButton: switch2)
             
+        } else if (switch3.isFocused) {
+            switchToggle(switchButton: switch3)
+            
         } else {
             print("no hablo sua logica")
         }
@@ -366,6 +380,7 @@ class SettingsScene: MyScene {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
             
         }
+        
         
     }
     

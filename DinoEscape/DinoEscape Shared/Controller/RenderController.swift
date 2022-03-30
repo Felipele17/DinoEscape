@@ -25,9 +25,9 @@ class RenderController {
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
-    #if os(iOS)
+#if os(iOS)
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
-    #endif
+#endif
     
     var rectOut = SKShapeNode()
     let rectIn = SKSpriteNode()
@@ -36,7 +36,7 @@ class RenderController {
     var contagemLabel: SKLabelNode = SKLabelNode()
     
     func setUpScene(){
-       
+        
         
         //adicionar e remover itens na tela
         scene.removeAllChildren()
@@ -52,15 +52,29 @@ class RenderController {
         
         //SKLabel
         pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
+        pointsLabel.fontName = "Aldrich-Regular"
         scene.addChild(pointsLabel)
         
         //coracao
+#if os(iOS) || os(tvOS)
         heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
         heartImage.setScale(0.5)
+#elseif os(macOS)
+        heartImage.position = CGPoint(x: scene.size.width*0.92, y: scene.size.height*0.95)
+        heartImage.setScale(0.75)
+#endif
+        
+        
         scene.addChild(heartImage)
         
         //lifeslabel
+        lifesLabel.fontName = "Aldrich-Regular"
+#if os(iOS) || os(tvOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
+#elseif os(macOS)
+        lifesLabel.position = CGPoint(x: heartImage.position.x*1.04, y: heartImage.position.y*0.985)
+        lifesLabel.fontSize = 35
+#endif
         scene.addChild(lifesLabel)
         
         
@@ -85,7 +99,7 @@ class RenderController {
         }
         pauseNode.zPosition = 5
         scene.addChild(pauseNode)
-        #endif
+#endif
         
         //player
         let player = GameController.shared.gameData.player!
@@ -95,11 +109,11 @@ class RenderController {
         
         
         
-        #if os( iOS)
+#if os( iOS)
         drawAnalogic()
-        #endif
-
-    
+#endif
+        
+        
     }
     
     // MARK: Desenho dos nós na tela
@@ -118,7 +132,7 @@ class RenderController {
         node.physicsBody?.contactTestBitMask = node.physicsBody!.collisionBitMask
         
         scene.addChild(node)
-    
+        
         return node
     }
     
@@ -129,7 +143,7 @@ class RenderController {
         let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
         
         rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
-
+        
         rectIn.size.width = scene.size.width * 0.1 * CGFloat(foodMultiplier)
         
         scene.addChild(rectIn)
@@ -162,7 +176,7 @@ class RenderController {
         
         for i in 0..<4 {
             let rect = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
-
+            
             if i < 2 {
                 rect.size = CGSize(width: scene.size.width, height: 20)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: scene.size.width, height: 20))
@@ -187,7 +201,7 @@ class RenderController {
             
             rect.name = "rect"
             scene.addChild(rect)
-
+            
         }
     }
     
@@ -234,19 +248,19 @@ class RenderController {
     }
     
     // MARK: Desenho do controle
-    #if os( iOS )
+#if os( iOS )
     func drawAnalogic() {
         scene.addChild(GameController.shared.joystickController.virtualController)
         
     }
-    #endif
-
+#endif
+    
     
     // MARK: Update
     func update(_ currentTime: TimeInterval, gameData: GameData) {
         
         pointsLabel.text = "\(gameData.score)"
-
+        
         playerNode.position = gameData.player!.position
         if let player = gameData.player {
             playerNode.texture = SKTexture(imageNamed: selectDinoCommand(command: player.gameCommand, skin: gameData.skinSelected))
@@ -265,7 +279,7 @@ class RenderController {
         pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         pauseScene1.zPosition = 10
         scene.addChild(pauseScene1)
-
+        
     }
     
     func restartGame() {
@@ -273,7 +287,7 @@ class RenderController {
         drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         pointsLabel.text = "\(GameController.shared.gameData.score)"
         lifesLabel.text = "\(GameController.shared.gameData.player?.life ?? 3)"
-
+        
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens
@@ -312,11 +326,11 @@ class RenderController {
         scene.addChild(label)
         return label
     }
-
+    
     
     func drawNewEra() -> SKLabelNode {
         let label = SKLabelNode()
-
+        
         label.text = "NEW ERA".localized()
         label.fontName = "Aldrich-Regular"
         
@@ -328,7 +342,7 @@ class RenderController {
     func excludeNode(label: SKLabelNode){
         label.removeFromParent()
     }
-
+    
     func drawContador(){
         contagemLabel.text = "3"
         contagemLabel.fontName = "Aldrich-Regular"
