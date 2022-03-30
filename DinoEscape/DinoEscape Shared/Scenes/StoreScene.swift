@@ -79,7 +79,39 @@ class StoreScene: MyScene {
     
     func setDinoImage(image: String) {
         priceLabel.removeFromParent()
-#if os(iOS) || os(tvOS)
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            let square: SKShapeNode = SKShapeNode(rect: CGRect(
+                x: size.width/6,
+                y: size.height/7,
+                width: size.width/1.5,
+                height: size.height/2.75))
+            square.lineWidth = 10
+            square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
+            
+            addChild(square)
+            
+            dinoImage.position = CGPoint(x: size.width/2, y: size.width/2.5)
+            dinoImage.size = CGSize(width: size.width/1.75, height: size.height/2.15)
+        case .phone:
+            let square: SKShapeNode = SKShapeNode(rect: CGRect(
+                x: size.width/6,
+                y: size.height/4.6,
+                width: size.width/1.5,
+                height: size.height/3))
+            square.lineWidth = 10
+            square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
+            
+            addChild(square)
+            
+            dinoImage.position = CGPoint(x: size.width/2, y: size.width/1.1)
+            dinoImage.size = CGSize(width: size.width/1.5, height: size.height/3)
+        default:
+            print("oi")
+            
+        }
+#elseif os(tvOS)
         let square: SKShapeNode = SKShapeNode(rect: CGRect(
             x: size.width/6,
             y: size.height/4.6,
@@ -161,17 +193,27 @@ class StoreScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed:image)
         texture.filteringMode = .nearest
         
-#if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 3
-#elseif os(macOS)
-        let w: CGFloat = size.width / 7
-#endif
+        var w: CGFloat = 0
         
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            w = size.width / 4
+        case .phone:
+            w = size.width / 3
+        default:
+            w = size.width / 3
+        }
+#elseif os(tvOS)
+        w = size.width / 3
+#elseif os(macOS)
+        w = size.width / 7
+#endif
         let h = w * texture.size().height / texture.size().width
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             buyButton.position = CGPoint(
@@ -179,12 +221,16 @@ class StoreScene: MyScene {
                 y: size.height / 6 )
         case .pad:
             buyButton.position = CGPoint(
-                x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
-                y: size.height / 7 )
+                x: buyButton.frame.width / 0.72 + CGFloat(pos) * buyButton.frame.width * 1.2,
+                y: size.height / 13 )
         default:
             print("default")
         }
-        
+
+#elseif os(tvOS)
+        buyButton.position = CGPoint(
+            x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
+            y: size.height / 6 )
 #elseif os(macOS)
         buyButton.position = CGPoint(
             x: frame.width / 3,
@@ -423,10 +469,21 @@ class StoreScene: MyScene {
     
     func createGallery() -> SKSpriteNode {
         self.gallery.removeFromParent()
-#if os(iOS) || os(tvOS)
-        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
+        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: self.size.width, height: self.size.height))
+
+#if os(iOS)
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            gallery.position = CGPoint(x: self.size.width/10, y: self.size.height/14)
+            gallery.setScale(0.8)
+        case .phone:
+            gallery.position = CGPoint(x: size.width/14, y: size.height/2.3)
+        default:
+            print("oi")
+        }
+#elseif os(tvOS)
+        gallery.position = CGPoint(x: size.width/14, y: size.height/2.3)
 #elseif os(macOS)
-        let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width/2, height: size.height/2))
         gallery.position = CGPoint(x: size.width/14, y: size.height/2.3)
         gallery.setScale(0.5)
 #endif
@@ -458,7 +515,7 @@ class StoreScene: MyScene {
     
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
-        
+        print(self.size)
         setUpScene()
     }
 

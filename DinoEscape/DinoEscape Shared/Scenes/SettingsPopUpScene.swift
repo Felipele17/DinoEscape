@@ -202,8 +202,8 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "resumeButton")
         texture.filteringMode = .nearest
         
-#if os(iOS)
-        let w: CGFloat = size.height / 2.8
+#if os(iOS) || os(tvOS)
+        let w: CGFloat = size.height / 3.5
         let h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
@@ -228,8 +228,8 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "homeBackButton")
         texture.filteringMode = .nearest
         
-#if os(iOS)
-        let w: CGFloat = size.height / 3.2
+#if os(iOS) || os(tvOS)
+        let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
