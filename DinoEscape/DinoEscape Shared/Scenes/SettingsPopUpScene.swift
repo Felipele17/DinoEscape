@@ -4,23 +4,14 @@
 //
 //  Created by Raphael Alkamim on 21/03/22.
 //
-
 import Foundation
 import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     
     var btnHome = SKButton()
-
-
-    var btn = SKButton()
-#if os( tvOS )
-    var backButton = UITapGestureRecognizer()
-#endif
+    var btnBack = SKButton()
     
-    #if os(tvOS)
-    var toggleON: Bool = true
-    #endif
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -215,7 +206,8 @@ class SettingsPopUpScene: SKSpriteNode {
         let w: CGFloat = size.height / 3.5
         let h = w * texture.size().height / texture.size().width
         
-        let w: CGFloat = size.height / 1.5
+#elseif os(macOS) || os(tvOS)
+        let w: CGFloat = size.height / 2.25
         let h = w * texture.size().height / texture.size().width
         
 #endif
@@ -240,7 +232,7 @@ class SettingsPopUpScene: SKSpriteNode {
         let w: CGFloat = size.height / 1.5
         let h = w * texture.size().height / texture.size().width
         
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         let w: CGFloat = size.height / 3
         let h = w * texture.size().height / texture.size().width
         
@@ -268,12 +260,6 @@ class SettingsPopUpScene: SKSpriteNode {
     
     @objc func tapped(sender: AnyObject) {
         
-    if toggleON {
-            switchButton.texture = SKTexture(imageNamed: "switchON")
-            
-        } else {
-            switchButton.texture = SKTexture(imageNamed: "switchOFF")
-            
         if (btnBack.isFocused){
             
             self.removeFromParent()
@@ -284,15 +270,7 @@ class SettingsPopUpScene: SKSpriteNode {
         else {
             print("não sei ler oq vc quer")
         }
-    
-}
-
-#endif
-    #if os( tvOS )
-
-    override var preferredFocusEnvironments: [UIFocusEnvironment] {
-        return [btn]
     }
-    #endif
+#endif
     
 }
