@@ -61,19 +61,19 @@ class OnboardScene: SKSpriteNode {
             background.addChild(createLabel(text: self.text(type: 1).localized(),
                                             fontSize: size.height/40,
                                             fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/9),
+                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -1),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
             background.addChild(createLabel(text: self.text(type: 2).localized(),
                                             fontSize: size.height/40,
                                             fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/10),
+                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -2),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
             background.addChild(createLabel(text: self.text(type: 3).localized(),
                                             fontSize: size.height/40,
                                             fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/11),
+                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -3),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
             
