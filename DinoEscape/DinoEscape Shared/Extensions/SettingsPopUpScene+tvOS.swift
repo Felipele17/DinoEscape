@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 import UIKit
 
-#if os( tvOS )
 extension SettingsPopUpScene {
     
     func setFocusOnBackButton() {
@@ -23,4 +22,3 @@ extension SettingsPopUpScene {
     }
     
 }
-#endif
