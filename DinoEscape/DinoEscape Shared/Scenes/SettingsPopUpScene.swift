@@ -4,7 +4,6 @@
 //
 //  Created by Raphael Alkamim on 21/03/22.
 //
-
 import Foundation
 import SpriteKit
 
@@ -207,7 +206,7 @@ class SettingsPopUpScene: SKSpriteNode {
         let w: CGFloat = size.height / 2.8
         let h = w * texture.size().height / texture.size().width
         
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         let w: CGFloat = size.height / 2.25
         let h = w * texture.size().height / texture.size().width
         
@@ -233,7 +232,7 @@ class SettingsPopUpScene: SKSpriteNode {
         let w: CGFloat = size.height / 3.2
         let h = w * texture.size().height / texture.size().width
         
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         let w: CGFloat = size.height / 3
         let h = w * texture.size().height / texture.size().width
         
