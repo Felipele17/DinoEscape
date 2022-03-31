@@ -14,12 +14,12 @@ class CreateCoreData {
     let images = ["frameTrex","frameBraci","frameChicken","frameSte", "frameTrice","frameVeloci"]
     let prices = [0,1000,100000,1000,1000,1000]
     func create(){
-        for i in 0..<dinos.count{
-            _ = try! SkinDataModel.createSkin(name: dinos[i],
-                                                   image: images[i],
+        for index in 0..<dinos.count{
+            _ = try! SkinDataModel.createSkin(name: dinos[index],
+                                                   image: images[index],
                                                    isSelected: false,
                                                    isBought: false,
-                                                    price: Int32(prices[i]))
+                                                    price: Int32(prices[index]))
         }
         
         //setando o rex

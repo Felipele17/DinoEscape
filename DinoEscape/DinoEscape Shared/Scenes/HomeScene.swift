@@ -234,10 +234,10 @@ class HomeScene: MyScene {
         title.fontSize = 20
         title.fontColor = titleColor
         
-        let w: CGFloat = size.width / 4.8
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 4.8
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
 #if os(iOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)

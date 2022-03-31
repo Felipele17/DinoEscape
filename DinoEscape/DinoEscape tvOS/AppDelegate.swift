@@ -5,6 +5,9 @@
 //  Created by Felipe Leite on 07/03/22.
 //
 
+// swiftlint:disable line_length
+
+
 import UIKit
 
 @main

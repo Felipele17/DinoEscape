@@ -5,6 +5,8 @@
 //  Created by Carolina Ortega on 15/03/22.
 //
 
+// swiftlint: disable identifier_name
+
 import Foundation
 import GameKit
 
@@ -26,7 +28,7 @@ class GameCenterController {
     }()
     
     
-    let LEADERBOARD_ID = "dino_players" ///na appstore connect deve ser criado um ID para o gameCnter
+    let LEADERBOARD_ID = "dino_players"
     
     
     #if os(macOS)

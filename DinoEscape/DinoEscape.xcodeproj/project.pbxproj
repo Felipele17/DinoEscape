@@ -77,7 +77,6 @@
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
-		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -612,6 +611,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEAEF2727D676B100BBD809 /* Build configuration list for PBXNativeTarget "DinoEscape iOS" */;
 			buildPhases = (
+				DFBCB05627F6271800C2A293 /* Run SwiftLint */,
 				4AEAEEEA27D676B000BBD809 /* Sources */,
 				4AEAEEEB27D676B000BBD809 /* Frameworks */,
 				4AEAEEEC27D676B000BBD809 /* Resources */,
@@ -646,6 +646,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 4AEAEF2D27D676B100BBD809 /* Build configuration list for PBXNativeTarget "DinoEscape macOS" */;
 			buildPhases = (
+				DFBCB05527F6264700C2A293 /* Run SwiftLint */,
 				4AEAEF0B27D676B100BBD809 /* Sources */,
 				4AEAEF0C27D676B100BBD809 /* Frameworks */,
 				4AEAEF0D27D676B100BBD809 /* Resources */,
@@ -762,6 +763,45 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		DFBCB05527F6264700C2A293 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+		DFBCB05627F6271800C2A293 /* Run SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Run SwiftLint";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "if which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		4AEAEEEA27D676B000BBD809 /* Sources */ = {

@@ -24,7 +24,11 @@ class RenderController {
     var pointsLabel: SKLabelNode = SKLabelNode(text: "0")
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
-    var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
+    var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"),
+                                     SKSpriteNode(imageNamed: "cherry"),
+                                     SKSpriteNode(imageNamed: "cherry"),
+                                     SKSpriteNode(imageNamed: "cherry"),
+                                     SKSpriteNode(imageNamed: "cherry")]
 #if os(iOS)
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
 #endif
@@ -143,26 +147,24 @@ class RenderController {
         let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
         
         rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
-        
         rectIn.size.width = scene.size.width * 0.1 * CGFloat(foodMultiplier)
         
         scene.addChild(rectIn)
         scene.addChild(rectOut)
     }
     
-    func drawItem(item: Items, x: CGFloat, y: CGFloat){
+    func drawItem(item: Items, posX: CGFloat, posY: CGFloat) {
         var multiplier = 0.05
         if item.name == "meteoro" {
             multiplier = 0.08
             if item.direction == .LEFT {
-                item.xScale = item.xScale * -1
+                item.xScale *= -1
             } else if item.direction == .DOWN {
-                item.yScale = item.yScale * -1
+                item.yScale *= -1
             }
         }
         item.size = CGSize(width: scene.size.height*multiplier, height: scene.size.height*multiplier)
-        item.position = CGPoint(x: x, y: y)
-        
+        item.position = CGPoint(x: posX, y: posY)
         item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.height*0.5, height: item.size.height*0.5))
         item.physicsBody?.isDynamic = false
         
@@ -174,13 +176,12 @@ class RenderController {
     
     func drawDestroierRects() {
         
-        for i in 0..<4 {
+        for index in 0..<4 {
             let rect = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
-            
-            if i < 2 {
+            if index < 2 {
                 rect.size = CGSize(width: scene.size.width, height: 20)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: scene.size.width, height: 20))
-                if i == 0 {
+                if index == 0 {
                     rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height*1.2)
                 } else {
                     rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height * -0.2)
@@ -188,7 +189,7 @@ class RenderController {
             } else {
                 rect.size = CGSize(width: 20, height: scene.size.height)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: scene.size.height))
-                if i == 2 {
+                if index == 2 {
                     rect.position = CGPoint(x: scene.size.width*1.2, y: scene.size.height/2)
                 } else {
                     rect.position = CGPoint(x: scene.size.width * -0.2, y: scene.size.height/2)
@@ -198,10 +199,8 @@ class RenderController {
             rect.physicsBody?.affectedByGravity = false
             rect.physicsBody?.allowsRotation = false
             rect.physicsBody?.contactTestBitMask = rect.physicsBody!.collisionBitMask
-            
             rect.name = "rect"
             scene.addChild(rect)
-            
         }
     }
     
@@ -302,20 +301,20 @@ class RenderController {
     
     // MARK: Funcoes que mexem na velocidade dos itens
     func allFoodRender(){
-        for i in items {
-            if i.name != "good" {
-                i.name = "good"
-                i.texture = SKTexture(imageNamed: "cherry")
-                i.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
+        for item in items {
+            if item.name != "good" {
+                item.name = "good"
+                item.texture = SKTexture(imageNamed: "cherry")
+                item.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
             }
         }
     }
     
-    func slowRender(){
-        for i in self.items {
-            if i.vx / 2 > 1 || i.vy / 2 > 1 {
-                i.vx = i.vx / 2
-                i.vy = i.vy / 2
+    func slowRender() {
+        for item in self.items {
+            if item.vx / 2 > 1 || item.vy / 2 > 1 {
+                item.vx /= 2
+                item.vy /= 2
             }
             
         }
@@ -337,7 +336,6 @@ class RenderController {
         return label
     }
     
-    
     func drawNewEra() -> SKLabelNode {
         let label = SKLabelNode()
         
@@ -350,11 +348,11 @@ class RenderController {
         return label
     }
     
-    func excludeNode(label: SKLabelNode){
+    func excludeNode(label: SKLabelNode) {
         label.removeFromParent()
     }
     
-    func drawContador(){
+    func drawContador() {
         contagemLabel.text = "3"
         contagemLabel.fontName = "Aldrich-Regular"
         

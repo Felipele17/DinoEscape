@@ -178,40 +178,40 @@ class GameOverScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
-        var w : CGFloat
-        var h : CGFloat
+        var width : CGFloat
+        var height : CGFloat
         
 #if os(macOS)
         if name == .playAgain {
-            w = size.width / 6
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 6
+            height = width * texture.size().height / texture.size().width
         } else {
-            w = size.width / 7.5
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 7.5
+            height = width * texture.size().height / texture.size().width
         }
 #else
         if name == .playAgain {
-            w = size.width / 3.0
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 3.0
+            height = width * texture.size().height / texture.size().width
         } else {
-            w = size.width / 3.5
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 3.5
+            height = width * texture.size().height / texture.size().width
         }
 #endif
         
         #if os(iOS)
         if name == .playAgain {
-            w = size.width / 2.5
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 2.5
+            height = width * texture.size().height / texture.size().width
         } else {
-            w = size.width / 3.0
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 3.0
+            height = width * texture.size().height / texture.size().width
         }
         #endif
         
         
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         button.position = CGPoint(x: frame.width / 2,
                                   y: frame.height / 2.25  + CGFloat(posY) * button.frame.height * 1.2)

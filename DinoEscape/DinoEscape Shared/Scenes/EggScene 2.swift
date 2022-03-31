@@ -47,10 +47,10 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 16
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 16
+        let height = width * texture.size().height / texture.size().width
         
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         adsButton.position = CGPoint(
             x: size.width/1.102,
@@ -71,35 +71,29 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 3
+        let height = width * texture.size().height / texture.size().width
         
-        let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         buyButton.position = CGPoint(
             x: buyButton.frame.width / 1.1 + CGFloat(pos) * buyButton.frame.width * 1.2,
             y: size.height / 6 )
         
-        
-        
         buyButton.selectedHandler = {
             print(image)
-            
         }
-       
         addChild(buyButton)
-        
     }
-    
     
     func createSegButton(image: SegmentageType, pos: Int) {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3.5
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 3.5
+        let height = width * texture.size().height / texture.size().width
         
-        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
+        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: width, height: height))
         
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
@@ -133,12 +127,12 @@ class EggScene: SKScene {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
         
-        let w: CGFloat = size.width / 15
-        let h = w * coinTotal.size.height / coinTotal.size.width / 2
+        let width: CGFloat = size.width / 15
+        let height = width * coinTotal.size.height / coinTotal.size.width / 2
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
-        coin.size = CGSize(width: w, height: h)
+        coin.size = CGSize(width: width, height: height)
         
         let total: SKLabelNode = SKLabelNode(text:String(coins))
         total.fontName = "Aldrich-Regular"
@@ -159,20 +153,18 @@ class EggScene: SKScene {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.width / 15
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 15
+        let height = width * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
+        button.position = CGPoint(x: size.width / 8, y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
         
         }
         return button
-        
-   
+
     }
-    
     
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)

@@ -21,7 +21,7 @@ class Backgrounds{
         return background+"Mac"
         #endif
     }
-    func blueBackground() -> String{
+    func blueBackground() -> String {
         #if os(iOS)
         background = "blueBackground"
         return background
@@ -37,7 +37,7 @@ class Backgrounds{
         return background+"Mac"
         #endif
     }
-    func GreenBackground() -> String{
+    func greenBackground() -> String {
         #if os(iOS)
         background = "greenBackground"
         return background
@@ -45,7 +45,7 @@ class Backgrounds{
         return background+"Mac"
         #endif
     }
-    func cityBackground() -> String{
+    func cityBackground() -> String {
         #if os(iOS)
         background = "cityBackground"
         return background

@@ -66,9 +66,9 @@ class SkinDataModel {
     
     static func getSkinSelected() -> SkinData {
         let dinos = try! self.getSkins()
-        for i in 0..<dinos.count{
-            if dinos[i].isSelected == true{
-                return dinos[i]
+        for index in 0..<dinos.count{
+            if dinos[index].isSelected == true{
+                return dinos[index]
             }
         }
         return dinos[0]

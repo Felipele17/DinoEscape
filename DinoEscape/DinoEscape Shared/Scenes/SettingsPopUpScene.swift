@@ -157,16 +157,16 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.width / 4.0
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 4.0
+        let height = width * texture.size().height / texture.size().width
         
 #elseif os(macOS)
-        let w: CGFloat = size.width / 8.0
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 8.0
+        let height = width * texture.size().height / texture.size().width
         
 #endif
         
-        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: height))
         switchButton.position = pos
         
         switchButton.selectedHandler = {
@@ -209,16 +209,16 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.height / 3.5
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 3.5
+        let height = width * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
-        let w: CGFloat = size.height / 2.25
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 2.25
+        let height = width * texture.size().height / texture.size().width
         
 #endif
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = position
         button.selectedHandler = {
             self.removeFromParent()
@@ -235,17 +235,17 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.height / 1.5
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 1.5
+        let height = width * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
-        let w: CGFloat = size.height / 3
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 3
+        let height = width * texture.size().height / texture.size().width
         
 #endif
         
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = position
         button.selectedHandler = {
             GameController.shared.restartGame()

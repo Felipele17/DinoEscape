@@ -5,6 +5,8 @@
 //  Created by Felipe Leite on 07/03/22.
 //
 
+// swiftlint:disable force_cast
+
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -14,7 +16,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let scene = GameOverScene.newGameScene()
         let scene = HomeScene.newGameScene()
 
 
