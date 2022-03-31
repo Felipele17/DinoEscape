@@ -87,9 +87,9 @@ class MusicService  {
                 
                 switch musicType {
                 case.gameMusic:
-                    music.volume = 0.2
+                    music.volume = 0.0
                 case.otherScenes:
-                    music.volume = 0.2
+                    music.volume = 0.0
                 }
                 self.audioPlayer[musicType.rawValue] = music
                 return music

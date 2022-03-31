@@ -64,7 +64,7 @@ class HomeScene: MyScene {
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
 
-        #if os(iOS) || os(tvOS)
+        #if os(iOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -81,7 +81,7 @@ class HomeScene: MyScene {
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
         addChild(subtitle)
-        #elseif os(macOS)
+        #elseif os(macOS) || os(tvOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O  E S C A P E")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -144,18 +144,12 @@ class HomeScene: MyScene {
         
         
 #elseif os(tvOS)
-        title.setScale(1.5)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.09)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
-        subtitle.setScale(1.5)
+        title.fontSize = 120
+        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
         
-        btn.position = CGPoint(x: size.width/5, y: size.height/5.8)
-        btn2.position = CGPoint(x: btn.size.width * 1.5, y: size.height/5.8)
-        btn3.position = CGPoint(x: btn.size.width * 2.0, y: size.height/5.8)
-
-        btn.setScale(0.3)
-        btn2.setScale(0.3)
-        btn3.setScale(0.3)
+        btn.setScale(0.5)
+        btn2.setScale(0.5)
+        
         
 #elseif os(macOS)
         
@@ -248,9 +242,10 @@ class HomeScene: MyScene {
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
         title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
         
-        #elseif os(tvOS)
-        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 0.5, y: size.height/9.0)
-
+#elseif os(tvOS)
+        title.fontSize = 40
+        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/7.6)
+        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/27)
         
 #endif
         
