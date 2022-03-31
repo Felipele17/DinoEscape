@@ -39,7 +39,8 @@ class StoreScene: MyScene {
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
-        
+        GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: false, isActive: false)
+
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
 //        MusicService.shared.playLondgeMusic()
         MusicService.shared.playGameMusic()
