@@ -76,9 +76,7 @@
 		13842CED27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
-		13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
-		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -167,9 +165,6 @@
 		DF20483127EA48B200C0F515 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20482F27EA48AF00C0F515 /* GameCenterController.swift */; };
 		DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20482F27EA48AF00C0F515 /* GameCenterController.swift */; };
 		DF20483527EA4B5A00C0F515 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DF20483427EA4B5A00C0F515 /* GameKit.framework */; };
-		DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
-		DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
-		DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */; };
 		DF2F5C5B27ECFD250018C99C /* gameplayMac.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */; };
 		DF2F5C5C27ECFD250018C99C /* gameplayMac.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */; };
 		DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */; };
@@ -260,7 +255,6 @@
 		DF109F9527E8F89A0012139D /* GameStatus.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameStatus.swift; sourceTree = "<group>"; };
 		DF20482F27EA48AF00C0F515 /* GameCenterController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterController.swift; sourceTree = "<group>"; };
 		DF20483427EA4B5A00C0F515 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS15.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
-		DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameCenterDelegate.swift; sourceTree = "<group>"; };
 		DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayMac.mov; sourceTree = "<group>"; };
 		DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIOS.mov; sourceTree = "<group>"; };
 		DFDC9F3727F2349200DC93CD /* Haptic2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Haptic2.json; sourceTree = "<group>"; };
@@ -402,7 +396,6 @@
 			children = (
 				133F7B9A27D69E350012CFDD /* JoystickDelegate.swift */,
 				A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */,
-				DF20483627EA554C00C0F515 /* GameCenterDelegate.swift */,
 			);
 			path = Delegate;
 			sourceTree = "<group>";
@@ -792,7 +785,6 @@
 				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133D058B27EE5D7C00DA8269 /* HapticService.swift in Sources */,
-				13842CF427E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
 				136B53B527F4E92400A5A21F /* OnboardScene.swift in Sources */,
 				DF0C0C8727E3CD16001BBAFA /* Background.swift in Sources */,
@@ -807,7 +799,6 @@
 				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
 				14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
-				DF20483727EA554C00C0F515 /* GameCenterDelegate.swift in Sources */,
 				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
 				B0F1F08C27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
@@ -861,7 +852,6 @@
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
-				DF20483A27EA588000C0F515 /* GameCenterDelegate.swift in Sources */,
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
@@ -898,7 +888,6 @@
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
-				13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */,
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
@@ -906,7 +895,6 @@
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				B0F1F08A27EBB922009A9B1F /* MusicType.swift in Sources */,
 				DF0C0C8927E3CD16001BBAFA /* Background.swift in Sources */,
-				DF20483B27EA588100C0F515 /* GameCenterDelegate.swift in Sources */,
 				133F7B9427D683350012CFDD /* GameCommand.swift in Sources */,
 				133F7B8227D6810A0012CFDD /* GameController.swift in Sources */,
 				132E23F727E130E2006CDEAB /* Items.swift in Sources */,
