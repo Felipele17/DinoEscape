@@ -15,10 +15,5 @@ extension SettingsPopUpScene {
         print("hello")
     }
     
-    @objc func respondToBackButton(gesture: UITapGestureRecognizer) {
-            if let backButton = gesture as? UITapGestureRecognizer {
-                GameController.shared.getBackButton(backButton: backButton)
-            }
-    }
     
 }

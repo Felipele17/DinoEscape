@@ -56,10 +56,10 @@ class RenderController {
         scene.addChild(pointsLabel)
         
         //coracao
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
         heartImage.setScale(0.5)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         heartImage.position = CGPoint(x: scene.size.width*0.92, y: scene.size.height*0.95)
         heartImage.setScale(0.75)
 #endif
@@ -69,9 +69,9 @@ class RenderController {
         
         //lifeslabel
         lifesLabel.fontName = "Aldrich-Regular"
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.04, y: heartImage.position.y*0.985)
         lifesLabel.fontSize = 35
 #endif

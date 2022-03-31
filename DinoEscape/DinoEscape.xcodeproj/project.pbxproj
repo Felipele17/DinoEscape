@@ -77,7 +77,6 @@
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
-		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -98,6 +97,9 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		A095FD2927F625DD00EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */; };
+		A095FD2B27F625F700EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */; };
+		A095FD2D27F6261400EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */; };
 		A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
 		A6E3DA8127EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
 		A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */; };
@@ -135,9 +137,6 @@
 		B0F162A527EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
 		B0F162A627EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
 		B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
-		B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
-		B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
-		B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */; };
 		B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
 		B0F1F07A27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
 		B0F1F07B27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */; };
@@ -233,6 +232,9 @@
 		A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
+		A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
+		A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDelegate.swift; sourceTree = "<group>"; };
 		B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonType.swift; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
@@ -245,7 +247,6 @@
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
 		B0F162A027EA5C7A000DB51B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		B0F162A427EA6975000DB51B /* ScoreTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypes.swift; sourceTree = "<group>"; };
-		B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverButtonTypes.swift; sourceTree = "<group>"; };
 		B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
 		B0F1F08327EBA7A0009A9B1F /* gamePlayMusic.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = gamePlayMusic.mp3; sourceTree = "<group>"; };
@@ -301,6 +302,7 @@
 			isa = PBXGroup;
 			children = (
 				136B53B427F4E92400A5A21F /* OnboardScene.swift */,
+				A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -309,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				13030B7C27F5C54300406D1C /* OnboardScene.swift */,
+				A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -317,6 +320,7 @@
 			isa = PBXGroup;
 			children = (
 				13030B7F27F5C56300406D1C /* OnboardScene.swift */,
+				A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -538,7 +542,6 @@
 				B0C948EA27DBDBD100B671EA /* SettingsScene.swift */,
 				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
 				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
-				B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */,
 				B0F162A027EA5C7A000DB51B /* GameOverScene.swift */,
 			);
 			path = Scenes;
@@ -769,10 +772,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				133F7B8027D67FA80012CFDD /* RenderController.swift in Sources */,
-				B0F182A327E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8427D6812E0012CFDD /* GameData.swift in Sources */,
 				4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */,
 				B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */,
+				A095FD2D27F6261400EB0100 /* SettingsPopUpScene.swift in Sources */,
 				EEC28DD927E914A300A3E6E1 /* AppDelegate.swift in Sources */,
 				133F7B9D27D69E970012CFDD /* JoystickController.swift in Sources */,
 				B0F1F08027EB9E2F009A9B1F /* MusicService.swift in Sources */,
@@ -849,10 +852,10 @@
 				B07A5D1127E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				0639B85B27EBB2E90041C408 /* String + Location.swift in Sources */,
 				B0F1F08D27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
-				B0F182A427E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				133F7B8B27D681E20012CFDD /* Player.swift in Sources */,
 				133F7BA027D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				A6FEAD2527DFD7CE005D20C4 /* AnalogStick.swift in Sources */,
+				A095FD2927F625DD00EB0100 /* SettingsPopUpScene.swift in Sources */,
 				B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
@@ -878,7 +881,6 @@
 				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */,
-				B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
@@ -914,6 +916,7 @@
 				B0F1F07B27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
 				EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */,
 				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
+				A095FD2B27F625F700EB0100 /* SettingsPopUpScene.swift in Sources */,
 				4AEAEF1227D676B100BBD809 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1097,7 +1100,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1113,7 +1116,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1129,7 +1132,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1145,7 +1148,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1162,7 +1165,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1190,7 +1193,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = UZ6JTAUWH8;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1222,7 +1225,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1253,7 +1256,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = 2A2JAGWQ62;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
