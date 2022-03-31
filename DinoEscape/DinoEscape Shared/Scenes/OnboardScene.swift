@@ -10,7 +10,6 @@ import SpriteKit
 
 class OnboardScene: SKSpriteNode {
     var btnOk = SKButton()
-    
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -32,52 +31,17 @@ class OnboardScene: SKSpriteNode {
                                                   width: self.size.width,
                                                   height: self.size.height))
         
-        background.fillColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        background.fillColor = SKColor(red: 0, green: 0, blue: 0, alpha: 0.5)
         print(background.position)
         self.addChild(background)
         
 #if os(iOS) || os(tvOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            background.addChild(createImage(imageNamed: "meteorOnboard", position: CGPoint(x: background.frame.size.width/3 * -0.8, y: background.frame.size.height/8 * 1)))
-            background.addChild(createImage(imageNamed: "badFood", position: CGPoint(x: background.frame.size.width/3 * -0.8, y: background.frame.size.height/8 * -1)))
-            background.addChild(createImage(imageNamed: "goodFood", position: CGPoint(x: background.frame.size.width/3 * -0.8, y: background.frame.size.height/8 * -2)))
-            background.addChild(createImage(imageNamed: "foodBar", position: CGPoint(x: background.frame.size.width/3 * -0.8, y: background.frame.size.height/8 * -3)))
-            
-            background.addChild(createLabel(text: "Tutorial".localized(),
-                                            fontSize: size.height/13,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: 0, y: background.frame.size.height/3),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.center
-                                           ))
-            
-            background.addChild(createLabel(text: self.text(type: 0).localized(),
-                                            fontSize: size.height/40,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            
-            background.addChild(createLabel(text: self.text(type: 1).localized(),
-                                            fontSize: size.height/40,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -1),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            background.addChild(createLabel(text: self.text(type: 2).localized(),
-                                            fontSize: size.height/40,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -2),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            background.addChild(createLabel(text: self.text(type: 3).localized(),
-                                            fontSize: size.height/40,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/8 * -3),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/1.5 * -1))
+            let sizes: [CGFloat] = [1,-0.1,-1.2,-2.2]
+            let imageSize = CGSize(width: background.frame.size.width * 0.3, height: background.frame.size.height * 0.2)
+            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -3.3))
         case .pad:
             print("Config ipad")
         case .tv:
@@ -88,23 +52,10 @@ class OnboardScene: SKSpriteNode {
         }
         
 #elseif os(macOS)
-        background.addChild(createLabel(text: "Pause".localized(),
-                                        fontSize: size.height/10,
-                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
-                                        alignmentH: SKLabelHorizontalAlignmentMode.center
-                                       ))
-        background.addChild(createLabel(text: "Music".localized(),
-                                        fontSize: size.height/18,
-                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                        position: CGPoint(x: background.frame.size.width/4 * -1, y: background.frame.size.height/8),
-                                        alignmentH: SKLabelHorizontalAlignmentMode.left
-                                       ))
-        
-        
-        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/5.5 * -1))
-        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
-        
+        let sizes: [CGFloat] = [0.6,0.2,-0.2,-0.6]
+        let imageSize = CGSize(width: background.frame.size.width * 0.1, height: background.frame.size.height * 0.2)
+        addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 3, multiplierx: 8)
+        btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
 #endif
         
         #if os(tvOS)
@@ -112,6 +63,26 @@ class OnboardScene: SKSpriteNode {
         #endif
         
         background.addChild(btnOk)
+    }
+    func addImages(background: SKShapeNode,sizes: [CGFloat],imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat){
+        let imageNames = ["meteorOnboard", "badFood", "goodFood", "foodBar"]
+        let labelColor = SKColor(red: 0.92, green: 0.91, blue: 0.78, alpha: 1)
+        for i in 0..<imageNames.count{
+            background.addChild(createImage(imageNamed: imageNames[i], position: CGPoint(x: background.frame.size.width/multiplierx * -0.8, y: background.frame.size.height/multipliery * sizes[i]), size: imageSize))
+            background.addChild(createLabel(text: self.text(type: i).localized(),
+                                            fontSize: size.height/40,
+                                            fontColor: labelColor,
+                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/multipliery * sizes[i]),
+                                            alignmentH: SKLabelHorizontalAlignmentMode.left
+                                           ))
+        }
+        
+        background.addChild(createLabel(text: "Tutorial".localized(),
+                                        fontSize: size.height/13,
+                                        fontColor: labelColor,
+                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.center
+                                       ))
     }
     
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint, alignmentH: SKLabelHorizontalAlignmentMode) -> SKLabelNode {
@@ -126,15 +97,16 @@ class OnboardScene: SKSpriteNode {
         return label
     }
     
-    func createImage(imageNamed: String, position: CGPoint) -> SKSpriteNode {
+    func createImage(imageNamed: String, position: CGPoint, size: CGSize) -> SKSpriteNode {
         let image = SKSpriteNode(imageNamed: imageNamed)
         image.position = position
+        image.size = size
         return image
     }
     
     func createBackButton(position: CGPoint) -> SKButton{
         
-        let texture = SKTexture(imageNamed: "resumeButton")
+        let texture = SKTexture(imageNamed: "okButton")
         texture.filteringMode = .nearest
         
 #if os(iOS)
@@ -161,7 +133,7 @@ class OnboardScene: SKSpriteNode {
     
     func text(type: Int) -> String {
         let texts = [ "Escape the meteors!",
-                      "Avoid bad foods.",
+                      "Avoid bad foods",
                       "Collect good foods",
                       "Earn power-ups!"
         ]
