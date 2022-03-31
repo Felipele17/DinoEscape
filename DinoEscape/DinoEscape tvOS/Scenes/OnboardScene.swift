@@ -35,7 +35,6 @@ class OnboardScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
-#if os(iOS) || os(tvOS)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             let sizes: [CGFloat] = [1,-0.1,-1.2,-2.2]
@@ -51,16 +50,7 @@ class OnboardScene: SKSpriteNode {
             
         }
         
-#elseif os(macOS)
-        let sizes: [CGFloat] = [0.6,0.2,-0.2,-0.6]
-        let imageSize = CGSize(width: background.frame.size.width * 0.1, height: background.frame.size.height * 0.2)
-        addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 3, multiplierx: 8)
-        btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
-#endif
-        
-        #if os(tvOS)
         addTapGestureRecognizer()
-        #endif
         
         background.addChild(btnOk)
     }
@@ -109,15 +99,8 @@ class OnboardScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "okButton")
         texture.filteringMode = .nearest
         
-#if os(iOS)
-        let w: CGFloat = size.height / 3.5
-        let h = w * texture.size().height / texture.size().width
-        
-#elseif os(macOS) || os(tvOS)
         let w: CGFloat = size.height / 2.25
         let h = w * texture.size().height / texture.size().width
-        
-#endif
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = position

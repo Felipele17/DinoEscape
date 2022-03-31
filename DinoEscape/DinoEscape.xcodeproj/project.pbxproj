@@ -17,6 +17,8 @@
 		0639B86827EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0639B86927EBB5F40041C408 /* Localization.strings in Resources */ = {isa = PBXBuildFile; fileRef = 0639B86B27EBB5F40041C408 /* Localization.strings */; };
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
+		13030B7D27F5C54300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7C27F5C54300406D1C /* OnboardScene.swift */; };
+		13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7F27F5C56300406D1C /* OnboardScene.swift */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -67,8 +69,6 @@
 		1346CD4A27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
 		1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1346CD4827E909A800014B87 /* CreateCoreData.swift */; };
 		136B53B527F4E92400A5A21F /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B53B427F4E92400A5A21F /* OnboardScene.swift */; };
-		136B53B627F4E92400A5A21F /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B53B427F4E92400A5A21F /* OnboardScene.swift */; };
-		136B53B727F4E92400A5A21F /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 136B53B427F4E92400A5A21F /* OnboardScene.swift */; };
 		13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEA27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
 		13842CEB27E2561800E1F88E /* Aldrich-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE727E2561800E1F88E /* Aldrich-Regular.ttf */; };
@@ -192,6 +192,8 @@
 		0660F09727EE59B90099D32D /* gameplayIpadOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIpadOS.mov; sourceTree = "<group>"; };
 		06C59A7527ECFEA6007A459E /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localization.strings; sourceTree = "<group>"; };
 		06C59A7627ED0994007A459E /* es-419 */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "es-419"; path = "es-419.lproj/Localization.strings"; sourceTree = "<group>"; };
+		13030B7C27F5C54300406D1C /* OnboardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardScene.swift; sourceTree = "<group>"; };
+		13030B7F27F5C56300406D1C /* OnboardScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardScene.swift; sourceTree = "<group>"; };
 		132E23F427E130E2006CDEAB /* Items.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Items.swift; sourceTree = "<group>"; };
 		133D058627EE593D00DA8269 /* Haptic.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Haptic.json; sourceTree = "<group>"; };
 		133D058A27EE5D7C00DA8269 /* HapticService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticService.swift; sourceTree = "<group>"; };
@@ -298,6 +300,56 @@
 				0639B86B27EBB5F40041C408 /* Localization.strings */,
 			);
 			path = Languages;
+			sourceTree = "<group>";
+		};
+		13030B7A27F5C4FC00406D1C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				136B53B427F4E92400A5A21F /* OnboardScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		13030B7B27F5C51C00406D1C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				13030B7C27F5C54300406D1C /* OnboardScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		13030B7E27F5C55400406D1C /* Scenes */ = {
+			isa = PBXGroup;
+			children = (
+				13030B7F27F5C56300406D1C /* OnboardScene.swift */,
+			);
+			path = Scenes;
+			sourceTree = "<group>";
+		};
+		13030B8127F5C58100406D1C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4AEAEEF527D676B000BBD809 /* Main.storyboard */,
+				4AEAEEF827D676B000BBD809 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		13030B8227F5C59600406D1C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4AEAEF0527D676B100BBD809 /* Main.storyboard */,
+				4AEAEF0827D676B100BBD809 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		13030B8327F5C5A900406D1C /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				4AEAEF1527D676B100BBD809 /* Main.storyboard */,
+			);
+			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		133D058527EE591F00DA8269 /* HapticFeedback */ = {
@@ -444,11 +496,11 @@
 		4AEAEEF027D676B000BBD809 /* DinoEscape iOS */ = {
 			isa = PBXGroup;
 			children = (
+				13030B8127F5C58100406D1C /* Storyboards */,
+				13030B7A27F5C4FC00406D1C /* Scenes */,
 				A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */,
 				4AEAEEF127D676B000BBD809 /* AppDelegate.swift */,
 				4AEAEEF327D676B000BBD809 /* GameViewController.swift */,
-				4AEAEEF527D676B000BBD809 /* Main.storyboard */,
-				4AEAEEF827D676B000BBD809 /* LaunchScreen.storyboard */,
 			);
 			path = "DinoEscape iOS";
 			sourceTree = "<group>";
@@ -456,11 +508,11 @@
 		4AEAEF0027D676B100BBD809 /* DinoEscape tvOS */ = {
 			isa = PBXGroup;
 			children = (
+				13030B8227F5C59600406D1C /* Storyboards */,
+				13030B7B27F5C51C00406D1C /* Scenes */,
 				A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */,
 				4AEAEF0127D676B100BBD809 /* AppDelegate.swift */,
 				4AEAEF0327D676B100BBD809 /* GameViewController.swift */,
-				4AEAEF0527D676B100BBD809 /* Main.storyboard */,
-				4AEAEF0827D676B100BBD809 /* LaunchScreen.storyboard */,
 			);
 			path = "DinoEscape tvOS";
 			sourceTree = "<group>";
@@ -468,10 +520,11 @@
 		4AEAEF1027D676B100BBD809 /* DinoEscape macOS */ = {
 			isa = PBXGroup;
 			children = (
+				13030B8327F5C5A900406D1C /* Storyboards */,
+				13030B7E27F5C55400406D1C /* Scenes */,
 				A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */,
 				4AEAEF1127D676B100BBD809 /* AppDelegate.swift */,
 				4AEAEF1327D676B100BBD809 /* GameViewController.swift */,
-				4AEAEF1527D676B100BBD809 /* Main.storyboard */,
 				4AEAEF1827D676B100BBD809 /* DinoEscape_macOS.entitlements */,
 			);
 			path = "DinoEscape macOS";
@@ -493,7 +546,6 @@
 				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
 				B0F182A227E9092500C2D4E3 /* SettingsPopUpScene.swift */,
 				B0F162A027EA5C7A000DB51B /* GameOverScene.swift */,
-				136B53B427F4E92400A5A21F /* OnboardScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -796,7 +848,7 @@
 				133F7B8527D681310012CFDD /* GameData.swift in Sources */,
 				DF0C0C8827E3CD16001BBAFA /* Background.swift in Sources */,
 				133F7B9327D683340012CFDD /* GameCommand.swift in Sources */,
-				136B53B627F4E92400A5A21F /* OnboardScene.swift in Sources */,
+				13030B7D27F5C54300406D1C /* OnboardScene.swift in Sources */,
 				133D058C27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				133F7B8127D681090012CFDD /* GameController.swift in Sources */,
 				DF20483127EA48B200C0F515 /* GameCenterController.swift in Sources */,
@@ -834,6 +886,7 @@
 				DF109F9827E8F89A0012139D /* GameStatus.swift in Sources */,
 				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
+				13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */,
 				B0F182A527E9092500C2D4E3 /* SettingsPopUpScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
@@ -849,7 +902,6 @@
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */,
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
-				136B53B727F4E92400A5A21F /* OnboardScene.swift in Sources */,
 				133D058D27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				133F7B8627D681320012CFDD /* GameData.swift in Sources */,
 				B0F1F08A27EBB922009A9B1F /* MusicType.swift in Sources */,
