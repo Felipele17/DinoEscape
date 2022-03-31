@@ -99,8 +99,17 @@ class SettingsPopUpScene: SKSpriteNode {
         
         background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
         
-        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/5.5 * -1))
-        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/3 * -1))
+        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
+        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/5.5 * -1))
+            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/3.0 * -1))
+            default:
+            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
+            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
+            }
         
 #endif
         
@@ -210,7 +219,8 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.height / 3.5
+        
+        let w: CGFloat = size.height / 2.8
         let h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
@@ -236,7 +246,7 @@ class SettingsPopUpScene: SKSpriteNode {
         texture.filteringMode = .nearest
         
 #if os(iOS) || os(tvOS)
-        let w: CGFloat = size.height / 1.5
+        let w: CGFloat = size.height / 3.2
         let h = w * texture.size().height / texture.size().width
         
 #elseif os(macOS) || os(tvOS)
