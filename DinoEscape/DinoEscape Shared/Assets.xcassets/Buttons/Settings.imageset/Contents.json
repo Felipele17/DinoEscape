@@ -1,15 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "settingsLight.pdf",
+      "filename" : "Settings.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "Settings@2x.pdf",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
+      "filename" : "Settings@3x.pdf",
       "idiom" : "universal",
       "scale" : "3x"
     }
