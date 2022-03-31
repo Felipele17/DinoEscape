@@ -46,7 +46,11 @@ class GameOverScene: MyScene {
         let gameOverImage: SKSpriteNode = SKSpriteNode(imageNamed: "TRexGameOver")
         gameOverImage.zPosition = -5
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
+        gameOverImage.position = CGPoint(x: size.width/2, y: size.height/5)
+        gameOverImage.size = CGSize(width:  size.width/1.33, height: size.height/4)
+        
+#elseif os(tvOS)
         gameOverImage.position = CGPoint(x: size.width/2, y: size.height/5)
         gameOverImage.size = CGSize(width:  size.width/1.5, height: size.height/3)
         
@@ -60,7 +64,9 @@ class GameOverScene: MyScene {
         
         let title: SKLabelNode = SKLabelNode(text: "G A M E   O V E R".localized())
         title.fontName = "Aldrich-Regular"
-        #if os(iOS) || os(tvOS)
+        #if os(iOS)
+        title.fontSize = 32
+        #elseif os(tvOS)
         title.fontSize = 65
         #elseif os(macOS)
         title.fontSize = 85
@@ -86,7 +92,9 @@ class GameOverScene: MyScene {
     func createHighScore(name: ScoreTypes, score: Int, posY: Int) {
         let name: SKLabelNode = SKLabelNode(text: "\(name.rawValue)")
         name.fontName = "Aldrich-Regular"
-        #if os(iOS) || os(tvOS)
+        #if os(iOS)
+        name.fontSize = 30
+        #elseif os(tvOS)
         name.fontSize = 45
         #elseif os(macOS)
         name.fontSize = 40
@@ -103,7 +111,7 @@ class GameOverScene: MyScene {
                                     y: frame.height / 1.44 + CGFloat(posY) *  frame.height * 0.20)
         case .phone:
             name.position = CGPoint(x: frame.width / 2 ,
-                                    y: frame.height / 1.35 + CGFloat(posY) *  frame.height * 0.12)
+                                    y: frame.height / 1.40 + CGFloat(posY) *  frame.height * 0.12)
         default:
             print("default")
         }
@@ -116,7 +124,12 @@ class GameOverScene: MyScene {
         
         let score: SKLabelNode = SKLabelNode(text: String(score))
         score.fontName = "Aldrich-Regular"
-        #if os(iOS) || os(tvOS)
+        #if os(iOS)
+        score.fontSize = 45
+        score.position = CGPoint(x: frame.width / 2,
+                                 y: frame.height / 1.52 + CGFloat(posY) * frame.height  * 0.1)
+        
+        #elseif os(tvOS)
         score.fontSize = 45
         score.position = CGPoint(x: frame.width / 2,
                                  y: frame.height / 1.55 + CGFloat(posY) * frame.height  * 0.1)
@@ -186,14 +199,27 @@ class GameOverScene: MyScene {
         }
 #endif
         
+        #if os(iOS)
+        if name == .playAgain {
+            w = size.width / 2.5
+            h = w * texture.size().height / texture.size().width
+        } else {
+            w = size.width / 3.0
+            h = w * texture.size().height / texture.size().width
+        }
+        #endif
+        
         
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-        
         button.position = CGPoint(x: frame.width / 2,
                                   y: frame.height / 2.25  + CGFloat(posY) * button.frame.height * 1.2)
-        
+        #if os(iOS)
+        button.position = CGPoint(x: frame.width / 2,
+                                  y: frame.height / 2  + CGFloat(posY) * button.frame.height * 1.2)
+        #endif
+
         
         button.selectedHandler = {
             switch name {
@@ -215,7 +241,7 @@ class GameOverScene: MyScene {
         setUpScene()
     }
     
-#if os( tvOS )
+#if os(tvOS)
     func addTapGestureRecognizer() {
         let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
         self.scene?.view?.addGestureRecognizer(tapRecognizer)

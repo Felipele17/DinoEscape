@@ -77,6 +77,7 @@
 		13842CEE27E2561800E1F88E /* OFL.txt in Resources */ = {isa = PBXBuildFile; fileRef = 13842CE827E2561800E1F88E /* OFL.txt */; };
 		13842CF127E2784900E1F88E /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
+		13842CF627E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */; };
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
@@ -1096,7 +1097,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1128,7 +1129,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -1161,7 +1162,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -1189,7 +1190,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = JJ7A9ZQ7BD;
+				DEVELOPMENT_TEAM = UZ6JTAUWH8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
