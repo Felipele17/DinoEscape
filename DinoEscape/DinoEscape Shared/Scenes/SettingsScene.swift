@@ -292,16 +292,12 @@ class SettingsScene: MyScene {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
-                #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
-                #endif
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
-                #endif
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
