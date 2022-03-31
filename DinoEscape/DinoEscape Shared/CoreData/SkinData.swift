@@ -51,7 +51,7 @@ class SkinDataModel {
     }
     static func selectSkin(skin: SkinData) throws -> SkinData{
         //setando skin antiga como nao-selecionada
-        var oldSkin = getSkinSelected()
+        let oldSkin = getSkinSelected()
         oldSkin.isSelected = false
         
         //nova skin como selecionada
@@ -78,5 +78,12 @@ class SkinDataModel {
     static func deleteSkin(skin: SkinData) throws {
         context.delete(skin)
         try saveContext()
+    }
+    
+    static func deleteCoreData(skins: [SkinData]) throws {
+        for dino in skins {
+            context.delete(dino)
+            try saveContext()
+        }
     }
 }
