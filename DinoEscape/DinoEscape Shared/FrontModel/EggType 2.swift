@@ -1,4 +1,3 @@
-//
 //  EggType.swift
 //  DinoEscape
 //
@@ -9,6 +8,3 @@ enum EggType: String {
     case daily = "dailyReward"
     case chance = "moreChance"
 }
-
-
-

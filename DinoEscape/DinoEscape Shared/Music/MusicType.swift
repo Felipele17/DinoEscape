@@ -12,4 +12,3 @@ enum MusicType: String {
     case otherScenes = "loungeMusic"
 
 }
-

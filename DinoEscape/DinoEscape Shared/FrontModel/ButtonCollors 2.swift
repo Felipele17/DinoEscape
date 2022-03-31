@@ -18,7 +18,4 @@ enum ButtonCollors: String {
     case yellowselected = "buttonYellowSelected"
     case darkegg = "Eggbutton"
     case lightegg = "EggbuttonSelected"
-    
-    
-    
 }

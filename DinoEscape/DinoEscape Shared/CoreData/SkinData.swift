@@ -10,9 +10,11 @@ import CoreData
 
 class SkinDataModel {
     
-    static var persistentContainer: NSPersistentContainer = {
+    static let shared: SkinDataModel = SkinDataModel()
+    
+    var persistentContainer: NSPersistentContainer = {
         let container = NSPersistentContainer(name: "Model")
-        container.loadPersistentStores{ _, error in
+        container.loadPersistentStores { _, error in
             if let erro = error {
                 preconditionFailure(erro.localizedDescription)
             }
@@ -21,69 +23,81 @@ class SkinDataModel {
         return container
     }()
     
-    static var context: NSManagedObjectContext {
+    var context: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
     
     // salvar
-    static func saveContext() throws{
-        if context.hasChanges{
-            try context.save()
+    func saveContext() {
+        let context = persistentContainer.viewContext
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                let nserror = error as NSError
+                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
+            }
         }
     }
     
     // criar Skin
-    static func createSkin(name: String, image: String, isSelected: Bool, isBought: Bool, price: Int32) throws -> SkinData {
-        guard let skin =  NSEntityDescription.insertNewObject(forEntityName: "SkinData", into: context) as? SkinData else {preconditionFailure()}
+    func createSkin(name: String, image: String, isSelected: Bool, isBought: Bool, price: Int32) -> SkinData {
+        guard let skin =  NSEntityDescription.insertNewObject(forEntityName: "SkinData",
+                                                              into: context) as? SkinData else {preconditionFailure()}
         skin.name = name
         skin.image = image
         skin.isSelected = isSelected
         skin.isBought = isBought
         skin.price = price
-        try saveContext()
+        saveContext()
         return skin
     }
     // editar skin
-    static func buyDino(skin: SkinData) throws -> SkinData{
+    func buyDino(skin: SkinData) -> SkinData{
         skin.isBought = true
-        try saveContext()
+        saveContext()
         return skin
     }
-    static func selectSkin(skin: SkinData) throws -> SkinData{
-        //setando skin antiga como nao-selecionada
+    func selectSkin(skin: SkinData) -> SkinData{
+        // setando skin antiga como nao-selecionada
         let oldSkin = getSkinSelected()
         oldSkin.isSelected = false
         
-        //nova skin como selecionada
+        // nova skin como selecionada
         skin.isSelected = true
-        try saveContext()
+        self.saveContext()
         return skin
     }
     // pesquisar Skin
-    static func getSkins() throws -> [SkinData] {
-        return try context.fetch(SkinData.fetchRequest())
+    func getSkins() -> [SkinData] {
+        let fetchRequest = NSFetchRequest<SkinData>(entityName: "SkinData")
+        do {
+            return try self.persistentContainer.viewContext.fetch(fetchRequest)
+        } catch {
+            print(error)
+        }
+        
+        return []
     }
     
-    static func getSkinSelected() -> SkinData {
-        let dinos = try! self.getSkins()
-        for index in 0..<dinos.count{
-            if dinos[index].isSelected == true{
+    func getSkinSelected() -> SkinData {
+        let dinos = self.getSkins()
+        for index in 0..<dinos.count where dinos[index].isSelected == true {
                 return dinos[index]
-            }
         }
         return dinos[0]
     }
     
-    //deletar
-    static func deleteSkin(skin: SkinData) throws {
+    // deletar
+    func deleteSkin(skin: SkinData) throws {
         context.delete(skin)
-        try saveContext()
+        self.saveContext()
     }
     
-    static func deleteCoreData(skins: [SkinData]) throws {
+    func deleteCoreData(skins: [SkinData]) throws {
         for dino in skins {
             context.delete(dino)
-            try saveContext()
+            self.saveContext()
         }
     }
 }

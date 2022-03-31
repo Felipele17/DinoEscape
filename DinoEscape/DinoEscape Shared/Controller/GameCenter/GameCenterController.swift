@@ -6,6 +6,8 @@
 //
 
 // swiftlint: disable identifier_name
+// swiftlint:disable force_cast
+
 
 import Foundation
 import GameKit

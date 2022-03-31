@@ -10,7 +10,6 @@ import SpriteKit
 import GameController
 
 class GameController{
-    
     static var shared: GameController = {
         let instance = GameController()
         return instance
@@ -28,7 +27,7 @@ class GameController{
     
     var isFirstRun = UserDefaults.standard.bool(forKey: "isFirstRun")
     
-    private init(){
+    private init() {
         let player = Player(name: "DinoRex",
                             color: .yellow,
                             position: CGPoint(x: 0, y: 0),
@@ -37,7 +36,7 @@ class GameController{
                             gameCommand: .PAUSE,
                             powerUp: .none)
         gameData = GameData(player: player)
-        gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
+        gameData.skinSelected = SkinDataModel.shared.getSkinSelected().name ?? "notFound"
         renderer = RenderController()
     }
     
@@ -46,12 +45,12 @@ class GameController{
             player.position = CGPoint(x: 0, y: 0)
             player.size = CGSize(width: 50, height: 50)
             player.life = 3
-            player.powerUp = .none
-            player.gameCommand = .PAUSE
+            player.powerUp = PowerUp.none
+            player.gameCommand = GameCommand.PAUSE
             player.foodBar = 6.0
         }
         gameData.restartGameData()
-        gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
+        gameData.skinSelected = SkinDataModel.shared.getSkinSelected().name ?? "notFound"
         
         #if os(iOS)
         joystickController.virtualController.resetStick()
@@ -257,7 +256,7 @@ class GameController{
             print()
         }
         
-        renderer.drawItem(item: item, x: xInitial, y: yInitial)
+        renderer.drawItem(item: item, posX: xInitial, posY: yInitial)
         
     }
     

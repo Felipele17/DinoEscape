@@ -7,16 +7,14 @@
 
 // swiftlint:disable force_cast
 
-
 import Cocoa
 import SpriteKit
 import GameplayKit
 
 class GameViewController: NSViewController {
-
     override func viewDidLoad() {
-        let dinos = try! SkinDataModel.getSkins()
-        if dinos.count == 0 {
+        let dinos = SkinDataModel.shared.getSkins()
+        if dinos.isEmpty == 0 {
             CreateCoreData.shared.create()
             UserDefaults.standard.set(true, forKey: "music")
             UserDefaults.standard.set(true, forKey: "vibration")
@@ -26,9 +24,6 @@ class GameViewController: NSViewController {
         super.viewDidLoad()
         
         let scene = HomeScene.newGameScene()
-
-        
-
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
 
@@ -40,7 +35,4 @@ class GameViewController: NSViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
     }
-    
-
 }
-

@@ -12,7 +12,7 @@ import SpriteKit
 
 class StoreScene: MyScene {
     
-    let vetor = try! SkinDataModel.getSkins()
+    let vetor = SkinDataModel.shared.getSkins()
     var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000 {
         didSet{
             coinsLabel.text  = "\(coins)"
@@ -59,8 +59,8 @@ class StoreScene: MyScene {
         
         addChild(dinoImage)
         
-        let skins = try! SkinDataModel.getSkins()
-        if skins.count != 0{
+        let skins = SkinDataModel.shared.getSkins()
+        if skins.isEmpty{
             gallery = createGallery()
             addChild(gallery)
             
@@ -267,14 +267,13 @@ class StoreScene: MyScene {
             if image == "selectedButton" {
                 print("selecionado")
             } else if image == "selectButton" {
-                _ = try! SkinDataModel.selectSkin(skin: self.selectedDino)
-                //GameController.shared.gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+                _ = SkinDataModel.shared.selectSkin(skin: self.selectedDino)
                 self.isSelected = "selectedButton"
                 self.gallery = self.createGallery()
                 self.addChild(self.gallery)
             } else if image == "buyButton" {
                 if buyDino() == true {
-                    _ = try! SkinDataModel.buyDino(skin: self.selectedDino)
+                    _ = SkinDataModel.shared.buyDino(skin: self.selectedDino)
                     self.isBought = "purchasedButton"
                     
                     self.gallery = self.createGallery()
@@ -473,10 +472,10 @@ class StoreScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             coin.position = CGPoint(x: size.width/1.5, y: size.height/1.11)
-            coin.size = CGSize(width: width, height: h)
+            coin.size = CGSize(width: width, height: height)
         case .phone:
             coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
-            coin.size = CGSize(width: width, height: h)
+            coin.size = CGSize(width: width, height: height)
         default:
             print("oi")
             

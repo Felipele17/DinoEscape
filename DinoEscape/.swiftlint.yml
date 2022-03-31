@@ -1,10 +1,10 @@
-    disabled_rules:
+disabled_rules:
   - trailing_whitespace
-
-included:
-  - Source
-  - Tests
-
+  - vertical_whitespace_closing_braces
+  - type_name
+  - fatal_error
+  - redundant_type_annotation
+  - line_length
 excluded:
   - Pods
   - ATSwiftLintTest/AppDelegate.swift

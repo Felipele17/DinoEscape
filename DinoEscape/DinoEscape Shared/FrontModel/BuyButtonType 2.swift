@@ -1,4 +1,3 @@
-//
 //  BuyType.swift
 //  DinoEscape
 //

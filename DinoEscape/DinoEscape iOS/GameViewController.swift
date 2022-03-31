@@ -18,7 +18,6 @@ class GameViewController: UIViewController {
         super.viewDidLoad()
         let scene = HomeScene.newGameScene()
 
-
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
         
@@ -29,11 +28,8 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
         skView.showsFPS = true
         skView.showsNodeCount = true
-        
-
     }
 
-    
     override var shouldAutorotate: Bool {
         return true
     }

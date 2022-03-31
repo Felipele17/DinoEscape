@@ -166,7 +166,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
 #endif
         
-        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: height))
+        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         switchButton.position = pos
         
         switchButton.selectedHandler = {

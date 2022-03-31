@@ -15,7 +15,7 @@ class CreateCoreData {
     let prices = [0,1000,100000,1000,1000,1000]
     func create(){
         for index in 0..<dinos.count{
-            _ = try! SkinDataModel.createSkin(name: dinos[index],
+            _ = SkinDataModel.shared.createSkin(name: dinos[index],
                                                    image: images[index],
                                                    isSelected: false,
                                                    isBought: false,
@@ -23,9 +23,9 @@ class CreateCoreData {
         }
         
         //setando o rex
-        let dinos = try! SkinDataModel.getSkins()
+        let dinos = SkinDataModel.shared.getSkins()
         var rex = dinos[0]
-        rex = try! SkinDataModel.buyDino(skin: rex)
-        rex = try! SkinDataModel.selectSkin(skin: rex)
+        rex = SkinDataModel.shared.buyDino(skin: rex)
+        rex = SkinDataModel.shared.selectSkin(skin: rex)
     }
 }

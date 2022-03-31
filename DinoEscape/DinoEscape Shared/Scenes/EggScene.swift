@@ -19,7 +19,7 @@ class EggScene: SKScene {
     var premioDate: String = UserDefaults.standard.string(forKey: "premioDate") ?? "0"
     let formatter = DateFormatter()
     var eggNode = SKSpriteNode()
-
+    
     
     class func newGameScene() -> EggScene {
         let scene = EggScene()
@@ -32,7 +32,7 @@ class EggScene: SKScene {
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         
         let timePassed = calculateHours()
-
+        
         
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         MusicService.shared.playLoungeMusic()
@@ -137,32 +137,26 @@ class EggScene: SKScene {
             guard let self = self else { return }
             if image == .daily {
                 let premio = self.premios[Int.random(in: 0..<self.premios.count)]
-                let skins = try? SkinDataModel.getSkins()
-                
-                if let skins = skins {
-                    for skin in skins {
-                        if skin.name == premio {
-                            self.eggNode.texture = SKTexture(imageNamed: (skin.image ?? "frameTrexBuySelected") + "BuySelected" )
-                            self.eggNode.size = CGSize(width: self.size.height * 0.3, height: self.size.height * 0.3)
-                            if skin.isBought == false {
-                                _ = try! SkinDataModel.buyDino(skin: skin)
-                            } else {
-                                print("repetido")
-                            }
-                            break
-                        }
+                let skins = SkinDataModel.shared.getSkins()
+                for skin in skins where skin.name == premio {
+                    self.eggNode.texture = SKTexture(imageNamed: (skin.image ?? "frameTrexBuySelected") + "BuySelected" )
+                    self.eggNode.size = CGSize(width: self.size.height * 0.3, height: self.size.height * 0.3)
+                    if skin.isBought == false {
+                        _ = SkinDataModel.shared.buyDino(skin: skin)
+                    } else {
+                        print("repetido")
                     }
-                    
-                    self.timerButton.isButtonEnabled = false
-                    self.timerButton.state = .disabled
-
-                    let dateTake = Date()
-                    let dateString = self.formatter.string(from: dateTake)
-                    
-                    UserDefaults.standard.set(dateString, forKey: "premioDate")
-
-                    
+                    break
                 }
+                
+                self.timerButton.isButtonEnabled = false
+                self.timerButton.state = .disabled
+                
+                let dateTake = Date()
+                let dateString = self.formatter.string(from: dateTake)
+                
+                UserDefaults.standard.set(dateString, forKey: "premioDate")
+                
             }
         }
         
@@ -175,12 +169,12 @@ class EggScene: SKScene {
         if let dateTaken = dateTaken {
             let diffSeconds = Date().timeIntervalSinceReferenceDate - dateTaken.timeIntervalSinceReferenceDate
             let hoursPassed = diffSeconds/(60.0 * 60.0)
-                        
+            
             return hoursPassed
-
+            
         }
         return 25
-
+        
     }
     
     func createSegButton(image: SegmentageType, pos: Int) {
