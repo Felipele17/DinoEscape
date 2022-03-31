@@ -123,6 +123,10 @@ class SettingsScene: MyScene {
         
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
+        #if !os(tvOS)
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        addChild(btn3)
+        #endif
         
         addChild(btn)
         addChild(btn2)
@@ -298,8 +302,8 @@ class SettingsScene: MyScene {
         switchButton.selectedHandler = {
             switch type {
             case .music:
-                MusicService.shared.updateUserDefaults()
-#if os(iOS)
+                _ = MusicService.shared.updateUserDefaults()
+                #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
 #endif
                 MusicService.shared.playLoungeMusic()

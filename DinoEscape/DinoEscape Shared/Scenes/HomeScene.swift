@@ -53,12 +53,10 @@ class HomeScene: MyScene {
         
         
         
-#if os(macOS)
+#if os(macOS) || os(tvOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
 #elseif os(iOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
-#elseif os(tvOS)
-        let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
 #endif
         
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -102,6 +100,11 @@ class HomeScene: MyScene {
         addChild(btn)
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
         addChild(btn2)
+        
+        #if !os(tvOS)
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        addChild(btn3)
+        #endif
         
 #if os(iOS)
         switch UIDevice.current.userInterfaceIdiom{
