@@ -39,9 +39,7 @@ class SettingsPopUpScene: SKSpriteNode {
         print(background.position)
         self.addChild(background)
         
-#if os(iOS) || os(tvOS)
-        switch UIDevice.current.userInterfaceIdiom {
-        case .phone:
+#if os(iOS)
             background.addChild(createLabel(text: "Pause".localized(),
                                             fontSize: size.height/13,
                                             fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
@@ -69,39 +67,27 @@ class SettingsPopUpScene: SKSpriteNode {
             
             btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
             btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
-        case .pad:
-            background.addChild(createLabel(text: "Pause".localized(),
-                                            fontSize: size.height/13,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: 0, y: background.frame.size.height/3),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.center
-                                           ))
-            
-            background.addChild(createLabel(text: "Music".localized(),
-                                            fontSize: size.height/20,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            
-            background.addChild(createLabel(text: "Vibration".localized(),
-                                            fontSize: size.height/20,
-                                            fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                                            position: CGPoint(x: background.frame.size.width/3 * -1, y: background.frame.size.height/8 * -0.2),
-                                            alignmentH: SKLabelHorizontalAlignmentMode.left
-                                           ))
-            
-            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
-            
-            background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8 * -0.2), type: .vibration))
-            
-            btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
-            btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))        case .tv:
-            print("Config tv")
-        default:
-            print("qualquer")
-            
-        }
+        
+#elseif os(tvOS)
+        background.addChild(createLabel(text: "Pause".localized(),
+                                        fontSize: size.height/8,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.center
+                                       ))
+        
+        background.addChild(createLabel(text: "Music".localized(),
+                                        fontSize: size.height/14,
+                                        fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
+                                        position: CGPoint(x: background.frame.size.width/5 * -1, y: background.frame.size.height/8),
+                                        alignmentH: SKLabelHorizontalAlignmentMode.left
+                                       ))
+
+        
+        background.addChild(createSwitch(pos: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/8), type: .music))
+
+        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
+        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/4.0 * -1))
         
 #elseif os(macOS)
         background.addChild(createLabel(text: "Pause".localized(),
