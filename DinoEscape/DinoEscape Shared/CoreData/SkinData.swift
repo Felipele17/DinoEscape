@@ -51,7 +51,7 @@ class SkinDataModel {
     }
     static func selectSkin(skin: SkinData) throws -> SkinData{
         //setando skin antiga como nao-selecionada
-        var oldSkin = getSkinSelected()
+        let oldSkin = getSkinSelected()
         oldSkin.isSelected = false
         
         //nova skin como selecionada
