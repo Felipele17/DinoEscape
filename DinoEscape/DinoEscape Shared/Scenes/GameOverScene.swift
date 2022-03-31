@@ -95,7 +95,7 @@ class GameOverScene: MyScene {
         #if os(iOS)
         name.fontSize = 30
         #elseif os(tvOS)
-        name.fontsize = 45
+        name.fontSize = 45
         #elseif os(macOS)
         name.fontSize = 40
         #endif
