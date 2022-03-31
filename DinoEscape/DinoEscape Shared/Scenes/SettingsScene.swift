@@ -125,7 +125,7 @@ class SettingsScene: MyScene {
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
         #if !os(tvOS)
         btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
-        addChild(btn3)
+//        addChild(btn3)
         #endif
         
         addChild(btn)
