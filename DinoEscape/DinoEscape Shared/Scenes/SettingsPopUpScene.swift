@@ -145,7 +145,6 @@ class SettingsPopUpScene: SKSpriteNode {
     
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
         
-        var state: Bool = true
         let texture: SKTexture
         
         switch type {
@@ -173,12 +172,12 @@ class SettingsPopUpScene: SKSpriteNode {
         switchButton.selectedHandler = {
             switch type {
             case .music:
-                MusicService.shared.updateUserDefaults()
+                _ = MusicService.shared.updateUserDefaults()
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
-                HapticService.shared.updateUserDefaults()
+                _ = HapticService.shared.updateUserDefaults()
                 #if os(iOS)
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 #endif

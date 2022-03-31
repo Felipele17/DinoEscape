@@ -37,7 +37,7 @@ class GameController{
                             gameCommand: .PAUSE,
                             powerUp: .none)
         gameData = GameData(player: player)
-        gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+        gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
         renderer = RenderController()
     }
     
@@ -51,7 +51,7 @@ class GameController{
             player.foodBar = 6.0
         }
         gameData.restartGameData()
-        gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
+        gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
         
         #if os(iOS)
         joystickController.virtualController.resetStick()
