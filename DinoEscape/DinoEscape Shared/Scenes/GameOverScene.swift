@@ -216,8 +216,20 @@ class GameOverScene: MyScene {
         button.position = CGPoint(x: frame.width / 2,
                                   y: frame.height / 2.25  + CGFloat(posY) * button.frame.height * 1.2)
         #if os(iOS)
-        button.position = CGPoint(x: frame.width / 2,
-                                  y: frame.height / 2  + CGFloat(posY) * button.frame.height * 1.2)
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            button.position = CGPoint(x: frame.width / 2,
+                                      y: frame.height / 2  + CGFloat(posY) * button.frame.height * 1.2)
+            
+        case .pad:
+            button.position = CGPoint(x: frame.width / 2,
+                                      y: frame.height / 2.25  + CGFloat(posY) * button.frame.height * 1.2)
+        default:
+            "Não há posição para o botão"
+        }
+        
+       
         #endif
 
         
