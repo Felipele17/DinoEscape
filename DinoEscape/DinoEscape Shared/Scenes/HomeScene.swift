@@ -252,7 +252,7 @@ class HomeScene: MyScene {
         button.selectedHandler = {
             self.video.removeFromParent()
             if name == .play {
-                var scene = GameScene.newGameScene()
+                let scene = GameScene.newGameScene()
                 print(UserDefaults.standard.integer(forKey: "DinoCoins"))
 
                 self.view?.presentScene(scene)

@@ -10,9 +10,7 @@ import SpriteKit
 
 
 class SettingsScene: MyScene {
-    
-    var state: Bool = true
-    
+        
     // buttons
     var btn = SKButton()
     var btn2 = SKButton()
@@ -264,9 +262,7 @@ class SettingsScene: MyScene {
     }
   
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
-        
-        var state: Bool = true
-        
+                
         let texture: SKTexture
         
         switch type {
