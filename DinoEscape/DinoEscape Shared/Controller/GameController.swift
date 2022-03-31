@@ -26,7 +26,7 @@ class GameController{
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()
     
-    var isFirstRun = true
+    var isFirstRun = UserDefaults.standard.bool(forKey: "isFirstRun")
     
     private init(){
         let player = Player(name: "DinoRex",
@@ -91,8 +91,8 @@ class GameController{
         recursiveActionItems(time: 1.5)
         
         //onboard
+        print("oi",isFirstRun)
         if isFirstRun{
-            self.renderer.contagemLabel.removeFromParent()
             self.onboardGame()
         }
         else{
@@ -129,6 +129,7 @@ class GameController{
     }
     
     func onboardGame(){
+        UserDefaults.standard.setValue(false, forKey: "isFirstRun")
         gameData.gameStatus = .pause
         pauseActionItems()
         renderer.showOnboard()

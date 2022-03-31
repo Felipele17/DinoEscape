@@ -457,10 +457,10 @@
 		4AEAEEE527D676AE00BBD809 /* DinoEscape Shared */ = {
 			isa = PBXGroup;
 			children = (
-				133D058527EE591F00DA8269 /* HapticFeedback */,
 				DF2F5C5927ECFD140018C99C /* Video */,
 				0639B85D27EBB3AC0041C408 /* Languages */,
 				B0F1F07D27EB9E18009A9B1F /* Music */,
+				133D058527EE591F00DA8269 /* HapticFeedback */,
 				DF20482E27EA48A000C0F515 /* GameCenter */,
 				1346CD3A27E905B600014B87 /* CoreData */,
 				13842CE627E2561800E1F88E /* Aldrich */,
