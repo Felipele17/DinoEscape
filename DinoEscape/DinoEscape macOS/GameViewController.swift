@@ -17,16 +17,12 @@ class GameViewController: NSViewController {
             CreateCoreData.shared.create()
             UserDefaults.standard.set(true, forKey: "music")
             UserDefaults.standard.set(true, forKey: "vibration")
+            UserDefaults.standard.set(true, forKey: "isFirstRun")
         }
-//        print("rex",dinos[0].image)
-//        print("rex",dinos[0].isBought)
-//        print("rex",dinos[0].isSelected)
+        
+        #warning("deletar coredata -> apenas para testes")
+        //try! SkinDataModel.deleteCoreData(skins: dinos)
 
-        
-//        for dino in dinos{
-//            try! SkinDataModel.deleteSkin(skin: dino)
-//        }
-        
         super.viewDidLoad()
         
         //let scene = EggScene.newGameScene()
@@ -50,6 +46,7 @@ class GameViewController: NSViewController {
         skView.showsFPS = true
         skView.showsNodeCount = true
     }
+    
 
 }
 
