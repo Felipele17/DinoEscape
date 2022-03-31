@@ -275,10 +275,20 @@ class RenderController {
     }
     
     func showPauseMenu() {
-        let pauseScene1 = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
-        pauseScene1.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
-        pauseScene1.zPosition = 10
-        scene.addChild(pauseScene1)
+        let pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        pauseScene.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        pauseScene.zPosition = 10
+        scene.addChild(pauseScene)
+        
+    }
+    
+    func showOnboard() {
+        self.contagemLabel.removeFromParent()
+
+        let onboard = OnboardScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        onboard.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        onboard.zPosition = 10
+        scene.addChild(onboard)
         
     }
     
