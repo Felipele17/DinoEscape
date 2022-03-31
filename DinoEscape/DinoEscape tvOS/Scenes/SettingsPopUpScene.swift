@@ -108,7 +108,7 @@ class SettingsPopUpScene: SKSpriteNode {
         switchButton.selectedHandler = {
             switch type {
             case .music:
-                MusicService.shared.updateUserDefaults()
+                _ = MusicService.shared.updateUserDefaults()
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
             case .vibration:
