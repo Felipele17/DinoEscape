@@ -294,13 +294,11 @@ class SettingsScene: MyScene {
 #if os(macOS) || os(tvOS)
         switchButton.setScale(0.5)
 #endif
-        
         switchButton.selectedHandler = {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
-#endif
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
@@ -313,8 +311,7 @@ class SettingsScene: MyScene {
         }
         return switchButton
     }
-    
-    
+
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint) {
         let label: SKLabelNode = SKLabelNode(text: text)
         label.fontName = "Aldrich-Regular"
