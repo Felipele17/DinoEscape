@@ -39,9 +39,9 @@ class SettingsScene: MyScene {
         removeAllActions()
         
         
-#if os(macOS)
+#if os(macOS) ||  os(tvOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
-#elseif os(tvOS) || os(iOS)
+#elseif os(iOS)
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
 #endif
         
@@ -50,7 +50,7 @@ class SettingsScene: MyScene {
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -67,7 +67,7 @@ class SettingsScene: MyScene {
         subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         
         addChild(subtitle)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         let title: SKLabelNode = SKLabelNode(text: "D I N O  E S C A P E")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
@@ -178,12 +178,6 @@ class SettingsScene: MyScene {
             print("oi")
         }
         
-#elseif os(tvOS)
-        title.setScale(1.5)
-        title.position = CGPoint(x: size.width/2, y: size.height/1.09)
-        subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
-        subtitle.setScale(1.5)
-        
 #elseif os(macOS)
         title.fontSize = 120
         title.position = CGPoint(x: size.width/2, y: size.height/1.11)
@@ -191,6 +185,14 @@ class SettingsScene: MyScene {
         btn.setScale(0.6)
         btn2.setScale(0.6)
         btn3.setScale(0.6)
+        
+#elseif os(tvOS)
+        title.fontSize = 120
+        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
+        
+        btn.setScale(0.5)
+        btn2.setScale(0.5)
+        
         
 #endif
     }
@@ -208,7 +210,7 @@ class SettingsScene: MyScene {
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
         
@@ -217,6 +219,10 @@ class SettingsScene: MyScene {
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/7.6)
         title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.8, y: size.height/27)
         
+#elseif os(tvOS)
+        title.fontSize = 40
+        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/7.6)
+        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/27)
 #endif
         
         button.selectedHandler = {
