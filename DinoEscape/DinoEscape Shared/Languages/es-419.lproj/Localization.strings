@@ -35,4 +35,8 @@
 // GameOverScene
 "G A M E   O V E R" = "F I N   D E L   J U E G O";
 
-
+// OnboardScene
+"Escape the meteors!" = "¡Escapa de los meteoros!" ;
+"Avoid bad foods" = "Evita las malas comidas" ;
+"Collect good foods" = "Recoge buena comida" ;
+"Earn power-ups!" = "¡Gane Potenciadores" ;
