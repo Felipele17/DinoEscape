@@ -26,13 +26,15 @@ class GameController{
     var renderer: RenderController
     let joystickController: JoystickController = JoystickController()
     
+    var isFirstRun = UserDefaults.standard.bool(forKey: "isFirstRun")
+    
     private init(){
         let player = Player(name: "DinoRex",
                             color: .yellow,
                             position: CGPoint(x: 0, y: 0),
                             size: CGSize(width: 50, height: 50),
                             skin: .dino1,
-                            gameCommand: .UP,
+                            gameCommand: .PAUSE,
                             powerUp: .none)
         gameData = GameData(player: player)
         gameData.skinSelected = try! SkinDataModel.getSkinSelected().name ?? "notFound"
@@ -45,7 +47,7 @@ class GameController{
             player.size = CGSize(width: 50, height: 50)
             player.life = 3
             player.powerUp = .none
-            player.gameCommand = .UP
+            player.gameCommand = .PAUSE
             player.foodBar = 6.0
         }
         gameData.restartGameData()
@@ -60,7 +62,7 @@ class GameController{
     // MARK: Setup e Set Scene
     
     func setScene(scene: MyScene){
-     
+        
         renderer.scene = scene
         
     }
@@ -88,18 +90,14 @@ class GameController{
         renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
         recursiveActionItems(time: 1.5)
         
-        var runCount = 3 {
-            didSet {
-                renderer.contagemLabel.text = "\(runCount)"
-            }
+        //onboard
+        print("oi",isFirstRun)
+        if isFirstRun{
+            self.onboardGame()
         }
-        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
-            runCount -= 1
-            if runCount == 0 {
-                self.gameData.gameStatus = .playing
-                self.renderer.contagemLabel.removeFromParent()
-                timer.invalidate()
-            }
+        else{
+            //contagem regressiva
+            self.counterGame()
         }
 
     }
@@ -120,17 +118,40 @@ class GameController{
         
     }
     
-    
+    // MARK: Estados do jogo
     func pauseGame() {
         if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
-
             renderer.showPauseMenu()
             
         }
     }
     
+    func onboardGame(){
+        UserDefaults.standard.setValue(false, forKey: "isFirstRun")
+        gameData.gameStatus = .pause
+        pauseActionItems()
+        renderer.showOnboard()
+    }
+    
+    func counterGame(){
+        var runCount = 3 {
+            didSet {
+                renderer.contagemLabel.text = "\(runCount)"
+            }
+        }
+        Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
+            runCount -= 1
+            if runCount == 0 {
+                self.gameData.gameStatus = .playing
+                self.renderer.contagemLabel.removeFromParent()
+                timer.invalidate()
+            }
+        }
+    }
+    
+    //MARK: Movimentacao
 #if os(tvOS)
     func getSwipe(swipe: UISwipeGestureRecognizer){
         self.swipe = swipe
@@ -145,7 +166,7 @@ class GameController{
     
 #endif
     
-    //MARK: Movimentacao
+   
     func movePlayer(dx: CGFloat, dy: CGFloat){
         
         if let player = gameData.player {
@@ -301,7 +322,7 @@ class GameController{
         renderer.scene.removeAction(forKey: "aKey")
     }
     
-    // MARK: Power-ups
+    // MARK: Power-ups e New Era
     func getPowerUp() -> PowerUp{
         let powerUps: [PowerUp] = [.slow, .allFood, .doubleXP]
         return powerUps[Int.random(in: 0..<powerUps.count)]
