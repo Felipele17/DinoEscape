@@ -366,6 +366,7 @@ class SettingsScene: MyScene {
             
         } else if (switch2.isFocused) {
             switchToggle(switchButton: switch2)
+            MusicService.shared.playLoungeMusic()
             
         } else if (switch3.isFocused) {
             switchToggle(switchButton: switch3)
@@ -383,9 +384,14 @@ class SettingsScene: MyScene {
         
         if toggleON {
             switchButton.texture = SKTexture(imageNamed: "switchON")
+            MusicService.shared.updateUserDefaults()
+            MusicService.shared.playLoungeMusic()
+
             
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            MusicService.shared.updateUserDefaults()
+
             
         }
         

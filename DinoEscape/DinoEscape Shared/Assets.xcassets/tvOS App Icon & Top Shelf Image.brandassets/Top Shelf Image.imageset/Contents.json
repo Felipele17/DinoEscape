@@ -1,22 +1,22 @@
 {
   "images" : [
     {
-      "filename" : "wallpaperPequenoo-1.pdf",
+      "filename" : "1920x720.jpg",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
-      "filename" : "wallpaperGrandee-1.pdf",
+      "filename" : "3840x1440.jpg",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
-      "filename" : "wallpaperPequenoo.pdf",
+      "filename" : "1920x720-1.jpg",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
     {
-      "filename" : "wallpaperGrandee.pdf",
+      "filename" : "3840x1440-1.jpg",
       "idiom" : "tv-marketing",
       "scale" : "2x"
     }

@@ -42,7 +42,10 @@ class OnboardScene: SKSpriteNode {
             addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3)
             btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -3.3))
         case .pad:
-            print("Config ipad")
+            let sizes: [CGFloat] = [1,-0.1,-1.2,-2.2]
+            let imageSize = CGSize(width: background.frame.size.width * 0.3, height: background.frame.size.height * 0.2)
+            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -3.3))
         case .tv:
             print("Config tv")
         default:
