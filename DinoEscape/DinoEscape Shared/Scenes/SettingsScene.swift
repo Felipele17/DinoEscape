@@ -20,6 +20,9 @@ class SettingsScene: MyScene {
     var switch2 = SKButton()
     var switch3 = SKButton()
     
+    //invisible button
+    var guideButton = SKButton()
+
     var toggleON: Bool = true
     
     let node = SKButton()
@@ -110,6 +113,10 @@ class SettingsScene: MyScene {
                     fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
                     position: CGPoint(x: size.width/2.9, y: size.height/1.9)
         )
+
+        guideButton.position = CGPoint(x: self.size.width/1.5, y:  self.size.height/15)
+        guideButton.size = CGSize(width: 90, height: 90)
+        addChild(guideButton)
         
 #endif
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))

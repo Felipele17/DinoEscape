@@ -15,6 +15,9 @@ class SettingsPopUpScene: SKSpriteNode {
     var switchButton = SKButton()
     var toggleON: Bool = true
 
+    //invisible button
+    var guideButton = SKButton()
+    
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -64,6 +67,11 @@ class SettingsPopUpScene: SKSpriteNode {
 
         btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/6.0 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
+        
+        guideButton.position = CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1)
+        guideButton.size = CGSize(width: 50, height: 50)
+        //guideButton.color = .red
+        addChild(guideButton)
         
         background.addChild(btnBack)
         background.addChild(btnHome)
