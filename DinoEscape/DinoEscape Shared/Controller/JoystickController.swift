@@ -117,6 +117,7 @@ class JoystickController{
     
     func unregisterGameController() {
         gamePadLeft = nil
+        buttonX = nil 
     }
     
     func checkForKeyboard() {
