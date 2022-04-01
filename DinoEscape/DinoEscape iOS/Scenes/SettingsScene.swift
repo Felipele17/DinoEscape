@@ -19,13 +19,14 @@ class SettingsScene: MyScene {
     // switches
     var switch2 = SKButton()
     var switch3 = SKButton()
+    var toggleON: Bool = true
     
     //invisible button
     var guideButton = SKButton()
 
-    var toggleON: Bool = true
+    // music
+    var musicButton = SKButton()
     
-    let node = SKButton()
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -34,6 +35,11 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
+        
+        #if os(tvOS)
+        addTapGestureRecognizer()
+        #endif
+        
         MusicService.shared.playLoungeMusic()
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         removeAllChildren()
@@ -213,6 +219,9 @@ class SettingsScene: MyScene {
         switchButton.selectedHandler = {
             switch type {
             case .music:
+                #if os(tvOS)
+                self.addTapGestureRecognizer()
+                #endif
                 MusicService.shared.updateUserDefaults()
                 switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()

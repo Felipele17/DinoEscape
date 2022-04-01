@@ -18,6 +18,9 @@ class SettingsPopUpScene: SKSpriteNode {
     //invisible button
     var guideButton = SKButton()
     
+    // pressing buttons
+    //var isPressed = UITapGestureRecognizer()
+    
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -68,13 +71,14 @@ class SettingsPopUpScene: SKSpriteNode {
         btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/6.0 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
         
+        
         guideButton.position = CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1)
         guideButton.size = CGSize(width: 50, height: 50)
         //guideButton.color = .red
         addChild(guideButton)
         
-        background.addChild(btnBack)
-        background.addChild(btnHome)
+//        background.addChild(btnBack)
+//        background.addChild(btnHome)
         
         
 
@@ -106,9 +110,9 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture: SKTexture
         switch type {
         case .music:
-#if os(tvOS)
-addTapGestureRecognizer()
-#endif
+            #if os(tvOS)
+            addTapGestureRecognizer()
+            #endif
             texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
         case .vibration:
             texture = SKTexture(imageNamed: "\(changeSwitchVibration())")
@@ -194,9 +198,15 @@ addTapGestureRecognizer()
     
     @objc func tapped(sender: AnyObject) {
         
-   if (switchButton.isFocused) {
+        if (switchButton.isFocused) {
             switchToggle(switchButton: switchButton)
+            MusicService.shared.playLoungeMusic()
+        }
+        
+        else if (btnHome.isFocused) {
             
+            GameController.shared.restartGame()
+            self.scene?.view?.presentScene(HomeScene.newGameScene())
         }
         
         else {
@@ -210,10 +220,13 @@ addTapGestureRecognizer()
         
         if toggleON {
             switchButton.texture = SKTexture(imageNamed: "switchON")
+            MusicService.shared.updateUserDefaults()
+            MusicService.shared.playLoungeMusic()
             
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
-            
+            MusicService.shared.updateUserDefaults()
+
         }   
     }
     
