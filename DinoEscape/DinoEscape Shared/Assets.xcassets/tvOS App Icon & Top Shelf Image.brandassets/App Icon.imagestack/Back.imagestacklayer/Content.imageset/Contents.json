@@ -1,12 +1,12 @@
 {
   "images" : [
     {
-      "filename" : "fundoPequeno1 2.pdf",
+      "filename" : "image 220fundo.jpg",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
-      "filename" : "fundoPequeno1-1 2.pdf",
+      "filename" : "fundo800x480.jpg",
       "idiom" : "tv",
       "scale" : "2x"
     }

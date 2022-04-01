@@ -61,9 +61,9 @@ class GameOverScene: MyScene {
         createScore(score: score)
         
         
-        playAgain = createButton(name: .menu, posY: 0)
+        playAgain = createButton(name: .playAgain, posY: 1)
         addChild(playAgain)
-        menuDino = createButton(name: .playAgain, posY: 1)
+        menuDino = createButton(name: .menu, posY: 0)
         addChild(menuDino)
     }
     
