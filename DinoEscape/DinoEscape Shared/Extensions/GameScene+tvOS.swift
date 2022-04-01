@@ -34,8 +34,13 @@ extension GameScene {
         play.addTarget(self, action: #selector(self.respondToPlay(gesture:)))
         //play.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
         
+        let menu = UITapGestureRecognizer()
+        menu.addTarget(self, action: #selector(self.respondToMenu(gesture: )))
+        menu.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+        
         self.view?.addGestureRecognizer(pause)
         self.view?.addGestureRecognizer(play)
+        self.view?.addGestureRecognizer(menu)
         self.view?.addGestureRecognizer(swipeUp)
         self.view?.addGestureRecognizer(swipeDown)
         self.view?.addGestureRecognizer(swipeLeft)
@@ -97,6 +102,12 @@ extension GameScene {
         if let tapGesture = gesture as? UITapGestureRecognizer {
             //GameController.shared.getPlay(play: tapGesture)
             self.removeFromParent()
+        }
+    }
+    
+    @objc func respondToMenu(gesture: UITapGestureRecognizer) {
+        if let tapGesture = gesture as? UITapGestureRecognizer {
+            GameController.shared.getMenu(menu: tapGesture)
         }
     }
     
