@@ -501,7 +501,6 @@
 				133F7B7A27D67E110012CFDD /* View */,
 				B0EEDD8227DFB1A000372B2F /* FrontModel */,
 				B0C948F527DBEA3000B671EA /* Nodes */,
-				B0C948E727DBDA9600B671EA /* Scenes */,
 			);
 			path = "DinoEscape Shared";
 			sourceTree = "<group>";
@@ -558,13 +557,6 @@
 			children = (
 			);
 			name = "Recovered References";
-			sourceTree = "<group>";
-		};
-		B0C948E727DBDA9600B671EA /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Scenes;
 			sourceTree = "<group>";
 		};
 		B0C948F527DBEA3000B671EA /* Nodes */ = {
