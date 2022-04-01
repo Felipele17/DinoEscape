@@ -32,13 +32,10 @@ extension GameScene {
         
         let play = UITapGestureRecognizer()
         play.addTarget(self, action: #selector(self.respondToPlay(gesture:)))
-        play.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+        //play.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
         
         self.view?.addGestureRecognizer(pause)
-        if ((play.view?.isFocused) != nil) {
-            self.view?.addGestureRecognizer(play)
-        }
-        
+        self.view?.addGestureRecognizer(play)
         self.view?.addGestureRecognizer(swipeUp)
         self.view?.addGestureRecognizer(swipeDown)
         self.view?.addGestureRecognizer(swipeLeft)
@@ -98,7 +95,8 @@ extension GameScene {
     
     @objc func respondToPlay(gesture: UITapGestureRecognizer) {
         if let tapGesture = gesture as? UITapGestureRecognizer {
-            GameController.shared.getPlay(play: tapGesture)
+            //GameController.shared.getPlay(play: tapGesture)
+            self.removeFromParent()
         }
     }
     
