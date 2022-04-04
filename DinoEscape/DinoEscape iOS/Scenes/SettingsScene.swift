@@ -51,7 +51,7 @@ class SettingsScene: MyScene {
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
         
-        let title: SKLabelNode = SKLabelNode(text: "D I N O")
+        let title: SKLabelNode = SKLabelNode(text: "R U N")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -59,7 +59,7 @@ class SettingsScene: MyScene {
         title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         addChild(title)
         
-        let subtitle: SKLabelNode = SKLabelNode(text: "E S C A P E")
+        let subtitle: SKLabelNode = SKLabelNode(text: "D I N O,  R U N !")
         subtitle.fontName = "Aldrich-Regular"
         subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -114,7 +114,7 @@ class SettingsScene: MyScene {
             
         case .phone:
             if UIDevice.current.name == "iPhone 8" {
-                title.fontSize = 40
+                title.fontSize = 35
                 title.position = CGPoint(x: size.width/2, y: size.height/1.07)
                 
                 subtitle.fontSize = 40
@@ -125,7 +125,7 @@ class SettingsScene: MyScene {
                 btn3.setScale(0.9)
                 
             } else {
-                title.fontSize = 40
+                title.fontSize = 35
                 title.position = CGPoint(x: size.width/2, y: size.height/1.09)
                 
                 subtitle.fontSize = 40
