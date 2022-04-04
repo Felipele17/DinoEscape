@@ -68,7 +68,7 @@ class SettingsPopUpScene: SKSpriteNode {
 
         HapticService.shared.addVibration(haptic: "Haptic")
 
-        btnBack = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/6.0 * -1))
+        btnBack = createBackButton(position: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1))
         btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
         
         
@@ -76,8 +76,10 @@ class SettingsPopUpScene: SKSpriteNode {
         guideButton.size = CGSize(width: 50, height: 50)
         //guideButton.color = .red
         addChild(guideButton)
-        
-//        background.addChild(btnBack)
+        #if os(tvOS)
+        addTapGestureRecognizer()
+        #endif
+        background.addChild(btnBack)
 //        background.addChild(btnHome)
         
         
@@ -87,6 +89,9 @@ class SettingsPopUpScene: SKSpriteNode {
     func changeSwitchMusic() -> String {
         var imageName : String
         if UserDefaults.standard.bool(forKey: "music") {
+            #if os(tvOS)
+            addTapGestureRecognizer()
+            #endif
             imageName = "switchON"
         
         } else {
@@ -203,10 +208,13 @@ class SettingsPopUpScene: SKSpriteNode {
             MusicService.shared.playLoungeMusic()
         }
         
-        else if (btnHome.isFocused) {
+        else if (btnBack.isFocused) {
             
-            GameController.shared.restartGame()
-            self.scene?.view?.presentScene(HomeScene.newGameScene())
+//            GameController.shared.restartGame()
+//            self.scene?.view?.presentScene(HomeScene.newGameScene())
+            self.removeFromParent()
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
         }
         
         else {

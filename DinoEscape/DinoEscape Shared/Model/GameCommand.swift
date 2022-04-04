@@ -15,4 +15,6 @@ enum GameCommand: String {
     case LEFT = "Left"
     case DEAD = "dead"
     case PAUSE = "Pause"
+    case PLAY = "Play"
+    case HOME = "Home"
 }

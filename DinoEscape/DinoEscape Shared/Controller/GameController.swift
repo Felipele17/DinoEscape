@@ -130,6 +130,15 @@ class GameController{
         }
     }
     
+    func backToHome(){
+        renderer.scene = HomeScene.newGameScene()
+    }
+    
+    func playGame(){
+        print("oiii")
+    }
+    
+    
     func onboardGame(){
         UserDefaults.standard.setValue(false, forKey: "isFirstRun")
         gameData.gameStatus = .pause
@@ -255,12 +264,15 @@ class GameController{
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
             item.vx = gameData.velocidadeGlobal
             
-            
         case .NONE:
             print()
         case .DEAD:
             print()
         case .PAUSE:
+            print()
+        case .PLAY:
+            print()
+        case .HOME:
             print()
         }
         

@@ -116,7 +116,7 @@ extension SKButton {
     }
     
     #elseif os(tvOS) || os(iOS)
-        override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
             if isButtonEnabled{
                 state = .selected
             }
