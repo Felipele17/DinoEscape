@@ -135,6 +135,9 @@ extension SKButton {
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
+    func updateClick(){
+        state = .selected
+    }
     #endif
 }
 

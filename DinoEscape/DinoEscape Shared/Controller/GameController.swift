@@ -94,6 +94,8 @@ class GameController{
         
         //onboard
         print("oi",isFirstRun)
+        
+        #if os(iOS) || os(macOS)
         if isFirstRun{
             self.onboardGame()
         }
@@ -101,6 +103,9 @@ class GameController{
             //contagem regressiva
             self.counterGame()
         }
+        #else
+            self.counterGame()
+        #endif
 
     }
     // MARK: Update
