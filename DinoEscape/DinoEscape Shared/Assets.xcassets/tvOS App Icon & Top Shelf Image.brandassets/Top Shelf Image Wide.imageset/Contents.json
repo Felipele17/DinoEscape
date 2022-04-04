@@ -1,22 +1,22 @@
 {
   "images" : [
     {
-      "filename" : "frameBackground1.pdf",
+      "filename" : "image 230.pdf",
       "idiom" : "tv",
       "scale" : "1x"
     },
     {
-      "filename" : "frameBackground2.pdf",
+      "filename" : "image 231-2x.pdf",
       "idiom" : "tv",
       "scale" : "2x"
     },
     {
-      "filename" : "frameBackground1-1.pdf",
+      "filename" : "image 230-1.pdf",
       "idiom" : "tv-marketing",
       "scale" : "1x"
     },
     {
-      "filename" : "frameBackground2-1.pdf",
+      "filename" : "image 231-2x-1.pdf",
       "idiom" : "tv-marketing",
       "scale" : "2x"
     }
