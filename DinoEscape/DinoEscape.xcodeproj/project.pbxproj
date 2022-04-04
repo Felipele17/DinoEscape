@@ -216,17 +216,17 @@
 		4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPopUpScene+tvOS.swift"; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
-		4AEAEEEE27D676B000BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEAEEEE27D676B000BBD809 /* Run Dino, Run!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run Dino, Run!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEAEEF127D676B000BBD809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEAEEF327D676B000BBD809 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4AEAEEF627D676B000BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AEAEEF927D676B000BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4AEAEEFF27D676B100BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEAEEFF27D676B100BBD809 /* Run Dino, Run!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run Dino, Run!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEAEF0127D676B100BBD809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEAEF0327D676B100BBD809 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4AEAEF0627D676B100BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4AEAEF0927D676B100BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		4AEAEF0F27D676B100BBD809 /* DinoEscape.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DinoEscape.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		4AEAEF0F27D676B100BBD809 /* Run Dino, Run!.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Run Dino, Run!.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AEAEF1127D676B100BBD809 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		4AEAEF1327D676B100BBD809 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		4AEAEF1627D676B100BBD809 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -508,9 +508,9 @@
 		4AEAEEEF27D676B000BBD809 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				4AEAEEEE27D676B000BBD809 /* DinoEscape.app */,
-				4AEAEEFF27D676B100BBD809 /* DinoEscape.app */,
-				4AEAEF0F27D676B100BBD809 /* DinoEscape.app */,
+				4AEAEEEE27D676B000BBD809 /* Run Dino, Run!.app */,
+				4AEAEEFF27D676B100BBD809 /* Run Dino, Run!.app */,
+				4AEAEF0F27D676B100BBD809 /* Run Dino, Run!.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -639,7 +639,7 @@
 			);
 			name = "DinoEscape iOS";
 			productName = "DinoEscape iOS";
-			productReference = 4AEAEEEE27D676B000BBD809 /* DinoEscape.app */;
+			productReference = 4AEAEEEE27D676B000BBD809 /* Run Dino, Run!.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4AEAEEFE27D676B100BBD809 /* DinoEscape tvOS */ = {
@@ -656,7 +656,7 @@
 			);
 			name = "DinoEscape tvOS";
 			productName = "DinoEscape tvOS";
-			productReference = 4AEAEEFF27D676B100BBD809 /* DinoEscape.app */;
+			productReference = 4AEAEEFF27D676B100BBD809 /* Run Dino, Run!.app */;
 			productType = "com.apple.product-type.application";
 		};
 		4AEAEF0E27D676B100BBD809 /* DinoEscape macOS */ = {
@@ -673,7 +673,7 @@
 			);
 			name = "DinoEscape macOS";
 			productName = "DinoEscape macOS";
-			productReference = 4AEAEF0F27D676B100BBD809 /* DinoEscape.app */;
+			productReference = 4AEAEF0F27D676B100BBD809 /* Run Dino, Run!.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -1111,10 +1111,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1131,7 +1132,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1145,10 +1146,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 8;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1165,7 +1167,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1184,6 +1186,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
@@ -1194,7 +1197,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1213,6 +1216,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
@@ -1223,7 +1227,7 @@
 				);
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1243,7 +1247,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1257,8 +1261,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeLuca;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1275,7 +1279,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1289,8 +1293,8 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
-				PRODUCT_NAME = DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeLuca;
+				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
