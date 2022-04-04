@@ -51,7 +51,7 @@ class SettingsScene: MyScene {
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
         
-        let title: SKLabelNode = SKLabelNode(text: "R U N, D I N O")
+        let title: SKLabelNode = SKLabelNode(text: "R U N,  D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
