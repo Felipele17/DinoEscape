@@ -1115,6 +1115,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1149,6 +1150,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1184,6 +1186,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
@@ -1213,6 +1216,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Run Dino, Run!";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
