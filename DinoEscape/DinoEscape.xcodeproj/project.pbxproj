@@ -1115,6 +1115,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dino Adventure";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1149,6 +1150,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dino Adventure";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
@@ -1184,6 +1186,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dino Adventure";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
@@ -1213,6 +1216,7 @@
 				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Dino Adventure";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
@@ -1243,7 +1247,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1257,7 +1261,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeBia;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1275,7 +1279,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 8;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = V8V28A4DX2;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1289,7 +1293,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeBia;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -47,7 +47,7 @@ class HomeScene: MyScene {
         title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         addChild(title)
         
-        let subtitle: SKLabelNode = SKLabelNode(text: "E S C A P E")
+        let subtitle: SKLabelNode = SKLabelNode(text: "A D V E N T U R E")
         subtitle.fontName = "Aldrich-Regular"
         subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
@@ -67,7 +67,7 @@ class HomeScene: MyScene {
             title.fontSize = size.width/12
             title.position = CGPoint(x: size.width/2, y: size.height/1.07)
             
-            subtitle.fontSize = size.width/12
+            subtitle.fontSize = size.width/14
             subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
             
             btn.setScale(0.8)
@@ -80,7 +80,7 @@ class HomeScene: MyScene {
                 title.fontSize = 40
                 title.position = CGPoint(x: size.width/2, y: size.height/1.07)
                 
-                subtitle.fontSize = 40
+                subtitle.fontSize = 30
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
                 
                 btn.setScale(0.9)
@@ -91,7 +91,7 @@ class HomeScene: MyScene {
                 title.fontSize = 40
                 title.position = CGPoint(x: size.width/2, y: size.height/1.09)
                 
-                subtitle.fontSize = 40
+                subtitle.fontSize = 30
                 subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
             }
 
