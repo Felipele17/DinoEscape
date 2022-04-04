@@ -40,3 +40,7 @@
 "Avoid bad foods" = "Evite comidas ruins" ;
 "Collect good foods" = "Colete comidas boas" ;
 "Earn power-ups!" = "Ganhe power-ups!" ;
+
+// LaunchScreen
+"We recommend using external devices (joysticks-controls) for the best game experience" = "Recomendamos o uso de dispositivos externos (controles de joysticks) para a melhor experiência de jogo.";
+

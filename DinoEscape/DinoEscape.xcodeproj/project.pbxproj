@@ -80,6 +80,8 @@
 		14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
 		14E29B3827EE3DCF00E9ED47 /* SwitchType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */; };
+		4A23210227F787EF009D9F62 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A23210127F787EF009D9F62 /* GameKit.framework */; };
+		4A23210427F787F7009D9F62 /* GameKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A23210327F787F7009D9F62 /* GameKit.framework */; };
 		4AC05A6E27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */; };
 		4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF327D676B000BBD809 /* GameViewController.swift */; };
 		4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEF527D676B000BBD809 /* Main.storyboard */; };
@@ -97,6 +99,19 @@
 		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		A0768BEA27F77683008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BE927F77682008460A6 /* StoreScene.swift */; };
+		A0768BEE27F7780B008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BED27F7780B008460A6 /* StoreScene.swift */; };
+		A0768BF027F77A23008460A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BEF27F77A23008460A6 /* HomeScene.swift */; };
+		A0768BF227F77A2F008460A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BF127F77A2F008460A6 /* HomeScene.swift */; };
+		A0768BF427F77A37008460A6 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BF327F77A37008460A6 /* HomeScene.swift */; };
+		A0768BF627F794EF008460A6 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BF527F794EF008460A6 /* SettingsScene.swift */; };
+		A0768BF827F79578008460A6 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BF727F79578008460A6 /* SettingsScene.swift */; };
+		A0768BFA27F79638008460A6 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BF927F79638008460A6 /* SettingsScene.swift */; };
+		A0768BFC27F7971A008460A6 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BFB27F7971A008460A6 /* GameOverScene.swift */; };
+		A0768BFE27F797AA008460A6 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BFD27F797AA008460A6 /* GameOverScene.swift */; };
+		A0768C0027F79841008460A6 /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BFF27F79841008460A6 /* GameOverScene.swift */; };
+		A0768C0227F79929008460A6 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768C0127F79929008460A6 /* EggScene.swift */; };
+		A0768C0627F79A0A008460A6 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768C0527F79A0A008460A6 /* EggScene.swift */; };
 		A095FD2927F625DD00EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */; };
 		A095FD2B27F625F700EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */; };
 		A095FD2D27F6261400EB0100 /* SettingsPopUpScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */; };
@@ -109,20 +124,9 @@
 		B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */; };
 		B09BAD9B27E25BBE00047A77 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
 		B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
-		B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
-		B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
-		B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
-		B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
-		B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
-		B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
-		B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
-		B09BADA427E25BE000047A77 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 		B0BC21E927D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 133F7BA427D6A8660012CFDD /* GameController+JoystickDelegate.swift */; };
 		B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */; };
-		B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948E827DBDBB100B671EA /* HomeScene.swift */; };
-		B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EA27DBDBD100B671EA /* SettingsScene.swift */; };
-		B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948EC27DBDBE800B671EA /* StoreScene.swift */; };
 		B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
 		B0EEDD8427DFB1C000372B2F /* ButtonType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8327DFB1C000372B2F /* ButtonType.swift */; };
 		B0EEDD8627DFD16F00372B2F /* DinoType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8527DFD16F00372B2F /* DinoType.swift */; };
@@ -131,9 +135,6 @@
 		B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
 		B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */; };
-		B0F162A127EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
-		B0F162A227EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
-		B0F162A327EA5C7A000DB51B /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A027EA5C7A000DB51B /* GameOverScene.swift */; };
 		B0F162A527EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
 		B0F162A627EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
 		B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0F162A427EA6975000DB51B /* ScoreTypes.swift */; };
@@ -172,7 +173,6 @@
 		DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
 		DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
 		DFDC9F3A27F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
-		EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE059D4D27E1309600AC1F72 /* EggScene.swift */; };
 		EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
 		EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
 		EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */ = {isa = PBXBuildFile; fileRef = EE45F1CE27E27D6E0098B92F /* EggType.swift */; };
@@ -211,6 +211,8 @@
 		13842CE827E2561800E1F88E /* OFL.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = OFL.txt; sourceTree = "<group>"; };
 		13842CF327E3B20B00E1F88E /* GameScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GameScene+tvOS.swift"; sourceTree = "<group>"; };
 		14E29B3527EE3DCF00E9ED47 /* SwitchType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwitchType.swift; sourceTree = "<group>"; };
+		4A23210127F787EF009D9F62 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS15.4.sdk/System/Library/Frameworks/GameKit.framework; sourceTree = DEVELOPER_DIR; };
+		4A23210327F787F7009D9F62 /* GameKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GameKit.framework; path = System/Library/Frameworks/GameKit.framework; sourceTree = SDKROOT; };
 		4AC05A6C27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SettingsPopUpScene+tvOS.swift"; sourceTree = "<group>"; };
 		4AEAEEE827D676AE00BBD809 /* GameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameScene.swift; sourceTree = "<group>"; };
 		4AEAEEE927D676B000BBD809 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = "DinoEscape Shared/Assets.xcassets"; sourceTree = "<group>"; };
@@ -232,20 +234,29 @@
 		A0635E9727DFD21E008EC4A1 /* DinoEscape-iOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-iOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9827DFD267008EC4A1 /* DinoEscape-tvOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-tvOS-Info.plist"; sourceTree = SOURCE_ROOT; };
 		A0635E9927DFD269008EC4A1 /* DinoEscape-macOS-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = "DinoEscape-macOS-Info.plist"; sourceTree = SOURCE_ROOT; };
+		A0768BE927F77682008460A6 /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
+		A0768BED27F7780B008460A6 /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
+		A0768BEF27F77A23008460A6 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		A0768BF127F77A2F008460A6 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		A0768BF327F77A37008460A6 /* HomeScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
+		A0768BF527F794EF008460A6 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		A0768BF727F79578008460A6 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		A0768BF927F79638008460A6 /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
+		A0768BFB27F7971A008460A6 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		A0768BFD27F797AA008460A6 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		A0768BFF27F79841008460A6 /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
+		A0768C0127F79929008460A6 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
+		A0768C0527F79A0A008460A6 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 		A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsPopUpScene.swift; sourceTree = "<group>"; };
 		A6E3DA7F27EA3AD900519FC7 /* AudioDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioDelegate.swift; sourceTree = "<group>"; };
 		B07A5D0F27E10B7B00BD9998 /* BuyButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyButtonType.swift; sourceTree = "<group>"; };
 		B0BC21EB27D7EBD500B6366D /* AnalogStick.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalogStick.swift; sourceTree = "<group>"; };
-		B0C948E827DBDBB100B671EA /* HomeScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeScene.swift; sourceTree = "<group>"; };
-		B0C948EA27DBDBD100B671EA /* SettingsScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsScene.swift; sourceTree = "<group>"; };
-		B0C948EC27DBDBE800B671EA /* StoreScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreScene.swift; sourceTree = "<group>"; };
 		B0C948F627DBEA7D00B671EA /* SKButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SKButton.swift; sourceTree = "<group>"; };
 		B0EEDD8327DFB1C000372B2F /* ButtonType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonType.swift; sourceTree = "<group>"; };
 		B0EEDD8527DFD16F00372B2F /* DinoType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DinoType.swift; sourceTree = "<group>"; };
 		B0EEDD8927DFDD6300372B2F /* SegmentageType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SegmentageType.swift; sourceTree = "<group>"; };
-		B0F162A027EA5C7A000DB51B /* GameOverScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		B0F162A427EA6975000DB51B /* ScoreTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreTypes.swift; sourceTree = "<group>"; };
 		B0F1F07827EB9AEF009A9B1F /* GameOverButtonTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameOverButtonTypes.swift; sourceTree = "<group>"; };
 		B0F1F07F27EB9E2F009A9B1F /* MusicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MusicService.swift; sourceTree = "<group>"; };
@@ -260,7 +271,6 @@
 		DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayMac.mov; sourceTree = "<group>"; };
 		DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */ = {isa = PBXFileReference; lastKnownFileType = video.quicktime; path = gameplayIOS.mov; sourceTree = "<group>"; };
 		DFDC9F3727F2349200DC93CD /* Haptic2.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Haptic2.json; sourceTree = "<group>"; };
-		EE059D4D27E1309600AC1F72 /* EggScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggScene.swift; sourceTree = "<group>"; };
 		EE45F1CE27E27D6E0098B92F /* EggType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggType.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -277,6 +287,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A23210227F787EF009D9F62 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -284,6 +295,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4A23210427F787F7009D9F62 /* GameKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -301,8 +313,13 @@
 		13030B7A27F5C4FC00406D1C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A0768BF327F77A37008460A6 /* HomeScene.swift */,
 				136B53B427F4E92400A5A21F /* OnboardScene.swift */,
 				A095FD2C27F6261400EB0100 /* SettingsPopUpScene.swift */,
+				A0768BE927F77682008460A6 /* StoreScene.swift */,
+				A0768BF527F794EF008460A6 /* SettingsScene.swift */,
+				A0768BFB27F7971A008460A6 /* GameOverScene.swift */,
+				A0768C0127F79929008460A6 /* EggScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -310,8 +327,11 @@
 		13030B7B27F5C51C00406D1C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A0768BF127F77A2F008460A6 /* HomeScene.swift */,
 				13030B7C27F5C54300406D1C /* OnboardScene.swift */,
 				A095FD2827F625DD00EB0100 /* SettingsPopUpScene.swift */,
+				A0768BF727F79578008460A6 /* SettingsScene.swift */,
+				A0768BFD27F797AA008460A6 /* GameOverScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -319,8 +339,13 @@
 		13030B7E27F5C55400406D1C /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				A0768BEF27F77A23008460A6 /* HomeScene.swift */,
 				13030B7F27F5C56300406D1C /* OnboardScene.swift */,
 				A095FD2A27F625F700EB0100 /* SettingsPopUpScene.swift */,
+				A0768BED27F7780B008460A6 /* StoreScene.swift */,
+				A0768BF927F79638008460A6 /* SettingsScene.swift */,
+				A0768BFF27F79841008460A6 /* GameOverScene.swift */,
+				A0768C0527F79A0A008460A6 /* EggScene.swift */,
 			);
 			path = Scenes;
 			sourceTree = "<group>";
@@ -476,7 +501,6 @@
 				133F7B7A27D67E110012CFDD /* View */,
 				B0EEDD8227DFB1A000372B2F /* FrontModel */,
 				B0C948F527DBEA3000B671EA /* Nodes */,
-				B0C948E727DBDA9600B671EA /* Scenes */,
 			);
 			path = "DinoEscape Shared";
 			sourceTree = "<group>";
@@ -535,18 +559,6 @@
 			name = "Recovered References";
 			sourceTree = "<group>";
 		};
-		B0C948E727DBDA9600B671EA /* Scenes */ = {
-			isa = PBXGroup;
-			children = (
-				B0C948E827DBDBB100B671EA /* HomeScene.swift */,
-				B0C948EA27DBDBD100B671EA /* SettingsScene.swift */,
-				B0C948EC27DBDBE800B671EA /* StoreScene.swift */,
-				EE059D4D27E1309600AC1F72 /* EggScene.swift */,
-				B0F162A027EA5C7A000DB51B /* GameOverScene.swift */,
-			);
-			path = Scenes;
-			sourceTree = "<group>";
-		};
 		B0C948F527DBEA3000B671EA /* Nodes */ = {
 			isa = PBXGroup;
 			children = (
@@ -593,6 +605,8 @@
 		DF20483327EA4B5A00C0F515 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				4A23210327F787F7009D9F62 /* GameKit.framework */,
+				4A23210127F787EF009D9F62 /* GameKit.framework */,
 				DF20483427EA4B5A00C0F515 /* GameKit.framework */,
 			);
 			name = Frameworks;
@@ -784,9 +798,7 @@
 				1346CD4927E909A800014B87 /* CreateCoreData.swift in Sources */,
 				132E23F527E130E2006CDEAB /* Items.swift in Sources */,
 				DF109F9627E8F89A0012139D /* GameStatus.swift in Sources */,
-				B0C948ED27DBDBE800B671EA /* StoreScene.swift in Sources */,
 				1346CD3C27E905CA00014B87 /* SkinData.swift in Sources */,
-				B0C948E927DBDBB100B671EA /* HomeScene.swift in Sources */,
 				B07A5D1027E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				133D058B27EE5D7C00DA8269 /* HapticService.swift in Sources */,
 				B0BC21EC27D7EBD500B6366D /* AnalogStick.swift in Sources */,
@@ -798,23 +810,25 @@
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
 				0639B85A27EBB2E90041C408 /* String + Location.swift in Sources */,
 				1346CD1327E8F72500014B87 /* Model.xcdatamodeld in Sources */,
+				A0768BFC27F7971A008460A6 /* GameOverScene.swift in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
-				B0F162A127EA5C7A000DB51B /* GameOverScene.swift in Sources */,
 				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
 				14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
-				B0C948EB27DBDBD100B671EA /* SettingsScene.swift in Sources */,
 				B0F1F08C27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				A6E3DA8027EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
+				A0768BF627F794EF008460A6 /* SettingsScene.swift in Sources */,
 				B0EEDD8A27DFDD6300372B2F /* SegmentageType.swift in Sources */,
 				EE45F1CF27E27D6E0098B92F /* EggType.swift in Sources */,
 				133F7B9B27D69E350012CFDD /* JoystickDelegate.swift in Sources */,
 				4AEAEEF427D676B000BBD809 /* GameViewController.swift in Sources */,
+				A0768BEA27F77683008460A6 /* StoreScene.swift in Sources */,
 				B0EEDD8627DFD16F00372B2F /* DinoType.swift in Sources */,
 				DF03BE4227E25D770005E872 /* MyScene.swift in Sources */,
 				133F7B9627D6835D0012CFDD /* PowerUp.swift in Sources */,
+				A0768BF427F77A37008460A6 /* HomeScene.swift in Sources */,
 				B0C948F727DBEA7D00B671EA /* SKButton.swift in Sources */,
-				EE059D4E27E1309600AC1F72 /* EggScene.swift in Sources */,
+				A0768C0227F79929008460A6 /* EggScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -823,14 +837,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				B0F1F08127EB9E2F009A9B1F /* MusicService.swift in Sources */,
-				B09BAD9F27E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				13842CF527E3B20B00E1F88E /* GameScene+tvOS.swift in Sources */,
 				4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */,
+				A0768BFE27F797AA008460A6 /* GameOverScene.swift in Sources */,
 				133F7B8927D681DB0012CFDD /* RenderController.swift in Sources */,
 				B0F162A627EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				DF03BE4327E25D770005E872 /* MyScene.swift in Sources */,
+				A0768BF227F77A2F008460A6 /* HomeScene.swift in Sources */,
 				B0EEDD8B27DFDD6300372B2F /* SegmentageType.swift in Sources */,
-				B09BAD9D27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9127D683210012CFDD /* Skin.swift in Sources */,
 				13842CF127E2784900E1F88E /* SKButton.swift in Sources */,
 				B0F1F07A27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
@@ -860,14 +874,12 @@
 				4AEAEF0427D676B100BBD809 /* GameViewController.swift in Sources */,
 				133F7B9727D683630012CFDD /* PowerUp.swift in Sources */,
 				4AC05A6E27ECE3F1006F91DB /* SettingsPopUpScene+tvOS.swift in Sources */,
-				B09BADA127E25BDD00047A77 /* StoreScene.swift in Sources */,
 				A6E3DA8127EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
 				1346CD1427E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				14E29B3727EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				EE45F1D027E27D6E0098B92F /* EggType.swift in Sources */,
-				B09BADA427E25BE000047A77 /* EggScene.swift in Sources */,
 				4AEAEF0227D676B100BBD809 /* AppDelegate.swift in Sources */,
-				B0F162A227EA5C7A000DB51B /* GameOverScene.swift in Sources */,
+				A0768BF827F79578008460A6 /* SettingsScene.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -875,15 +887,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B09BADA027E25BDA00047A77 /* SettingsScene.swift in Sources */,
 				4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */,
 				DF109F9827E8F89A0012139D /* GameStatus.swift in Sources */,
+				A0768C0027F79841008460A6 /* GameOverScene.swift in Sources */,
 				1346CD4B27E909A800014B87 /* CreateCoreData.swift in Sources */,
 				133F7B8A27D681DC0012CFDD /* RenderController.swift in Sources */,
 				13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */,
 				DF03BE4427E25D770005E872 /* MyScene.swift in Sources */,
 				B0EEDD8C27DFDD6300372B2F /* SegmentageType.swift in Sources */,
-				B09BAD9E27E25BD700047A77 /* HomeScene.swift in Sources */,
 				133F7B9227D683220012CFDD /* Skin.swift in Sources */,
 				B0F1F08E27EBBF5A009A9B1F /* SoundAction.swift in Sources */,
 				B0F1F08227EB9E2F009A9B1F /* MusicService.swift in Sources */,
@@ -891,6 +902,7 @@
 				133F7BA127D69FC40012CFDD /* JoystickController.swift in Sources */,
 				B0EEDD8827DFD16F00372B2F /* DinoType.swift in Sources */,
 				A6E3DA8227EA3AD900519FC7 /* AudioDelegate.swift in Sources */,
+				A0768BEE27F7780B008460A6 /* StoreScene.swift in Sources */,
 				B0BC21EA27D7CCFF00B6366D /* GameController+JoystickDelegate.swift in Sources */,
 				DF20483227EA48B300C0F515 /* GameCenterController.swift in Sources */,
 				DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */,
@@ -904,19 +916,19 @@
 				B07A5D1227E10B7B00BD9998 /* BuyButtonType.swift in Sources */,
 				B0F162A727EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B8C27D681E20012CFDD /* Player.swift in Sources */,
+				A0768BFA27F79638008460A6 /* SettingsScene.swift in Sources */,
 				1346CD1527E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				133F7B9F27D69FC10012CFDD /* JoystickDelegate.swift in Sources */,
 				B09BAD9C27E25BBE00047A77 /* ButtonType.swift in Sources */,
 				0639B85C27EBB2E90041C408 /* String + Location.swift in Sources */,
+				A0768BF027F77A23008460A6 /* HomeScene.swift in Sources */,
 				4AEAEF1427D676B100BBD809 /* GameViewController.swift in Sources */,
 				1346CD3E27E905CA00014B87 /* SkinData.swift in Sources */,
 				133F7B9827D683630012CFDD /* PowerUp.swift in Sources */,
-				B09BADA227E25BDD00047A77 /* StoreScene.swift in Sources */,
-				B0F162A327EA5C7A000DB51B /* GameOverScene.swift in Sources */,
 				B0F1F07B27EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
 				EE45F1D127E27D6E0098B92F /* EggType.swift in Sources */,
-				B09BADA327E25BDF00047A77 /* EggScene.swift in Sources */,
 				A095FD2B27F625F700EB0100 /* SettingsPopUpScene.swift in Sources */,
+				A0768C0627F79A0A008460A6 /* EggScene.swift in Sources */,
 				4AEAEF1227D676B100BBD809 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1099,15 +1111,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -1116,7 +1130,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1131,15 +1145,17 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 6;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-iOS-Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
+				INFOPLIST_KEY_UIRequiresFullScreen = YES;
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = UIInterfaceOrientationPortrait;
 				IPHONEOS_DEPLOYMENT_TARGET = 15.2;
@@ -1148,7 +1164,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = iphoneos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1164,19 +1180,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1192,19 +1209,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = "tvOS App Icon & Top Shelf Image";
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 11;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-tvOS-Info.plist";
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UIMainStoryboardFile = Main;
+				INFOPLIST_KEY_UIRequiredDeviceCapabilities = gamekit;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = appletvos;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1221,14 +1239,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DinoEscape macOS/DinoEscape_macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1238,7 +1257,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1252,14 +1271,15 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = "DinoEscape macOS/DinoEscape_macOS.entitlements";
-				CODE_SIGN_IDENTITY = "-";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 2A2JAGWQ62;
+				CURRENT_PROJECT_VERSION = 8;
+				DEVELOPMENT_TEAM = L3LQDD8K39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.arcade-games";
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -1269,7 +1289,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscape;
+				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
 				PRODUCT_NAME = DinoEscape;
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

@@ -20,7 +20,7 @@ class GameController{
     var swipe: UISwipeGestureRecognizer?
     var pause: UITapGestureRecognizer?
     var play: UITapGestureRecognizer?
-    var backButton: UITapGestureRecognizer?
+    var menu: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -94,6 +94,8 @@ class GameController{
         
         //onboard
         print("oi",isFirstRun)
+        
+        #if os(iOS) || os(macOS)
         if isFirstRun{
             self.onboardGame()
         }
@@ -101,6 +103,9 @@ class GameController{
             //contagem regressiva
             self.counterGame()
         }
+        #else
+            self.counterGame()
+        #endif
 
     }
     // MARK: Update
@@ -165,6 +170,10 @@ class GameController{
     
     func getPlay(play: UITapGestureRecognizer) {
         self.play = play
+    }
+    
+    func getMenu(menu: UITapGestureRecognizer) {
+        self.menu = menu
     }
     
 #endif
@@ -374,6 +383,7 @@ class GameController{
             }
         }
     }
+    
     func newEra(){
         let newEraLabel = renderer.drawNewEra()
         var runCount = 0
