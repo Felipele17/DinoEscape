@@ -25,6 +25,9 @@ class RenderController {
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
     var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
+    
+    // cena de pause
+    var pauseScene = SettingsPopUpScene()
 #if os(iOS)
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
 #endif
@@ -239,6 +242,12 @@ class RenderController {
             return skin+"Right0"
         case .PAUSE:
             return skin+"Right0"
+        case .PLAY:
+            return skin+"Right0"
+        case .HOME:
+            return skin+"Right0"
+        case .TAP:
+            return skin+"Right0"
         }
     }
     
@@ -275,12 +284,12 @@ class RenderController {
     }
     
     func showPauseMenu() {
-        let pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
         pauseScene.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         pauseScene.zPosition = 10
         scene.addChild(pauseScene)
-        
     }
+    
     
     func showOnboard() {
         self.contagemLabel.removeFromParent()

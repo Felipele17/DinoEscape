@@ -1,10 +1,9 @@
 //
-//  SettingsScene.swift
-//  DinoEscape tvOS
+//  SettingsSceneIOS.swift
+//  DinoEscape iOS
 //
-//  Created by Carolina Ortega on 01/04/22.
+//  Created by Raphael Alkamim on 11/03/22.
 //
-
 import Foundation
 import SpriteKit
 
@@ -19,13 +18,14 @@ class SettingsScene: MyScene {
     // switches
     var switch2 = SKButton()
     var switch3 = SKButton()
+    var toggleON: Bool = true
     
     //invisible button
     var guideButton = SKButton()
 
-    var toggleON: Bool = true
+    // music
+    var musicButton = SKButton()
     
-    let node = SKButton()
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -34,10 +34,13 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
+        
+        addTapGestureRecognizer()
         MusicService.shared.playLoungeMusic()
         backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
         removeAllChildren()
         removeAllActions()
+        
         
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
         backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
@@ -69,7 +72,6 @@ class SettingsScene: MyScene {
         guideButton.position = CGPoint(x: self.size.width/1.5, y:  self.size.height/15)
         guideButton.size = CGSize(width: 90, height: 90)
         addChild(guideButton)
-        
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
         btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
         
@@ -84,7 +86,7 @@ class SettingsScene: MyScene {
         
         btn.setScale(0.5)
         btn2.setScale(0.5)
-
+        
     }
     
     func createButton(name: ButtonType, pos: Int, titleColor: SKColor) -> SKButton {
@@ -107,6 +109,8 @@ class SettingsScene: MyScene {
         button.selectedHandler = {
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
+            } else if name == .shop {
+                //self.view?.presentScene(EggScene.newGameScene())
             } else if name == .settings {
                 self.view?.presentScene(SettingsScene.newGameScene())
             } else {
@@ -119,6 +123,7 @@ class SettingsScene: MyScene {
         
     }
     
+
     func changeSwitchMusic() -> String {
         var imageName : String
         if UserDefaults.standard.bool(forKey: "music") == true {
@@ -146,6 +151,7 @@ class SettingsScene: MyScene {
         switch type {
         case .music:
             addTapGestureRecognizer()
+           
             texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
             
         case .vibration:
@@ -163,6 +169,7 @@ class SettingsScene: MyScene {
                                               color: .clear,
                                               size: CGSize(width: w, height: h))
         switchButton.position = pos
+        
         switchButton.setScale(0.5)
         
         switchButton.selectedHandler = {
@@ -220,11 +227,13 @@ class SettingsScene: MyScene {
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         } else if (switch2.isFocused) {
             switchToggle(switchButton: switch2)
+            MusicService.shared.playLoungeMusic()
             
         } else if (switch3.isFocused) {
             switchToggle(switchButton: switch3)
             
-        } else {
+        }
+        else {
             print("no hablo sua logica")
         }
     }
@@ -232,17 +241,20 @@ class SettingsScene: MyScene {
     func switchToggle(switchButton: SKButton) {
         
         toggleON.toggle()
-        
+
         if toggleON {
-            switchButton.texture = SKTexture(imageNamed: "switchON")
+            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            MusicService.shared.updateUserDefaults()
+            MusicService.shared.playLoungeMusic()
             
         } else {
-            switchButton.texture = SKTexture(imageNamed: "switchOFF")
-            
+            switchButton.texture = SKTexture(imageNamed: "switchON")
+            MusicService.shared.updateUserDefaults()
         }
         
         
     }
+    
     
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
@@ -256,9 +268,9 @@ class SettingsScene: MyScene {
     }
 }
 
+
 extension SettingsScene {
     override var preferredFocusEnvironments: [UIFocusEnvironment] {
         return[switch2, switch3, btn, btn2, btn3]
     }
 }
-

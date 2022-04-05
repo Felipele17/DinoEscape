@@ -151,7 +151,7 @@ class JoystickController{
             }
     }
     func respondToPause(pause: UITapGestureRecognizer){
-        if let tapGesture = pause as? UITapGestureRecognizer {
+        if pause is UITapGestureRecognizer {
             self.pressButton(.PAUSE)
         }
     }
