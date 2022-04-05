@@ -17,4 +17,5 @@ enum GameCommand: String {
     case PAUSE = "Pause"
     case PLAY = "Play"
     case HOME = "Home"
+    case TAP = "Tap"
 }

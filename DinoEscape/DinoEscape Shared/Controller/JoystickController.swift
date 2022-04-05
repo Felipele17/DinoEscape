@@ -151,8 +151,11 @@ class JoystickController{
             }
     }
     func respondToPause(pause: UITapGestureRecognizer){
-        if let tapGesture = pause as? UITapGestureRecognizer {
-            self.pressButton(.PAUSE)
+        if pause is UITapGestureRecognizer {
+            if GameController.shared.gameData.gameStatus != .isBack{
+                //GameController.shared.gameData.gameStatus = .playing
+                self.pressButton(.PAUSE)
+            }
         }
     }
     #endif

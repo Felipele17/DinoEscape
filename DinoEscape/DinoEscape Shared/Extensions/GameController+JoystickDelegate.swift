@@ -49,6 +49,8 @@ extension GameController: JoystickDelegate{
             playGame()
         case .HOME:
             backToHome()
+        case .TAP:
+            pauseGame()
         }
         
     }
@@ -76,6 +78,8 @@ extension GameController: JoystickDelegate{
         case .PLAY:
             return
         case .HOME:
+            return
+        case .TAP:
             return
         }
     }

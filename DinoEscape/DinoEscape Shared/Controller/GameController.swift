@@ -21,6 +21,7 @@ class GameController{
     var pause: UITapGestureRecognizer?
     var play: UITapGestureRecognizer?
     var menu: UITapGestureRecognizer?
+    var tap: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -35,7 +36,7 @@ class GameController{
                             position: CGPoint(x: 0, y: 0),
                             size: CGSize(width: 50, height: 50),
                             skin: .dino1,
-                            gameCommand: .PAUSE,
+                            gameCommand: .PLAY,
                             powerUp: .none)
         gameData = GameData(player: player)
         gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
@@ -48,7 +49,7 @@ class GameController{
             player.size = CGSize(width: 50, height: 50)
             player.life = 3
             player.powerUp = .none
-            player.gameCommand = .PAUSE
+            player.gameCommand = .PLAY
             player.foodBar = 6.0
         }
         gameData.restartGameData()
@@ -120,18 +121,25 @@ class GameController{
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
             }
-            
+            else if gameData.gameStatus == .isBack {
+                movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
+                joystickController.update(currentTime)
+                renderer.update(currentTime, gameData: gameData)
+            }
         }
         
     }
     
     // MARK: Estados do jogo
     func pauseGame() {
-        if gameData.gameStatus != .end && gameData.gameStatus != .pause {
+        if gameData.gameStatus != .end && gameData.gameStatus != .pause && gameData.gameStatus != .isBack {
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
-            
+            renderer.pauseScene.addTapGestureRecognizer()
+        }
+        if gameData.gameStatus == .isBack {
+            gameData.gameStatus = .playing
         }
     }
     
@@ -140,9 +148,8 @@ class GameController{
     }
     
     func playGame(){
-        print("oiii")
+        //gameData.gameStatus = .playing
     }
-    
     
     func onboardGame(){
         UserDefaults.standard.setValue(false, forKey: "isFirstRun")
@@ -183,6 +190,9 @@ class GameController{
     
     func getMenu(menu: UITapGestureRecognizer) {
         self.menu = menu
+    }
+    func getTap(menu: UITapGestureRecognizer) {
+        self.tap = menu
     }
     
 #endif
@@ -278,6 +288,8 @@ class GameController{
         case .PLAY:
             print()
         case .HOME:
+            print()
+        case .TAP:
             print()
         }
         

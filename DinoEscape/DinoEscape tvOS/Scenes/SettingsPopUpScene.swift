@@ -10,16 +10,14 @@ import SpriteKit
 
 class SettingsPopUpScene: SKSpriteNode {
     var btnHome = SKButton()
-    var btnBack = SKButton()
+    public var btnBack = SKButton()
     
-    var switchButton = SKButton()
+    public var switchButton = SKButton()
     var toggleON: Bool = true
 
     //invisible button
     var guideButton = SKButton()
-    
-    // pressing buttons
-    //var isPressed = UITapGestureRecognizer()
+    var tap = UITapGestureRecognizer()
     
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
@@ -37,7 +35,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
         removeAllChildren()
         removeAllActions()
-        
+        addTapGestureRecognizer()
         let background = SKShapeNode(rect: CGRect(x: self.size.width/2 * -1,
                                                   y: self.size.height/2 * -1,
                                                   width: self.size.width,
@@ -74,11 +72,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
         guideButton.position = CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1)
         guideButton.size = CGSize(width: 50, height: 50)
-        //guideButton.color = .red
         addChild(guideButton)
-        #if os(tvOS)
-        addTapGestureRecognizer()
-        #endif
         background.addChild(btnBack)
 //        background.addChild(btnHome)
         
@@ -89,9 +83,6 @@ class SettingsPopUpScene: SKSpriteNode {
     func changeSwitchMusic() -> String {
         var imageName : String
         if UserDefaults.standard.bool(forKey: "music") {
-            #if os(tvOS)
-            addTapGestureRecognizer()
-            #endif
             imageName = "switchON"
         
         } else {
@@ -115,9 +106,6 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture: SKTexture
         switch type {
         case .music:
-            #if os(tvOS)
-            addTapGestureRecognizer()
-            #endif
             texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
         case .vibration:
             texture = SKTexture(imageNamed: "\(changeSwitchVibration())")
@@ -168,9 +156,11 @@ class SettingsPopUpScene: SKSpriteNode {
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
         button.position = position
         button.selectedHandler = {
+            #if os(iOS) || os(macOS)
             self.removeFromParent()
             GameController.shared.gameData.gameStatus = .playing
             GameController.shared.pauseActionItems()
+            #endif
         }
         return button
     }
@@ -209,11 +199,8 @@ class SettingsPopUpScene: SKSpriteNode {
         }
         
         else if (btnBack.isFocused) {
-            
-//            GameController.shared.restartGame()
-//            self.scene?.view?.presentScene(HomeScene.newGameScene())
             self.removeFromParent()
-            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.gameData.gameStatus = .isBack
             GameController.shared.pauseActionItems()
         }
         
@@ -238,6 +225,6 @@ class SettingsPopUpScene: SKSpriteNode {
         }   
     }
     
-    #endif
+#endif
 
 }
