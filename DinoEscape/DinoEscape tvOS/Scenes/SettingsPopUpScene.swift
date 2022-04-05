@@ -67,14 +67,14 @@ class SettingsPopUpScene: SKSpriteNode {
         HapticService.shared.addVibration(haptic: "Haptic")
 
         btnBack = createBackButton(position: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1))
-        btnHome = createHomeButton(position: CGPoint(x: 0, y: background.frame.size.height/2.6 * -1))
+        btnHome = createHomeButton(position: CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/2.6 * -1))
         
         
         guideButton.position = CGPoint(x: background.frame.size.width/4, y: background.frame.size.height/6.0 * -1)
         guideButton.size = CGSize(width: 50, height: 50)
         addChild(guideButton)
         background.addChild(btnBack)
-//        background.addChild(btnHome)
+        background.addChild(btnHome)
         
         
 
@@ -187,21 +187,28 @@ class SettingsPopUpScene: SKSpriteNode {
 #if os(tvOS) || os(macOS)
     
     func addTapGestureRecognizer() {
-        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
-        self.scene?.view?.addGestureRecognizer(tapRecognizer)
+        tap = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+        self.scene?.view?.addGestureRecognizer(tap)
     }
     
     @objc func tapped(sender: AnyObject) {
         
         if (switchButton.isFocused) {
             switchToggle(switchButton: switchButton)
-            MusicService.shared.playLoungeMusic()
+            MusicService.shared.playGameMusic()
         }
         
         else if (btnBack.isFocused) {
             self.removeFromParent()
-            GameController.shared.gameData.gameStatus = .isBack
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pause = nil
             GameController.shared.pauseActionItems()
+        }
+        
+        else if (btnHome.isFocused) {
+            let scene = HomeScene.newGameScene()
+            GameController.shared.pause = nil
+            GameController.shared.renderer.scene.view?.presentScene(scene)
         }
         
         else {
@@ -211,18 +218,19 @@ class SettingsPopUpScene: SKSpriteNode {
     
     func switchToggle(switchButton: SKButton) {
         
-        toggleON.toggle()
-        
         if toggleON {
             switchButton.texture = SKTexture(imageNamed: "switchON")
             MusicService.shared.updateUserDefaults()
-            MusicService.shared.playLoungeMusic()
+            MusicService.shared.playGameMusic()
             
         } else {
             switchButton.texture = SKTexture(imageNamed: "switchOFF")
             MusicService.shared.updateUserDefaults()
 
-        }   
+        }
+        
+        toggleON.toggle()
+
     }
     
 #endif

@@ -94,7 +94,7 @@ class GameController{
         recursiveActionItems(time: 1.5)
         
         //onboard
-        print("oi",isFirstRun)
+    
         
         #if os(iOS) || os(macOS)
         if isFirstRun{
@@ -121,25 +121,17 @@ class GameController{
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
             }
-            else if gameData.gameStatus == .isBack {
-                movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
-                joystickController.update(currentTime)
-                renderer.update(currentTime, gameData: gameData)
-            }
         }
         
     }
     
     // MARK: Estados do jogo
     func pauseGame() {
-        if gameData.gameStatus != .end && gameData.gameStatus != .pause && gameData.gameStatus != .isBack {
+        if gameData.gameStatus != .end && gameData.gameStatus != .pause {
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
             renderer.pauseScene.addTapGestureRecognizer()
-        }
-        if gameData.gameStatus == .isBack {
-            gameData.gameStatus = .playing
         }
     }
     
@@ -149,6 +141,7 @@ class GameController{
     
     func playGame(){
         //gameData.gameStatus = .playing
+        //self.counterGame()
     }
     
     func onboardGame(){
