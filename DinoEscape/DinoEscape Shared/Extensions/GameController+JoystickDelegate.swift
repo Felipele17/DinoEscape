@@ -45,7 +45,14 @@ extension GameController: JoystickDelegate{
             return
         case .PAUSE:
             pauseGame()
+        case .PLAY:
+            playGame()
+        case .HOME:
+            backToHome()
+        case .TAP:
+            pauseGame()
         }
+        
     }
     
     func buttonReleased(command: GameCommand) {
@@ -67,6 +74,12 @@ extension GameController: JoystickDelegate{
             gameData.player?.dinoVx = 0
             return
         case .PAUSE:
+            return
+        case .PLAY:
+            return
+        case .HOME:
+            return
+        case .TAP:
             return
         }
     }

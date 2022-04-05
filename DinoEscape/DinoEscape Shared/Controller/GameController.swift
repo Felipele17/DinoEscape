@@ -21,6 +21,7 @@ class GameController{
     var pause: UITapGestureRecognizer?
     var play: UITapGestureRecognizer?
     var menu: UITapGestureRecognizer?
+    var tap: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -35,7 +36,7 @@ class GameController{
                             position: CGPoint(x: 0, y: 0),
                             size: CGSize(width: 50, height: 50),
                             skin: .dino1,
-                            gameCommand: .PAUSE,
+                            gameCommand: .PLAY,
                             powerUp: .none)
         gameData = GameData(player: player)
         gameData.skinSelected = SkinDataModel.getSkinSelected().name ?? "notFound"
@@ -48,7 +49,7 @@ class GameController{
             player.size = CGSize(width: 50, height: 50)
             player.life = 3
             player.powerUp = .none
-            player.gameCommand = .PAUSE
+            player.gameCommand = .PLAY
             player.foodBar = 6.0
         }
         gameData.restartGameData()
@@ -93,7 +94,7 @@ class GameController{
         recursiveActionItems(time: 1.5)
         
         //onboard
-        print("oi",isFirstRun)
+    
         
         #if os(iOS) || os(macOS)
         if isFirstRun{
@@ -120,7 +121,6 @@ class GameController{
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
             }
-            
         }
         
     }
@@ -131,8 +131,17 @@ class GameController{
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
-            
+            renderer.pauseScene.addTapGestureRecognizer()
         }
+    }
+    
+    func backToHome(){
+        renderer.scene = HomeScene.newGameScene()
+    }
+    
+    func playGame(){
+        //gameData.gameStatus = .playing
+        //self.counterGame()
     }
     
     func onboardGame(){
@@ -174,6 +183,9 @@ class GameController{
     
     func getMenu(menu: UITapGestureRecognizer) {
         self.menu = menu
+    }
+    func getTap(menu: UITapGestureRecognizer) {
+        self.tap = menu
     }
     
 #endif
@@ -260,12 +272,17 @@ class GameController{
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
             item.vx = gameData.velocidadeGlobal
             
-            
         case .NONE:
             print()
         case .DEAD:
             print()
         case .PAUSE:
+            print()
+        case .PLAY:
+            print()
+        case .HOME:
+            print()
+        case .TAP:
             print()
         }
         

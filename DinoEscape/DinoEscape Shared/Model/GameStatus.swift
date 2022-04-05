@@ -12,4 +12,5 @@ enum GameStatus {
     case end
     case playing
     case notStarted
+    case isBack
 }

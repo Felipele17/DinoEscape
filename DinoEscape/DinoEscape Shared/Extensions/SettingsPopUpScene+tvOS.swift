@@ -14,6 +14,6 @@ extension SettingsPopUpScene {
     func setFocusOnBackButton() {
         print("hello")
     }
-    
+
     
 }
