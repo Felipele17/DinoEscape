@@ -96,8 +96,6 @@
 		4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
 		4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
 		4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
-		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		A0768BEA27F77683008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BE927F77682008460A6 /* StoreScene.swift */; };
 		A0768BEE27F7780B008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BED27F7780B008460A6 /* StoreScene.swift */; };
@@ -735,7 +733,6 @@
 				DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				133D058F27EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
-				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 				0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */,
 				06301AAD27F3806700F80420 /* .swiftlint.yml in Resources */,
 			);
@@ -756,7 +753,6 @@
 				DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
 				133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
-				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

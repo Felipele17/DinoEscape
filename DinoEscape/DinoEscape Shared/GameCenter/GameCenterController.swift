@@ -27,13 +27,18 @@ class GameCenterController {
     
     
     let LEADERBOARD_ID = "dino_players" ///na appstore connect deve ser criado um ID para o gameCnter
-    
+    let view = GKGameCenterViewController(leaderboardID: "dino_players", playerScope: .global, timeScope: .allTime)
+
     
     #if os(macOS)
     var viewController: NSViewController?
     init(viewController: NSViewController){
         self.viewController = viewController
         auth()
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     #elseif os(iOS) || os(tvOS)
@@ -78,6 +83,16 @@ class GameCenterController {
         GKAccessPoint.shared.showHighlights = showHighlights
         GKAccessPoint.shared.isActive = isActive
     }
+    
+    #if os(macOS)
+    func showGame() {
+        viewController?.presentAsModalWindow(view)
+    }
+    
+    func closeGame() {
+        viewController?.dismiss(view)
+    }
+    #endif
     
     func sendScoreToGameCenter(score: Int){
         GKLeaderboard.submitScore(score,
