@@ -63,30 +63,6 @@ class EggScene: SKScene {
         
     }
     
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        
-        let w: CGFloat = size.width / 16
-        let h = w * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        adsButton.position = CGPoint(
-            x: size.width/1.102,
-            y: size.height/1.103)
-        
-        
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
-    }
-    
     func createShopButtons(image: EggType, pos: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
@@ -189,7 +165,6 @@ class EggScene: SKScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -200,7 +175,7 @@ class EggScene: SKScene {
         let w: CGFloat = size.width / 15
         let h = w * coinTotal.size.height / coinTotal.size.width / 2
  
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
         coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)

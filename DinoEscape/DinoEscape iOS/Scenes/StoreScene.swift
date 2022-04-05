@@ -106,7 +106,12 @@ class StoreScene: MyScene {
             print("oi")
             
         }
-        priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
+        priceLabel = SKLabelNode()
+        if selectedDino.isBought == true {
+            priceLabel.text = "Purchased"
+        } else {
+            priceLabel.text = "$ \(selectedDino.price)"
+        }
         priceLabel.fontName = "Aldrich-Regular"
         priceLabel.fontSize = 30
         priceLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
@@ -123,30 +128,6 @@ class StoreScene: MyScene {
 
         dinoImage.texture = SKTexture(imageNamed: image)
         addChild(priceLabel)
-    }
-    
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        
-        let w: CGFloat = size.width / 16
-        let h = w * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        adsButton.position = CGPoint(
-            x: size.width/1.102,
-            y: size.height/1.103)
-        
-        
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
@@ -331,7 +312,7 @@ class StoreScene: MyScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
+//        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -356,7 +337,7 @@ class StoreScene: MyScene {
             
         }
 
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:

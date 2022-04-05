@@ -85,7 +85,13 @@ class StoreScene: MyScene {
         dinoImage.position = CGPoint(x: size.width/1.58, y: size.width/4.5)
         dinoImage.size = CGSize(width: size.width/2.9, height: size.height/1.9)
         
-        priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
+        priceLabel = SKLabelNode()
+        if selectedDino.isBought == true {
+            priceLabel.text = "Purchased"
+        } else {
+            priceLabel.text = "$ \(selectedDino.price)"
+        }
+        
         priceLabel.fontName = "Aldrich-Regular"
         priceLabel.verticalAlignmentMode = .center
         priceLabel.horizontalAlignmentMode = .center
@@ -99,30 +105,6 @@ class StoreScene: MyScene {
         
         dinoImage.texture = SKTexture(imageNamed: image)
         dinoImage.addChild(priceLabel)
-    }
-    
-
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        let w: CGFloat = size.width / 20
-        let h = w * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        
-        adsButton.position = CGPoint(
-            x: size.width/1.102,
-            y: size.height/1.103)
-        
-        
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
@@ -270,7 +252,7 @@ class StoreScene: MyScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
+//        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -284,7 +266,7 @@ class StoreScene: MyScene {
         w = size.width / 20
         h = w * coinTotal.size.height / coinTotal.size.width / 0.7
         
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
