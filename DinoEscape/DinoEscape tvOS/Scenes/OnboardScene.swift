@@ -100,7 +100,28 @@ class OnboardScene: SKSpriteNode {
         return image
     }
     
-    func createBackButton(position: CGPoint) -> SKButton {
+    func addTapGestureRecognizer() {
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.tapped(sender:)))
+        self.scene?.view?.addGestureRecognizer(tapRecognizer)
+        
+    }
+    
+    @objc func tapped(sender: AnyObject) {
+        
+        if (btnOk.isFocused){
+            
+            self.removeFromParent()
+            GameController.shared.gameData.gameStatus = .playing
+            GameController.shared.pauseActionItems()
+            
+        }
+        else {
+            print("não sei ler oq vc quer")
+        }
+    }
+    
+    func createBackButton(position: CGPoint) -> SKButton{
+        
         let texture = SKTexture(imageNamed: "okButton")
         texture.filteringMode = .nearest
         

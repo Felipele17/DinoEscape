@@ -24,11 +24,10 @@ class RenderController {
     var pointsLabel: SKLabelNode = SKLabelNode(text: "0")
     var heartImage: SKSpriteNode = SKSpriteNode(imageNamed: "Heart")
     var lifesLabel: SKLabelNode = SKLabelNode(text: "3")
-    var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"),
-                                     SKSpriteNode(imageNamed: "cherry"),
-                                     SKSpriteNode(imageNamed: "cherry"),
-                                     SKSpriteNode(imageNamed: "cherry"),
-                                     SKSpriteNode(imageNamed: "cherry")]
+    var foodNodes: [SKSpriteNode] = [SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry"), SKSpriteNode(imageNamed: "cherry")]
+    
+    // cena de pause
+    var pauseScene = SettingsPopUpScene()
 #if os(iOS)
     var pauseNode: SKButton = SKButton(imageNamed: "pause")
 #endif
@@ -60,10 +59,10 @@ class RenderController {
         scene.addChild(pointsLabel)
         
         //coracao
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
         heartImage.setScale(0.5)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         heartImage.position = CGPoint(x: scene.size.width*0.92, y: scene.size.height*0.95)
         heartImage.setScale(0.75)
 #endif
@@ -73,9 +72,9 @@ class RenderController {
         
         //lifeslabel
         lifesLabel.fontName = "Aldrich-Regular"
-#if os(iOS) || os(tvOS)
+#if os(iOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
-#elseif os(macOS)
+#elseif os(macOS) || os(tvOS)
         lifesLabel.position = CGPoint(x: heartImage.position.x*1.04, y: heartImage.position.y*0.985)
         lifesLabel.fontSize = 35
 #endif
@@ -238,6 +237,12 @@ class RenderController {
             return skin+"Right0"
         case .PAUSE:
             return skin+"Right0"
+        case .PLAY:
+            return skin+"Right0"
+        case .HOME:
+            return skin+"Right0"
+        case .TAP:
+            return skin+"Right0"
         }
     }
     
@@ -274,12 +279,12 @@ class RenderController {
     }
     
     func showPauseMenu() {
-        let pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
+        pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
         pauseScene.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
         pauseScene.zPosition = 10
         scene.addChild(pauseScene)
-        
     }
+    
     
     func showOnboard() {
         self.contagemLabel.removeFromParent()

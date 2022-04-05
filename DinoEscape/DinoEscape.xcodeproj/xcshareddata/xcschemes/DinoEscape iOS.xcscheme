@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "4AEAEEED27D676B000BBD809"
-               BuildableName = "DinoEscape.app"
+               BuildableName = "Run Dino, Run!.app"
                BlueprintName = "DinoEscape iOS"
                ReferencedContainer = "container:DinoEscape.xcodeproj">
             </BuildableReference>
@@ -45,7 +45,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AEAEEED27D676B000BBD809"
-            BuildableName = "DinoEscape.app"
+            BuildableName = "Run Dino, Run!.app"
             BlueprintName = "DinoEscape iOS"
             ReferencedContainer = "container:DinoEscape.xcodeproj">
          </BuildableReference>
@@ -62,7 +62,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "4AEAEEED27D676B000BBD809"
-            BuildableName = "DinoEscape.app"
+            BuildableName = "Run Dino, Run!.app"
             BlueprintName = "DinoEscape iOS"
             ReferencedContainer = "container:DinoEscape.xcodeproj">
          </BuildableReference>

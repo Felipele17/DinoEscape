@@ -30,7 +30,20 @@ extension GameScene {
         pause.addTarget(self, action: #selector(self.respondToPause))
         pause.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
         
+        let play = UITapGestureRecognizer()
+        play.addTarget(self, action: #selector(self.respondToPlay))
+        //play.allowedPressTypes = [NSNumber(value: UIPress.PressType.playPause.rawValue)]
+        
+        let menu = UITapGestureRecognizer()
+        menu.addTarget(self, action: #selector(self.respondToMenu))
+        menu.allowedPressTypes = [NSNumber(value: UIPress.PressType.menu.rawValue)]
+        
+        let tapRecognizer = UITapGestureRecognizer(target: self, action: #selector(self.respondToTap(gesture:)))
+        self.view?.addGestureRecognizer(tapRecognizer)
+        
         self.view?.addGestureRecognizer(pause)
+        self.view?.addGestureRecognizer(play)
+        self.view?.addGestureRecognizer(menu)
         self.view?.addGestureRecognizer(swipeUp)
         self.view?.addGestureRecognizer(swipeDown)
         self.view?.addGestureRecognizer(swipeLeft)
@@ -86,6 +99,25 @@ extension GameScene {
             if let tapGesture = gesture as? UITapGestureRecognizer {
                 GameController.shared.getPause(pause: tapGesture)
             }
+    }
+    
+    @objc func respondToPlay(gesture: UITapGestureRecognizer) {
+        if let tapGesture = gesture as? UITapGestureRecognizer {
+            GameController.shared.getPlay(play: tapGesture)
+        }
+    }
+    
+    @objc func respondToMenu(gesture: UITapGestureRecognizer) {
+        if let tapGesture = gesture as? UITapGestureRecognizer {
+            GameController.shared.getMenu(menu: tapGesture)
+            
+        }
+    }
+    @objc func respondToTap(gesture: UITapGestureRecognizer) {
+        if let tapGesture = gesture as? UITapGestureRecognizer {
+            GameController.shared.getTap(menu: tapGesture)
+            
+        }
     }
     
 }

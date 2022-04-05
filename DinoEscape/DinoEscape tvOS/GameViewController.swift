@@ -23,5 +23,8 @@ class GameViewController: UIViewController {
         // Present the scene
         let skView = self.view as! SKView
         skView.presentScene(scene)
+        
+        skView.ignoresSiblingOrder = true
+        
     }
 }

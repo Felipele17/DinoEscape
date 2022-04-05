@@ -14,6 +14,7 @@ class JoystickController{
     weak var delegate: JoystickDelegate?
     
     var gamePadLeft: GCControllerDirectionPad?
+    var buttonX: GCControllerButtonInput?
     var keyMap: [GCKeyCode : GameCommand] = [:] //mapeia os comandos do jogo
     
 #if os( iOS )
@@ -106,14 +107,17 @@ class JoystickController{
         
         if let gamepad = gameController.extendedGamepad {
             self.gamePadLeft = gamepad.leftThumbstick
+            self.buttonX = gamepad.buttonX
             
         } else if let gamepad = gameController.microGamepad {
             self.gamePadLeft = gamepad.dpad
+            self.buttonX = gamepad.buttonX
         }
     }
     
     func unregisterGameController() {
         gamePadLeft = nil
+        buttonX = nil 
     }
     
     func checkForKeyboard() {
@@ -147,7 +151,7 @@ class JoystickController{
             }
     }
     func respondToPause(pause: UITapGestureRecognizer){
-        if let tapGesture = pause as? UITapGestureRecognizer {
+        if pause is UITapGestureRecognizer {
             self.pressButton(.PAUSE)
         }
     }

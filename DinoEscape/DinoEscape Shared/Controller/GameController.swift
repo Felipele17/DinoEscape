@@ -18,7 +18,9 @@ class GameController{
     #if os(tvOS)
     var swipe: UISwipeGestureRecognizer?
     var pause: UITapGestureRecognizer?
-    var backButton: UITapGestureRecognizer?
+    var play: UITapGestureRecognizer?
+    var menu: UITapGestureRecognizer?
+    var tap: UITapGestureRecognizer?
     #endif
     
     var gameData: GameData
@@ -33,7 +35,7 @@ class GameController{
                             position: CGPoint(x: 0, y: 0),
                             size: CGSize(width: 50, height: 50),
                             skin: .dino1,
-                            gameCommand: .PAUSE,
+                            gameCommand: .PLAY,
                             powerUp: .none)
         gameData = GameData(player: player)
         gameData.skinSelected = SkinDataModel.shared.getSkinSelected().name ?? "notFound"
@@ -45,8 +47,8 @@ class GameController{
             player.position = CGPoint(x: 0, y: 0)
             player.size = CGSize(width: 50, height: 50)
             player.life = 3
-            player.powerUp = PowerUp.none
-            player.gameCommand = GameCommand.PAUSE
+            player.powerUp = .none
+            player.gameCommand = .PLAY
             player.foodBar = 6.0
         }
         gameData.restartGameData()
@@ -68,6 +70,7 @@ class GameController{
 
     func setupScene(){
         MusicService.shared.playGameMusic()
+        GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: false, isActive: false)
         //player
         let player = GameController.shared.gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width/2, y: renderer.scene.size.height/2)
@@ -90,7 +93,9 @@ class GameController{
         recursiveActionItems(time: 1.5)
         
         //onboard
-        print("oi",isFirstRun)
+    
+        
+        #if os(iOS) || os(macOS)
         if isFirstRun{
             self.onboardGame()
         }
@@ -98,6 +103,9 @@ class GameController{
             //contagem regressiva
             self.counterGame()
         }
+        #else
+            self.counterGame()
+        #endif
 
     }
     // MARK: Update
@@ -112,7 +120,6 @@ class GameController{
                 movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
             }
-            
         }
         
     }
@@ -123,8 +130,17 @@ class GameController{
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
-            
+            renderer.pauseScene.addTapGestureRecognizer()
         }
+    }
+    
+    func backToHome(){
+        renderer.scene = HomeScene.newGameScene()
+    }
+    
+    func playGame(){
+        //gameData.gameStatus = .playing
+        //self.counterGame()
     }
     
     func onboardGame(){
@@ -159,8 +175,16 @@ class GameController{
     func getPause(pause: UITapGestureRecognizer){
         self.pause = pause
     }
-    func getBackButton(backButton: UITapGestureRecognizer) {
-        print("Tô entrando na função de getBackButton")
+    
+    func getPlay(play: UITapGestureRecognizer) {
+        self.play = play
+    }
+    
+    func getMenu(menu: UITapGestureRecognizer) {
+        self.menu = menu
+    }
+    func getTap(menu: UITapGestureRecognizer) {
+        self.tap = menu
     }
     
 #endif
@@ -247,12 +271,17 @@ class GameController{
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
             item.vx = gameData.velocidadeGlobal
             
-            
         case .NONE:
             print()
         case .DEAD:
             print()
         case .PAUSE:
+            print()
+        case .PLAY:
+            print()
+        case .HOME:
+            print()
+        case .TAP:
             print()
         }
         
@@ -370,6 +399,7 @@ class GameController{
             }
         }
     }
+    
     func newEra(){
         let newEraLabel = renderer.drawNewEra()
         var runCount = 0
