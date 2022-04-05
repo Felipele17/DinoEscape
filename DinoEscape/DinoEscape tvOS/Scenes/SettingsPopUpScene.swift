@@ -218,19 +218,18 @@ class SettingsPopUpScene: SKSpriteNode {
     
     func switchToggle(switchButton: SKButton) {
         
+        toggleON.toggle()
+        
         if toggleON {
-            switchButton.texture = SKTexture(imageNamed: "switchON")
+            switchButton.texture = SKTexture(imageNamed: "switchOFF")
             MusicService.shared.updateUserDefaults()
             MusicService.shared.playGameMusic()
             
         } else {
-            switchButton.texture = SKTexture(imageNamed: "switchOFF")
+            switchButton.texture = SKTexture(imageNamed: "switchON")
             MusicService.shared.updateUserDefaults()
 
         }
-        
-        toggleON.toggle()
-
     }
     
 #endif
