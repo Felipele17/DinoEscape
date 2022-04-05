@@ -1,7 +1,7 @@
 {
   "images" : [
     {
-      "filename" : "Group 400-1.png",
+      "filename" : "eggs.pdf",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -14,7 +14,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "Group 339.pdf",
+      "filename" : "ovos.pdf",
       "idiom" : "universal",
       "locale" : "pt-BR",
       "scale" : "1x"
@@ -30,7 +30,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "Group 401.png",
+      "filename" : "huevos.pdf",
       "idiom" : "universal",
       "locale" : "es",
       "scale" : "1x"
@@ -46,7 +46,7 @@
       "scale" : "3x"
     },
     {
-      "filename" : "Group 400.png",
+      "filename" : "eggs-1.pdf",
       "idiom" : "universal",
       "locale" : "en",
       "scale" : "1x"
