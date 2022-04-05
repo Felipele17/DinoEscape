@@ -97,10 +97,10 @@ class SettingsScene: MyScene {
         title.fontSize = 20
         title.fontColor = titleColor
         
-        let w: CGFloat = size.width / 4.8
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 4.8
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         title.fontSize = 40
         button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/7.6)
@@ -162,12 +162,12 @@ class SettingsScene: MyScene {
         texture.filteringMode = .nearest
         
         
-        let w: CGFloat = size.width / 6.0
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 6.0
+        let height = width * texture.size().height / texture.size().width
         
         let switchButton: SKButton = SKButton(texture: texture,
                                               color: .clear,
-                                              size: CGSize(width: w, height: h))
+                                              size: CGSize(width: width, height: height))
         switchButton.position = pos
         
         switchButton.setScale(0.5)

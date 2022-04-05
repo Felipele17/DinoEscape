@@ -16,7 +16,6 @@
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
 		13030B7D27F5C54300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7C27F5C54300406D1C /* OnboardScene.swift */; };
 		13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7F27F5C56300406D1C /* OnboardScene.swift */; };
-		13152E3D27F6437E001CD2D0 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13152E3C27F6437E001CD2D0 /* GameCenterController.swift */; };
 		13152E3E27F6437E001CD2D0 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13152E3C27F6437E001CD2D0 /* GameCenterController.swift */; };
 		13152E3F27F6437E001CD2D0 /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13152E3C27F6437E001CD2D0 /* GameCenterController.swift */; };
 		13152E4427F6446C001CD2D0 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = 13152E4327F6446C001CD2D0 /* .swiftlint.yml */; };
@@ -170,6 +169,7 @@
 		DF2F5C5C27ECFD250018C99C /* gameplayMac.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5A27ECFD250018C99C /* gameplayMac.mov */; };
 		DF2F5C6027ED01D10018C99C /* gameplayIOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = DF2F5C5F27ED01D10018C99C /* gameplayIOS.mov */; };
 		DF4D899627E4F3AB0052AE30 /* SKButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B0C948F627DBEA7D00B671EA /* SKButton.swift */; };
+		DF767D4327FCCEBD00B7979B /* GameCenterController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13152E3C27F6437E001CD2D0 /* GameCenterController.swift */; };
 		DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
 		DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
 		DFDC9F3A27F2349200DC93CD /* Haptic2.json in Resources */ = {isa = PBXBuildFile; fileRef = DFDC9F3727F2349200DC93CD /* Haptic2.json */; };
@@ -869,10 +869,10 @@
 				B0F162A527EA6975000DB51B /* ScoreTypes.swift in Sources */,
 				133F7B9027D682B80012CFDD /* Skin.swift in Sources */,
 				0639B85A27EBB2E90041C408 /* String + Location.swift in Sources */,
+				DF767D4327FCCEBD00B7979B /* GameCenterController.swift in Sources */,
 				1346CD1327E8F72500014B87 /* Model.xcdatamodeld in Sources */,
 				A0768BFC27F7971A008460A6 /* GameOverScene.swift in Sources */,
 				133F7B8E27D6824B0012CFDD /* GameCommand.swift in Sources */,
-				DF20483027EA48AF00C0F515 /* GameCenterController.swift in Sources */,
 				14E29B3627EE3DCF00E9ED47 /* SwitchType.swift in Sources */,
 				B0F1F07927EB9AEF009A9B1F /* GameOverButtonTypes.swift in Sources */,
 				B0F1F08C27EBBF5A009A9B1F /* SoundAction.swift in Sources */,

@@ -129,8 +129,8 @@ class StoreScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 16
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 16
+        let height = width * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
@@ -164,7 +164,7 @@ class StoreScene: MyScene {
             width = size.width / 3
         }
         
-        let h = w * texture.size().height / texture.size().width
+        let height = width * texture.size().height / texture.size().width
         
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
@@ -237,7 +237,7 @@ class StoreScene: MyScene {
             print("oi")
         }
 
-        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
+        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: width, height: height))
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -339,8 +339,8 @@ class StoreScene: MyScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
-        var w: CGFloat = 0
-        var h: CGFloat = 0
+        var width: CGFloat = 0
+        var height: CGFloat = 0
 
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
@@ -401,9 +401,9 @@ class StoreScene: MyScene {
         var width: CGFloat = 0
         var height: CGFloat = 0
         
-        w = size.width / 15
-        h = w * texture.size().height / texture.size().width
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        width = size.width / 15
+        height = width * texture.size().height / texture.size().width
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
@@ -435,9 +435,9 @@ class StoreScene: MyScene {
         let plot = [[self.vetor[5],self.vetor[4],self.vetor[2]],[self.vetor[0],self.vetor[1],self.vetor[3]]]
         let plotMacOS = [self.vetor[5],self.vetor[4],self.vetor[2],self.vetor[0],self.vetor[1],self.vetor[3]]
 
-        for i in 0..<3{
-            for j in 0..<2{
-                let button = createDino(name: plot[j][i], posX: i, posY: j)
+        for index in 0..<3{
+            for indexJ in 0..<2{
+                let button = createDino(name: plot[indexJ][index], posX: index, posY: indexJ)
                 gallery.addChild(button)
             }
         }

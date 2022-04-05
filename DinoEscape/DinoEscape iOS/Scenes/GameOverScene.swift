@@ -115,15 +115,15 @@ class GameOverScene: MyScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(name.rawValue)")
         texture.filteringMode = .nearest
         
-        var w : CGFloat
-        var h : CGFloat
+        var width : CGFloat
+        var height : CGFloat
 
         if name == .playAgain {
-            w = size.width / 2.5
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 2.5
+            height = width * texture.size().height / texture.size().width
         } else {
-            w = size.width / 3.0
-            h = w * texture.size().height / texture.size().width
+            width = size.width / 3.0
+            height = width * texture.size().height / texture.size().width
         }
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))

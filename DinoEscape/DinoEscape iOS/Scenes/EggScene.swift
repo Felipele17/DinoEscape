@@ -69,8 +69,8 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 16
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 16
+        let height = width * texture.size().height / texture.size().width
         
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
@@ -91,10 +91,10 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3
+        let width: CGFloat = size.width / 3
 
-        let h = w * texture.size().height / texture.size().width
-        let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let height = width * texture.size().height / texture.size().width
+        let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -157,10 +157,10 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3.5
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 3.5
+        let height = width * texture.size().height / texture.size().width
         
-        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
+        let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: width, height: height))
         
         segmentage.position = CGPoint(
             x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
@@ -191,8 +191,8 @@ class EggScene: SKScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
-        let w: CGFloat = size.width / 15
-        let h = w * coinTotal.size.height / coinTotal.size.width / 2
+        let width: CGFloat = size.width / 15
+        let height = width * coinTotal.size.height / coinTotal.size.width / 2
  
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         
@@ -218,9 +218,9 @@ class EggScene: SKScene {
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 15
-        let h = w * texture.size().height / texture.size().width
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let width: CGFloat = size.width / 15
+        let height = width * texture.size().height / texture.size().width
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())

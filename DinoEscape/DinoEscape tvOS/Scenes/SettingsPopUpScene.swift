@@ -113,10 +113,10 @@ class SettingsPopUpScene: SKSpriteNode {
         
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 8.0
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 8.0
+        let height = width * texture.size().height / texture.size().width
 
-        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let switchButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         switchButton.position = pos
         
         switchButton.selectedHandler = {
@@ -150,10 +150,10 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "resumeButton")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.height / 1.8
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 1.8
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = position
         button.selectedHandler = {
             #if os(iOS) || os(macOS)
@@ -170,10 +170,10 @@ class SettingsPopUpScene: SKSpriteNode {
         let texture = SKTexture(imageNamed: "homeBackButton")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.height / 2.2
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 2.2
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = position
         button.selectedHandler = {
             GameController.shared.restartGame()
