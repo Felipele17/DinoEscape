@@ -5,6 +5,9 @@ disabled_rules:
   - fatal_error
   - redundant_type_annotation
   - line_length
+  - override_in_extension
+  - attributes
+  - function_body_length
 excluded:
   - Pods
   - ATSwiftLintTest/AppDelegate.swift

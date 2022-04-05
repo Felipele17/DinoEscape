@@ -1,4 +1,4 @@
-//  EggType.swift
+//  EggType 2.swift
 //  DinoEscape
 //
 //  Created by Leticia Utsunomiya on 16/03/22.

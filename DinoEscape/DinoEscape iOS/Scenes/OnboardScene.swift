@@ -46,10 +46,10 @@ class OnboardScene: SKSpriteNode {
                       multiplierx: 3)
             btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height / 8 * -3.3))
         case .pad:
-            let sizes: [CGFloat] = [1,-0.1,-1.2,-2.2]
+            let sizes: [CGFloat] = [1, -0.1, -1.2, -2.2]
             let imageSize = CGSize(width: background.frame.size.width * 0.3, height: background.frame.size.height * 0.2)
-            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3)
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -3.3))
+            addImages(background: background, sizes: sizes, imageSize: imageSize, multipliery: 8, multiplierx: 3)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/ 8 * -3.3))
         case .tv:
             print("Config tv")
         default:
@@ -58,7 +58,7 @@ class OnboardScene: SKSpriteNode {
         }
         background.addChild(btnOk)
     }
-    func addImages(background: SKShapeNode, sizes: [CGFloat],imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat) {
+    func addImages(background: SKShapeNode, sizes: [CGFloat], imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat) {
         let imageNames = ["meteorOnboard", "badFood", "goodFood", "foodBar"]
         let labelColor = SKColor(red: 0.92, green: 0.91, blue: 0.78, alpha: 1)
         for index in 0..<imageNames.count {

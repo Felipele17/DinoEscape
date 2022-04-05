@@ -21,9 +21,8 @@ class EggScene: SKScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
 
-    
         removeAllChildren()
         removeAllActions()
         
@@ -37,8 +36,8 @@ class EggScene: SKScene {
         
         let egg: SKSpriteNode = SKSpriteNode(imageNamed: "ovo")
         
-        egg.position = CGPoint(x: size.width/2, y: size.height/2)
-        egg.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        egg.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        egg.size = CGSize(width: size.width / 1.5, height: size.height / 1.7)
         addChild(egg)
         
     }
@@ -53,14 +52,10 @@ class EggScene: SKScene {
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         adsButton.position = CGPoint(
-            x: size.width/1.102,
-            y: size.height/1.103)
-        
-        
-        
+            x: size.width / 1.102,
+            y: size.height / 1.103)
         adsButton.selectedHandler = {
             print("ads")
-            
         }
         
         return adsButton
@@ -103,7 +98,7 @@ class EggScene: SKScene {
             print("BOTAO APERTADO: \(pos)")
             switch image {
             case .eggs:
-                self.view?.presentScene(EggScene.newGameScene())
+                self.view?.presentScene(self)
             case .dinos:
                 self.view?.presentScene(StoreScene.newGameScene())
             }
@@ -113,7 +108,6 @@ class EggScene: SKScene {
     }
         
     
-   
     func createReader(coins: Int) -> SKSpriteNode {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
@@ -124,8 +118,7 @@ class EggScene: SKScene {
     }
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
-        let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
-        
+        let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height))
         
         let width: CGFloat = size.width / 15
         let height = width * coinTotal.size.height / coinTotal.size.width / 2

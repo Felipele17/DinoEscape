@@ -25,8 +25,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
         
         #warning("deletar coredata -> apenas para testes")
-        //try! SkinDataModel.deleteCoreData(skins: dinos)
-        
+        // try! SkinDataModel.deleteCoreData(skins: dinos)
         
         return true
     }

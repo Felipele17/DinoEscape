@@ -10,9 +10,7 @@
 import Foundation
 import SpriteKit
 
-
 class SettingsScene: MyScene {
-        
     // buttons
     var btn = SKButton()
     var btn2 = SKButton()
@@ -23,12 +21,11 @@ class SettingsScene: MyScene {
     var switch3 = SKButton()
     var toggleON: Bool = true
     
-    //invisible button
+    // invisible button
     var guideButton = SKButton()
 
     // music
     var musicButton = SKButton()
-    
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -37,18 +34,17 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
-        
         #if os(tvOS)
         addTapGestureRecognizer()
         #endif
         
         MusicService.shared.playLoungeMusic()
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         removeAllChildren()
         removeAllActions()
 
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
-        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
@@ -58,7 +54,7 @@ class SettingsScene: MyScene {
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
-        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        title.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         addChild(title)
         
         let subtitle: SKLabelNode = SKLabelNode(text: "R U N !")
@@ -66,49 +62,48 @@ class SettingsScene: MyScene {
         subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         subtitle.numberOfLines = 2
-        subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        subtitle.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         
         addChild(subtitle)
 
         createLabel(text: "Settings".localized(),
-                    fontSize: size.width/13,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2, y: size.height/1.45)
+                    fontSize: size.width / 13,
+                    fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
+                    position: CGPoint(x: size.width / 2, y: size.height / 1.45)
         )
         
-        
         createLabel(text: "Music".localized(),
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/1.7)
+                    fontSize: size.width / 20,
+                    fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
+                    position: CGPoint(x: size.width / 2.9, y: size.height / 1.7)
         )
         
         createLabel(text: "Vibration".localized(),
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/2.07)
+                    fontSize: size.width / 20,
+                    fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
+                    position: CGPoint(x: size.width / 2.9, y: size.height / 2.07)
         )
 
-        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
-        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255 / 255, green: 139 / 255, blue: 139 / 255, alpha: 1))
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255 / 255, green: 229 / 255, blue: 139 / 255, alpha: 1))
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139 / 255, green: 179 / 255, blue: 255 / 255, alpha: 1))
         
         addChild(btn)
         addChild(btn2)
         addChild(btn3)
         
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.7), type: .music)
+        switch2 = createSwitch(pos: CGPoint(x: size.width / 1.5, y: size.height / 1.7), type: .music)
         addChild(switch2)
-        switch3 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/2.05), type: .vibration)
+        switch3 = createSwitch(pos: CGPoint(x: size.width / 1.5, y: size.height / 2.05), type: .vibration)
         addChild(switch3)
         
-        switch UIDevice.current.userInterfaceIdiom{
+        switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            title.fontSize = size.width/12
-            title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+            title.fontSize = size.width / 12
+            title.position = CGPoint(x: size.width / 2, y: size.height / 1.07)
             
-            subtitle.fontSize = size.width/12
-            subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+            subtitle.fontSize = size.width / 12
+            subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
             
             btn.setScale(0.8)
             btn2.setScale(0.8)
@@ -117,10 +112,10 @@ class SettingsScene: MyScene {
         case .phone:
             if UIDevice.current.name == "iPhone 8" {
                 title.fontSize = 35
-                title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+                title.position = CGPoint(x: size.width / 2, y: size.height / 1.07)
                 
                 subtitle.fontSize = 40
-                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+                subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
                 
                 btn.setScale(0.9)
                 btn2.setScale(0.9)
@@ -128,14 +123,11 @@ class SettingsScene: MyScene {
                 
             } else {
                 title.fontSize = 35
-                title.position = CGPoint(x: size.width/2, y: size.height/1.09)
+                title.position = CGPoint(x: size.width / 2, y: size.height / 1.09)
                 
                 subtitle.fontSize = 40
-                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+                subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
             }
-            
-            
-            
         default:
             print("oi")
         }
@@ -153,8 +145,8 @@ class SettingsScene: MyScene {
         let height = width * texture.size().height / texture.size().width
         
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
-        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
+        button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 5.4)
+        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 7.8)
         
         button.selectedHandler = {
             if name == .play {
@@ -162,7 +154,7 @@ class SettingsScene: MyScene {
             } else if name == .shop {
                 self.view?.presentScene(EggScene.newGameScene())
             } else if name == .settings {
-                self.view?.presentScene(SettingsScene.newGameScene())
+                self.view?.presentScene(self)
             } else {
                 print("out of range")
             }
@@ -172,10 +164,9 @@ class SettingsScene: MyScene {
         return button
         
     }
-    
 
     func changeSwitchMusic() -> String {
-        var imageName : String
+        var imageName: String
         if UserDefaults.standard.bool(forKey: "music") == true {
             imageName = "switchON"
         } else {
@@ -185,7 +176,7 @@ class SettingsScene: MyScene {
     }
     
     func changeSwitchVibration() -> String {
-        var imageName : String
+        var imageName: String
         if UserDefaults.standard.bool(forKey: "vibration") == true {
             imageName = "switchON"
         } else {
@@ -195,7 +186,6 @@ class SettingsScene: MyScene {
     }
   
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
-                
         let texture: SKTexture
         
         switch type {
@@ -208,8 +198,7 @@ class SettingsScene: MyScene {
         }
         
         texture.filteringMode = .nearest
-        
-        
+    
         let width: CGFloat = size.width / 6.0
         let height = width * texture.size().height / texture.size().width
         
@@ -225,12 +214,12 @@ class SettingsScene: MyScene {
                 self.addTapGestureRecognizer()
                 #endif
                 MusicService.shared.updateUserDefaults()
-                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
@@ -238,8 +227,7 @@ class SettingsScene: MyScene {
         }
         return switchButton
     }
-    
-    
+
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint) {
         let label: SKLabelNode = SKLabelNode(text: text)
         label.fontName = "Aldrich-Regular"
@@ -263,5 +251,3 @@ class SettingsScene: MyScene {
         setUpScene()
     }
 }
-
-

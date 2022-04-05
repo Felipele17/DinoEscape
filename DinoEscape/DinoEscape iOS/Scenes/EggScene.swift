@@ -20,7 +20,6 @@ class EggScene: SKScene {
     let formatter = DateFormatter()
     var eggNode = SKSpriteNode()
     
-    
     class func newGameScene() -> EggScene {
         let scene = EggScene()
         scene.scaleMode = .resizeFill
@@ -35,15 +34,13 @@ class EggScene: SKScene {
         
         let timePassed = calculateHours()
         
-        
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         MusicService.shared.playLoungeMusic()
         
         removeAllChildren()
         removeAllActions()
         
         addChild(createReader(coins: coins))
-        
         
         createSegButton(image: .eggs, pos: 0)
         createSegButton(image: .dinos, pos: 1)
@@ -58,8 +55,8 @@ class EggScene: SKScene {
         addChild(moreButton)
         
         eggNode = SKSpriteNode(imageNamed: "ovo")
-        eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        eggNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        eggNode.size = CGSize(width: size.width / 1.5, height: size.height / 1.7)
         
         addChild(eggNode)
         
@@ -75,8 +72,8 @@ class EggScene: SKScene {
         let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         adsButton.position = CGPoint(
-            x: size.width/1.102,
-            y: size.height/1.103)
+            x: size.width / 1.102,
+            y: size.height / 1.103)
         
         adsButton.selectedHandler = {
             print("ads")
@@ -140,11 +137,11 @@ class EggScene: SKScene {
         
     }
     
-    func calculateHours() -> Double{
+    func calculateHours() -> Double {
         let dateTaken = formatter.date(from: premioDate)
         if let dateTaken = dateTaken {
             let diffSeconds = Date().timeIntervalSinceReferenceDate - dateTaken.timeIntervalSinceReferenceDate
-            let hoursPassed = diffSeconds/(60.0 * 60.0)
+            let hoursPassed = diffSeconds / (60.0 * 60.0)
             
             return hoursPassed
             
@@ -170,7 +167,7 @@ class EggScene: SKScene {
             print("BOTAO APERTADO: \(pos)")
             switch image {
             case .eggs:
-                self.view?.presentScene(EggScene.newGameScene())
+                self.view?.presentScene(self)
             case .dinos:
                 self.view?.presentScene(StoreScene.newGameScene())
             }
@@ -189,23 +186,23 @@ class EggScene: SKScene {
     }
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
-        let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
+        let coinTotal = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height) )
         
         let width: CGFloat = size.width / 15
         let height = width * coinTotal.size.height / coinTotal.size.width / 2
  
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         
-        coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
+        coin.position = CGPoint(x: size.width / 1.6, y: size.height / 1.103)
         coin.size = CGSize(width: width, height: height)
         
-        let total: SKLabelNode = SKLabelNode(text:String(coins))
+        let total: SKLabelNode = SKLabelNode(text: String(coins))
         total.fontName = "Aldrich-Regular"
         total.fontSize = 30
-        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        total.position = CGPoint(x: size.width / 1.30, y: size.height / 1.12)
         
         total.numberOfLines = 1
-        total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+        total.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
@@ -214,14 +211,13 @@ class EggScene: SKScene {
     }
     
     func createBackButton() -> SKButton {
-        
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
         let width: CGFloat = size.width / 15
         let height = width * texture.size().height / texture.size().width
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
-        button.position = CGPoint(x: size.width / 8 , y: size.height/1.103)
+        button.position = CGPoint(x: size.width / 8, y: size.height / 1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
             
@@ -234,6 +230,4 @@ class EggScene: SKScene {
         
         setUpScene()
     }
-    
-    
 }

@@ -26,7 +26,7 @@ class HomeScene: MyScene {
         self.isUserInteractionEnabled = true
         MusicService.shared.playLoungeMusic()
         GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
-        backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        backgroundColor = SKColor(red: 57/ 255, green: 100/ 255, blue: 113/ 255, alpha: 1)
         removeAllChildren()
         removeAllActions()
         
@@ -45,7 +45,7 @@ class HomeScene: MyScene {
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 0
-        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        title.fontColor = SKColor(red: 235/ 255, green: 231/ 255, blue: 198/ 255, alpha: 1)
         addChild(title)
         
         btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/ 255, green: 139/ 255, blue: 139/ 255, alpha: 1))

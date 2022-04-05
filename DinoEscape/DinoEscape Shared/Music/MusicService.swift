@@ -12,7 +12,7 @@ class MusicService {
 
     static let shared = MusicService()
     
-    private var audioPlayer: [String : AVAudioPlayer] = [:]
+    private var audioPlayer: [String: AVAudioPlayer] = [:]
 
     func toggleMusic() {
         switch self.updateUserDefaults() {

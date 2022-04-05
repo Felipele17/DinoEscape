@@ -122,7 +122,7 @@ class JoystickController{
     
     func checkForKeyboard() {
         if let keyboard = GCKeyboard.coalesced?.keyboardInput {
-            keyboard.keyChangedHandler = { (keyboard, key, keyCode, pressed) in
+            keyboard.keyChangedHandler = { ( keyboard, key, keyCode, pressed) in
                 guard let direction: GameCommand = self.keyMap[keyCode] else { return }
                 
                 if pressed {
@@ -150,21 +150,19 @@ class JoystickController{
                 }
             }
     }
-    func respondToPause(pause: UITapGestureRecognizer){
-        if pause is UITapGestureRecognizer {
-            self.pressButton(.PAUSE)
-        }
+    func respondToPause(pause: UITapGestureRecognizer) {
+        self.pressButton(.PAUSE)
     }
     #endif
     
     // MARK: Buttons
-    func pressButton(_ command: GameCommand){
+    func pressButton(_ command: GameCommand) {
         delegate?.buttonPressed(command: command)
         delegate?.selectPlayerState(command: command)
 
     }
     
-    func releaseButton(_ command: GameCommand){
+    func releaseButton(_ command: GameCommand) {
         delegate?.buttonReleased(command: command)
         delegate?.selectPlayerState(command: command)
     }
@@ -172,14 +170,13 @@ class JoystickController{
     func update(_ currentTime: TimeInterval) {
         checkForKeyboard()
         #if os(tvOS)
-        if let swipe = GameController.shared.swipe{
+        if let swipe = GameController.shared.swipe {
             respondToSwipeGesture(gesture: swipe)
         }
-        if let pause = GameController.shared.pause{
+        if let pause = GameController.shared.pause {
             respondToPause(pause: pause)
         }
         #endif
         delegate?.joystickUpdate(currentTime)
     }
 }
-

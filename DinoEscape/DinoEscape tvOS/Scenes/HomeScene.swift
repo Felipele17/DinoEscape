@@ -31,8 +31,8 @@ class HomeScene: MyScene {
         self.isUserInteractionEnabled = true
         MusicService.shared.playLoungeMusic()
         GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
-
-        backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        
+        backgroundColor = SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1)
         
         addTapGestureRecognizer()
         removeAllChildren()
@@ -41,28 +41,28 @@ class HomeScene: MyScene {
         video = setVideoNode()!
         addChild(video)
         video.play()
-
+        
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
-        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
-
+        
         let title: SKLabelNode = SKLabelNode(text: "R U N  D I N O, R U N !")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 0
-        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        title.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         addChild(title)
         
-        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255 / 255, green: 139 / 255, blue: 139 / 255, alpha: 1))
         addChild(btn)
-        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255 / 255, green: 229 / 255, blue: 139 / 255, alpha: 1))
         addChild(btn2)
         
         title.fontSize = 120
-        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
+        title.position = CGPoint(x: size.width / 2, y: size.height / 1.11)
         
         btn.setScale(0.5)
         btn2.setScale(0.5)
@@ -74,7 +74,7 @@ class HomeScene: MyScene {
         var multiplier = 0.0
         video = "gameplayMac"
         multiplier = 0.85
-
+        
         let videoNode: SKVideoNode? = {
             guard let urlString = Bundle.main.path(forResource: video, ofType: "mov") else {
                 return nil
@@ -87,12 +87,10 @@ class HomeScene: MyScene {
         }()
         
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
-                                                       object: player.currentItem, queue: nil)
-                { notification in
-                    self.player.seek(to: CMTime.zero)
-                    self.player.play()
-                }
-        
+                                               object: player.currentItem, queue: nil) { _ in
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
+        }
         videoNode?.position = CGPoint(x: frame.midX, y: frame.midY)
         videoNode?.zPosition = -10
         videoNode?.setScale(multiplier)
@@ -123,15 +121,15 @@ class HomeScene: MyScene {
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         title.fontSize = 40
-        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/7.6)
-        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/27)
+        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height / 7.6)
+        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height / 27)
         
         button.selectedHandler = {
             self.video.removeFromParent()
             if name == .play {
                 let scene = GameScene.newGameScene()
                 print(UserDefaults.standard.integer(forKey: "DinoCoins"))
-
+                
                 self.view?.presentScene(scene)
                 
             } else if name == .settings {
@@ -148,7 +146,6 @@ class HomeScene: MyScene {
         
     }
     
-    
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
         
@@ -162,22 +159,19 @@ class HomeScene: MyScene {
     }
     
     @objc func tapped(sender: AnyObject) {
-        
-        if (btn.isFocused){
+        if btn.isFocused {
             let scene = GameScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        }
-        else if (btn2.isFocused){
+        } else if btn2.isFocused {
             let scene = SettingsScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
         }
-
+        
     }
 }
-

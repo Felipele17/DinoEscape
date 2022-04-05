@@ -12,18 +12,17 @@ import SpriteKit
 #if os(tvOS)
 // Touch-based event handling
 extension GameScene {
-    
-    func setGesture(){
-        let swipeUp : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+    func setGesture() {
+        let swipeUp: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeUp.direction = .up
-                
+        
         let swipeDown: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeDown.direction = .down
         
-        let swipeLeft : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        let swipeLeft: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeLeft.direction = .left
-
-        let swipeRight : UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
+        
+        let swipeRight: UISwipeGestureRecognizer = UISwipeGestureRecognizer(target: self, action: #selector(self.respondToSwipeGesture))
         swipeRight.direction = .right
         
         let pause =  UITapGestureRecognizer()
@@ -50,7 +49,6 @@ extension GameScene {
         self.view?.addGestureRecognizer(swipeRight)
     }
     
-    
     public func changePlayerCommand(vx: CGFloat, vy: CGFloat)  -> GameCommand {
         if (vx < 0.2) && (vx > -0.2) && vy > 0 { return .UP }
         if (vx < 0.2) && (vx > -0.2) && vy < 0 { return .DOWN }
@@ -58,7 +56,6 @@ extension GameScene {
         if  vx >=  0.2 { return .RIGHT }
         return .LEFT
     }
-    
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
@@ -76,8 +73,6 @@ extension GameScene {
             GameController.shared.gameData.player?.gameCommand = changePlayerCommand(vx: velocityX, vy: velocityY)
             
             GameController.shared.movePlayer(dx: GameController.shared.gameData.player?.dinoVx ?? 0, dy: GameController.shared.gameData.player?.dinoVy ?? 0)
-
-
         }
         
     }
@@ -87,37 +82,26 @@ extension GameScene {
     }
     
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
     }
     
     @objc func respondToSwipeGesture(gesture: UIGestureRecognizer) {
-            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-                GameController.shared.getSwipe(swipe: swipeGesture)
-            }
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+            GameController.shared.getSwipe(swipe: swipeGesture)
+        }
     }
     @objc func respondToPause(gesture: UITapGestureRecognizer) {
-            if let tapGesture = gesture as? UITapGestureRecognizer {
-                GameController.shared.getPause(pause: tapGesture)
-            }
+        GameController.shared.getPause(pause: gesture)
     }
     
     @objc func respondToPlay(gesture: UITapGestureRecognizer) {
-        if let tapGesture = gesture as? UITapGestureRecognizer {
-            GameController.shared.getPlay(play: tapGesture)
-        }
+        GameController.shared.getPlay(play: gesture)
     }
     
     @objc func respondToMenu(gesture: UITapGestureRecognizer) {
-        if let tapGesture = gesture as? UITapGestureRecognizer {
-            GameController.shared.getMenu(menu: tapGesture)
-            
-        }
+        GameController.shared.getMenu(menu: gesture)
     }
     @objc func respondToTap(gesture: UITapGestureRecognizer) {
-        if let tapGesture = gesture as? UITapGestureRecognizer {
-            GameController.shared.getTap(menu: tapGesture)
-            
-        }
+        GameController.shared.getTap(menu: gesture)
     }
     
 }

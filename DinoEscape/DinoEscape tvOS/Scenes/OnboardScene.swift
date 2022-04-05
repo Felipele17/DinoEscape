@@ -64,7 +64,7 @@ class OnboardScene: SKSpriteNode {
         for index in 0..<imageNames.count {
             let position = CGPoint(x: background.frame.size.width / multiplierx * -0.8, y: background.frame.size.height / multipliery * sizes[index])
             background.addChild(createImage(imageNamed: imageNames[index], position: position, size: imageSize))
-            background.addChild(createLabel(text: self.text(type: i).localized(),
+            background.addChild(createLabel(text: self.text(type: index).localized(),
                                             fontSize: size.height / 40,
                                             fontColor: labelColor,
                                             position: CGPoint(x: background.frame.size.width / 3 * -0.1,
@@ -107,21 +107,17 @@ class OnboardScene: SKSpriteNode {
     }
     
     @objc func tapped(sender: AnyObject) {
-        
-        if (btnOk.isFocused){
-            
+        if btnOk.isFocused {
             self.removeFromParent()
             GameController.shared.gameData.gameStatus = .playing
             GameController.shared.pauseActionItems()
             
-        }
-        else {
+        } else {
             print("não sei ler oq vc quer")
         }
     }
     
-    func createBackButton(position: CGPoint) -> SKButton{
-        
+    func createBackButton(position: CGPoint) -> SKButton {
         let texture = SKTexture(imageNamed: "okButton")
         texture.filteringMode = .nearest
         

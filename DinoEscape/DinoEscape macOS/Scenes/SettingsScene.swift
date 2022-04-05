@@ -8,7 +8,6 @@
 import Foundation
 import SpriteKit
 
-
 class SettingsScene: MyScene {
     // buttons
     var btn = SKButton()
