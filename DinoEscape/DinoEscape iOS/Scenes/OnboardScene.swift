@@ -37,28 +37,28 @@ class OnboardScene: SKSpriteNode {
         self.addChild(background)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            let sizes: [CGFloat] = [1.5,0.5,-0.5,-1.5]
+            let sizes: [CGFloat] = [1.5, 0.5, -0.5, -1.5]
             let imageSize = CGSize(width: background.frame.size.width * 0.3, height: background.frame.size.height * 0.2)
-            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3, fontSize: 40)
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -2.7))
+            addImages(background: background, sizes: sizes, imageSize: imageSize, multipliery: 8, multiplierx: 3, fontSize: 40)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height / 8 * -2.7))
         case .pad:
-            let sizes: [CGFloat] = [1.5,0.5,-0.5,-1.5]
+            let sizes: [CGFloat] = [1.5, 0.5, -0.5, -1.5]
             let imageSize = CGSize(width: background.frame.size.width * 0.35, height: background.frame.size.height * 0.25)
-            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3.5, fontSize: 30)
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -2.7))
+            addImages(background: background, sizes: sizes, imageSize: imageSize, multipliery: 8, multiplierx: 3.5, fontSize: 30)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height / 8 * -2.7))
         default:
             print("qualquer")
             
         }
         background.addChild(btnOk)
     }
-    func addImages(background: SKShapeNode,sizes: [CGFloat],imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat, fontSize: CGFloat){
+    func addImages(background: SKShapeNode, sizes: [CGFloat], imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat, fontSize: CGFloat) {
         let imageNames = ["meteorOnboard", "badFood", "goodFood", "foodBar"]
         let labelColor = SKColor(red: 0.92, green: 0.91, blue: 0.78, alpha: 1)
-        for i in 0..<imageNames.count{
-            background.addChild(createImage(imageNamed: imageNames[i], position: CGPoint(x: background.frame.size.width/multiplierx * -0.8, y: background.frame.size.height/multipliery * sizes[i]), size: imageSize))
-            background.addChild(createLabel(text: self.text(type: i).localized(),
-                                            fontSize: size.height/fontSize,
+        for names in 0..<imageNames.count {
+            background.addChild(createImage(imageNamed: imageNames[names], position: CGPoint(x: background.frame.size.width / multiplierx * -0.8, y: background.frame.size.height / multipliery * sizes[i]), size: imageSize))
+            background.addChild(createLabel(text: self.text(type: names).localized(),
+                                            fontSize: size.height / fontSize,
                                             fontColor: labelColor,
                                             position: CGPoint(x: background.frame.size.width / 3 * -0.1,
                                                               y: background.frame.size.height / multipliery * sizes[index]),

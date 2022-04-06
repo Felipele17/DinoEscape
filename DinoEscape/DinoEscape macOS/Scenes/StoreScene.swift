@@ -77,8 +77,8 @@ class StoreScene: MyScene {
         
         addChild(square)
         
-        dinoImage.position = CGPoint(x: size.width/1.58, y: size.width/4.5)
-        dinoImage.size = CGSize(width: size.width/2.9, height: size.height/1.9)
+        dinoImage.position = CGPoint(x: size.width / 1.58, y: size.width / 4.5)
+        dinoImage.size = CGSize(width: size.width / 2.9, height: size.height / 1.9)
         
         priceLabel = SKLabelNode()
         if selectedDino.isBought == true {
@@ -136,8 +136,6 @@ class StoreScene: MyScene {
             } else {
                 print("comprado")
             }
-            
-            
             
             if self.isBought == "purchasedButton" {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
@@ -220,8 +218,6 @@ class StoreScene: MyScene {
                 self.isSelected = "selectedButton"
             }
             
-            
-            
             if name.isBought {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(selectButton)
@@ -250,21 +246,21 @@ class StoreScene: MyScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height) )
         
-        let w = size.width / 20
-        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        let width = size.width / 20
+        let height = width * coinTotal.size.height / coinTotal.size.width / 0.7
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
-        coin.position = CGPoint(x: size.width/1.1, y: size.height/1.103)
-        coin.size = CGSize(width: w, height: h)
+        coin.position = CGPoint(x: size.width / 1.1, y: size.height / 1.103)
+        coin.size = CGSize(width: width, height: height)
         
         coinsLabel = SKLabelNode(text: String(coins))
         coinsLabel.fontName = "Aldrich-Regular"
         coinsLabel.horizontalAlignmentMode = .right
 
         coinsLabel.fontSize = 60
-        coinsLabel.position = CGPoint(x: coin.position.x/1.05, y: size.height/1.125)
+        coinsLabel.position = CGPoint(x: coin.position.x / 1.05, y: size.height / 1.125)
         coinsLabel.numberOfLines = 1
-        coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+        coinsLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         
         addChild(coin)
         addChild(coinsLabel)

@@ -25,11 +25,9 @@ class GameCenterController {
         return instance
     }()
     
-    
-    let LEADERBOARD_ID = "dino_players" ///na appstore connect deve ser criado um ID para o gameCnter
+    let LEADERBOARD_ID = "dino_players" // na appstore connect deve ser criado um ID para o gameCnter
     let view = GKGameCenterViewController(leaderboardID: "dino_players", playerScope: .global, timeScope: .allTime)
 
-    
     #if os(macOS)
     var viewController: NSViewController?
     init(viewController: NSViewController) {

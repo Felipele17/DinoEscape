@@ -154,21 +154,18 @@ class EggScene: SKScene {
         
         let width: CGFloat = size.width / 20
         let height = width * coinTotal.size.height / coinTotal.size.width / 0.7
-        
-        let w: CGFloat = size.width / 20
-        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
 
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
-        coin.position = CGPoint(x: size.width/1.1, y: size.height/1.103)
+        coin.position = CGPoint(x: size.width / 1.1, y: size.height / 1.103)
         coin.size = CGSize(width: w, height: h)
 
-        let total: SKLabelNode = SKLabelNode(text:String(coins))
+        let total: SKLabelNode = SKLabelNode(text: String(coins))
         total.fontName = "Aldrich-Regular"
         total.horizontalAlignmentMode = .right
 
         total.fontSize = 60
-        total.position = CGPoint(x: coin.position.x/1.05, y: size.height/1.125)
+        total.position = CGPoint(x: coin.position.x / 1.05, y: size.height / 1.125)
         
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
