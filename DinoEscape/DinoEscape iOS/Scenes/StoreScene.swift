@@ -61,10 +61,8 @@ class StoreScene: MyScene {
             addChild(gallery)
             
         }
-        self.buyButton = createShopButtons(image: self.isBought, pos: 0)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 1)
         addChild(self.selectButton)
-        addChild(buyButton)
         
     }
     
@@ -108,7 +106,7 @@ class StoreScene: MyScene {
         }
         priceLabel = SKLabelNode()
         if selectedDino.isBought == true {
-            priceLabel.text = "Purchased"
+            priceLabel.text = "Purchased".localized()
         } else {
             priceLabel.text = "$ \(selectedDino.price)"
         }
@@ -200,12 +198,12 @@ class StoreScene: MyScene {
                 print("comprado")
             }
             
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(self.buyButton)
-            
             if self.isBought == "purchasedButton" {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(self.selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(self.buyButton)
             }
             
         }
@@ -303,13 +301,12 @@ class StoreScene: MyScene {
                 self.isSelected = "selectedButton"
             }
             
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(buyButton)
-            
-            
             if name.isBought {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(buyButton)
             }
             
             self.selectedDino = name
