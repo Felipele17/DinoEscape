@@ -19,6 +19,8 @@
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
 		13030B7D27F5C54300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7C27F5C54300406D1C /* OnboardScene.swift */; };
 		13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7F27F5C56300406D1C /* OnboardScene.swift */; };
+		131E206527FE0E750078FC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		131E206627FE0E760078FC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -729,6 +731,7 @@
 				133D058727EE593D00DA8269 /* Haptic.json in Resources */,
 				13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
+				131E206527FE0E750078FC6D /* Assets.xcassets in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
@@ -752,6 +755,7 @@
 				DF2F5C5B27ECFD250018C99C /* gameplayMac.mov in Resources */,
 				DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
+				131E206627FE0E760078FC6D /* Assets.xcassets in Resources */,
 				133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
