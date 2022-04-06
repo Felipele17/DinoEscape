@@ -19,6 +19,8 @@
 		0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */ = {isa = PBXBuildFile; fileRef = 0660F09727EE59B90099D32D /* gameplayIpadOS.mov */; };
 		13030B7D27F5C54300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7C27F5C54300406D1C /* OnboardScene.swift */; };
 		13030B8027F5C56300406D1C /* OnboardScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13030B7F27F5C56300406D1C /* OnboardScene.swift */; };
+		131E206527FE0E750078FC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
+		131E206627FE0E760078FC6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		132E23F527E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F627E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
 		132E23F727E130E2006CDEAB /* Items.swift in Sources */ = {isa = PBXBuildFile; fileRef = 132E23F427E130E2006CDEAB /* Items.swift */; };
@@ -96,8 +98,6 @@
 		4AEAEF1F27D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
 		4AEAEF2027D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
 		4AEAEF2127D676B100BBD809 /* GameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE827D676AE00BBD809 /* GameScene.swift */; };
-		4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
-		4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		4AEAEF2427D676B100BBD809 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AEAEEE927D676B000BBD809 /* Assets.xcassets */; };
 		A0768BEA27F77683008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BE927F77682008460A6 /* StoreScene.swift */; };
 		A0768BEE27F7780B008460A6 /* StoreScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0768BED27F7780B008460A6 /* StoreScene.swift */; };
@@ -731,11 +731,11 @@
 				133D058727EE593D00DA8269 /* Haptic.json in Resources */,
 				13842CE927E2561800E1F88E /* Aldrich-Regular.ttf in Resources */,
 				B0F1F08427EBA7A0009A9B1F /* gamePlayMusic.mp3 in Resources */,
+				131E206527FE0E750078FC6D /* Assets.xcassets in Resources */,
 				4AEAEEF727D676B000BBD809 /* Main.storyboard in Resources */,
 				DFDC9F3827F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEEFA27D676B000BBD809 /* LaunchScreen.storyboard in Resources */,
 				133D058F27EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
-				4AEAEF2227D676B100BBD809 /* Assets.xcassets in Resources */,
 				0660F09827EE59B90099D32D /* gameplayIpadOS.mov in Resources */,
 				06301AAD27F3806700F80420 /* .swiftlint.yml in Resources */,
 			);
@@ -755,8 +755,8 @@
 				DF2F5C5B27ECFD250018C99C /* gameplayMac.mov in Resources */,
 				DFDC9F3927F2349200DC93CD /* Haptic2.json in Resources */,
 				4AEAEF0A27D676B100BBD809 /* LaunchScreen.storyboard in Resources */,
+				131E206627FE0E760078FC6D /* Assets.xcassets in Resources */,
 				133D059027EE611B00DA8269 /* loungeMusic.mp3 in Resources */,
-				4AEAEF2327D676B100BBD809 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1247,7 +1247,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1261,7 +1261,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
 				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1279,7 +1279,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 14;
-				DEVELOPMENT_TEAM = L3LQDD8K39;
+				DEVELOPMENT_TEAM = TX88D8XM39;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "DinoEscape-macOS-Info.plist";
@@ -1293,7 +1293,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 12.1;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = brdevFelipeL.DinoEscapeApp;
+				PRODUCT_BUNDLE_IDENTIFIER = br.luca.dino;
 				PRODUCT_NAME = "Run Dino, Run!";
 				SDKROOT = macosx;
 				SWIFT_EMIT_LOC_STRINGS = YES;

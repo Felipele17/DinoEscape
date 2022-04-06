@@ -151,6 +151,9 @@ class HomeScene: MyScene {
             title = SKLabelNode(text: "Settings".localized())
         case .shop:
             title = SKLabelNode(text: "Shop".localized())
+        case .gameCenter:
+            title = SKLabelNode(text: "NotImplementerd".localized())
+
         }
         title.fontName = "Aldrich-Regular"
         

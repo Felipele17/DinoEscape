@@ -13,6 +13,7 @@ class HomeScene: MyScene {
     var btn = SKButton()
     var btn2 = SKButton()
     var btn3 = SKButton()
+    var btn4 = SKButton()
     var player = AVPlayer()
     var video = SKVideoNode(fileNamed: "gameplay.mov")
     
@@ -54,6 +55,8 @@ class HomeScene: MyScene {
         addChild(btn2)
         btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
         addChild(btn3)
+        btn4 = createButton(name: .gameCenter, pos: 3, titleColor: SKColor(red: 127/255, green: 195/255, blue: 40/255, alpha: 1))
+        addChild(btn4)
 
         title.fontSize = 120
         title.position = CGPoint(x: size.width/2, y: size.height/1.11)
@@ -61,6 +64,8 @@ class HomeScene: MyScene {
         btn.setScale(0.6)
         btn2.setScale(0.6)
         btn3.setScale(0.6)
+        btn4.setScale(0.6)
+
         
     }
     
@@ -109,6 +114,8 @@ class HomeScene: MyScene {
             title = SKLabelNode(text: "Settings".localized())
         case .shop:
             title = SKLabelNode(text: "Shop".localized())
+        case .gameCenter:
+            title = SKLabelNode(text: "GameCenter")
         }
         title.fontName = "Aldrich-Regular"
         
@@ -141,6 +148,8 @@ class HomeScene: MyScene {
             } else if name == .settings {
                 self.view?.presentScene(SettingsScene.newGameScene())
                 
+            } else if name == .gameCenter {
+                GameCenterController.shared.showGame()
             } else {
                 print("out of range")
             }
