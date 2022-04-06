@@ -23,7 +23,12 @@ Our game is frenetic, fun and nostalgic, reminiscent of arcade arcade games. Mov
 
 
 ## Download
-Soon on App Store.
+```iOS (iPhone, iPad) ```,
+```macOS ``` ,
+```appleTV ```
+| AppStore | TestFlight | 
+| -------- | ---------- |
+| ![Frame 69](https://user-images.githubusercontent.com/53840501/162065740-19fb6162-0956-4b19-b5ea-e10d4277995b.png) |![Frame 66](https://user-images.githubusercontent.com/53840501/162065732-0d1051da-d73b-43e1-b6f7-32536f03a2d3.png) |
 
 
 ***
