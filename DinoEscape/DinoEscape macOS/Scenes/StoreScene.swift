@@ -261,20 +261,19 @@ class StoreScene: MyScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
         
-        var w: CGFloat = 0
-        var h: CGFloat = 0
-        w = size.width / 20
-        h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        let w = size.width / 20
+        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
-        coin.position = CGPoint(x: size.width/1.4, y: size.height/1.103)
+        coin.position = CGPoint(x: size.width/1.1, y: size.height/1.103)
         coin.size = CGSize(width: w, height: h)
         
         coinsLabel = SKLabelNode(text:String(coins))
         coinsLabel.fontName = "Aldrich-Regular"
+        coinsLabel.horizontalAlignmentMode = .right
 
         coinsLabel.fontSize = 60
-        coinsLabel.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
+        coinsLabel.position = CGPoint(x: coin.position.x/1.05, y: size.height/1.125)
         coinsLabel.numberOfLines = 1
         coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
         

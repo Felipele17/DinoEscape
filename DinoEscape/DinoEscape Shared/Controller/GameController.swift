@@ -131,7 +131,9 @@ class GameController{
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
-            //renderer.pauseScene.addTapGestureRecognizer()
+            #if os(tvOS)
+            renderer.pauseScene.addTapGestureRecognizer()
+            #endif
         }
     }
     
