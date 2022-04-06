@@ -55,10 +55,18 @@ class EggScene: SKScene {
         addChild(timerButton)
         addChild(moreButton)
         
-        eggNode = SKSpriteNode(imageNamed: "ovo")
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            eggNode = SKSpriteNode(imageNamed: "ovo")
+            eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        case .pad:
+            eggNode = SKSpriteNode(imageNamed: "ovo-mac")
+            eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
+        default:
+            print("oi")
+        }
         eggNode.position = CGPoint(x: size.width/2, y: size.height/2)
-        eggNode.size = CGSize(width: size.width/1.5, height: size.height/1.7)
-        
+
         addChild(eggNode)
         
     }
@@ -139,14 +147,35 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.width / 3.5
-        let h = w * texture.size().height / texture.size().width
+        var w: CGFloat = 0
+        var h: CGFloat = 0
         
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            w = size.width / 3.5
+            h = w * texture.size().height / texture.size().width
+        case .pad:
+            w = size.width / 4.5
+            h = w * texture.size().height / texture.size().width
+        default:
+            print("oi")
+        }
+
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: w, height: h))
         
-        segmentage.position = CGPoint(
-            x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
-            y: size.height / 1.2 )
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            segmentage.position = CGPoint(
+                x: segmentage.frame.width / 0.84 + CGFloat(pos) * segmentage.frame.width * 1.05,
+                y: size.height / 1.2 )
+        case .pad:
+            segmentage.position = CGPoint(
+                x: segmentage.frame.width / 0.59 + CGFloat(pos) * segmentage.frame.width * 1.05,
+                y: size.height / 1.18 )
+        default:
+            print("oi")
+            
+        }
         
         segmentage.selectedHandler = {
             print("BOTAO APERTADO: \(pos)")
@@ -171,25 +200,60 @@ class EggScene: SKScene {
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size:CGSize(width: size.width, height: size.height) )
-        
-        let w: CGFloat = size.width / 15
-        let h = w * coinTotal.size.height / coinTotal.size.width / 2
- 
+       
+        var w: CGFloat = 0
+        var h: CGFloat = 0
+
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            w = size.width / 15
+            h = w * coinTotal.size.height / coinTotal.size.width / 1.5
+        case .phone:
+            w = size.width / 10
+            h = w * coinTotal.size.height / coinTotal.size.width / 2.2
+
+        default:
+            print("oi")
+            
+        }
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
+                
+        switch UIDevice.current.userInterfaceIdiom {
+        case .pad:
+            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.085)
+            coin.size = CGSize(width: w, height: h)
+        case .phone:
+            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.103)
+            coin.size = CGSize(width: w, height: h)
+        default:
+            print("oi")
+            
+        }
         
-        coin.position = CGPoint(x: size.width/1.6, y: size.height/1.103)
-        coin.size = CGSize(width: w, height: h)
+        let coinsLabel: SKLabelNode = SKLabelNode(text:String(coins))
+        coinsLabel.fontName = "Aldrich-Regular"
+        coinsLabel.horizontalAlignmentMode = .right
+
+        switch UIDevice.current.userInterfaceIdiom {
         
-        let total: SKLabelNode = SKLabelNode(text:String(coins))
-        total.fontName = "Aldrich-Regular"
-        total.fontSize = 30
-        total.position = CGPoint(x: size.width/1.30, y: size.height/1.12)
+        case .pad:
+            coinsLabel.position = CGPoint(x: coin.position.x/1.08, y: size.height/1.105)
+            coinsLabel.fontSize = 40
+
+        case .phone:
+            coinsLabel.position = CGPoint(x: coin.position.x/1.11, y: size.height/1.12)
+            coinsLabel.fontSize = 30
+
+        default:
+            print("oi")
         
-        total.numberOfLines = 1
-        total.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+        }
         
-        coinTotal.addChild(coin)
-        coinTotal.addChild(total)
+        coinsLabel.numberOfLines = 1
+        coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+        
+        addChild(coin)
+        addChild(coinsLabel)
         
         return coinTotal
     }

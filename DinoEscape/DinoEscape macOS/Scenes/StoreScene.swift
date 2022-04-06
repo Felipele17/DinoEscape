@@ -277,10 +277,9 @@ class StoreScene: MyScene {
         coinsLabel.position = CGPoint(x: size.width/1.24, y: size.height/1.125)
         coinsLabel.numberOfLines = 1
         coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
-                
-        coinTotal.addChild(coin)
-        coinTotal.addChild(coinsLabel)
         
+        addChild(coin)
+        addChild(coinsLabel)
         return coinTotal
     }
     
