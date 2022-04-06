@@ -9,8 +9,8 @@ import Foundation
 import SpriteKit
 
 class EggScene: SKScene {
-    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
-    var premios: [String] = ["t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus","chickenosaurus","stegosaurus", "stegosaurus", "stegosaurus","triceratops","veloci"]
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10_000
+    var premios: [String] = ["t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus", "brachiosaurus", "chickenosaurus", "stegosaurus", "stegosaurus", "stegosaurus", "triceratops", "veloci"]
     var timerButton: SKButton = SKButton()
     var moreButton: SKButton = SKButton()
     var premioDate: String = UserDefaults.standard.string(forKey: "premioDate") ?? "0"
@@ -31,7 +31,7 @@ class EggScene: SKScene {
         
         let timePassed = calculateHours()
         
-        backgroundColor = SKColor(red: 235/ 255, green: 231/ 255, blue: 198/ 255, alpha: 1)
+        backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         MusicService.shared.playLoungeMusic()
         
         removeAllChildren()
@@ -52,8 +52,8 @@ class EggScene: SKScene {
         addChild(moreButton)
         
         eggNode = SKSpriteNode(imageNamed: "ovo-mac")
-        eggNode.position = CGPoint(x: size.width/ 2, y: size.height/ 2)
-        eggNode.size = CGSize(width: size.width/ 3, height: size.height/ 1.5)
+        eggNode.position = CGPoint(x: size.width / 2, y: size.height / 2)
+        eggNode.size = CGSize(width: size.width / 3, height: size.height / 1.5)
         addChild(eggNode)
         
     }
@@ -65,11 +65,11 @@ class EggScene: SKScene {
         let width: CGFloat = size.width / 20
         let height = width * texture.size().height / texture.size().width
         
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         adsButton.position = CGPoint(
-            x: size.width/ 1.102,
-            y: size.height/ 1.103)
+            x: size.width / 1.102,
+            y: size.height / 1.103)
         
         adsButton.selectedHandler = {
             print("ads")
@@ -84,7 +84,7 @@ class EggScene: SKScene {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
         
-        let widht: CGFloat = size.width/ 7
+        let widht: CGFloat = size.width / 7
         let height = widht * texture.size().height / texture.size().width
         let buyButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: widht, height: height))
         
@@ -96,13 +96,13 @@ class EggScene: SKScene {
             guard let self = self else { return }
             if image == .daily {
                 let premio = self.premios[Int.random(in: 0..<self.premios.count)]
-                let skins = try? SkinDataModel.getSkins()
+                let skins = SkinDataModel.shared.getSkins()
                 
-                for indice in skins where indice.name == premio {
-                        self.eggNode.texture = SKTexture(imageNamed: (i.image ?? "frameTrexBuySelected") + "BuySelected" )
+                for skin in skins where skin.name == premio {
+                        self.eggNode.texture = SKTexture(imageNamed: (skin.image ?? "frameTrexBuySelected") + "BuySelected" )
                         self.eggNode.size = CGSize(width: self.size.height * 0.3, height: self.size.height * 0.3)
-                        if i.isBought == false {
-                            SkinDataModel.shared.buyDino(skin:)
+                        if skin.isBought == false {
+                            SkinDataModel.shared.buyDino(skin: skin)
                         } else {
                             print("repetido")
                         }
@@ -173,24 +173,24 @@ class EggScene: SKScene {
     }
     
     func createTotalCoin(coins: Int) -> SKSpriteNode {
-        let coinTotal= SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height) )
+        let coinTotal = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height) )
         
-        let widht: CGFloat = size.width / 20
-        let height = w * coinTotal.size.height / coinTotal.size.width / 0.7
+        let width: CGFloat = size.width / 20
+        let height = width * coinTotal.size.height / coinTotal.size.width / 0.7
         
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
         
-        coin.position = CGPoint(x: size.width/ 1.4, y: size.height/ 1.103)
-        coin.size = CGSize(width: w, height: h)
+        coin.position = CGPoint(x: size.width / 1.4, y: size.height / 1.103)
+        coin.size = CGSize(width: width, height: height)
         
         let total: SKLabelNode = SKLabelNode(text: String(coins))
         total.fontName = "Aldrich-Regular"
         
         total.fontSize = 60
-        total.position = CGPoint(x: size.width/ 1.24, y: size.height/ 1.125)
+        total.position = CGPoint(x: size.width / 1.24, y: size.height / 1.125)
         
         total.numberOfLines = 1
-        total.fontColor = SKColor(red: 221/ 255, green: 108/ 255, blue: 50/ 255, alpha: 1)
+        total.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         
         coinTotal.addChild(coin)
         coinTotal.addChild(total)
@@ -205,7 +205,7 @@ class EggScene: SKScene {
         let width: CGFloat = size.width / 20
         let height = width * texture.size().height / texture.size().width
         let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
-        button.position = CGPoint(x: size.width / 12, y: size.height/ 1.103)
+        button.position = CGPoint(x: size.width / 12, y: size.height / 1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
             

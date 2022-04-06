@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: MyScene {
-    
     var highScore: Int = UserDefaults().integer(forKey: "HighScore")
     var score: Int = GameController.shared.gameData.score
     

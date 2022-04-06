@@ -1,7 +1,4 @@
 //
-//  SkinData.swift
-//  DinoEscape
-//
 //  Created by Beatriz Duque on 21/03/22.
 //
 
@@ -9,7 +6,6 @@ import Foundation
 import CoreData
 
 class SkinDataModel {
-    
     static let shared: SkinDataModel = SkinDataModel()
     
     var persistentContainer: NSPersistentContainer = {
@@ -42,8 +38,11 @@ class SkinDataModel {
     
     // criar Skin
     func createSkin(name: String, image: String, isSelected: Bool, isBought: Bool, price: Int32) -> SkinData {
-        guard let skin =  NSEntityDescription.insertNewObject(forEntityName: "SkinData",
-                                                              into: context) as? SkinData else {preconditionFailure()}
+        guard let skin = NSEntityDescription.insertNewObject(forEntityName: "SkinData",
+                                                             into: context) as? SkinData else {
+            preconditionFailure()
+            
+        }
         skin.name = name
         skin.image = image
         skin.isSelected = isSelected
@@ -53,12 +52,12 @@ class SkinDataModel {
         return skin
     }
     // editar skin
-    func buyDino(skin: SkinData) -> SkinData{
+    func buyDino(skin: SkinData) -> SkinData {
         skin.isBought = true
         saveContext()
         return skin
     }
-    func selectSkin(skin: SkinData) -> SkinData{
+    func selectSkin(skin: SkinData) -> SkinData {
         // setando skin antiga como nao-selecionada
         let oldSkin = getSkinSelected()
         oldSkin.isSelected = false
@@ -83,7 +82,7 @@ class SkinDataModel {
     func getSkinSelected() -> SkinData {
         let dinos = self.getSkins()
         for index in 0..<dinos.count where dinos[index].isSelected == true {
-                return dinos[index]
+            return dinos[index]
         }
         return dinos[0]
     }

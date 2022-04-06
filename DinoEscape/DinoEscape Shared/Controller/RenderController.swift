@@ -8,8 +8,7 @@
 import Foundation
 import SpriteKit
 
-class RenderController {
-    
+class RenderController { 
     // MARK: Array de itens
     var items: [Items] = []
     var itemCount: Int = 0
@@ -38,52 +37,48 @@ class RenderController {
     // contagem regressiva
     var contagemLabel: SKLabelNode = SKLabelNode()
     
-    func setUpScene(){
-        
-        
-        //adicionar e remover itens na tela
+    func setUpScene() {
+        // adicionar e remover itens na tela
         scene.removeAllChildren()
         scene.removeAllActions()
         
-        background.position = CGPoint(x:scene.size.width/2, y: scene.size.height/2)
+        background.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         background.size = scene.frame.size
         background.zPosition = -5
         scene.addChild(background)
         
-        //contador
+        // contador
         drawContador()
         
-        //SKLabel
-        pointsLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height*0.91)
+        // SKLabel
+        pointsLabel.position = CGPoint(x: scene.size.width / 2, y: scene.size.height * 0.91)
         pointsLabel.fontName = "Aldrich-Regular"
         scene.addChild(pointsLabel)
         
-        //coracao
+        // coracao
 #if os(iOS)
-        heartImage.position = CGPoint(x: scene.size.width*0.82, y: scene.size.height*0.95)
+        heartImage.position = CGPoint(x: scene.size.width * 0.82, y: scene.size.height * 0.95)
         heartImage.setScale(0.5)
 #elseif os(macOS) || os(tvOS)
-        heartImage.position = CGPoint(x: scene.size.width*0.92, y: scene.size.height*0.95)
+        heartImage.position = CGPoint(x: scene.size.width * 0.92, y: scene.size.height * 0.95)
         heartImage.setScale(0.75)
 #endif
-        
-        
+
         scene.addChild(heartImage)
         
-        //lifeslabel
+        // lifeslabel
         lifesLabel.fontName = "Aldrich-Regular"
 #if os(iOS)
-        lifesLabel.position = CGPoint(x: heartImage.position.x*1.1, y: heartImage.position.y*0.985)
+        lifesLabel.position = CGPoint(x: heartImage.position.x * 1.1, y: heartImage.position.y * 0.985)
 #elseif os(macOS) || os(tvOS)
-        lifesLabel.position = CGPoint(x: heartImage.position.x*1.04, y: heartImage.position.y*0.985)
+        lifesLabel.position = CGPoint(x: heartImage.position.x * 1.04, y: heartImage.position.y * 0.985)
         lifesLabel.fontSize = 35
 #endif
         scene.addChild(lifesLabel)
         
-        
         // foodBar
         rectOut = SKShapeNode(rectOf: CGSize(width: scene.size.width * 0.5, height: scene.size.height * 0.03))
-        rectOut.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
+        rectOut.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y * 0.96)
         rectOut.fillColor = .clear
         rectOut.lineWidth = 1
         rectOut.strokeColor = .black
@@ -94,8 +89,8 @@ class RenderController {
         drawFoodBar(food: GameController.shared.gameData.player?.foodBar ?? 6.0)
         
 #if os(iOS)
-        //pause node
-        pauseNode.position = CGPoint(x: scene.size.width*0.1, y: scene.size.height*0.95)
+        // pause node
+        pauseNode.position = CGPoint(x: scene.size.width * 0.1, y: scene.size.height * 0.95)
         pauseNode.setScale(0.4)
         pauseNode.selectedHandler = {
             GameController.shared.pauseGame()
@@ -104,18 +99,14 @@ class RenderController {
         scene.addChild(pauseNode)
 #endif
         
-        //player
+        // player
         let player = GameController.shared.gameData.player!
         playerNode = draw(player: player)
         
         drawDestroierRects()
-        
-        
-        
 #if os( iOS)
         drawAnalogic()
 #endif
-        
         
     }
     
@@ -123,10 +114,10 @@ class RenderController {
     
     @discardableResult
     func draw(player: Player) -> SKSpriteNode {
-        let node = SKSpriteNode(imageNamed: GameController.shared.gameData.skinSelected+"Right0")
+        let node = SKSpriteNode(imageNamed: GameController.shared.gameData.skinSelected + "Right0")
         node.position = player.position
         node.name = player.name
-        node.size = CGSize(width: scene.size.height*0.1, height: scene.size.height*0.1)
+        node.size = CGSize(width: scene.size.height * 0.1, height: scene.size.height * 0.1)
         node.name = "dinossauro"
         node.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: node.size.width * 0.5, height: node.size.height * 0.5))
         node.physicsBody?.isDynamic = true
@@ -145,7 +136,7 @@ class RenderController {
         
         let foodMultiplier: Int = Int((Float(food / 4) - 1) * 5)
         
-        rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y*0.96)
+        rectIn.position = CGPoint(x: scene.size.width / 2, y: pointsLabel.position.y * 0.96)
         rectIn.size.width = scene.size.width * 0.1 * CGFloat(foodMultiplier)
         
         scene.addChild(rectIn)
@@ -162,36 +153,33 @@ class RenderController {
                 item.yScale *= -1
             }
         }
-        item.size = CGSize(width: scene.size.height*multiplier, height: scene.size.height*multiplier)
+        item.size = CGSize(width: scene.size.height * multiplier, height: scene.size.height * multiplier)
         item.position = CGPoint(x: posX, y: posY)
-        item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.height*0.5, height: item.size.height*0.5))
+        item.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: item.size.height * 0.5, height: item.size.height * 0.5))
         item.physicsBody?.isDynamic = false
-        
-        
-        
+
         scene.addChild(item)
         self.appendItems(item: item)
     }
     
     func drawDestroierRects() {
-        
         for index in 0..<4 {
             let rect = SKSpriteNode(color: .red, size: CGSize(width: 20, height: 20))
             if index < 2 {
                 rect.size = CGSize(width: scene.size.width, height: 20)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: scene.size.width, height: 20))
                 if index == 0 {
-                    rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height*1.2)
+                    rect.position = CGPoint(x: scene.size.width / 2, y: scene.size.height * 1.2)
                 } else {
-                    rect.position = CGPoint(x: scene.size.width/2, y: scene.size.height * -0.2)
+                    rect.position = CGPoint(x: scene.size.width / 2, y: scene.size.height * -0.2)
                 }
             } else {
                 rect.size = CGSize(width: 20, height: scene.size.height)
                 rect.physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 20, height: scene.size.height))
                 if index == 2 {
-                    rect.position = CGPoint(x: scene.size.width*1.2, y: scene.size.height/2)
+                    rect.position = CGPoint(x: scene.size.width * 1.2, y: scene.size.height / 2)
                 } else {
-                    rect.position = CGPoint(x: scene.size.width * -0.2, y: scene.size.height/2)
+                    rect.position = CGPoint(x: scene.size.width * -0.2, y: scene.size.height / 2)
                 }
             }
             print(rect.position)
@@ -204,12 +192,11 @@ class RenderController {
     }
     
     // MARK: Contando itens
-    func appendItems(item: Items){
+    func appendItems(item: Items) {
         // definindo um contador de itens maximos na tela de 50
-        if items.count < 50{
+        if items.count < 50 {
             items.append(item)
-        }
-        else{
+        } else {
             // quando chegar em 50, zera o contador
             items[itemCount] = item
             itemCount += 1
@@ -222,32 +209,32 @@ class RenderController {
     // MARK: Desenho do dinossauro
     func selectDinoCommand(command: GameCommand, skin: String) -> String {
         // Quando o Dino fica na vertical hitbox é dividida por 3
-        switch command{
+        switch command {
         case .UP:
-            return skin+"BackL"
+            return skin + "BackL"
         case .NONE:
-            return skin+"Right0"
+            return skin + "Right0"
         case .RIGHT:
-            return skin+"Right0"
+            return skin + "Right0"
         case .DOWN:
-            return skin+"FrontL"
+            return skin + "FrontL"
         case .LEFT:
-            return  skin+"Left0"
+            return  skin + "Left0"
         case .DEAD:
-            return skin+"Right0"
+            return skin + "Right0"
         case .PAUSE:
-            return skin+"Right0"
+            return skin + "Right0"
         case .PLAY:
-            return skin+"Right0"
+            return skin + "Right0"
         case .HOME:
-            return skin+"Right0"
+            return skin + "Right0"
         case .TAP:
-            return skin+"Right0"
+            return skin + "Right0"
         }
     }
     
     // MARK: Desenhando background
-    func changeBackground(named: String){
+    func changeBackground(named: String) {
         background.texture = SKTexture(imageNamed: named)
     }
     
@@ -259,10 +246,8 @@ class RenderController {
     }
 #endif
     
-    
     // MARK: Update
     func update(_ currentTime: TimeInterval, gameData: GameData) {
-        
         pointsLabel.text = "\(gameData.score)"
         
         playerNode.position = gameData.player!.position
@@ -272,25 +257,24 @@ class RenderController {
         }
         
         for item in items {
-            item.position.x += CGFloat(item.vx)
-            item.position.y += CGFloat(item.vy)
+            item.position.x += CGFloat(item.velocidadeX)
+            item.position.y += CGFloat(item.velocidadeY)
             
         }
     }
     
     func showPauseMenu() {
-        pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
-        pauseScene.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        pauseScene = SettingsPopUpScene(color: .clear, size: CGSize(width: scene.size.width / 1.5, height: scene.size.height / 2))
+        pauseScene.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         pauseScene.zPosition = 10
         scene.addChild(pauseScene)
     }
     
-    
     func showOnboard() {
         self.contagemLabel.removeFromParent()
 
-        let onboard = OnboardScene(color: .clear, size: CGSize(width: scene.size.width/1.5, height: scene.size.height/2))
-        onboard.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        let onboard = OnboardScene(color: .clear, size: CGSize(width: scene.size.width / 1.5, height: scene.size.height / 2))
+        onboard.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         onboard.zPosition = 10
         scene.addChild(onboard)
         
@@ -305,23 +289,18 @@ class RenderController {
     }
     
     // MARK: Funcoes que mexem na velocidade dos itens
-    func allFoodRender(){
-        for item in items {
-            if item.name != "good" {
+    func allFoodRender() {
+        for item in items where item.name != "good" {
                 item.name = "good"
                 item.texture = SKTexture(imageNamed: "cherry")
-                item.size = CGSize(width: scene.size.height*0.05, height: scene.size.height*0.05)
-            }
+                item.size = CGSize(width: scene.size.height * 0.05, height: scene.size.height * 0.05)
         }
     }
     
     func slowRender() {
-        for item in self.items {
-            if item.vx / 2 > 1 || item.vy / 2 > 1 {
-                item.vx /= 2
-                item.vy /= 2
-            }
-            
+        for item in self.items where item.velocidadeX / 2 > 1 || item.velocidadeY / 2 > 1 {
+                item.velocidadeX /= 2
+                item.velocidadeY /= 2
         }
     }
     
@@ -329,14 +308,14 @@ class RenderController {
         let label = SKLabelNode()
         if powerUp == .slow {
             label.text = "SLOW".localized()
-        }else if powerUp == .allFood {
+        } else if powerUp == .allFood {
             label.text = "FOOOOOD".localized()
-        }else if powerUp == .doubleXP {
+        } else if powerUp == .doubleXP {
             label.text = "DOUBLE POINTS".localized()
         }
         
         label.fontName = "Aldrich-Regular"
-        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2)
+        label.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2)
         scene.addChild(label)
         return label
     }
@@ -348,7 +327,7 @@ class RenderController {
         label.fontSize = 40
         label.fontName = "Aldrich-Regular"
         
-        label.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 180)
+        label.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2 + 180)
         scene.addChild(label)
         return label
     }
@@ -361,7 +340,7 @@ class RenderController {
         contagemLabel.text = "3"
         contagemLabel.fontName = "Aldrich-Regular"
         
-        contagemLabel.position = CGPoint(x: scene.size.width/2, y: scene.size.height/2 + 50)
+        contagemLabel.position = CGPoint(x: scene.size.width / 2, y: scene.size.height / 2 + 50)
         scene.addChild(contagemLabel)
     }
     

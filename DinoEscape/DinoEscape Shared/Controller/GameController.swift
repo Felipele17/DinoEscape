@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 import GameController
 
-class GameController{
+class GameController {
     static var shared: GameController = {
         let instance = GameController()
         return instance
@@ -34,7 +34,6 @@ class GameController{
                             color: .yellow,
                             position: CGPoint(x: 0, y: 0),
                             size: CGSize(width: 50, height: 50),
-                            skin: .dino1,
                             gameCommand: .PLAY,
                             powerUp: .none)
         gameData = GameData(player: player)
@@ -85,8 +84,8 @@ class GameController{
         joystickController.observeForGameControllers()
         
         // fisica da cena
-        renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: GameController.shared.renderer.scene.frame)
-        renderer.scene.physicsWorld.contactDelegate = GameController.shared.renderer.scene.self
+        renderer.scene.physicsBody = SKPhysicsBody(edgeLoopFrom: renderer.scene.frame)
+        renderer.scene.physicsWorld.contactDelegate = renderer.scene.self
         recursiveActionItems(time: 1.5)
         
         // onboard
@@ -107,12 +106,12 @@ class GameController{
     func update(_ currentTime: TimeInterval) {
         if gameData.gameStatus == .end {
             cancelActionItems()
-            //chamar tela de gameOver
+            // chamar tela de gameOver
             renderer.lifesLabel.text = "0"
         } else {
             if gameData.gameStatus == .playing {
                 joystickController.update(currentTime)
-                movePlayer(dx: gameData.player?.dinoVx ?? 0, dy: gameData.player?.dinoVy ?? 0)
+                movePlayer(directionX: gameData.player?.dinoVx ?? 0, directionY: gameData.player?.dinoVy ?? 0)
                 renderer.update(currentTime, gameData: gameData)
             }
         }
@@ -125,7 +124,9 @@ class GameController{
             gameData.gameStatus = .pause
             pauseActionItems()
             renderer.showPauseMenu()
+            #if os(tvOS)
             renderer.pauseScene.addTapGestureRecognizer()
+            #endif
         }
     }
     
@@ -183,7 +184,7 @@ class GameController{
     
 #endif
     
-    func movePlayer(dx: CGFloat, dy: CGFloat) {
+    func movePlayer(directionX: CGFloat, directionY: CGFloat) {
         if let player = gameData.player {
             // Iguala size do player para size da hitBox
             player.size = CGSize(width: renderer.scene.size.height * 0.05, height: renderer.scene.size.height * 0.035)
@@ -191,14 +192,14 @@ class GameController{
             let midWidthPlayer = player.size.width / 2
             let midHeightPlayer = player.size.height / 2
             
-            var xValue = player.position.x + dx * mult
+            var xValue = player.position.x + directionX * mult
             if xValue > renderer.scene.size.width * 0.94 - midWidthPlayer {
                 xValue = renderer.scene.size.width * 0.94 - midWidthPlayer
             } else if xValue < renderer.scene.size.width * 0.06 + midWidthPlayer {
                 xValue = renderer.scene.size.width * 0.06 + midWidthPlayer
             }
            
-            var yValue = player.position.y + dy * mult
+            var yValue = player.position.y + directionY * mult
             if yValue > renderer.scene.size.height * 0.84 - midHeightPlayer {
                 yValue = renderer.scene.size.height * 0.84 - midHeightPlayer
             } else if yValue < renderer.scene.size.height * 0.125 + midHeightPlayer {
@@ -218,7 +219,7 @@ class GameController{
         let goodImages: [String] = ["cherry", "banana", "apple"]
         let badImages: [String] = ["spoiledCherry", "spoiledBanana", "spoiledApple"]
         let direction = directions[Int.random(in: 0..<directions.count)]
-        let item = Items(image: "", vy: 0, vx: 0, direction: direction)
+        let item = Items(image: "", velocidadeY: 0, velocidadeX: 0, direction: direction)
         
         var xInitial: CGFloat = 0
         var yInitial: CGFloat = 0
@@ -241,22 +242,22 @@ class GameController{
         case .UP:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height * 1.1
-            item.vy = -gameData.velocidadeGlobal
+            item.velocidadeY = -gameData.velocidadeGlobal
           
         case .DOWN:
             xInitial = CGFloat.random(in: renderer.scene.size.width * 0.06...renderer.scene.size.width * 0.94)
             yInitial = renderer.scene.size.height * -0.1
-            item.vy = gameData.velocidadeGlobal
+            item.velocidadeY = gameData.velocidadeGlobal
             
         case .RIGHT:
             xInitial = renderer.scene.size.width * 1.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
-            item.vx = -gameData.velocidadeGlobal
+            item.velocidadeX = -gameData.velocidadeGlobal
 
         case .LEFT:
             xInitial = renderer.scene.size.width * -0.1
             yInitial = CGFloat.random(in: renderer.scene.size.height * 0.125...renderer.scene.size.height * 0.84)
-            item.vx = gameData.velocidadeGlobal
+            item.velocidadeX = gameData.velocidadeGlobal
             
         case .NONE:
             print()

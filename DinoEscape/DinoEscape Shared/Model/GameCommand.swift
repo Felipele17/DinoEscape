@@ -8,14 +8,14 @@
 import Foundation
 
 enum GameCommand: String {
-    case NONE = "None"
-    case UP = "Up"
-    case RIGHT = "Right"
-    case DOWN = "Down"
-    case LEFT = "Left"
-    case DEAD = "dead"
-    case PAUSE = "Pause"
-    case PLAY = "Play"
-    case HOME = "Home"
-    case TAP = "Tap"
+    case NONE
+    case UP
+    case RIGHT
+    case DOWN
+    case LEFT
+    case DEAD
+    case PAUSE
+    case PLAY
+    case HOME
+    case TAP 
 }

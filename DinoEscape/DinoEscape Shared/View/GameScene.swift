@@ -8,14 +8,10 @@
 import SpriteKit
 
 class GameScene: MyScene {
-    
-    
     class func newGameScene() -> GameScene {
         let scene = GameScene()
         scene.scaleMode = .resizeFill
         GameController.shared.setScene(scene: scene)
-        
-        
         return scene
     }
     
@@ -27,7 +23,7 @@ class GameScene: MyScene {
         
     }
     override func didMove(to view: SKView) {
-        //setando a cena
+        // setando a cena
         self.setUpScene()
     }
     
@@ -42,5 +38,3 @@ class GameScene: MyScene {
     }
     
 }
-
-

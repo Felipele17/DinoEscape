@@ -8,7 +8,6 @@
 // swiftlint: disable identifier_name
 // swiftlint:disable force_cast
 
-
 import Foundation
 import GameKit
 
@@ -20,37 +19,32 @@ import Cocoa
 import UIKit
 #endif
 
-
-
 class GameCenterController {
-    
     static var shared: GameCenterController = {
         let instance = GameCenterController(viewController: GameViewController())
         return instance
     }()
     
-    
     let LEADERBOARD_ID = "dino_players"
-    
     
     #if os(macOS)
     var viewController: NSViewController?
-    init(viewController: NSViewController){
+    init(viewController: NSViewController) {
         self.viewController = viewController
         auth()
     }
     
     #elseif os(iOS) || os(tvOS)
     var viewController: UIViewController?
-    init(viewController: UIViewController){
+    init(viewController: UIViewController) {
         self.viewController = viewController
-        self.auth() //chama a funcao de autenticacao
+        self.auth() // chama a funcao de autenticacao
     }
     #endif
     
     func auth() {
         GKLocalPlayer.local.authenticateHandler = { viewController, error in
-            //conseguiu criar a view
+            // conseguiu criar a view
             if let vc = viewController {
                 #if os(iOS) || os(tvOS)
                 self.viewController?.present(vc, animated: true)
@@ -67,7 +61,7 @@ class GameCenterController {
                 // o usuario nao foi autenticado
                 return
             }
-            //MARK: CONFIGURACOES
+            // MARK: CONFIGURACOES
             if GKLocalPlayer.local.isUnderage {
                 // caso a pessoa seja menor de idade, voce pode esconder algum conteudo
             }
@@ -77,21 +71,20 @@ class GameCenterController {
         }
     }
     
-    func setupActionPoint(location: GKAccessPoint.Location,showHighlights: Bool, isActive: Bool){
+    func setupActionPoint(location: GKAccessPoint.Location, showHighlights: Bool, isActive: Bool) {
         GKAccessPoint.shared.location = location
         GKAccessPoint.shared.showHighlights = showHighlights
         GKAccessPoint.shared.isActive = isActive
     }
     
-    func sendScoreToGameCenter(score: Int){
+    func sendScoreToGameCenter(score: Int) {
         GKLeaderboard.submitScore(score,
                                   context: 0,
                                   player: GKLocalPlayer.local,
                                   leaderboardIDs: [LEADERBOARD_ID]) { error in
             if error != nil {
                 print(error!)
-            }
-            else{
+            } else {
                 print("Score atualizado: \(score)")
             }
         }

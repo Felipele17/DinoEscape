@@ -8,7 +8,7 @@
 import Foundation
 import GameController
 
-protocol JoystickDelegate: AnyObject{
+protocol JoystickDelegate: AnyObject {
     func controllerDidConnect(controller: GCController)
     func controllerDidDisconnect()
     func keyboardDidConnect(keyboard: GCKeyboard)
@@ -16,5 +16,5 @@ protocol JoystickDelegate: AnyObject{
     func buttonPressed(command: GameCommand)
     func buttonReleased(command: GameCommand)
     func joystickUpdate(_ currentTime: TimeInterval)
-    func selectPlayerState(command:GameCommand)
+    func selectPlayerState(command: GameCommand)
 }

@@ -9,14 +9,12 @@ import Foundation
 import SpriteKit
 
 class AnalogStick: SKNode {
-    
     private let stick: SKShapeNode
     private let outline: SKShapeNode
     private var isUsing: Bool
     private var velocityX: CGFloat
     private var velocityY: CGFloat
 
-    
     init(position: CGPoint = .zero) {
         self.stick = SKShapeNode(circleOfRadius: 30)
         self.outline = SKShapeNode(circleOfRadius: 80)
@@ -34,9 +32,7 @@ class AnalogStick: SKNode {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     func createStick(named: String) {
-        
         self.addChild(outline)
         stick.name = named
         stick.zPosition = 1
@@ -50,23 +46,23 @@ class AnalogStick: SKNode {
         outline.strokeColor = .gray
         outline.addChild(stick)
        
-        //outline.isUserInteractionEnabled = true
+        // outline.isUserInteractionEnabled = true
     }
     
-    public func changeState() {
+    func changeState() {
         if !isUsing {
             isUsing = true
             print(isUsing)
         }
     }
     
-    public func updateVector(for location: CGPoint) {
+    func updateVector(for location: CGPoint) {
         if isUsing {
             let vector = CGVector(dx: location.x - outline.position.x, dy: location.y - outline.position.y)
             let angle = atan2(vector.dy, vector.dx)
             let outlineRadius: CGFloat = 80
-            let distanceX: CGFloat = sin(angle - CGFloat.pi/2) * outlineRadius
-            let distanceY: CGFloat = cos(angle - CGFloat.pi/2) * outlineRadius
+            let distanceX: CGFloat = sin(angle - CGFloat.pi / 2) * outlineRadius
+            let distanceY: CGFloat = cos(angle - CGFloat.pi / 2) * outlineRadius
             
             if abs(vector.dx) < abs(distanceX) || abs(vector.dy) < abs(distanceY) {
                 stick.position.x = vector.dx
@@ -78,20 +74,20 @@ class AnalogStick: SKNode {
             velocityX = (stick.position.x) / 100
             velocityY = (stick.position.y) / 100
             
-            GameController.shared.gameData.player?.gameCommand = changePlayerCommand(vx: velocityX, vy: velocityY)
+            GameController.shared.gameData.player?.gameCommand = changePlayerCommand(velocityX: velocityX, velocityY: velocityY)
 //            player.zRotation = angle
         }
     }
     
-    public func getVelocity() -> CGVector {
+    func getVelocity() -> CGVector {
         return CGVector(dx: velocityX, dy: velocityY)
     }
     
-    public func getStickPosition() -> CGPoint {
+    func getStickPosition() -> CGPoint {
         return stick.position
     }
     
-    public func resetStick() {
+    func resetStick() {
         if isUsing {
             stick.position = .zero
             velocityX = 0
@@ -100,11 +96,11 @@ class AnalogStick: SKNode {
         }
     }
     
-    public func changePlayerCommand(vx: CGFloat, vy: CGFloat)  -> GameCommand {
-        if (vx < 0.2) && (vx > -0.2) && vy > 0 { return .UP }
-        if (vx < 0.2) && (vx > -0.2) && vy < 0 { return .DOWN }
-        if  vx <= -0.2 { return .LEFT }
-        if  vx >=  0.2 { return .RIGHT }
+    func changePlayerCommand(velocityX: CGFloat, velocityY: CGFloat) -> GameCommand {
+        if (velocityX < 0.2) && (velocityX > -0.2) && velocityY > 0 { return .UP }
+        if (velocityX < 0.2) && (velocityX > -0.2) && velocityY < 0 { return .DOWN }
+        if  velocityX <= -0.2 { return .LEFT }
+        if  velocityX >= 0.2 { return .RIGHT }
         return .LEFT
     }
     

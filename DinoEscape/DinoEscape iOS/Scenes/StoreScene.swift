@@ -9,9 +9,8 @@ import Foundation
 import SpriteKit
 
 class StoreScene: MyScene {
-    
     let vetor = SkinDataModel.shared.getSkins()
-    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000 {
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10_000 {
         didSet {
             coinsLabel.text = "\(coins)"
         }
@@ -37,7 +36,7 @@ class StoreScene: MyScene {
     func setUpScene() {
         self.isUserInteractionEnabled = true
         GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: false, isActive: false)
-
+        
         backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         MusicService.shared.playGameMusic()
         removeAllChildren()
@@ -54,7 +53,7 @@ class StoreScene: MyScene {
         addChild(dinoImage)
         
         let skins = SkinDataModel.shared.getSkins()
-        if skins.isEmpty {
+        if !skins.isEmpty {
             gallery = createGallery()
             addChild(gallery)
         }
@@ -101,7 +100,6 @@ class StoreScene: MyScene {
             }
         default:
             print("oi")
-            
         }
         priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
         priceLabel.fontName = "Aldrich-Regular"
@@ -109,7 +107,7 @@ class StoreScene: MyScene {
         priceLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         priceLabel.numberOfLines = 1
         priceLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
- 
+        
         if UIDevice.current.name == "iPhone 8" {
             priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
             priceLabel.fontName = "Aldrich-Regular"
@@ -117,7 +115,7 @@ class StoreScene: MyScene {
             priceLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
             priceLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         }
-
+        
         dinoImage.texture = SKTexture(imageNamed: image)
         addChild(priceLabel)
     }
@@ -190,24 +188,21 @@ class StoreScene: MyScene {
                 if buyDino() == true {
                     _ = SkinDataModel.shared.buyDino(skin: self.selectedDino)
                     self.isBought = "purchasedButton"
-                    
                     self.gallery = self.createGallery()
                     self.addChild(self.gallery)
-            } else {
-                print("comprado")
+                } else {
+                    print("comprado")
+                }
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(self.buyButton)
+                
+                if self.isBought == "purchasedButton" {
+                    self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+                    self.addChild(self.selectButton)
+                }
             }
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(self.buyButton)
-            
-            if self.isBought == "purchasedButton" {
-                self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
-                self.addChild(self.selectButton)
-            }
-            
         }
-        
         return buyButton
-        
     }
     
     func createSegButton(image: SegmentageType, pos: Int) {
@@ -226,7 +221,7 @@ class StoreScene: MyScene {
         default:
             print("oi")
         }
-
+        
         let segmentage: SKButton = SKButton(texture: texture, color: .blue, size: CGSize(width: width, height: height))
         
         switch UIDevice.current.userInterfaceIdiom {
@@ -245,7 +240,7 @@ class StoreScene: MyScene {
         
         segmentage.selectedHandler = {
             print(UserDefaults.standard.integer(forKey: "DinoCoins"))
-
+            
             print("BOTAO APERTADO: \(pos)")
             switch image {
             case .eggs:
@@ -257,14 +252,14 @@ class StoreScene: MyScene {
         
         addChild(segmentage)
     }
-
+    
     func createDino(name: SkinData, posX: Int, posY: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: name.image ?? "frameTrex")
         texture.filteringMode = .nearest
         
         let width: CGFloat = size.width / 4.8
         let height = width * texture.size().height / texture.size().width
-
+        
         let dinoButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         if !name.isBought {
@@ -274,7 +269,7 @@ class StoreScene: MyScene {
         if name.isSelected {
             dinoButton.texture = SKTexture(imageNamed: (name.image ?? "frameTrex") + "BuySelected")
         }
-
+        
         dinoButton.position = CGPoint(
             x: dinoButton.frame.width / 0.77 + CGFloat(posX) * dinoButton.frame.width * 1.1,
             y: size.height / 1.6 + CGFloat(posY) * dinoButton.frame.height * 1.2 )
@@ -325,7 +320,7 @@ class StoreScene: MyScene {
         
         var width: CGFloat = 0
         var height: CGFloat = 0
-
+        
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             width = size.width / 15
@@ -333,7 +328,7 @@ class StoreScene: MyScene {
         case .phone:
             width = size.width / 15
             height = width * coinTotal.size.height / coinTotal.size.width / 2
-
+            
         default:
             print("oi")
             
@@ -366,14 +361,14 @@ class StoreScene: MyScene {
         
         coinsLabel.numberOfLines = 1
         coinsLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
-                
+        
         coinTotal.addChild(coin)
         coinTotal.addChild(coinsLabel)
         
         return coinTotal
     }
-
-        func createBackButton() -> SKButton {
+    
+    func createBackButton() -> SKButton {
         let texture = SKTexture(imageNamed: "backButton")
         texture.filteringMode = .nearest
         
@@ -386,7 +381,6 @@ class StoreScene: MyScene {
         button.position = CGPoint(x: size.width / 8, y: size.height / 1.103)
         button.selectedHandler = {
             self.view?.presentScene(HomeScene.newGameScene())
-            
         }
         
         return button
@@ -395,7 +389,7 @@ class StoreScene: MyScene {
     func createGallery() -> SKSpriteNode {
         self.gallery.removeFromParent()
         let gallery = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
-
+        
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             gallery.position = CGPoint(x: self.size.width / 10, y: self.size.height / 12.5)
@@ -411,8 +405,6 @@ class StoreScene: MyScene {
         }
         
         let plot = [[self.vetor[5], self.vetor[4], self.vetor[2]], [self.vetor[0], self.vetor[1], self.vetor[3]]]
-        let plotMacOS = [self.vetor[5], self.vetor[4], self.vetor[2], self.vetor[0], self.vetor[1], self.vetor[3]]
-
         for index in 0..<3 {
             for indexJ in 0..<2 {
                 let button = createDino(name: plot[indexJ][index], posX: index, posY: indexJ)
@@ -422,20 +414,20 @@ class StoreScene: MyScene {
         
         return gallery
     }
-
+    
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
         print(self.size)
         setUpScene()
     }
-
+    
     func buyDino() -> Bool {
         if self.coins >= Int(self.selectedDino.price) {
             self.coins -= Int(self.selectedDino.price)
             UserDefaults().set(self.coins, forKey: "DinoCoins")
             print(UserDefaults.standard.integer(forKey: "DinoCoins"))
             GameController.shared.gameData.player?.dinoCoins = self.coins
-
+            
             reader.removeFromParent()
             addChild(reader)
             return true

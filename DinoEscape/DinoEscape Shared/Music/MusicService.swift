@@ -9,7 +9,6 @@ import Foundation
 import AVFAudio
 
 class MusicService {
-
     static let shared = MusicService()
     
     private var audioPlayer: [String: AVAudioPlayer] = [:]

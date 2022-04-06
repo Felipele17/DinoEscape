@@ -9,8 +9,7 @@ import Foundation
 import SpriteKit
 
 class EggScene: SKScene {
-    
-    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10000
+    var coins: Int = GameController.shared.gameData.player?.dinoCoins ?? 10_000
     var premios: [String] = ["t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex", "t-Rex",
                              "t-Rex", "t-Rex", "t-Rex", "brachiosaurus", "brachiosaurus",
                              "brachiosaurus", "brachiosaurus", "brachiosaurus", "chickenosaurus", "stegosaurus", "stegosaurus", "stegosaurus", "triceratops", "veloci"]

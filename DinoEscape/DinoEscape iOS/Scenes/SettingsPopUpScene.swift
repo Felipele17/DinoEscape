@@ -41,7 +41,7 @@ class SettingsPopUpScene: SKSpriteNode {
         
         background.addChild(createLabel(text: "Pause".localized(),
                                         fontSize: size.height / 13,
-                                        fontColor: SKColor(red: 57 / 255, green: 100 /2 55, blue: 113 / 255, alpha: 1),
+                                        fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
                                         position: CGPoint(x: 0, y: background.frame.size.height / 3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
@@ -113,11 +113,11 @@ class SettingsPopUpScene: SKSpriteNode {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
-                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 HapticService.shared.addVibration(haptic: "Haptic")
             }
         }
@@ -154,6 +154,7 @@ class SettingsPopUpScene: SKSpriteNode {
     }
 
     func createHomeButton(position: CGPoint) -> SKButton {
+
         let texture = SKTexture(imageNamed: "homeBackButton")
         texture.filteringMode = .nearest
         

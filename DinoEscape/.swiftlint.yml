@@ -1,20 +1,24 @@
 disabled_rules:
   - trailing_whitespace
   - vertical_whitespace_closing_braces
-  - type_name
   - fatal_error
   - redundant_type_annotation
   - line_length
   - override_in_extension
   - attributes
   - function_body_length
+  - sorted_imports
+  - type_body_length
+  - unavailable_function
+  - cyclomatic_complexity
+  - file_name
 excluded:
   - Pods
   - ATSwiftLintTest/AppDelegate.swift
 
 type_name:
   min_length:
-    error: 8
+    error: 4
   max_length:
     warning: 25
     error: 30

@@ -144,7 +144,7 @@ class SettingsScene: MyScene {
         let width: CGFloat = size.width / 4.8
         let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 5.4)
         title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 7.8)
         
@@ -214,12 +214,12 @@ class SettingsScene: MyScene {
                 self.addTapGestureRecognizer()
                 #endif
                 MusicService.shared.updateUserDefaults()
-                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                switchButton.texture=  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }

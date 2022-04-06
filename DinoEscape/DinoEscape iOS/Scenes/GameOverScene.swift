@@ -9,7 +9,6 @@ import Foundation
 import SpriteKit
 
 class GameOverScene: MyScene {
-    
     var highScore: Int = UserDefaults().integer(forKey: "HighScore")
     var score: Int = GameController.shared.gameData.score
     
@@ -120,7 +119,7 @@ class GameOverScene: MyScene {
             height = width * texture.size().height / texture.size().width
         }
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
 
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
@@ -130,7 +129,7 @@ class GameOverScene: MyScene {
             button.position = CGPoint(x: frame.width / 2,
                                       y: frame.height / 2.25 + CGFloat(posY) * button.frame.height * 1.2)
         default:
-            "Não há posição para o botão"
+            print("Não há posição para o botão")
         }
         
         button.selectedHandler = {

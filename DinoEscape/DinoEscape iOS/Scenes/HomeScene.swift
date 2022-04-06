@@ -125,7 +125,7 @@ class HomeScene: MyScene {
         }()
         
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
-                                               object: player.currentItem, queue: nil) { in
+                                               object: player.currentItem, queue: nil) { _ in
             self.player.seek(to: CMTime.zero)
             self.player.play()
         }
