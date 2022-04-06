@@ -9,47 +9,46 @@ import Foundation
 import SpriteKit
 import GameController
 
-
-class JoystickController{
+class JoystickController {
     weak var delegate: JoystickDelegate?
     
     var gamePadLeft: GCControllerDirectionPad?
     var buttonX: GCControllerButtonInput?
-    var keyMap: [GCKeyCode : GameCommand] = [:] //mapeia os comandos do jogo
+    var keyMap: [GCKeyCode: GameCommand] = [:] // mapeia os comandos do jogo
     
 #if os( iOS )
     // MARK: Controle virtual para iOS
     private var _virtualController: Any?
     
     @available(iOS 15.0, *)
-    public var virtualController: AnalogStick
+    var virtualController: AnalogStick
 #endif
     
-    init(){
-        //controle desenhado na tela apenas para iOS
+    init() {
+        // controle desenhado na tela apenas para iOS
         #if os( iOS )
             virtualController = AnalogStick(position: CGPoint(x: 0, y: 0))
         #endif
         
-        //preenchendo o mapa com os comandos do jogo
+        // preenchendo o mapa com os comandos do jogo
         
         // pausar
         keyMap[.escape] = .PAUSE
         
-        //opcao com as setinhas
+        // opcao com as setinhas
         keyMap[.rightArrow] = .RIGHT
         keyMap[.leftArrow] = .LEFT
         keyMap[.upArrow] = .UP
         keyMap[.downArrow] = .DOWN
         
-        //opcao WASD
+        // opcao WASD
         keyMap[.keyD] = .RIGHT
         keyMap[.keyA] = .LEFT
         keyMap[.keyW] = .UP
         keyMap[.keyS] = .DOWN
     }
     
-    func observeForGameControllers(){
+    func observeForGameControllers() {
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleControllerDidConnect), name: NSNotification.Name.GCControllerDidBecomeCurrent, object: nil)
         
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleControllerDidDisconnect), name: NSNotification.Name.GCControllerDidStopBeingCurrent, object: nil)
@@ -59,7 +58,7 @@ class JoystickController{
         NotificationCenter.default.addObserver(self, selector: #selector(self.handleKeyboardDidDisconnect),
                                                name: NSNotification.Name.GCKeyboardDidDisconnect, object: nil)
         
-        /// pega os controles que estao conectados no sistema e seleciona o primeiro para ser registrado
+        // pega os controles que estao conectados no sistema e seleciona o primeiro para ser registrado
         guard let controller = GCController.controllers().first else {
             return
         }
@@ -101,7 +100,6 @@ class JoystickController{
     }
     
     func registerGameController(_ gameController: GCController) {
-        
         // para mudar a cor do led do controle de PS4
         // gameController.light?.color = GCColor(red: 0.5, green: 0.5, blue: 0.5)
         
@@ -122,9 +120,8 @@ class JoystickController{
     
     func checkForKeyboard() {
         if let keyboard = GCKeyboard.coalesced?.keyboardInput {
-            keyboard.keyChangedHandler = { (keyboard, key, keyCode, pressed) in
+            keyboard.keyChangedHandler = {(keyboard, key, keyCode, pressed) in
                 guard let direction: GameCommand = self.keyMap[keyCode] else { return }
-                
                 if pressed {
                     self.pressButton( direction )
                 } else {
@@ -150,21 +147,19 @@ class JoystickController{
                 }
             }
     }
-    func respondToPause(pause: UITapGestureRecognizer){
-        if pause is UITapGestureRecognizer {
-            self.pressButton(.PAUSE)
-        }
+    func respondToPause(pause: UITapGestureRecognizer) {
+        self.pressButton(.PAUSE)
     }
     #endif
     
     // MARK: Buttons
-    func pressButton(_ command: GameCommand){
+    func pressButton(_ command: GameCommand) {
         delegate?.buttonPressed(command: command)
         delegate?.selectPlayerState(command: command)
 
     }
     
-    func releaseButton(_ command: GameCommand){
+    func releaseButton(_ command: GameCommand) {
         delegate?.buttonReleased(command: command)
         delegate?.selectPlayerState(command: command)
     }
@@ -172,14 +167,13 @@ class JoystickController{
     func update(_ currentTime: TimeInterval) {
         checkForKeyboard()
         #if os(tvOS)
-        if let swipe = GameController.shared.swipe{
+        if let swipe = GameController.shared.swipe {
             respondToSwipeGesture(gesture: swipe)
         }
-        if let pause = GameController.shared.pause{
+        if let pause = GameController.shared.pause {
             respondToPause(pause: pause)
         }
         #endif
         delegate?.joystickUpdate(currentTime)
     }
 }
-

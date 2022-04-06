@@ -15,7 +15,7 @@ class HomeScene: MyScene {
     var btn3 = SKButton()
     var player = AVPlayer()
     var video = SKVideoNode(fileNamed: "gameplay.mov")
-
+    
     class func newGameScene() -> HomeScene {
         let scene = HomeScene()
         scene.scaleMode = .resizeFill
@@ -26,7 +26,7 @@ class HomeScene: MyScene {
         self.isUserInteractionEnabled = true
         MusicService.shared.playLoungeMusic()
         GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: true, isActive: true)
-        backgroundColor = SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1)
+        backgroundColor = SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1)
         removeAllChildren()
         removeAllActions()
         video = setVideoNode()!
@@ -34,17 +34,17 @@ class HomeScene: MyScene {
         video.play()
         
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-iOS")
-        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
-
+        
         let title: SKLabelNode = SKLabelNode(text: "R U N,  D I N O")
         title.fontName = "Aldrich-Regular"
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
-        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        title.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         addChild(title)
         
         let subtitle: SKLabelNode = SKLabelNode(text: "R U N !")
@@ -52,36 +52,35 @@ class HomeScene: MyScene {
         subtitle.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         subtitle.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         subtitle.numberOfLines = 2
-        subtitle.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        subtitle.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         addChild(subtitle)
         
-        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255 / 255, green: 139 / 255, blue: 139 / 255, alpha: 1))
         addChild(btn)
-        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255 / 255, green: 229 / 255, blue: 139 / 255, alpha: 1))
         addChild(btn2)
-        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139/255, green: 179/255, blue: 255/255, alpha: 1))
+        btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139 / 255, green: 179 / 255, blue: 255 / 255, alpha: 1))
         addChild(btn3)
         
-        switch UIDevice.current.userInterfaceIdiom{
+        switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            title.fontSize = size.width/12
-            title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+            title.fontSize = size.width / 12
+            title.position = CGPoint(x: size.width / 2, y: size.height / 1.07)
             
-            subtitle.fontSize = size.width/12
-            subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+            subtitle.fontSize = size.width / 12
+            subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
             
             btn.setScale(0.8)
             btn2.setScale(0.8)
             btn3.setScale(0.8)
             
-            
         case .phone:
             if UIDevice.current.name == "iPhone 8" {
                 title.fontSize = 35
-                title.position = CGPoint(x: size.width/2, y: size.height/1.07)
+                title.position = CGPoint(x: size.width / 2, y: size.height / 1.07)
                 
                 subtitle.fontSize = 40
-                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+                subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
                 
                 btn.setScale(0.9)
                 btn2.setScale(0.9)
@@ -89,12 +88,12 @@ class HomeScene: MyScene {
                 
             } else {
                 title.fontSize = 35
-                title.position = CGPoint(x: size.width/2, y: size.height/1.09)
+                title.position = CGPoint(x: size.width / 2, y: size.height / 1.09)
                 
                 subtitle.fontSize = 40
-                subtitle.position = CGPoint(x: size.width/2, y: size.height/1.164)
+                subtitle.position = CGPoint(x: size.width / 2, y: size.height / 1.164)
             }
-
+            
         default:
             print("oi")
         }
@@ -104,17 +103,17 @@ class HomeScene: MyScene {
     func setVideoNode() -> SKVideoNode? {
         var video = ""
         var multiplier = 0.0
-        switch UIDevice.current.userInterfaceIdiom{
+        switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             video = "gameplayIpadOS"
             multiplier = 0.55
         case .phone:
-        video = "gameplayIOS"
-        multiplier = 0.35
+            video = "gameplayIOS"
+            multiplier = 0.35
         default:
             print("default")
         }
-
+        
         let videoNode: SKVideoNode? = {
             guard let urlString = Bundle.main.path(forResource: video, ofType: "mov") else {
                 return nil
@@ -126,11 +125,10 @@ class HomeScene: MyScene {
         }()
         
         NotificationCenter.default.addObserver(forName: .AVPlayerItemDidPlayToEndTime,
-                                                       object: player.currentItem, queue: nil)
-                { notification in
-                    self.player.seek(to: CMTime.zero)
-                    self.player.play()
-                }
+                                               object: player.currentItem, queue: nil) { _ in
+            self.player.seek(to: CMTime.zero)
+            self.player.play()
+        }
         
         videoNode?.position = CGPoint(x: frame.midX, y: frame.midY)
         videoNode?.zPosition = -10
@@ -160,12 +158,12 @@ class HomeScene: MyScene {
         title.fontSize = 20
         title.fontColor = titleColor
         
-        let w: CGFloat = size.width / 4.8
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 4.8
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
-        button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/5.4)
-        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height/7.8)
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
+        button.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 5.4)
+        title.position = CGPoint(x: button.frame.width * 1 + CGFloat(pos) * button.frame.width * 1.4, y: size.height / 7.8)
         
         button.selectedHandler = {
             self.video.removeFromParent()
@@ -195,5 +193,5 @@ class HomeScene: MyScene {
         
         setUpScene()
     }
-
+    
 }

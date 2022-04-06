@@ -7,9 +7,7 @@
 import Foundation
 import SpriteKit
 
-
 class SettingsScene: MyScene {
-        
     // buttons
     var btn = SKButton()
     var btn2 = SKButton()
@@ -20,12 +18,11 @@ class SettingsScene: MyScene {
     var switch3 = SKButton()
     var toggleON: Bool = true
     
-    //invisible button
+    // invisible button
     var guideButton = SKButton()
 
     // music
     var musicButton = SKButton()
-    
     
     class func newGameScene() -> SettingsScene {
         let scene = SettingsScene()
@@ -34,16 +31,14 @@ class SettingsScene: MyScene {
     }
     
     func setUpScene() {
-        
         addTapGestureRecognizer()
         MusicService.shared.playLoungeMusic()
-        backgroundColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        backgroundColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         removeAllChildren()
         removeAllActions()
         
-        
         let backgroundImage: SKSpriteNode = SKSpriteNode(imageNamed: "homeBackground-macOS")
-        backgroundImage.position = CGPoint(x: size.width/2, y: size.height/2)
+        backgroundImage.position = CGPoint(x: size.width / 2, y: size.height / 2)
         backgroundImage.size = frame.size
         backgroundImage.zPosition = -5
         addChild(backgroundImage)
@@ -53,36 +48,35 @@ class SettingsScene: MyScene {
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 0
-        title.fontColor = SKColor(red: 235/255, green: 231/255, blue: 198/255, alpha: 1)
+        title.fontColor = SKColor(red: 235 / 255, green: 231 / 255, blue: 198 / 255, alpha: 1)
         addChild(title)
         
         createLabel(text: "Settings".localized(),
-                    fontSize: size.width/13,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2, y: size.height/1.55)
+                    fontSize: size.width / 13,
+                    fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
+                    position: CGPoint(x: size.width / 2, y: size.height / 1.55)
         )
-        
         
         createLabel(text: "Music".localized(),
-                    fontSize: size.width/20,
-                    fontColor: SKColor(red: 57/255, green: 100/255, blue: 113/255, alpha: 1),
-                    position: CGPoint(x: size.width/2.9, y: size.height/1.9)
+                    fontSize: size.width / 20,
+                    fontColor: SKColor(red: 57 / 255, green: 100 / 255, blue: 113 / 255, alpha: 1),
+                    position: CGPoint(x: size.width / 2.9, y: size.height / 1.9)
         )
 
-        guideButton.position = CGPoint(x: self.size.width/1.5, y:  self.size.height/15)
+        guideButton.position = CGPoint(x: self.size.width / 1.5, y: self.size.height / 15)
         guideButton.size = CGSize(width: 90, height: 90)
         addChild(guideButton)
-        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255/255, green: 139/255, blue: 139/255, alpha: 1))
-        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255/255, green: 229/255, blue: 139/255, alpha: 1))
+        btn = createButton(name: .play, pos: 0, titleColor: SKColor(red: 255 / 255, green: 139 / 255, blue: 139 / 255, alpha: 1))
+        btn2 = createButton(name: .settings, pos: 1, titleColor: SKColor(red: 255 / 255, green: 229 / 255, blue: 139 / 255, alpha: 1))
         
         addChild(btn)
         addChild(btn2)
         
-        switch2 = createSwitch(pos: CGPoint(x: size.width/1.5, y: size.height/1.9), type: .music)
+        switch2 = createSwitch(pos: CGPoint(x: size.width / 1.5, y: size.height / 1.9), type: .music)
         addChild(switch2)
         
         title.fontSize = 120
-        title.position = CGPoint(x: size.width/2, y: size.height/1.11)
+        title.position = CGPoint(x: size.width / 2, y: size.height / 1.11)
         
         btn.setScale(0.5)
         btn2.setScale(0.5)
@@ -97,22 +91,22 @@ class SettingsScene: MyScene {
         title.fontSize = 20
         title.fontColor = titleColor
         
-        let w: CGFloat = size.width / 4.8
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 4.8
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         
         title.fontSize = 40
-        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/7.6)
-        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height/27)
+        button.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height / 7.6)
+        title.position = CGPoint(x: button.frame.width * 0.55 + CGFloat(pos) * button.frame.width * 0.85, y: size.height / 27)
         
         button.selectedHandler = {
             if name == .play {
                 self.view?.presentScene(GameScene.newGameScene())
             } else if name == .shop {
-                //self.view?.presentScene(EggScene.newGameScene())
+                // self.view?.presentScene(EggScene.newGameScene())
             } else if name == .settings {
-                self.view?.presentScene(SettingsScene.newGameScene())
+                self.view?.presentScene(self)
             } else {
                 print("out of range")
             }
@@ -123,9 +117,8 @@ class SettingsScene: MyScene {
         
     }
     
-
     func changeSwitchMusic() -> String {
-        var imageName : String
+        var imageName: String
         if UserDefaults.standard.bool(forKey: "music") == true {
             imageName = "switchON"
         } else {
@@ -135,7 +128,7 @@ class SettingsScene: MyScene {
     }
     
     func changeSwitchVibration() -> String {
-        var imageName : String
+        var imageName: String
         if UserDefaults.standard.bool(forKey: "vibration") == true {
             imageName = "switchON"
         } else {
@@ -145,9 +138,7 @@ class SettingsScene: MyScene {
     }
   
     func createSwitch(pos: CGPoint, type: SwitchType) -> SKButton {
-                
         let texture: SKTexture
-        
         switch type {
         case .music:
             addTapGestureRecognizer()
@@ -161,13 +152,12 @@ class SettingsScene: MyScene {
         
         texture.filteringMode = .nearest
         
-        
-        let w: CGFloat = size.width / 6.0
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.width / 6.0
+        let height = width * texture.size().height / texture.size().width
         
         let switchButton: SKButton = SKButton(texture: texture,
                                               color: .clear,
-                                              size: CGSize(width: w, height: h))
+                                              size: CGSize(width: width, height: height))
         switchButton.position = pos
         
         switchButton.setScale(0.5)
@@ -176,12 +166,12 @@ class SettingsScene: MyScene {
             switch type {
             case .music:
                 MusicService.shared.updateUserDefaults()
-                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchMusic())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchMusic())")
                 MusicService.shared.playLoungeMusic()
                 
             case .vibration:
                 HapticService.shared.updateUserDefaults()
-                switchButton.texture =  SKTexture(imageNamed: "\(self.changeSwitchVibration())")
+                switchButton.texture = SKTexture(imageNamed: "\(self.changeSwitchVibration())")
                 HapticService.shared.addVibration(haptic: "Haptic")
                 
             }
@@ -189,7 +179,6 @@ class SettingsScene: MyScene {
         }
         return switchButton
     }
-    
     
     func createLabel(text: String, fontSize: CGFloat, fontColor: SKColor, position: CGPoint) {
         let label: SKLabelNode = SKLabelNode(text: text)
@@ -213,33 +202,31 @@ class SettingsScene: MyScene {
     }
     
     @objc func tapped(sender: AnyObject) {
-        if (btn.isFocused) {
+        if btn.isFocused {
             let scene = GameScene.newGameScene()
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        } else if (btn2.isFocused) {
-            let scene = SettingsScene.newGameScene()
+        } else if btn2.isFocused {
+            let scene = self
             self.view?.presentScene(scene)
             scene.run(SKAction.wait(forDuration: 0.02))
             scene.view?.window?.rootViewController?.setNeedsFocusUpdate()
             scene.view?.window?.rootViewController?.updateFocusIfNeeded()
-        } else if (switch2.isFocused) {
+        } else if switch2.isFocused {
             switchToggle(switchButton: switch2)
             MusicService.shared.playLoungeMusic()
             
-        } else if (switch3.isFocused) {
+        } else if switch3.isFocused {
             switchToggle(switchButton: switch3)
             
-        }
-        else {
+        } else {
             print("no hablo sua logica")
         }
     }
         
     func switchToggle(switchButton: SKButton) {
-        
         toggleON.toggle()
 
         if toggleON {
@@ -252,9 +239,7 @@ class SettingsScene: MyScene {
             MusicService.shared.updateUserDefaults()
         }
         
-        
     }
-    
     
     override func didChangeSize(_ oldSize: CGSize) {
         super.didChangeSize(oldSize)
@@ -267,7 +252,6 @@ class SettingsScene: MyScene {
         setUpScene()
     }
 }
-
 
 extension SettingsScene {
     override var preferredFocusEnvironments: [UIFocusEnvironment] {

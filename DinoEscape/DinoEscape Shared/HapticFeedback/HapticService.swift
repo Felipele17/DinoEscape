@@ -8,10 +8,9 @@
 import Foundation
 import CoreHaptics
 
-class HapticService{
+class HapticService {
     static let shared = HapticService()
     let engine = try? CHHapticEngine()
-    
     
     func getUserDefaultsStatus() -> Bool {
         return UserDefaults.standard.bool(forKey: "vibration")
@@ -23,8 +22,8 @@ class HapticService{
         return self.getUserDefaultsStatus()
     }
     
-    func addVibration(haptic: String){
-        if UserDefaults.standard.bool(forKey: "vibration"){
+    func addVibration(haptic: String) {
+        if UserDefaults.standard.bool(forKey: "vibration") {
             guard let url = loadJson(forFilename: haptic) else {
                 print("could not load file")
                 return
@@ -34,15 +33,13 @@ class HapticService{
                 } catch {
                     print("play error: \(error)")
                 }
-        }
-        else {
+        } else {
             print("vibracao desativada")
         }
         
     }
     
     func loadJson(forFilename fileName: String) -> URL? {
-
         if let url = Bundle.main.url(forResource: fileName, withExtension: "json") {
             return url
         }
@@ -50,5 +47,3 @@ class HapticService{
         return nil
     }
 }
-
-

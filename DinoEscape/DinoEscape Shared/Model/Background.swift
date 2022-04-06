@@ -1,5 +1,3 @@
-//
-//  Background.swift
 //  DinoEscape
 //
 //  Created by Luca Hummel on 17/03/22.
@@ -7,7 +5,7 @@
 
 import Foundation
 
-class Backgrounds{
+class Backgrounds {
     static var shared: Backgrounds = {
         let instance = Backgrounds()
         return instance
@@ -15,11 +13,11 @@ class Backgrounds{
     
     var background = "redBackground"
     
-    func newBackground(background: String) -> String{
+    func newBackground(background: String) -> String {
         #if os(iOS)
         return background
         #else
-        return background+"Mac"
+        return background + "Mac"
         #endif
     }
 }

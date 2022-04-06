@@ -16,7 +16,6 @@ class SKButton: SKSpriteNode {
     var isButtonEnabled = true
     var selectedHandler: () -> Void = { print("No button action set") }
     
-    
     override init(texture: SKTexture?, color: SKColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
         self.isUserInteractionEnabled = true
@@ -33,16 +32,11 @@ class SKButton: SKSpriteNode {
             case .active:
                 self.isUserInteractionEnabled = true
                 self.alpha = 1.1
-                break
-                
             case .selected:
                 self.alpha = 0.7
-                break
-                
             case .disabled:
                 self.isUserInteractionEnabled = false
                 self.alpha = 0.4
-                break
             }
         }
     }
@@ -54,13 +48,11 @@ class SKButton: SKSpriteNode {
     override var canBecomeFocused: Bool {
         return isFocusable
     }
-
     
     override func didUpdateFocus(in context: UIFocusUpdateContext, with coordinator: UIFocusAnimationCoordinator) {
-        
         if context.previouslyFocusedItem === self {
-            self.setScale(self.xScale/1.1)
-            self.setScale(self.yScale/1.1)
+            self.setScale(self.xScale / 1.1)
+            self.setScale(self.yScale / 1.1)
             self.alpha = 0.75
         }
         
@@ -71,26 +63,22 @@ class SKButton: SKSpriteNode {
         }
     }
     
-    
     enum Direction: Int {
-        case UP = 0, RIGHT, DOWN, LEFT;
+        case UP = 0,
+             RIGHT,
+             DOWN,
+             LEFT
     }
-    
 #endif
     
 }
-
-
 extension SKButton {
-
 #if os(macOS)
-    
     override func mouseDown(with event: NSEvent) {
-        if isButtonEnabled{
+        if isButtonEnabled {
             state = .selected
         }
     }
-    
     override func mouseUp(with event: NSEvent) {
         if isButtonEnabled {
             selectedHandler()
@@ -99,12 +87,11 @@ extension SKButton {
     }
     
     override func touchesBegan(with event: NSEvent) {
-        if isButtonEnabled{
+        if isButtonEnabled {
             state = .selected
         }
         
     }
-    
     override func touchesMoved(with event: NSEvent) {
     }
     
@@ -114,14 +101,12 @@ extension SKButton {
             state = .active
         }
     }
-    
     #elseif os(tvOS) || os(iOS)
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-            if isButtonEnabled{
+            if isButtonEnabled {
                 state = .selected
             }
         }
-    
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
 
@@ -131,14 +116,11 @@ extension SKButton {
             state = .active
         }
     }
-
     override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
     }
     
-    func updateClick(){
+    func updateClick() {
         state = .selected
     }
     #endif
 }
-
-

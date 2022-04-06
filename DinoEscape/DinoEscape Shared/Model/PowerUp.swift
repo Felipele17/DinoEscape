@@ -10,10 +10,10 @@ import Foundation
 enum PowerUp: String {
     /// preencher os vetores com os nomes dos assets
     /// tipo de cenario, frutas e tempo
-    case slow = "slow"
-    case allFood = "allFood"
-    case doubleXP = "doubleXP"
-    case none = "none"
+    case slow
+    case allFood
+    case doubleXP
+    case none
     /// caso do rugido
-    case action = "action"
+    case action
 }

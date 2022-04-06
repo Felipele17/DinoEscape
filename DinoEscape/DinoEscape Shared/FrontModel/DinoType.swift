@@ -8,7 +8,7 @@
 import Foundation
 
 enum DinoType: String {
-    case t_rex = "frameTrex"
+    case tRex = "frameTrex"
     case triceratops = "frameTrice"
     case stegosaurus = "frameSte"
     case brachiosaurus = "frameBraci"

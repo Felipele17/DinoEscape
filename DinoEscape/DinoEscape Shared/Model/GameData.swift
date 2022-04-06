@@ -8,7 +8,6 @@
 import Foundation
 
 class GameData {
-    
     var player: Player?
     var score: Int = 0
     var addPoints: Int = 10

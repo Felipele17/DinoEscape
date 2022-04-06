@@ -8,7 +8,5 @@
 import Foundation
 
 protocol AudioDelegate: AnyObject {
-    
     func toggleMusic() -> SKButton
-    
 }

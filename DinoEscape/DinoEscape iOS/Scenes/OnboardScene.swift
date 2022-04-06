@@ -27,8 +27,8 @@ class OnboardScene: SKSpriteNode {
         removeAllChildren()
         removeAllActions()
         
-        let background = SKShapeNode(rect: CGRect(x: self.size.width/2 * -1,
-                                                  y: self.size.height/2 * -1,
+        let background = SKShapeNode(rect: CGRect(x: self.size.width / 2 * -1,
+                                                  y: self.size.height / 2 * -1,
                                                   width: self.size.width,
                                                   height: self.size.height))
         
@@ -37,38 +37,39 @@ class OnboardScene: SKSpriteNode {
         self.addChild(background)
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            let sizes: [CGFloat] = [1.5,0.5,-0.5,-1.5]
+            let sizes: [CGFloat] = [1.5, 0.5, -0.5, -1.5]
             let imageSize = CGSize(width: background.frame.size.width * 0.3, height: background.frame.size.height * 0.2)
-            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3, fontSize: 40)
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -2.7))
+            addImages(background: background, sizes: sizes, imageSize: imageSize, multipliery: 8, multiplierx: 3, fontSize: 40)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height / 8 * -2.7))
         case .pad:
-            let sizes: [CGFloat] = [1.5,0.5,-0.5,-1.5]
+            let sizes: [CGFloat] = [1.5, 0.5, -0.5, -1.5]
             let imageSize = CGSize(width: background.frame.size.width * 0.35, height: background.frame.size.height * 0.25)
-            addImages(background: background,sizes: sizes,imageSize: imageSize, multipliery: 8, multiplierx: 3.5, fontSize: 30)
-            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height/8 * -2.7))
+            addImages(background: background, sizes: sizes, imageSize: imageSize, multipliery: 8, multiplierx: 3.5, fontSize: 30)
+            btnOk = createBackButton(position: CGPoint(x: 0, y: background.frame.size.height / 8 * -2.7))
         default:
             print("qualquer")
             
         }
         background.addChild(btnOk)
     }
-    func addImages(background: SKShapeNode,sizes: [CGFloat],imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat, fontSize: CGFloat){
+    func addImages(background: SKShapeNode, sizes: [CGFloat], imageSize: CGSize, multipliery: CGFloat, multiplierx: CGFloat, fontSize: CGFloat) {
         let imageNames = ["meteorOnboard", "badFood", "goodFood", "foodBar"]
         let labelColor = SKColor(red: 0.92, green: 0.91, blue: 0.78, alpha: 1)
-        for i in 0..<imageNames.count{
-            background.addChild(createImage(imageNamed: imageNames[i], position: CGPoint(x: background.frame.size.width/multiplierx * -0.8, y: background.frame.size.height/multipliery * sizes[i]), size: imageSize))
-            background.addChild(createLabel(text: self.text(type: i).localized(),
-                                            fontSize: size.height/fontSize,
+        for names in 0..<imageNames.count {
+            background.addChild(createImage(imageNamed: imageNames[names], position: CGPoint(x: background.frame.size.width / multiplierx * -0.8, y: background.frame.size.height / multipliery * sizes[names]), size: imageSize))
+            background.addChild(createLabel(text: self.text(type: names).localized(),
+                                            fontSize: size.height / fontSize,
                                             fontColor: labelColor,
-                                            position: CGPoint(x: background.frame.size.width/3 * -0.1, y: background.frame.size.height/multipliery * sizes[i]),
+                                            position: CGPoint(x: background.frame.size.width / 3 * -0.1,
+                                                              y: background.frame.size.height / multipliery * sizes[names]),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
         }
         
         background.addChild(createLabel(text: "Tutorial".localized(),
-                                        fontSize: size.height/13,
+                                        fontSize: size.height / 13,
                                         fontColor: labelColor,
-                                        position: CGPoint(x: 0, y: background.frame.size.height/3),
+                                        position: CGPoint(x: 0, y: background.frame.size.height / 3),
                                         alignmentH: SKLabelHorizontalAlignmentMode.center
                                        ))
     }
@@ -92,15 +93,14 @@ class OnboardScene: SKSpriteNode {
         return image
     }
     
-    func createBackButton(position: CGPoint) -> SKButton{
-        
+    func createBackButton(position: CGPoint) -> SKButton {
         let texture = SKTexture(imageNamed: "okButton")
         texture.filteringMode = .nearest
         
-        let w: CGFloat = size.height / 3.5
-        let h = w * texture.size().height / texture.size().width
+        let width: CGFloat = size.height / 3.5
+        let height = width * texture.size().height / texture.size().width
         
-        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: w, height: h))
+        let button: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
         button.position = position
         button.selectedHandler = {
             self.removeFromParent()
@@ -108,8 +108,6 @@ class OnboardScene: SKSpriteNode {
             GameController.shared.pauseActionItems()
         }
         return button
-        
-        
     }
     
     func text(type: Int) -> String {

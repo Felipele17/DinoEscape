@@ -8,15 +8,12 @@
 import Foundation
 import AVFAudio
 
-class MusicService  {
-    
- 
+class MusicService {
     static let shared = MusicService()
     
-    private var audioPlayer: [String : AVAudioPlayer] = [:]
-    
-    
-    func toggleMusic() -> Void {
+    private var audioPlayer: [String: AVAudioPlayer] = [:]
+
+    func toggleMusic() {
         switch self.updateUserDefaults() {
         case true:
             self.soundManager(with: .gameMusic, action: .play)
@@ -44,22 +41,18 @@ class MusicService  {
         }
     }
     
-    
-   
-    
     func getUserDefaultsStatus() -> Bool {
         return UserDefaults.standard.bool(forKey: "music")
     }
     
-    func updateUserDefaults() -> Bool{
+    func updateUserDefaults() -> Bool {
         var music = UserDefaults.standard.bool(forKey: "music")
         music.toggle()
         UserDefaults.standard.setValue(music, forKey: "music")
         return self.getUserDefaultsStatus()
     }
     
-    func soundManager(with music: MusicType, action: SoundAction ) -> Void {
-        
+    func soundManager(with music: MusicType, action: SoundAction ) {
         let audio = self.getMusic(musicType: music)
         
         if let audio = audio {
@@ -79,7 +72,7 @@ class MusicService  {
             return music
         }
         
-        if let musicFile = Bundle.main.path(forResource: musicType.rawValue , ofType: "mp3") {
+        if let musicFile = Bundle.main.path(forResource: musicType.rawValue, ofType: "mp3") {
             do {
                 let music = try AVAudioPlayer(contentsOf: URL(fileURLWithPath: musicFile))
                 music.numberOfLoops = -1
@@ -102,7 +95,4 @@ class MusicService  {
         }
         return nil
     }
-    
-    
-    
 }

@@ -5,6 +5,8 @@
 //  Created by Felipe Leite on 07/03/22.
 //
 
+// swiftlint:disable force_cast
+
 import UIKit
 import SpriteKit
 import GameplayKit
@@ -14,9 +16,7 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let scene = GameOverScene.newGameScene()
         let scene = HomeScene.newGameScene()
-
 
         let gController = GameCenterController(viewController: self)
         gController.setupActionPoint(location: .bottomLeading, showHighlights: true, isActive: true)
@@ -28,7 +28,6 @@ class GameViewController: UIViewController {
         skView.ignoresSiblingOrder = true
     }
 
-    
     override var shouldAutorotate: Bool {
         return false
     }

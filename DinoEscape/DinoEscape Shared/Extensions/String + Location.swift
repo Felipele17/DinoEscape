@@ -1,4 +1,3 @@
-//
 //  String + Location.swift
 //  DinoEscape
 //
@@ -10,14 +9,6 @@ import Foundation
 extension String {
         // Nova função:
     func localized() -> String {
-        return NSLocalizedString(
-            self,
-            tableName: "Localization",
-            bundle: .main,
-            value: self,             
-            comment: self
-        )
+        return NSLocalizedString(self, tableName: "Localization", bundle: .main, value: self, comment: self)
     }
 }
-
-

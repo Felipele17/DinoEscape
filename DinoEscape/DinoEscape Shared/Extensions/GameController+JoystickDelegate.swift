@@ -8,7 +8,7 @@
 import Foundation
 import GameController
 
-extension GameController: JoystickDelegate{
+extension GameController: JoystickDelegate {
     func controllerDidConnect(controller: GCController) {
         print("Controller Connected")
     }
@@ -85,31 +85,30 @@ extension GameController: JoystickDelegate{
     }
     
     func joystickUpdate(_ currentTime: TimeInterval) {
-        
         #if os( iOS )
         let point = joystickController.virtualController.getVelocity()
         
-        let dx: CGFloat = point.dx
-        let dy: CGFloat = point.dy
-        movePlayer(dx: dx, dy: dy)
+        let directionX: CGFloat = point.dx
+        let directionY: CGFloat = point.dy
+        movePlayer(directionX: directionX, directionY: directionY)
         
         #endif
         
         // TVOs que funciona com os gestos
         #if os(tvOS)
         if let gamePadLeft = joystickController.gamePadLeft {
-            if gamePadLeft.xAxis.value != 0 || gamePadLeft.yAxis.value != 0{
-                let dx: CGFloat = CGFloat(gamePadLeft.xAxis.value)
-                let dy: CGFloat = CGFloat(gamePadLeft.yAxis.value)
-                movePlayer(dx: dx, dy: dy)
+            if gamePadLeft.xAxis.value != 0 || gamePadLeft.yAxis.value != 0 {
+                let directionX: CGFloat = CGFloat(gamePadLeft.xAxis.value)
+                let directionY: CGFloat = CGFloat(gamePadLeft.yAxis.value)
+                movePlayer(directionX: directionX, directionY: directionY)
             }
         }
         #endif
     }
     
-    func selectPlayerState(command:GameCommand){
-        //manda o comando selecionado para o player
-        gameData.player?.gameCommand  = command
+    func selectPlayerState(command: GameCommand) {
+        // manda o comando selecionado para o player
+        gameData.player?.gameCommand = command
     }
     
 }
