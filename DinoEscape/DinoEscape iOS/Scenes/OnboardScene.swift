@@ -56,12 +56,12 @@ class OnboardScene: SKSpriteNode {
         let imageNames = ["meteorOnboard", "badFood", "goodFood", "foodBar"]
         let labelColor = SKColor(red: 0.92, green: 0.91, blue: 0.78, alpha: 1)
         for names in 0..<imageNames.count {
-            background.addChild(createImage(imageNamed: imageNames[names], position: CGPoint(x: background.frame.size.width / multiplierx * -0.8, y: background.frame.size.height / multipliery * sizes[i]), size: imageSize))
+            background.addChild(createImage(imageNamed: imageNames[names], position: CGPoint(x: background.frame.size.width / multiplierx * -0.8, y: background.frame.size.height / multipliery * sizes[names]), size: imageSize))
             background.addChild(createLabel(text: self.text(type: names).localized(),
                                             fontSize: size.height / fontSize,
                                             fontColor: labelColor,
                                             position: CGPoint(x: background.frame.size.width / 3 * -0.1,
-                                                              y: background.frame.size.height / multipliery * sizes[index]),
+                                                              y: background.frame.size.height / multipliery * sizes[names]),
                                             alignmentH: SKLabelHorizontalAlignmentMode.left
                                            ))
         }

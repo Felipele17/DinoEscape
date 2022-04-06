@@ -158,7 +158,7 @@ class EggScene: SKScene {
         let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
         coin.position = CGPoint(x: size.width / 1.1, y: size.height / 1.103)
-        coin.size = CGSize(width: w, height: h)
+        coin.size = CGSize(width: width, height: height)
 
         let total: SKLabelNode = SKLabelNode(text: String(coins))
         total.fontName = "Aldrich-Regular"

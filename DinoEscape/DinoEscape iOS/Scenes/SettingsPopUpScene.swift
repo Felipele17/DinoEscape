@@ -154,7 +154,6 @@ class SettingsPopUpScene: SKSpriteNode {
     }
 
     func createHomeButton(position: CGPoint) -> SKButton {
-
         let texture = SKTexture(imageNamed: "homeBackButton")
         texture.filteringMode = .nearest
         

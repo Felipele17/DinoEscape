@@ -145,7 +145,7 @@ class EggScene: SKScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
             width = size.width / 3.5
-            height = w * texture.size().height / texture.size().width
+            height = width * texture.size().height / texture.size().width
         case .pad:
             width = size.width / 4.5
             height = width * texture.size().height / texture.size().width
@@ -213,10 +213,10 @@ class EggScene: SKScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             coin.position = CGPoint(x: size.width / 1.2, y: size.height / 1.085)
-            coin.size = CGSize(width: w, height: h)
+            coin.size = CGSize(width: width, height: height)
         case .phone:
             coin.position = CGPoint(x: size.width / 1.2, y: size.height / 1.103)
-            coin.size = CGSize(width: w, height: h)
+            coin.size = CGSize(width: width, height: height)
         default:
             print("oi")
             

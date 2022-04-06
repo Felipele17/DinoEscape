@@ -92,7 +92,7 @@ class GameCenterController {
     }
     #endif
     
-    func sendScoreToGameCenter(score: Int){
+    func sendScoreToGameCenter(score: Int) {
         GKLeaderboard.submitScore(score,
                                   context: 0,
                                   player: GKLocalPlayer.local,

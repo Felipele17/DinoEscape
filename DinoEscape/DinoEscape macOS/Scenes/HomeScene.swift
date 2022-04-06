@@ -55,7 +55,7 @@ class HomeScene: MyScene {
         addChild(btn2)
         btn3 = createButton(name: .shop, pos: 2, titleColor: SKColor(red: 139 / 255, green: 179 / 255, blue: 255 / 255, alpha: 1))
         addChild(btn3)
-        btn4 = createButton(name: .gameCenter, pos: 3, titleColor: SKColor(red: 127/255, green: 195/255, blue: 40/255, alpha: 1))
+        btn4 = createButton(name: .gameCenter, pos: 3, titleColor: SKColor(red: 127 / 255, green: 195 / 255, blue: 40 / 255, alpha: 1))
         addChild(btn4)
 
         title.fontSize = 120
@@ -66,7 +66,6 @@ class HomeScene: MyScene {
         btn3.setScale(0.6)
         btn4.setScale(0.6)
 
-        
     }
     
     func setVideoNode() -> SKVideoNode? {

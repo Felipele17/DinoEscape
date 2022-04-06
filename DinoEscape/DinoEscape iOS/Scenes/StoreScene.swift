@@ -67,10 +67,10 @@ class StoreScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             let square: SKShapeNode = SKShapeNode(rect: CGRect(
-                x: size.width/4.5,
-                y: size.height/7,
-                width: size.width/1.8,
-                height: size.height/2.75))
+                x: size.width / 4.5,
+                y: size.height / 7,
+                width: size.width / 1.8,
+                height: size.height / 2.75))
             square.lineWidth = 10
             square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
             
@@ -109,11 +109,11 @@ class StoreScene: MyScene {
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            priceLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+            priceLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
             priceLabel.fontSize = 30
 
         case .pad:
-            priceLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2.2)
+            priceLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2.2)
             priceLabel.fontSize = 40
 
         default:
@@ -330,8 +330,8 @@ class StoreScene: MyScene {
             width = size.width / 15
             height = width * coinTotal.size.height / coinTotal.size.width / 1.5
         case .phone:
-            w = size.width / 10
-            h = w * coinTotal.size.height / coinTotal.size.width / 2.2
+            width = size.width / 10
+            height = width * coinTotal.size.height / coinTotal.size.width / 2.2
 
         default:
             print("oi")
@@ -342,11 +342,11 @@ class StoreScene: MyScene {
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.085)
-            coin.size = CGSize(width: w, height: h)
+            coin.position = CGPoint(x: size.width / 1.2, y: size.height / 1.085)
+            coin.size = CGSize(width: width, height: height)
         case .phone:
-            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.103)
-            coin.size = CGSize(width: w, height: h)
+            coin.position = CGPoint(x: size.width / 1.2, y: size.height / 1.103)
+            coin.size = CGSize(width: width, height: height)
         default:
             print("oi")
             
@@ -357,11 +357,11 @@ class StoreScene: MyScene {
 
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            coinsLabel.position = CGPoint(x: coin.position.x/1.08, y: size.height/1.105)
+            coinsLabel.position = CGPoint(x: coin.position.x / 1.08, y: size.height / 1.105)
             coinsLabel.fontSize = 40
 
         case .phone:
-            coinsLabel.position = CGPoint(x: coin.position.x/1.11, y: size.height/1.12)
+            coinsLabel.position = CGPoint(x: coin.position.x / 1.11, y: size.height / 1.12)
             coinsLabel.fontSize = 30
 
         default:
@@ -369,7 +369,7 @@ class StoreScene: MyScene {
         }
         
         coinsLabel.numberOfLines = 1
-        coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+        coinsLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
                 
         addChild(coin)
         addChild(coinsLabel)

@@ -36,9 +36,9 @@ class GameOverScene: MyScene {
         
         switch UIDevice.current.userInterfaceIdiom {
         case .phone:
-            gameOverImage.size = CGSize(width:  size.width/1.33, height: size.height/4)
+            gameOverImage.size = CGSize(width: size.width / 1.33, height: size.height / 4)
         case .pad:
-            gameOverImage.size = CGSize(width:  size.width/1.8, height: size.height/3.5)
+            gameOverImage.size = CGSize(width: size.width / 1.8, height: size.height / 3.5)
         default:
             print("oi")
         }
@@ -86,7 +86,7 @@ class GameOverScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             name.position = CGPoint(x: frame.width / 2 ,
-                                    y: frame.height / 1.42 + CGFloat(posY) *  frame.height * 0.20)
+                                    y: frame.height / 1.42 + CGFloat(posY) * frame.height * 0.20)
         case .phone:
             name.position = CGPoint(x: frame.width / 2 ,
                                     y: frame.height / 1.40 + CGFloat(posY) * frame.height * 0.12)
