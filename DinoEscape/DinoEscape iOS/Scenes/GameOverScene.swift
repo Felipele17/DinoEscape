@@ -34,11 +34,30 @@ class GameOverScene: MyScene {
         gameOverImage.position = CGPoint(x: size.width / 2, y: size.height / 5)
         gameOverImage.size = CGSize(width: size.width / 1.33, height: size.height / 4)
         
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            gameOverImage.size = CGSize(width:  size.width/1.33, height: size.height/4)
+        case .pad:
+            gameOverImage.size = CGSize(width:  size.width/1.8, height: size.height/3.5)
+        default:
+            print("oi")
+        }
+        
         addChild(gameOverImage)
         
         let title: SKLabelNode = SKLabelNode(text: "G A M E   O V E R".localized())
         title.fontName = "Aldrich-Regular"
-        title.fontSize = 32
+//        title.fontSize = 32
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            title.fontSize = 32
+        case .pad:
+            title.fontSize = 52
+        default:
+            print("oi")
+        }
+        
         title.horizontalAlignmentMode = SKLabelHorizontalAlignmentMode.center
         title.verticalAlignmentMode = SKLabelVerticalAlignmentMode.center
         title.numberOfLines = 2
@@ -67,7 +86,7 @@ class GameOverScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             name.position = CGPoint(x: frame.width / 2 ,
-                                    y: frame.height / 1.44 + CGFloat(posY) * frame.height * 0.20)
+                                    y: frame.height / 1.42 + CGFloat(posY) *  frame.height * 0.20)
         case .phone:
             name.position = CGPoint(x: frame.width / 2 ,
                                     y: frame.height / 1.40 + CGFloat(posY) * frame.height * 0.12)

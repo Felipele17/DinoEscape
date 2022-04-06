@@ -57,10 +57,8 @@ class StoreScene: MyScene {
             gallery = createGallery()
             addChild(gallery)
         }
-        self.buyButton = createShopButtons(image: self.isBought, pos: 0)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 1)
         addChild(self.selectButton)
-        addChild(buyButton)
         
     }
     
@@ -69,10 +67,10 @@ class StoreScene: MyScene {
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
             let square: SKShapeNode = SKShapeNode(rect: CGRect(
-                x: size.width / 6,
-                y: size.height / 7,
-                width: size.width / 1.5,
-                height: size.height / 2.75))
+                x: size.width/4.5,
+                y: size.height/7,
+                width: size.width/1.8,
+                height: size.height/2.75))
             square.lineWidth = 10
             square.strokeColor = SKColor(red: 100, green: 100, blue: 100, alpha: 1)
             
@@ -101,10 +99,27 @@ class StoreScene: MyScene {
         default:
             print("oi")
         }
-        priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
+        priceLabel = SKLabelNode()
+        if selectedDino.isBought == true {
+            priceLabel.text = "Purchased".localized()
+        } else {
+            priceLabel.text = "$ \(selectedDino.price)"
+        }
         priceLabel.fontName = "Aldrich-Regular"
-        priceLabel.fontSize = 30
-        priceLabel.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
+        
+        switch UIDevice.current.userInterfaceIdiom {
+        case .phone:
+            priceLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2)
+            priceLabel.fontSize = 30
+
+        case .pad:
+            priceLabel.position = CGPoint(x: self.size.width/2, y: self.size.height/2.2)
+            priceLabel.fontSize = 40
+
+        default:
+            print("oi")
+        }
+        
         priceLabel.numberOfLines = 1
         priceLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         
@@ -118,27 +133,6 @@ class StoreScene: MyScene {
         
         dinoImage.texture = SKTexture(imageNamed: image)
         addChild(priceLabel)
-    }
-    
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        
-        let width: CGFloat = size.width / 16
-        let height = width * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
-        
-        adsButton.position = CGPoint(
-            x: size.width / 1.102,
-            y: size.height / 1.103)
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
@@ -200,6 +194,16 @@ class StoreScene: MyScene {
                     self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                     self.addChild(self.selectButton)
                 }
+            } else {
+                print("comprado")
+            }
+            
+            if self.isBought == "purchasedButton" {
+                self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
+                self.addChild(self.selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(self.buyButton)
             }
         }
         return buyButton
@@ -290,12 +294,12 @@ class StoreScene: MyScene {
                 self.isSelected = "selectedButton"
             }
             
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(buyButton)
-            
             if name.isBought {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(buyButton)
             }
             
             self.selectedDino = name
@@ -310,7 +314,7 @@ class StoreScene: MyScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
+//        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -326,44 +330,49 @@ class StoreScene: MyScene {
             width = size.width / 15
             height = width * coinTotal.size.height / coinTotal.size.width / 1.5
         case .phone:
-            width = size.width / 15
-            height = width * coinTotal.size.height / coinTotal.size.width / 2
-            
+            w = size.width / 10
+            h = w * coinTotal.size.height / coinTotal.size.width / 2.2
+
         default:
             print("oi")
             
         }
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            coin.position = CGPoint(x: size.width / 1.5, y: size.height / 1.11)
-            coin.size = CGSize(width: width, height: height)
+            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.085)
+            coin.size = CGSize(width: w, height: h)
         case .phone:
-            coin.position = CGPoint(x: size.width / 1.6, y: size.height / 1.103)
-            coin.size = CGSize(width: width, height: height)
+            coin.position = CGPoint(x: size.width/1.2, y: size.height/1.103)
+            coin.size = CGSize(width: w, height: h)
         default:
             print("oi")
             
         }
         coinsLabel = SKLabelNode(text: String(coins))
         coinsLabel.fontName = "Aldrich-Regular"
-        coinsLabel.fontSize = 30
-        
+        coinsLabel.horizontalAlignmentMode = .right
+
         switch UIDevice.current.userInterfaceIdiom {
         case .pad:
-            coinsLabel.position = CGPoint(x: size.width / 1.27, y: size.height / 1.1)
+            coinsLabel.position = CGPoint(x: coin.position.x/1.08, y: size.height/1.105)
+            coinsLabel.fontSize = 40
+
         case .phone:
-            coinsLabel.position = CGPoint(x: size.width / 1.30, y: size.height / 1.12)
+            coinsLabel.position = CGPoint(x: coin.position.x/1.11, y: size.height/1.12)
+            coinsLabel.fontSize = 30
+
         default:
             print("oi")
         }
         
         coinsLabel.numberOfLines = 1
-        coinsLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
-        
-        coinTotal.addChild(coin)
-        coinTotal.addChild(coinsLabel)
+        coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
+                
+        addChild(coin)
+        addChild(coinsLabel)
         
         return coinTotal
     }

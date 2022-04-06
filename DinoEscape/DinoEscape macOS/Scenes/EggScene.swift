@@ -58,28 +58,6 @@ class EggScene: SKScene {
         
     }
     
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        
-        let width: CGFloat = size.width / 20
-        let height = width * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: width, height: height))
-        
-        adsButton.position = CGPoint(
-            x: size.width / 1.102,
-            y: size.height / 1.103)
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
-    }
-    
     func createShopButtons(image: EggType, pos: Int) -> SKButton {
         let texture: SKTexture = SKTexture(imageNamed: "\(image.rawValue)")
         texture.filteringMode = .nearest
@@ -167,7 +145,6 @@ class EggScene: SKScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -178,22 +155,26 @@ class EggScene: SKScene {
         let width: CGFloat = size.width / 20
         let height = width * coinTotal.size.height / coinTotal.size.width / 0.7
         
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
+        let w: CGFloat = size.width / 20
+        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
+
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
         
-        coin.position = CGPoint(x: size.width / 1.4, y: size.height / 1.103)
-        coin.size = CGSize(width: width, height: height)
-        
-        let total: SKLabelNode = SKLabelNode(text: String(coins))
+        coin.position = CGPoint(x: size.width/1.1, y: size.height/1.103)
+        coin.size = CGSize(width: w, height: h)
+
+        let total: SKLabelNode = SKLabelNode(text:String(coins))
         total.fontName = "Aldrich-Regular"
-        
+        total.horizontalAlignmentMode = .right
+
         total.fontSize = 60
-        total.position = CGPoint(x: size.width / 1.24, y: size.height / 1.125)
+        total.position = CGPoint(x: coin.position.x/1.05, y: size.height/1.125)
         
         total.numberOfLines = 1
         total.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         
-        coinTotal.addChild(coin)
-        coinTotal.addChild(total)
+        addChild(coin)
+        addChild(total)
         
         return coinTotal
     }

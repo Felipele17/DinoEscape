@@ -11,4 +11,5 @@ enum ButtonType: String {
     case play = "Play"
     case settings = "Settings"
     case shop = "Shop"
+    case gameCenter = "GameCenter"
 }

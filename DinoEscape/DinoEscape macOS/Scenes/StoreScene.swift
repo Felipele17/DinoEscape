@@ -59,10 +59,8 @@ class StoreScene: MyScene {
             
         }
 
-        self.buyButton = createShopButtons(image: self.isBought, pos: 1)
         self.selectButton = createShopButtons(image: self.isSelected, pos: 0)
         addChild(self.selectButton)
-        addChild(buyButton)
         
     }
 
@@ -79,9 +77,16 @@ class StoreScene: MyScene {
         
         addChild(square)
         
-        dinoImage.position = CGPoint(x: size.width / 1.58, y: size.width / 4.5)
-        dinoImage.size = CGSize(width: size.width / 2.9, height: size.height / 1.9)
-        priceLabel = SKLabelNode(text: "$ \(selectedDino.price)")
+        dinoImage.position = CGPoint(x: size.width/1.58, y: size.width/4.5)
+        dinoImage.size = CGSize(width: size.width/2.9, height: size.height/1.9)
+        
+        priceLabel = SKLabelNode()
+        if selectedDino.isBought == true {
+            priceLabel.text = "Purchased".localized()
+        } else {
+            priceLabel.text = "$ \(selectedDino.price)"
+        }
+        
         priceLabel.fontName = "Aldrich-Regular"
         priceLabel.verticalAlignmentMode = .center
         priceLabel.horizontalAlignmentMode = .center
@@ -93,27 +98,6 @@ class StoreScene: MyScene {
         priceLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
         dinoImage.texture = SKTexture(imageNamed: image)
         dinoImage.addChild(priceLabel)
-    }
-
-    func createADSButton(pos: Int) -> SKButton {
-        let texture: SKTexture = SKTexture(imageNamed: "plusDinocoin")
-        texture.filteringMode = .nearest
-        let widht: CGFloat = size.width / 20
-        let height = widht * texture.size().height / texture.size().width
-        
-        let adsButton: SKButton = SKButton(texture: texture, color: .clear, size: CGSize(width: widht, height: height))
-        
-        adsButton.position = CGPoint(
-            x: size.width / 1.102,
-            y: size.height / 1.103)
-        
-        adsButton.selectedHandler = {
-            print("ads")
-            
-        }
-        
-        return adsButton
-        
     }
     
     func createShopButtons(image: String, pos: Int) -> SKButton {
@@ -153,12 +137,14 @@ class StoreScene: MyScene {
                 print("comprado")
             }
             
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(self.buyButton)
+            
             
             if self.isBought == "purchasedButton" {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(self.selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(self.buyButton)
             }
             
         }
@@ -234,12 +220,14 @@ class StoreScene: MyScene {
                 self.isSelected = "selectedButton"
             }
             
-            self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
-            self.addChild(buyButton)
+            
             
             if name.isBought {
                 self.selectButton = self.createShopButtons(image: self.isSelected, pos: 1)
                 self.addChild(selectButton)
+            } else {
+                self.buyButton = self.createShopButtons(image: self.isBought, pos: 0)
+                self.addChild(buyButton)
             }
             
             self.selectedDino = name
@@ -254,7 +242,7 @@ class StoreScene: MyScene {
         let reader = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height))
         
         reader.addChild(createTotalCoin(coins: coins))
-        reader.addChild(createADSButton(pos: 0))
+//        reader.addChild(createADSButton(pos: 0))
         reader.addChild(createBackButton())
         return reader
     }
@@ -262,26 +250,24 @@ class StoreScene: MyScene {
     func createTotalCoin(coins: Int) -> SKSpriteNode {
         let coinTotal = SKSpriteNode(color: .clear, size: CGSize(width: size.width, height: size.height) )
         
-        var width: CGFloat = 0
-        var height: CGFloat = 0
-        width = size.width / 20
-        height = width * coinTotal.size.height / coinTotal.size.width / 0.7
+        let w = size.width / 20
+        let h = w * coinTotal.size.height / coinTotal.size.width / 0.7
         
-        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "coin")
-        coin.position = CGPoint(x: size.width / 1.4, y: size.height / 1.103)
-        coin.size = CGSize(width: width, height: height)
+        let coin: SKSpriteNode = SKSpriteNode(imageNamed: "DinoCoin")
+        coin.position = CGPoint(x: size.width/1.1, y: size.height/1.103)
+        coin.size = CGSize(width: w, height: h)
         
         coinsLabel = SKLabelNode(text: String(coins))
         coinsLabel.fontName = "Aldrich-Regular"
+        coinsLabel.horizontalAlignmentMode = .right
 
         coinsLabel.fontSize = 60
-        coinsLabel.position = CGPoint(x: size.width / 1.24, y: size.height / 1.125)
+        coinsLabel.position = CGPoint(x: coin.position.x/1.05, y: size.height/1.125)
         coinsLabel.numberOfLines = 1
-        coinsLabel.fontColor = SKColor(red: 221 / 255, green: 108 / 255, blue: 50 / 255, alpha: 1)
-                
-        coinTotal.addChild(coin)
-        coinTotal.addChild(coinsLabel)
+        coinsLabel.fontColor = SKColor(red: 221/255, green: 108/255, blue: 50/255, alpha: 1)
         
+        addChild(coin)
+        addChild(coinsLabel)
         return coinTotal
     }
 
