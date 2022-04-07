@@ -25,7 +25,6 @@ class EggScene: SKScene {
     
     func setUpScene() {
         self.isUserInteractionEnabled = true
-        GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: false, isActive: false)
         
         formatter.dateFormat = "yyyy/MM/dd HH:mm"
         

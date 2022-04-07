@@ -68,7 +68,6 @@ class GameController {
 
     func setupScene() {
         MusicService.shared.playGameMusic()
-        GameCenterController.shared.setupActionPoint(location: .topLeading, showHighlights: false, isActive: false)
         // player
         let player = gameData.player!
         player.position = CGPoint(x: renderer.scene.size.width / 2, y: renderer.scene.size.height / 2)

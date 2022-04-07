@@ -87,8 +87,9 @@ class MyScene: SKScene, SKPhysicsContactDelegate {
                 GameController.shared.gameData.gameStatus = .end
                 if player.points < GameController.shared.gameData.score {
                     let score = GameController.shared.gameData.score
-                    // delegateGameCenter?.sendGameScore(score: GameController.shared.gameData.score)
+                    #if os(iOS) || os(tvOS)
                     GameCenterController.shared.sendScoreToGameCenter(score: score)
+                    #endif
                     UserDefaults().set(score, forKey: "HighScore")
                     
                 }
