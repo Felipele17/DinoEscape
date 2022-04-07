@@ -54,7 +54,7 @@ class OnboardScene: SKSpriteNode {
                                    y: background.frame.size.height / multipliery * sizes[index])
             background.addChild(createImage(imageNamed: imageNames[index], position: position, size: imageSize))
             background.addChild(createLabel(text: self.text(type: index).localized(),
-                                            fontSize: size.height / 40,
+                                            fontSize: size.height / 20,
                                             fontColor: labelColor,
                                             position: CGPoint(x: background.frame.size.width / 3 * -0.1,
                                                               y: background.frame.size.height / multipliery * sizes[index]),
