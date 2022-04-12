@@ -279,30 +279,30 @@ class GameController {
     func nextLevel(points: Int) {
         if points == 0 {
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "redBackground"))
-        } else if points == 200 || points == 210 {
+        } else if points == 200 || points == 220 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1.2)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "blueBackground"))
-        } else if points == 500 || points == 510 {
+        } else if points == 500 || points == 520 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 1)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "lightGreenBackground"))
             gameData.velocidadeGlobal = 4
-        } else if points == 800 || points == 810 {
+        } else if points == 800 || points == 820 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.8)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "greenBackground"))
-        } else if points == 1200 || points == 1210 {
+        } else if points == 1200 || points == 1220 {
             newEra()
             cancelActionItems()
             recursiveActionItems(time: 0.6)
             renderer.changeBackground(named: Backgrounds.shared.newBackground(background: "cityBackground"))
             gameData.velocidadeGlobal = 5
 
-        } else if points == 1500 || points == 1510 {
+        } else if points == 1500 || points == 1520 {
             cancelActionItems()
             newEra()
             recursiveActionItems(time: 0.4)
@@ -371,9 +371,9 @@ class GameController {
         } else if powerUp == .doubleXP {
             Timer.scheduledTimer(withTimeInterval: 1.0, repeats: true) { timer in
                 runCount += 1
-                self.gameData.addPoints = 20
+                self.gameData.addPoints = 40
                 if runCount == 10 {
-                    self.gameData.addPoints = 10
+                    self.gameData.addPoints = 20
                     timer.invalidate()
                 }
             }
