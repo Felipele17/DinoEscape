@@ -1,15 +1,17 @@
-![Expo](https://user-images.githubusercontent.com/53840501/161124596-09640c6d-6c8e-4fe2-a642-cfb71fa5e99d.png)
+![image](https://user-images.githubusercontent.com/70045652/206066021-f1b72efc-5b7d-40cf-ab0f-ead296bd8b32.png)
 
-# DinoEscape
+# Run Dino, Run!
 Repository for a swift app multiplataform game.
 
 ## General information
-## Plataformas
+Adventure in the age of dinosaurs with this arcade game, Run Dino Run! Travel between eras and reach the present day by accumulating points by eating good food and avoiding meteors and bad food!
+
+## Plataforms
 - iOS (iPhone, iPad) 
 - macOS
-- appleTV
+- tvOS
 
-## Gênero
+## Gender
 - Arcade 
 - Hypercasual 
 
@@ -23,15 +25,13 @@ Our game is frenetic, fun and nostalgic, reminiscent of arcade arcade games. Mov
 
 
 ## Download
-```iOS (iPhone, iPad) ```,
-```macOS ``` ,
-```appleTV ```
-| AppStore | TestFlight | 
-| -------- | ---------- |
-| ![Frame 69](https://user-images.githubusercontent.com/53840501/162065740-19fb6162-0956-4b19-b5ea-e10d4277995b.png) |![Frame 66](https://user-images.githubusercontent.com/53840501/162065732-0d1051da-d73b-43e1-b6f7-32536f03a2d3.png) |
-|[link](https://testflight.apple.com/join/vOct3xvR)| [link](https://testflight.apple.com/join/vOct3xvR) |
+<p align="left">
+</a>
+    <a href="https://apps.apple.com/br/app/dino-escape-adventure/id1615451310">
+        <img src="https://img.shields.io/badge/App_Store-0D96F6?style=for-the-badge&logo=app-store&logoColor=white" />
+    </a>
+</p>
 
-***
 ## Authors
  <table>
    <tr>
@@ -64,6 +64,14 @@ Our game is frenetic, fun and nostalgic, reminiscent of arcade arcade games. Mov
          <img src="https://avatars.githubusercontent.com/u/80929408?v=4" height="auto" width="100" style="corner-radius:50%" alt="Foto de perfil"/<br>
          <sub>
            <b> Felipe Leite </b>
+         </sub>
+       </a>
+     </td>
+     <td align="center">
+       <a href="https://github.com/JulianaGSantana">
+         <img src="https://user-images.githubusercontent.com/70045652/206066728-12d7f968-d911-405f-95c1-ee532e04c4c5.png" height="auto" width="100" style="corner-radius:50%" alt="Foto de perfil"/<br>
+         <sub>
+           <b> Ju Santana </b>
          </sub>
        </a>
      </td>
